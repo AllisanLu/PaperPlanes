@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BirdController : MonoBehaviour
+public class BirdController : EnemyController
 {
     // Start is called before the first frame update
     void Start()
