@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    private Collider2D collider;
+    //private Collider2D collider;
     // Start is called before the first frame update
     void Start()
     {

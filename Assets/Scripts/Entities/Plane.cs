@@ -16,7 +16,9 @@ private Rigidbody2D rb;
     public float damping = 0.1f;
     public float inertia = 1f;
 	private float alphaCrit = Mathf.PI / 12;
-	public Controller controller;
+	//public Controller controller;
+
+    public PlaneController controller;
 
     private float alpha;
     private Vector2 bodyVelocity;
@@ -24,6 +26,7 @@ private Rigidbody2D rb;
 
     // Use this for initialization
     void Start () {
+        //controller = this.GetComponent<PlaneController>();
 		rb = GetComponent<Rigidbody2D>();
 		rb.inertia = inertia;
 		AR = Mathf.Pow(span, 2) / cord;

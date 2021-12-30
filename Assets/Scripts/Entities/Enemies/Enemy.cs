@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
-    string name;
     int damage;
     Controller behaviorController;
     // Start is called before the first frame update

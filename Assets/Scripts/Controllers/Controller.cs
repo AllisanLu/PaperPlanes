@@ -17,7 +17,7 @@ public class Controller : MonoBehaviour
     }
 
 //should return a torque force for said object to followe
-    public float GetAction() {
+    public virtual float GetAction() {
         return 0;
     }
 }
