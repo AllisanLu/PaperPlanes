@@ -26,7 +26,7 @@ public class PlaneController : Controller
         pitchCommand = Mathf.DeltaAngle(pitch, desiredPitch) * sensitivity * Mathf.Deg2Rad;
     }
 
-    public float GetInput() {
+    public float GetAction() {
         return pitchCommand;
     }
 }

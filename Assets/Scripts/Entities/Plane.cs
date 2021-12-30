@@ -24,7 +24,6 @@ private Rigidbody2D rb;
 
     // Use this for initialization
     void Start () {
-        controller = new PlaneController();
 		rb = GetComponent<Rigidbody2D>();
 		rb.inertia = inertia;
 		AR = Mathf.Pow(span, 2) / cord;
@@ -43,7 +42,7 @@ private Rigidbody2D rb;
 		rb.AddForce(force);
 
         // Control torque
-        float pitchCommand = controller.GetInput();
+        float pitchCommand = controller.GetAction();
 		rb.AddTorque(pitchCommand * controlStrength * bodyVelocity.sqrMagnitude);
 
         // Stability torque
