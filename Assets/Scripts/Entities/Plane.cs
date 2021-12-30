@@ -26,7 +26,7 @@ private Rigidbody2D rb;
 
     // Use this for initialization
     void Start () {
-        //controller = this.GetComponent<PlaneController>();
+        controller = this.GetComponent<PlaneController>();
 		rb = GetComponent<Rigidbody2D>();
 		rb.inertia = inertia;
 		AR = Mathf.Pow(span, 2) / cord;
