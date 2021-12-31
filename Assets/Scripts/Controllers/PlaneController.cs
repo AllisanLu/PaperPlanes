@@ -18,7 +18,8 @@ public class PlaneController : Controller
     // Update is called once per frame
     void Update()
     {
-        Vector2 displacement = cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        //Vector2 displacement = cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        Vector2 displacement = cam.ScreenToViewportPoint(new Vector3(0, cam.pixelHeight, 0)) - transform.position;
         float desiredPitch = Mathf.Atan2(displacement.y, displacement.x) * Mathf.Rad2Deg;
 
         float pitch = transform.eulerAngles.z;
