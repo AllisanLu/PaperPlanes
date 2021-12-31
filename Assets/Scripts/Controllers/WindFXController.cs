@@ -13,6 +13,6 @@ public class WindFXController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //write this to have effect
     }
 }
