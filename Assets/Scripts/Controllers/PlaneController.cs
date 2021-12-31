@@ -25,10 +25,15 @@ public class PlaneController : Controller
         //if plane is ok just wiggle????
         Plane plane = this.GetComponent<Plane>();
         Rigidbody2D rb = plane.getRigidBody();
+        //find angle here
+        float angle = transform.rotation.eulerAngles.z;
+        Debug.Log("Angle: " + angle);
         Vector2 displacement;
-        if (rb.velocity.y < 0) {
+        if (angle < 360 && angle > 270) {    // \
             displacement = new Vector2(0, cam.pixelHeight) - (Vector2) transform.position;
-        } else {
+        } else if (angle > 90 || angle < 270) {      // - left
+            displacement = new Vector2(cam.pixelWidth, -cam.pixelHeight) - (Vector2) transform.position;
+        } else { // /
             displacement = new Vector2(0, -cam.pixelHeight) - (Vector2) transform.position;
         }
         

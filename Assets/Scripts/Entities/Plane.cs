@@ -29,7 +29,7 @@ private Rigidbody2D rb;
 		rb = GetComponent<Rigidbody2D>();
 		rb.inertia = inertia;
 		AR = Mathf.Pow(span, 2) / cord;
-		rb.velocity = new Vector2(3, 2);
+		rb.velocity = new Vector2(3, -1);
 	}
 
 	void FixedUpdate() {
