@@ -1238,6 +1238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1356188203}
   - component: {fileID: 1356188202}
+  - component: {fileID: 1356188204}
   m_Layer: 0
   m_Name: LineDrawer
   m_TagString: Untagged
@@ -1252,7 +1253,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1356188201}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ff427635af69914aa4385e85020ad70, type: 3}
   m_Name: 
@@ -1276,6 +1277,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1356188204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356188201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a9f4c8db6b14c7478c785f76fe3bd97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  linePrefab: {fileID: 4249506070931557917, guid: 2ce1d7e5392d1624f873def3fa258944, type: 3}
+  currentLine: {fileID: 0}
+  lineRenderer: {fileID: 0}
+  edgeCollider: {fileID: 0}
+  startMousePos: {x: 0, y: 0}
+  mousePos: {x: 0, y: 0}
 --- !u!1 &1578770019
 GameObject:
   m_ObjectHideFlags: 0
