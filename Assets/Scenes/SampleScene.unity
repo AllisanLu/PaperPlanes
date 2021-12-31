@@ -299,6 +299,7 @@ GameObject:
   - component: {fileID: 311519354}
   - component: {fileID: 311519357}
   - component: {fileID: 311519358}
+  - component: {fileID: 311519355}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -318,7 +319,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0160a9e842db348a908a972c294a09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  span: 0.8
+  controller: {fileID: 311519358}
+  aerodynamics: {fileID: 311519355}
+--- !u!114 &311519355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311519353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4592412e90a365c419045e9097b300be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  span: 0.7
   cord: 0.3
   zeroAngleLift: 0.1
   zeroAngleDrag: 0.01
@@ -326,8 +341,9 @@ MonoBehaviour:
   controlStrength: 0.01
   stability: 0.1
   damping: 0.1
-  inertia: 0.5
-  controller: {fileID: 311519358}
+  inertia: 1
+  alpha: 0
+  bodyVelocity: {x: 0, y: 0}
 --- !u!4 &311519356
 Transform:
   m_ObjectHideFlags: 0
