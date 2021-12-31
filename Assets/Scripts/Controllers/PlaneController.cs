@@ -18,7 +18,21 @@ public class PlaneController : Controller
     // Update is called once per frame
     void Update()
     {
-        Vector2 displacement = cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        //Vector2 displacement = cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+
+        Plane plane = this.GetComponent<Plane>();
+        Rigidbody2D rb = plane.getRigidBody();
+        float angle = transform.rotation.eulerAngles.z;
+
+        Vector2 displacement;
+        if (angle < 340 && angle > 270) {    // \
+            displacement = new Vector2(0, cam.pixelHeight) - (Vector2) transform.position;
+        } else if (angle > 90 || angle < 270) {      // - left
+            displacement = new Vector2(cam.pixelWidth, -cam.pixelHeight) - (Vector2) transform.position;
+        } else { // /
+            displacement = new Vector2(0, -cam.pixelHeight) - (Vector2) transform.position;
+        }
+        
         float desiredPitch = Mathf.Atan2(displacement.y, displacement.x) * Mathf.Rad2Deg;
 
         float pitch = transform.eulerAngles.z;
