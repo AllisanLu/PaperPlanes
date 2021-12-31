@@ -16,9 +16,8 @@ private Rigidbody2D rb;
     public float damping = 0.1f;
     public float inertia = 1f;
 	private float alphaCrit = Mathf.PI / 12;
-	//public Controller controller;
 
-    public PlaneController controller;
+    public Controller controller;
 
     private float alpha;
     private Vector2 bodyVelocity;
@@ -30,6 +29,7 @@ private Rigidbody2D rb;
 		rb = GetComponent<Rigidbody2D>();
 		rb.inertia = inertia;
 		AR = Mathf.Pow(span, 2) / cord;
+		rb.velocity = new Vector2(3, -1);
 	}
 
 	void FixedUpdate() {
@@ -44,8 +44,9 @@ private Rigidbody2D rb;
         Vector2 force = aeroForce();
 		rb.AddForce(force);
 
-        // Control torque
-        float pitchCommand = controller.GetAction();
+		// Control torque
+		float pitchCommand = controller.GetAction();
+
 		rb.AddTorque(pitchCommand * controlStrength * bodyVelocity.sqrMagnitude);
 
         // Stability torque
@@ -99,5 +100,9 @@ private Rigidbody2D rb;
         print("Inertial Force: " + force.ToString());
 
 		return force;
+	}
+
+	public Rigidbody2D getRigidBody() {
+		return rb;
 	}
 }
