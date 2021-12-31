@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
+    //target: the object to follow (gets positional information about the target)
     public Transform target;
+    private int cameraOffset = 8;
     // Start is called before the first frame update
-    void Start()
+    
+    // LateUpdate is called after movement
+    private void LateUpdate()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        transform.position = new Vector3(target.position.x, target.position.y, transform.position.z);
+        Vector3 temp = transform.position;
+        temp.x = target.position.x + cameraOffset;
+        transform.position = temp;
     }
 }
