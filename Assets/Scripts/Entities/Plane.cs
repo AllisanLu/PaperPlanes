@@ -25,6 +25,7 @@ private Rigidbody2D rb;
 
 		Camera cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 		
+		//if the plane is below the screen it dies
 		if (transform.position.y < 0) {
 			die();
 		}
@@ -55,6 +56,7 @@ private Rigidbody2D rb;
 		return rb;
 	}
 
+	// Commits death on the plane and restarts the screen
 	public void die() {
 		//die and respawn
 		//print("died");
