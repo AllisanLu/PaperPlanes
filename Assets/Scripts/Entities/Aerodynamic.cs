@@ -29,6 +29,8 @@ public class Aerodynamic : MonoBehaviour
         AR = Mathf.Pow(span, 2) / cord;
     }
 
+	// Calculates the aerodynamic force on an object
+	// returns a Vector2 of the force 
     public Vector2 aeroForce() {
 
         // Calculate lift coefficient

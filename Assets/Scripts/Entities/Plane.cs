@@ -20,6 +20,7 @@ private Rigidbody2D rb;
 		rb.velocity = new Vector2(3, -1);
 	}
 
+	// Called once per frame
 	void FixedUpdate() {
 		
         // Body frame velocity
@@ -32,7 +33,7 @@ private Rigidbody2D rb;
         Vector2 force = aerodynamics.aeroForce();
 		rb.AddForce(force);
 
-		// Control torque
+		// Get torque from controller
 		float pitchCommand = controller.GetAction();
 
 		rb.AddTorque(pitchCommand * aerodynamics.controlStrength * aerodynamics.bodyVelocity.sqrMagnitude);
@@ -44,6 +45,7 @@ private Rigidbody2D rb;
 		rb.AddTorque(-aerodynamics.damping * rb.angularVelocity * Mathf.Deg2Rad);
 	}
 
+	// returns the RigidBody for the Plane
 	public Rigidbody2D getRigidBody() {
 		return rb;
 	}
