@@ -65,12 +65,12 @@ public class Aerodynamic : MonoBehaviour
         float Fy = D * Mathf.Sin(alpha) + L * Mathf.Cos(alpha);
         Vector2 force = new Vector2(Fx, Fy);
 
-        print("Body Force: " + force.ToString());
+        //print("Body Force: " + force.ToString());
 
         // Convert to inertial frame
 		force = transform.TransformVector(force);
 
-        print("Inertial Force: " + force.ToString());
+        //print("Inertial Force: " + force.ToString());
 
 		return force;
 	}
