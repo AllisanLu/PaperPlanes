@@ -5,17 +5,21 @@ using UnityEngine;
 
 public class Plane : Entity
 {
-private Rigidbody2D rb;
+//private Rigidbody2D rb;
 
-	public Controller controller;
+	public PlaneController controller;
 
 	public Aerodynamic aerodynamics;
 
 
     // Use this for initialization
     void Start () {
+		wind = new WindCurrent();
+		wind.setDirection(new Vector2(0,0));
+
         controller = this.GetComponent<PlaneController>();
 		aerodynamics = this.GetComponent<Aerodynamic>();
+
 		rb = GetComponent<Rigidbody2D>();
 		rb.inertia = aerodynamics.inertia;
 		rb.velocity = new Vector2(3, -1);

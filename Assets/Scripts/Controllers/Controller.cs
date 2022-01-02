@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
+    protected float command;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,6 @@ public class Controller : MonoBehaviour
         
     }
 
-//should return a torque force for said object to followe
     public virtual float GetAction() {
         return 0;
     }

@@ -15,4 +15,9 @@ public class EnemyController : Controller
     {
         
     }
+
+    public virtual Vector2 GetMove()
+    {
+        return new Vector2(0, 0);
+    }
 }
