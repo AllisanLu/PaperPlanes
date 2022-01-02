@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+ using UnityEngine.SceneManagement;
 
 public class Plane : Entity
 {
-private Rigidbody2D rb;
+//private Rigidbody2D rb;
 
-	public Controller controller;
+	public PlaneController controller;
 
 	public Aerodynamic aerodynamics;
 
@@ -15,13 +16,21 @@ private Rigidbody2D rb;
     void Start () {
         controller = this.GetComponent<PlaneController>();
 		aerodynamics = this.GetComponent<Aerodynamic>();
+
 		rb = GetComponent<Rigidbody2D>();
 		rb.inertia = aerodynamics.inertia;
 		rb.velocity = new Vector2(3, -1);
 	}
 
+	// Called once per frame
 	void FixedUpdate() {
+
+		Camera cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 		
+		//if the plane is below the screen it dies
+		if (transform.position.y < 0) {
+			die();
+		}
         // Body frame velocity
 		aerodynamics.bodyVelocity = transform.InverseTransformVector(rb.velocity);
 
@@ -32,7 +41,7 @@ private Rigidbody2D rb;
         Vector2 force = aerodynamics.aeroForce();
 		rb.AddForce(force);
 
-		// Control torque
+		// Get torque from controller
 		float pitchCommand = controller.GetAction();
 
 		rb.AddTorque(pitchCommand * aerodynamics.controlStrength * aerodynamics.bodyVelocity.sqrMagnitude);
@@ -42,8 +51,12 @@ private Rigidbody2D rb;
 
         // Damping torque
 		rb.AddTorque(-aerodynamics.damping * rb.angularVelocity * Mathf.Deg2Rad);
+
+		rb.AddForce(windForce);
+
 	}
 
+	// returns the RigidBody for the Plane
 	public Rigidbody2D getRigidBody() {
 		return rb;
 	}
@@ -51,15 +64,11 @@ private Rigidbody2D rb;
 	// Commits death on the plane and restarts the screen
 	public void die() {
 		//die and respawn
-		//print("died");
 		SceneManager.LoadScene("SampleScene"); 
 	}
 
 	private void OnTriggerEnter2D(Collider2D other) {
+		//update windForce here
 		Debug.Log("weeee");
-		if(other.name == "Wind Current") {
-			Debug.Log("wind");
-
-		}
 	}
 }

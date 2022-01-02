@@ -29,6 +29,8 @@ public class Aerodynamic : MonoBehaviour
         AR = Mathf.Pow(span, 2) / cord;
     }
 
+	// Calculates the aerodynamic force on an object
+	// returns a Vector2 of the force 
     public Vector2 aeroForce() {
 
         // Calculate lift coefficient
@@ -65,12 +67,12 @@ public class Aerodynamic : MonoBehaviour
         float Fy = D * Mathf.Sin(alpha) + L * Mathf.Cos(alpha);
         Vector2 force = new Vector2(Fx, Fy);
 
-        print("Body Force: " + force.ToString());
+        //print("Body Force: " + force.ToString());
 
         // Convert to inertial frame
 		force = transform.TransformVector(force);
 
-        print("Inertial Force: " + force.ToString());
+        //print("Inertial Force: " + force.ToString());
 
 		return force;
 	}
