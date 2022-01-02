@@ -64,4 +64,8 @@ private Rigidbody2D rb;
 		//print("died");
 		SceneManager.LoadScene("SampleScene"); 
 	}
+
+	private void OnTriggerEnter2D(Collider2D other) {
+		Debug.Log("weeee");
+	}
 }
