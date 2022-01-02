@@ -14,8 +14,6 @@ public class Plane : Entity
 
     // Use this for initialization
     void Start () {
-		wind = this.GetComponent<WindCurrent>();
-
         controller = this.GetComponent<PlaneController>();
 		aerodynamics = this.GetComponent<Aerodynamic>();
 
@@ -54,7 +52,7 @@ public class Plane : Entity
         // Damping torque
 		rb.AddTorque(-aerodynamics.damping * rb.angularVelocity * Mathf.Deg2Rad);
 
-		rb.AddForce(wind.getWindForce());
+		rb.AddForce(windForce);
 
 	}
 
@@ -70,6 +68,7 @@ public class Plane : Entity
 	}
 
 	private void OnTriggerEnter2D(Collider2D other) {
+		//update windForce here
 		Debug.Log("weeee");
 	}
 }

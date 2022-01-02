@@ -9,7 +9,6 @@ public class Balloon : Enemy
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        wind = GetComponent<WindCurrent>();
     }
 
     // Update is called once per frame
@@ -18,6 +17,6 @@ public class Balloon : Enemy
         Vector2 command = behaviorController.GetMove();
         transform.position = command;
 
-        rb.AddForce(wind.getWindForce());
+        rb.AddForce(windForce);
     }
 }
