@@ -68,4 +68,8 @@ public class Plane : Entity
 		//die and respawn
 		SceneManager.LoadScene("SampleScene"); 
 	}
+
+	private void OnTriggerEnter2D(Collider2D other) {
+		Debug.Log("weeee");
+	}
 }
