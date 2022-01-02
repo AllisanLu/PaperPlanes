@@ -301,6 +301,7 @@ GameObject:
   - component: {fileID: 311519358}
   - component: {fileID: 311519355}
   - component: {fileID: 311519359}
+  - component: {fileID: 311519360}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -420,6 +421,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.345084}
   m_EdgeRadius: 0
+--- !u!114 &311519360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311519353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d262fa61c7dffea43a89ab66389ada69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 4
 --- !u!1 &359500644
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,6 +871,7 @@ GameObject:
   - component: {fileID: 742865495}
   - component: {fileID: 742865494}
   - component: {fileID: 742865493}
+  - component: {fileID: 742865497}
   m_Layer: 0
   m_Name: balloon1
   m_TagString: Untagged
@@ -876,6 +891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56de18b477c14af4b86e661afcc9fa21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0.07
 --- !u!114 &742865494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -949,12 +965,33 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 742865492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.3, y: 7.73, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 8.4168, y: 8.7936, z: 0}
+  m_LocalScale: {x: 3.2336, y: 5.2544, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &742865497
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742865492}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.4
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &776039789
 GameObject:
   m_ObjectHideFlags: 0

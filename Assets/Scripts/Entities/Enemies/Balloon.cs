@@ -15,7 +15,7 @@ public class Balloon : Enemy
     void FixedUpdate()
     {
         Vector2 command = behaviorController.GetMove();
-
+        print("current: " + transform.position + " later: " + command);
         transform.position = command;
     }
 }

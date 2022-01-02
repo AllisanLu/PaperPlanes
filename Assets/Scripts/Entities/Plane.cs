@@ -14,7 +14,7 @@ public class Plane : Entity
 
     // Use this for initialization
     void Start () {
-		wind = new WindCurrent();
+		wind = this.GetComponent<WindCurrent>();
 		wind.setDirection(new Vector2(0,0));
 
         controller = this.GetComponent<PlaneController>();

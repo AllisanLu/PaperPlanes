@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BalloonController : EnemyController
 {
+    public float speed;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,6 @@ public class BalloonController : EnemyController
     }
 
     public override Vector2 GetMove() {
-        return (Vector2) transform.position + new Vector2(0, 5);
+        return (Vector2) transform.position + (new Vector2(0, 1) * speed);
     }
 }
