@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
-    int damage;
-    Controller behaviorController;
+    public int damage;
+    public EnemyController behaviorController;
     // Start is called before the first frame update
     void Start()
     {

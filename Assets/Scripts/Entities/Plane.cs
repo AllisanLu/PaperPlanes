@@ -5,17 +5,20 @@ using UnityEngine;
 
 public class Plane : Entity
 {
-private Rigidbody2D rb;
+//private Rigidbody2D rb;
 
-	public Controller controller;
+	public PlaneController controller;
 
 	public Aerodynamic aerodynamics;
 
 
     // Use this for initialization
     void Start () {
+		wind = this.GetComponent<WindCurrent>();
+
         controller = this.GetComponent<PlaneController>();
 		aerodynamics = this.GetComponent<Aerodynamic>();
+
 		rb = GetComponent<Rigidbody2D>();
 		rb.inertia = aerodynamics.inertia;
 		rb.velocity = new Vector2(3, -1);
@@ -51,6 +54,8 @@ private Rigidbody2D rb;
         // Damping torque
 		rb.AddTorque(-aerodynamics.damping * rb.angularVelocity * Mathf.Deg2Rad);
 
+		rb.AddForce(wind.getWindForce());
+
 	}
 
 	// returns the RigidBody for the Plane
@@ -61,7 +66,6 @@ private Rigidbody2D rb;
 	// Commits death on the plane and restarts the screen
 	public void die() {
 		//die and respawn
-		//print("died");
 		SceneManager.LoadScene("SampleScene"); 
 	}
 

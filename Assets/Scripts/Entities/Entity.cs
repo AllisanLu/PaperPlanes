@@ -5,6 +5,9 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
     //private Collider2D collider;
+    protected Rigidbody2D rb;
+
+    protected WindCurrent wind;
     // Start is called before the first frame update
     void Start()
     {
