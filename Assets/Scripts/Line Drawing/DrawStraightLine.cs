@@ -11,6 +11,9 @@ public class DrawStraightLine : MonoBehaviour
     // Start is called before the first frame update
     public Vector2 startMousePos;
     public Vector2 mousePos;
+
+    public List<Vector2> positions;
+
     void Start()
     {
         
@@ -23,11 +26,14 @@ public class DrawStraightLine : MonoBehaviour
         {
             CreateLine();
             startMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            positions.Add(startMousePos);
         }
         if(Input.GetMouseButton(0)) 
         {
             
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            positions.Add(mousePos);
+
             lineRenderer.SetPosition(0, new Vector3(startMousePos.x, startMousePos.y, 0f));
             lineRenderer.SetPosition(1, new Vector3(mousePos.x, mousePos.y, 0f));
         }
@@ -36,6 +42,7 @@ public class DrawStraightLine : MonoBehaviour
     void CreateLine() 
     {
         currentLine = Instantiate(linePrefab, Vector3.zero, Quaternion.identity);
+        positions.Clear();
         lineRenderer = currentLine.GetComponent<LineRenderer>();
         edgeCollider = currentLine.GetComponent<EdgeCollider2D>();
 

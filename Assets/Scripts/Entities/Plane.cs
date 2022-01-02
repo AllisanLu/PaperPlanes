@@ -47,4 +47,19 @@ private Rigidbody2D rb;
 	public Rigidbody2D getRigidBody() {
 		return rb;
 	}
+
+	// Commits death on the plane and restarts the screen
+	public void die() {
+		//die and respawn
+		//print("died");
+		SceneManager.LoadScene("SampleScene"); 
+	}
+
+	private void OnTriggerEnter2D(Collider2D other) {
+		Debug.Log("weeee");
+		if(other.name == "Wind Current") {
+			Debug.Log("wind");
+
+		}
+	}
 }
