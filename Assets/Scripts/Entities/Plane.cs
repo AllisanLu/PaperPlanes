@@ -15,7 +15,6 @@ public class Plane : Entity
     // Use this for initialization
     void Start () {
 		wind = this.GetComponent<WindCurrent>();
-		wind.setDirection(new Vector2(0,0));
 
         controller = this.GetComponent<PlaneController>();
 		aerodynamics = this.GetComponent<Aerodynamic>();
@@ -55,6 +54,8 @@ public class Plane : Entity
         // Damping torque
 		rb.AddTorque(-aerodynamics.damping * rb.angularVelocity * Mathf.Deg2Rad);
 
+		rb.AddForce(wind.getWindForce());
+
 	}
 
 	// returns the RigidBody for the Plane
@@ -65,7 +66,6 @@ public class Plane : Entity
 	// Commits death on the plane and restarts the screen
 	public void die() {
 		//die and respawn
-		//print("died");
 		SceneManager.LoadScene("SampleScene"); 
 	}
 }

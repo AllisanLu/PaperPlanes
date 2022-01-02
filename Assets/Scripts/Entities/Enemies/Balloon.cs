@@ -9,13 +9,15 @@ public class Balloon : Enemy
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        wind = GetComponent<WindCurrent>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         Vector2 command = behaviorController.GetMove();
-        print("current: " + transform.position + " later: " + command);
         transform.position = command;
+
+        rb.AddForce(wind.getWindForce());
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WindCurrent : MonoBehaviour
 {
-    private Vector2 direction;
+    private Vector2 direction = new Vector2(0, 0);
 
     //delete use this to find a good windforce
     public int force;
