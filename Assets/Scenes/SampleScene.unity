@@ -1476,14 +1476,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a9f4c8db6b14c7478c785f76fe3bd97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  linePrefab: {fileID: 8401540888407454698, guid: 891c06e9cdd496044bc19a802e327469, type: 3}
+  WindPrefab: {fileID: 8352408524884439456, guid: b2521649c520ab442ac768517eeef917, type: 3}
   currentLine: {fileID: 0}
-  lineRenderer: {fileID: 0}
-  edgeCollider: {fileID: 0}
-  startMousePos: {x: 0, y: 0}
-  mousePos: {x: 0, y: 0}
-  localStartMousePos: {x: 0, y: 0}
-  localMousePos: {x: 0, y: 0}
+  line: {fileID: 0}
+  boxCollider: {fileID: 0}
+  startMousePos: {x: 0, y: 0, z: 0}
+  mousePos: {x: 0, y: 0, z: 0}
+  endMousePos: {x: 0, y: 0, z: 0}
   positions: []
 --- !u!1 &1578770019
 GameObject:

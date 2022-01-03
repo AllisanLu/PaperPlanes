@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DrawStraightLine : MonoBehaviour
 {
+    public GameObject WindPrefab;
     public GameObject currentLine;
     public LineRenderer line;
     public BoxCollider boxCollider;
@@ -56,12 +57,8 @@ public class DrawStraightLine : MonoBehaviour
 
     void CreateLine() 
     {
-        currentLine = new GameObject("Wind");
-        line = currentLine.AddComponent<LineRenderer>();
-        line.material =  new Material(Shader.Find("Diffuse"));
-        line.SetVertexCount(2);
-        line.SetWidth(0.3f,0.3f);
-        line.SetColors(Color.black, Color.black);
+        currentLine = Instantiate(WindPrefab, new Vector3(0,0,0), Quaternion.identity);
+        line = currentLine.GetComponent<LineRenderer>();
         line.useWorldSpace = true;    
 
     }
@@ -71,7 +68,7 @@ public class DrawStraightLine : MonoBehaviour
         BoxCollider col = new GameObject("WindCollider").AddComponent<BoxCollider> ();
         col.transform.SetParent(currentLine.GetComponent<LineRenderer>().transform);
         float lineLength = Vector3.Distance (startMousePos, mousePos); // length of line
-        col.size = new Vector2(lineLength, 0.35f); // size of collider is set where X is length of line, Y is width of line, Z will be set as per requirement
+        col.size = new Vector2(lineLength, 0.25f); // size of collider is set where X is length of line, Y is width of line, Z will be set as per requirement
         Vector3 midPoint = (startMousePos + mousePos)/2;
         currentLine.transform.position = midPoint;
         col.transform.position = midPoint; // setting position of collider object
