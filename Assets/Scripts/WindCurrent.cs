@@ -11,15 +11,14 @@ public class WindCurrent : MonoBehaviour
     public Vector2 position2;
     public Vector2 direction = new Vector2(0, 0);
 
-    private Rigidbody2D rb;
+    public BoxCollider col;
 
-    //delete use this to find a good windforce
-    public int force;
+    public float force = 4;
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        currentLine = GetComponent<LineRenderer>();
+        col = GetComponent<BoxCollider>();
+        currentLine = GetComponentInParent<LineRenderer>();
         position1 = currentLine.GetPosition(0);
         position2 = currentLine.GetPosition(1);
         direction = position2 - position1;
@@ -28,23 +27,32 @@ public class WindCurrent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //tick here and then when enuff ticks just remove the wind
     }
 
     public Vector2 getWindForce() {
-        return direction * force;
+        return direction.normalized * force;
+    }
+
+    public void setForce(float force) {
+        this.force = force;
     }
 
     public void setDirection(Vector2 direction) {
         this.direction = direction;
     }
-
-    public Rigidbody2D getRigidBody() {
-		return rb;
-	}
     
     // returns the Line Renderer for the Wind Current
 	public LineRenderer getCurrentLine() {
 		return currentLine;
 	}
+
+    // void OnTriggerEnter2D(Collider2D other) {
+    //     //print(other.GetComponent<Plane>());
+    //     if (other.GetComponent<Entity>()) {
+    //         Entity hit = other.GetComponent<Entity>();
+    //         Vector2 windforce = getWindForce();
+    //         hit.setWindForce(windforce);
+    //     }
+    // }
 }

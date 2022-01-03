@@ -18,5 +18,7 @@ public class Balloon : Enemy
         transform.position = command;
 
         rb.AddForce(windForce);
+
+        windForceDecay();
     }
 }

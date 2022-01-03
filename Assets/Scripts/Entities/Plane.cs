@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
- using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class Plane : Entity
 {
@@ -13,7 +13,7 @@ public class Plane : Entity
 
 
     // Use this for initialization
-    void Start () {
+    void Start 	() {
         controller = this.GetComponent<PlaneController>();
 		aerodynamics = this.GetComponent<Aerodynamic>();
 
@@ -52,8 +52,12 @@ public class Plane : Entity
         // Damping torque
 		rb.AddTorque(-aerodynamics.damping * rb.angularVelocity * Mathf.Deg2Rad);
 
+		// Adjusts plane aerodynamic force based off wind contact
 		rb.AddForce(windForce);
 
+		// Brings force back to original aerodynamic force after being affected by the wind
+		windForceDecay();
+	
 	}
 
 	// returns the RigidBody for the Plane
@@ -67,8 +71,4 @@ public class Plane : Entity
 		SceneManager.LoadScene("SampleScene"); 
 	}
 
-	private void OnTriggerEnter2D(Collider2D other) {
-		//update windForce here
-		Debug.Log("weeee");
-	}
 }
