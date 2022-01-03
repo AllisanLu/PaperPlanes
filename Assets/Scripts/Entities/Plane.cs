@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
- using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class Plane : Entity
 {
@@ -13,7 +13,7 @@ public class Plane : Entity
 
 
     // Use this for initialization
-    void Start () {
+    void Start 	() {
         controller = this.GetComponent<PlaneController>();
 		aerodynamics = this.GetComponent<Aerodynamic>();
 
