@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class DrawStraightLine : MonoBehaviour
 {
-    public GameObject linePrefab;
     public GameObject currentLine;
-    public LineRenderer lineRenderer;
+    public LineRenderer line;
     public BoxCollider boxCollider;
     // Start is called before the first frame update
     public Vector3 startMousePos;
     public Vector3 mousePos;
+
+    public Vector3 endMousePos;
     public List<Vector2> positions;
     void Start()
     {
@@ -20,44 +21,59 @@ public class DrawStraightLine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0)) 
+         if(Input.GetMouseButtonDown(0))
         {
-            CreateLine();
-            startMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        }
-        if(Input.GetMouseButtonUp(0)) 
-        {
-            
+            if(line == null)
+                CreateLine();
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-
-            lineRenderer.SetPosition(0, new Vector3(startMousePos.x, startMousePos.y, 0f));
-            lineRenderer.SetPosition(1, new Vector3(mousePos.x, mousePos.y, 0f));
-            
-
-            addColliderToLine();
-
+            mousePos.z = 0;
+            line.SetPosition(0,mousePos);
+            startMousePos = mousePos;
         }
-
+        else if(Input.GetMouseButtonUp(0))
+        {
+            if(line)
+            {
+                mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePos.z = 0;
+                line.SetPosition(1,mousePos);
+                endMousePos = mousePos;
+                addColliderToLine();
+                line = null;
+            }
+        }
+        else if(Input.GetMouseButton(0))
+        {
+            if(line)
+            {
+                mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePos.z = 0;
+                line.SetPosition(1,mousePos);
+            }
+        }
 
     }
 
     void CreateLine() 
     {
-        currentLine = Instantiate(linePrefab, Vector3.zero, Quaternion.identity);
-        positions.Clear();
-        lineRenderer = currentLine.GetComponent<LineRenderer>();
-        //boxCollider = currentLine.GetComponent<BoxCollider>();
+        currentLine = new GameObject("Wind");
+        line = currentLine.AddComponent<LineRenderer>();
+        line.material =  new Material(Shader.Find("Diffuse"));
+        line.SetVertexCount(2);
+        line.SetWidth(0.3f,0.3f);
+        line.SetColors(Color.black, Color.black);
+        line.useWorldSpace = true;    
 
     }
 
     void addColliderToLine()
     {
         BoxCollider col = new GameObject("WindCollider").AddComponent<BoxCollider> ();
+        col.transform.SetParent(currentLine.GetComponent<LineRenderer>().transform);
         float lineLength = Vector3.Distance (startMousePos, mousePos); // length of line
-        col.size = new Vector2(lineLength, 0.15f); // size of collider is set where X is length of line, Y is width of line, Z will be set as per requirement
+        col.size = new Vector2(lineLength, 0.35f); // size of collider is set where X is length of line, Y is width of line, Z will be set as per requirement
         Vector3 midPoint = (startMousePos + mousePos)/2;
+        currentLine.transform.position = midPoint;
         col.transform.position = midPoint; // setting position of collider object
         // Following lines calculate the angle between startPos and endPos
         float angle = (Mathf.Abs (startMousePos.y - mousePos.y) / Mathf.Abs (startMousePos.x - mousePos.x));
