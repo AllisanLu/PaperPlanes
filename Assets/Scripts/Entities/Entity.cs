@@ -21,10 +21,12 @@ public class Entity : MonoBehaviour
         
     }
 
+    //Setter for wind force
     public void setWindForce(Vector2 force) {
         windForce = force;
     }
 
+    //Brings wind force back to 0
     protected void windForceDecay() {
         if (tick > 60) {
             if (windForce.x > 0) {
@@ -42,6 +44,7 @@ public class Entity : MonoBehaviour
         tick++;
     }
 
+    //Checks for collision with wind current
     void OnTriggerEnter2D(Collider2D other) {
         WindCurrent wind = other.GetComponent<WindCurrent>();
         windForce = wind.getWindForce();
