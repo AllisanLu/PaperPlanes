@@ -54,6 +54,8 @@ public class Plane : Entity
 
 		rb.AddForce(windForce);
 
+		windForceDecay();
+	
 	}
 
 	// returns the RigidBody for the Plane
@@ -67,8 +69,4 @@ public class Plane : Entity
 		SceneManager.LoadScene("SampleScene"); 
 	}
 
-	private void OnTriggerEnter2D(Collider2D other) {
-		//update windForce here
-		Debug.Log("weeee");
-	}
 }

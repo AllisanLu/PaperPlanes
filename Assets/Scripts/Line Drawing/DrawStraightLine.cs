@@ -20,44 +20,34 @@ public class DrawStraightLine : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+     void Update()
     {
-         if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0)) 
         {
-            if(line == null)
-                CreateLine();
+            CreateLine();
+            startMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        }
+        if(Input.GetMouseButtonUp(0)) 
+        {
+            
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePos.z = 0;
-            line.SetPosition(0,mousePos);
-            startMousePos = mousePos;
+
+
+            line.SetPosition(0, new Vector3(startMousePos.x, startMousePos.y, 0f));
+            line.SetPosition(1, new Vector3(mousePos.x, mousePos.y, 0f));
+
+            addColliderToLine();
+
         }
-        else if(Input.GetMouseButtonUp(0))
-        {
-            if(line)
-            {
-                mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                mousePos.z = 0;
-                line.SetPosition(1,mousePos);
-                endMousePos = mousePos;
-                addColliderToLine();
-                line = null;
-            }
-        }
-        else if(Input.GetMouseButton(0))
-        {
-            if(line)
-            {
-                mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                mousePos.z = 0;
-                line.SetPosition(1,mousePos);
-            }
-        }
+
 
     }
 
     void CreateLine() 
     {
         currentLine = Instantiate(WindPrefab, new Vector3(0,0,0), Quaternion.identity);
+        positions.Clear();
         line = currentLine.GetComponent<LineRenderer>();
         line.useWorldSpace = true;    
 
@@ -65,7 +55,11 @@ public class DrawStraightLine : MonoBehaviour
 
     void addColliderToLine()
     {
-        BoxCollider col = new GameObject("WindCollider").AddComponent<BoxCollider> ();
+        GameObject wind = new GameObject("WindCollider");
+        wind.AddComponent<WindCurrent>();
+
+        BoxCollider2D col = wind.AddComponent<BoxCollider2D> ();
+        col.isTrigger = true;
         col.transform.SetParent(currentLine.GetComponent<LineRenderer>().transform);
         float lineLength = Vector3.Distance (startMousePos, mousePos); // length of line
         col.size = new Vector2(lineLength, 0.25f); // size of collider is set where X is length of line, Y is width of line, Z will be set as per requirement
@@ -79,7 +73,8 @@ public class DrawStraightLine : MonoBehaviour
             angle*=-1;
         }
         angle = Mathf.Rad2Deg * Mathf.Atan (angle);
-        print(angle);
+        //print(angle);
         col.transform.Rotate (0, 0, angle);
+
     }
 }
