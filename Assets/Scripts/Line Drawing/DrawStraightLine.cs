@@ -68,7 +68,7 @@ public class DrawStraightLine : MonoBehaviour
         col.isTrigger = true;
         col.transform.SetParent(currentLine.GetComponent<LineRenderer>().transform);
         float lineLength = Vector3.Distance (startMousePos, mousePos); // length of line
-        col.size = new Vector2(lineLength, 0.25f); // size of collider is set where X is length of line, Y is width of line, Z will be set as per requirement
+        col.size = new Vector2(lineLength, 0.5f); // size of collider is set where X is length of line, Y is width of line, Z will be set as per requirement
         Vector3 midPoint = (startMousePos + mousePos)/2;
         currentLine.transform.position = midPoint;
         col.transform.position = midPoint; // setting position of collider object
