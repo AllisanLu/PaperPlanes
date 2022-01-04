@@ -30,7 +30,7 @@ public class PlaneController : Controller
         // if the plane is tilted too low, tilt the plane up
         // if the plane is going the wrong direction (left) turn the plane around
         // else have the plane follow a slow decent 
-        if (angle < 340 && angle > 270) {    
+        if (angle < 360 && angle > 270) {    
             displacement = new Vector2(0, cam.pixelHeight) - (Vector2) transform.position;
         } else if (angle > 90 || angle < 270) {      
             displacement = new Vector2(cam.pixelWidth, -cam.pixelHeight) - (Vector2) transform.position;

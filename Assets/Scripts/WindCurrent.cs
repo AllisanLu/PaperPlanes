@@ -13,7 +13,7 @@ public class WindCurrent : MonoBehaviour
 
     public BoxCollider col;
 
-    public float force = 4;
+    public float force = 4.5f;
     // Start is called before the first frame update
     void Start()
     {
