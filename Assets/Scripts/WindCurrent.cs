@@ -14,6 +14,7 @@ public class WindCurrent : MonoBehaviour
     public BoxCollider col;
 
     public float force = 4.5f;
+    private float deathTime = 2.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +28,7 @@ public class WindCurrent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //tick here and then when enuff ticks just remove the wind
+        Destroy(transform.parent.gameObject, deathTime);
     }
 
     public Vector2 getWindForce() {
