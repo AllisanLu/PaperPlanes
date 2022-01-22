@@ -68,7 +68,8 @@ public class Plane : Entity
 	// Commits death on the plane and restarts the screen
 	public void die() {
 		//die and respawn
-		SceneManager.LoadScene("SampleScene"); 
+		// SceneManager.LoadScene("SampleScene"); 
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
 }
