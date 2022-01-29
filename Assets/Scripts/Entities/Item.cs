@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : Entity
+public class Item : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,5 +14,13 @@ public class Item : Entity
     void Update()
     {
         
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "Player")
+        {
+            print("Collect Item");
+        } 
     }
 }

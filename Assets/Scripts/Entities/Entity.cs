@@ -47,6 +47,9 @@ public class Entity : MonoBehaviour
     //Checks for collision with wind current
     void OnTriggerEnter2D(Collider2D other) {
         WindCurrent wind = other.GetComponent<WindCurrent>();
-        windForce = wind.getWindForce();
+        if (wind != null)
+        {
+            windForce = wind.getWindForce();
+        }
     }
 }
