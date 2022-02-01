@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7934583649389167809}
   - component: {fileID: 7934583649389167838}
   m_Layer: 0
-  m_Name: raincloud1
+  m_Name: RainCloud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
