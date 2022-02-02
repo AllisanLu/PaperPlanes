@@ -16,7 +16,4 @@ public class RainCloudController : EnemyController
 
     }
 
-    public override Vector2 GetMove() {
-        return (Vector2) transform.position;
-    }
 }
