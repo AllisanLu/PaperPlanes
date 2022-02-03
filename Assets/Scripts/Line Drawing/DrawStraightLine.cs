@@ -17,7 +17,7 @@ public class DrawStraightLine : MonoBehaviour
     public float strength;
     void Start()
     {
-        
+        strength = 0.2f;
     }
 
     // Update is called once per frame
