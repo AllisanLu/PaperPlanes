@@ -40,7 +40,8 @@ public class DrawStraightLine : MonoBehaviour
         }
         if(Input.GetMouseButtonUp(0)) 
         {
-            
+            line.material.SetColor("_Color", new Color(1f, 1f, 1f, 1f));
+
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
 
@@ -64,6 +65,9 @@ public class DrawStraightLine : MonoBehaviour
         currentLine = Instantiate(WindPrefab, new Vector3(0,0,0), Quaternion.identity);
         positions.Clear();
         line = currentLine.GetComponent<LineRenderer>();
+        line.SetWidth(2f, 2f);
+        line.material.SetColor("_Color", new Color(1f, 1f, 1f, 0.3f));
+ 
         line.useWorldSpace = true;    
 
     }
