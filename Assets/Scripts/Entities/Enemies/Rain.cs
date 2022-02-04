@@ -23,7 +23,6 @@ public class Rain : Enemy
 
         if (other.gameObject.CompareTag("Player"))
         {
-            print("hi");
             ResourceBar.instance.collision(damage);
         }
         
