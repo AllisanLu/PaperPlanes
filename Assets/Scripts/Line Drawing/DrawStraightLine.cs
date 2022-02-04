@@ -14,9 +14,13 @@ public class DrawStraightLine : MonoBehaviour
 
     public Vector3 endMousePos;
     public List<Vector2> positions;
+    public float windLength;
+    public ResourceBar resourceBar;
+
+    public float strength;
     void Start()
     {
-        
+        strength = 0.2f;
     }
 
     // Update is called once per frame
@@ -36,16 +40,22 @@ public class DrawStraightLine : MonoBehaviour
         }
         if(Input.GetMouseButtonUp(0)) 
         {
-            
+            line.material.SetColor("_Color", new Color(1f, 1f, 1f, 1f));
+
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
 
             line.SetPosition(0, new Vector3(startMousePos.x, startMousePos.y, 0f));
             line.SetPosition(1, new Vector3(mousePos.x, mousePos.y, 0f));
 
+            windLength = Vector3.Distance(line.GetPosition(0), line.GetPosition(1));
+            Debug.Log(windLength);
+            
+            ResourceBar.instance.windResourceUsage(windLength);
+
             addColliderToLine();
 
-        }
+        }   
 
 
     }
@@ -55,6 +65,9 @@ public class DrawStraightLine : MonoBehaviour
         currentLine = Instantiate(WindPrefab, new Vector3(0,0,0), Quaternion.identity);
         positions.Clear();
         line = currentLine.GetComponent<LineRenderer>();
+        line.SetWidth(2f, 2f);
+        line.material.SetColor("_Color", new Color(1f, 1f, 1f, 0.3f));
+ 
         line.useWorldSpace = true;    
 
     }
@@ -62,13 +75,16 @@ public class DrawStraightLine : MonoBehaviour
     void addColliderToLine()
     {
         GameObject wind = new GameObject("WindCollider");
-        wind.AddComponent<WindCurrent>();
+        WindCurrent windcurrent = wind.AddComponent<WindCurrent>();
+
+        windcurrent.force = (mousePos - startMousePos).magnitude * strength;
 
         BoxCollider2D col = wind.AddComponent<BoxCollider2D> ();
+    
         col.isTrigger = true;
         col.transform.SetParent(currentLine.GetComponent<LineRenderer>().transform);
         float lineLength = Vector3.Distance (startMousePos, mousePos); // length of line
-        col.size = new Vector2(lineLength, 0.5f); // size of collider is set where X is length of line, Y is width of line, Z will be set as per requirement
+        col.size = new Vector2(lineLength, 2f); // size of collider is set where X is length of line, Y is width of line, Z will be set as per requirement
         Vector3 midPoint = (startMousePos + mousePos)/2;
         currentLine.transform.position = midPoint;
         col.transform.position = midPoint; // setting position of collider object
