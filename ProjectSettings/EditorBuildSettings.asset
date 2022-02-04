@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Testing Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/boomo.unity
+    path: Assets/Scenes/MainDemo.unity
     guid: 26c7c4c49c1752f4e8b3f7fe4aa95f03
   m_configObjects: {}
