@@ -1324,6 +1324,7 @@ MonoBehaviour:
   mousePos: {x: 0, y: 0, z: 0}
   endMousePos: {x: 0, y: 0, z: 0}
   positions: []
+  strength: 0.2
 --- !u!1 &1578770019
 GameObject:
   m_ObjectHideFlags: 0

@@ -57,7 +57,10 @@ public class Plane : Entity
 
 		// Brings force back to original aerodynamic force after being affected by the wind
 		windForceDecay();
-	
+
+		if (rb.velocity.magnitude > 20) {
+			rb.velocity = rb.velocity.normalized * 20;
+		}
 	}
 
 	// returns the RigidBody for the Plane

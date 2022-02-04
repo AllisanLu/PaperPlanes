@@ -14,9 +14,10 @@ public class DrawStraightLine : MonoBehaviour
 
     public Vector3 endMousePos;
     public List<Vector2> positions;
+    public float strength;
     void Start()
     {
-        
+        strength = 0.2f;
     }
 
     // Update is called once per frame
@@ -62,7 +63,9 @@ public class DrawStraightLine : MonoBehaviour
     void addColliderToLine()
     {
         GameObject wind = new GameObject("WindCollider");
-        wind.AddComponent<WindCurrent>();
+        WindCurrent windcurrent = wind.AddComponent<WindCurrent>();
+
+        windcurrent.force = (mousePos - startMousePos).magnitude * strength;
 
         BoxCollider2D col = wind.AddComponent<BoxCollider2D> ();
         col.isTrigger = true;

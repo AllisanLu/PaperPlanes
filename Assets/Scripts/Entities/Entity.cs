@@ -30,14 +30,14 @@ public class Entity : MonoBehaviour
     protected void windForceDecay() {
         if (tick > 60) {
             if (windForce.x > 0) {
-			    windForce.x -= 1;
+			    windForce.x -= Mathf.Max(1, windForce.x);
 		    } else if (windForce.x < 0) {
-                windForce.x += 1;
+                windForce.x += Mathf.Max(1, -windForce.x);
             }
 		    if (windForce.y > 0) {
-			    windForce.y -= 1;
+			    windForce.y -= Mathf.Max(1, windForce.y);
 		    } else if (windForce.y < 0) {
-                windForce.y += 1;
+                windForce.y += Mathf.Max(1, -windForce.y);
             }
             tick = 0;
         }
