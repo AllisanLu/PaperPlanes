@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RainCloud : Enemy
+public class Rain : Enemy
 {
     
     // Start is called before the first frame update
@@ -20,9 +20,11 @@ public class RainCloud : Enemy
     // Triggers when plane is under
     void OnTriggerEnter2D(Collider2D other)
     {
+
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Plane under cloud");
+            print("hi");
+            ResourceBar.instance.collision(damage);
         }
         
     }
