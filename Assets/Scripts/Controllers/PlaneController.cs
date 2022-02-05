@@ -7,12 +7,10 @@ public class PlaneController : Controller
 [Range(0, 1)]
     public float sensitivity;
     private float pitchCommand;
-    private Camera cam;
 
     // Start is called before the first frame update
     void Start()
     {
-        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
     // Update is called once per frame
@@ -26,8 +24,7 @@ public class PlaneController : Controller
         Vector2 windForce = plane.getWindForce();
 
         if (Mathf.Abs(windForce.magnitude) > 2) {
-            print(angle);
-            print("wind!");
+           // print("wind!");
             //pitch in direction of wind
             Vector2 displacement = windForce;
             float desiredPitch = Mathf.Atan2(displacement.y, displacement.x) * Mathf.Rad2Deg;
@@ -37,18 +34,22 @@ public class PlaneController : Controller
             // if the plane is tilted too low, tilt the plane up
             // if the plane is going the wrong direction (left) turn the plane around
             // else have the plane follow a slow decent 
-            float desiredAngle = 0;
-           // print(angle);
-            if (angle < 360 && angle > 270) {
-                desiredAngle = angle + 20;
-            } else if (angle > 90 && angle <= 270) {
-                desiredAngle = angle + 45;
-            } else {
-                desiredAngle = angle-25;
+            // print(angle);
+/*            if (angle < 360 && angle > 270)
+            {
+                desiredAngle = 80;
             }
-           // print("desired: " + desiredAngle);
+            else if (angle > 90 && angle <= 270)
+            {
+                desiredAngle = angle + 45;
+            }
+            else
+            {
+                desiredAngle = 280;
+            }*/
+            // print("desired: " + desiredAngle);
             // calculate the pitch and pitchcommand from displacement
-            pitchCommand = Mathf.DeltaAngle(angle, desiredAngle) * sensitivity * Mathf.Deg2Rad;
+            pitchCommand = Mathf.DeltaAngle(angle, 0) * sensitivity * Mathf.Deg2Rad;
             //print(pitchCommand);
         }
        
