@@ -38,8 +38,20 @@ public class DrawStraightLine : MonoBehaviour
             if (Input.GetMouseButton(0))
             {
                 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                line.SetPosition(0, new Vector3(startMousePos.x, startMousePos.y, 0f));
-                line.SetPosition(1, new Vector3(mousePos.x, mousePos.y, 0f));
+                windLength = Vector3.Distance(new Vector3(startMousePos.x, startMousePos.y, 0f), new Vector3(mousePos.x, mousePos.y, 0f));
+                if (windLength * ResourceBar.instance.getWindScale() <= ResourceBar.instance.getCurrentResources()) 
+                {
+                    line.SetPosition(0, new Vector3(startMousePos.x, startMousePos.y, 0f));
+                    line.SetPosition(1, new Vector3(mousePos.x, mousePos.y, 0f));
+                } 
+                else
+                {
+                   float ratio = ResourceBar.instance.getCurrentResources() / (ResourceBar.instance.getWindScale() * windLength);
+                   Vector3 vector = Vector3.Scale(new Vector3(mousePos.x, mousePos.y, 0f) - new Vector3(startMousePos.x, startMousePos.y, 0f), new Vector3(ratio, ratio, 0));
+                   Vector3 final = new Vector3(startMousePos.x, startMousePos.y, 0f) + vector;
+                   line.SetPosition(0, new Vector3(startMousePos.x, startMousePos.y, 0f));
+                   line.SetPosition(1, final);
+                }
             }
             if (Input.GetMouseButtonUp(0))
             {
@@ -47,9 +59,20 @@ public class DrawStraightLine : MonoBehaviour
 
                 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-
-                line.SetPosition(0, new Vector3(startMousePos.x, startMousePos.y, 0f));
-                line.SetPosition(1, new Vector3(mousePos.x, mousePos.y, 0f));
+                windLength = Vector3.Distance(new Vector3(startMousePos.x, startMousePos.y, 0f), new Vector3(mousePos.x, mousePos.y, 0f));
+                if (windLength * ResourceBar.instance.getWindScale() <= ResourceBar.instance.getCurrentResources()) 
+                {
+                    line.SetPosition(0, new Vector3(startMousePos.x, startMousePos.y, 0f));
+                    line.SetPosition(1, new Vector3(mousePos.x, mousePos.y, 0f));
+                } 
+                else
+                {
+                   float ratio = ResourceBar.instance.getCurrentResources() / (ResourceBar.instance.getWindScale() * windLength);
+                   Vector3 vector = Vector3.Scale(new Vector3(mousePos.x, mousePos.y, 0f) - new Vector3(startMousePos.x, startMousePos.y, 0f), new Vector3(ratio, ratio, 0));
+                   Vector3 final = new Vector3(startMousePos.x, startMousePos.y, 0f) + vector;
+                   line.SetPosition(0, new Vector3(startMousePos.x, startMousePos.y, 0f));
+                   line.SetPosition(1, final);
+                }
 
                 windLength = Vector3.Distance(line.GetPosition(0), line.GetPosition(1));
                 //Debug.Log(windLength);
