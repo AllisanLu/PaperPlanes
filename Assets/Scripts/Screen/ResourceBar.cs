@@ -49,7 +49,7 @@ public class ResourceBar : MonoBehaviour
     }
 
     // increase resource bar when items are used
-    void addResource(int addition)
+    public void addResource(int addition)
     {
         currentResources += addition;
         currentResources = Math.Min(currentResources, maxResources);
@@ -75,37 +75,37 @@ public class ResourceBar : MonoBehaviour
     }
 
     // sets resource bar capacity
-    void setCapacity(int capacity)
+    public void setCapacity(int capacity)
     {
         maxResources = capacity;
     }
 
     // increase resource bar capacity
-    void increaseCapacity(int increase)
+    public void increaseCapacity(int increase)
     {
         maxResources += increase;
     }
     
     // decrease resource bar capacity
-    void decreaseCapacity(int decrease)
+    public void decreaseCapacity(int decrease)
     {
         maxResources -= decrease;
     }
 
     // set resource bar regeneration speed
-    void setRegenerationSpeed(int regeneration)
+    public void setRegenerationSpeed(int regeneration)
     {
         regenerationSpeed = regeneration;
     }
 
     // increase resource bar regeneration speed
-    void increaseRegenerationSpeed(int increase)
+    public void increaseRegenerationSpeed(int increase)
     {
         regenerationSpeed += increase;
     }
 
     // decrease resource bar regeneration speed
-    void decreaseRegenerationSpeed(int decrease)
+    public void decreaseRegenerationSpeed(int decrease)
     {
         regenerationSpeed -= decrease;
     }
