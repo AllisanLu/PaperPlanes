@@ -27,7 +27,7 @@ public class ResourceBar : MonoBehaviour
         resourceBar.value = maxResources;
         regenerationSpeed = 1f;
 
-        windScale = 0.7f;
+        windScale = 0.2f;
         
         // run void regeneration() every 1s after 1s delay
         InvokeRepeating("regeneration", 1f, 1f);
@@ -64,11 +64,13 @@ public class ResourceBar : MonoBehaviour
         resourceBar.value = currentResources;
     }
 
+    // get current amount of resources
     public float getCurrentResources()
     {
         return currentResources;
     }
 
+    // get current wind scale
     public float getWindScale()
     {
         return windScale;
