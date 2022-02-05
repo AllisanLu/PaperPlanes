@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1805029441615110425}
   m_Layer: 0
   m_Name: tree
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805029441615110431}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 32.22, y: 1.9, z: 1.7596238}
   m_LocalScale: {x: 2.6566565, y: 8.523524, z: 1}
   m_Children:
@@ -138,8 +138,8 @@ GameObject:
   - component: {fileID: 1805029441955188489}
   - component: {fileID: 1805029441955188488}
   m_Layer: 0
-  m_Name: Square
-  m_TagString: Untagged
+  m_Name: leaves
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

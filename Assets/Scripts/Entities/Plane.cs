@@ -75,4 +75,15 @@ public class Plane : Entity
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
+	// Add collider for plane (for now just for the tree collision)
+	public void OnCollisionEnter2D(Collision2D other) 
+	{
+		// Check if collision is with Tree object
+		if (other.collider.gameObject.CompareTag("Tree"))
+		{
+			// Call death method to respawn
+			die();
+		}
+	}
+
 }

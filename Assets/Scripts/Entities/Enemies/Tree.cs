@@ -16,11 +16,12 @@ public class Tree : Enemy
         
     }
 
+    // Check for collision with plane (if we don't want instant death)
     void OnCollisionEnter2D(Collision2D other) 
     {
         if (other.collider.gameObject.CompareTag("Player"))
         {
-            print("Hi");
+            // do same damage as raincloud rain
             ResourceBar.instance.collision(damage);
         }
     }
