@@ -23,25 +23,35 @@ public class PlaneController : Controller
         Plane plane = this.GetComponent<Plane>();
         Rigidbody2D rb = plane.getRigidBody();
         float angle = transform.rotation.eulerAngles.z;
+        Vector2 windForce = plane.getWindForce();
 
-        //Calculate displacement based on how the plane is angled
-        Vector2 displacement;
-        
-        // if the plane is tilted too low, tilt the plane up
-        // if the plane is going the wrong direction (left) turn the plane around
-        // else have the plane follow a slow decent 
-        if (angle < 360 && angle > 270) {    
-            displacement = new Vector2(0, cam.pixelHeight) - (Vector2) transform.position;
-        } else if (angle > 90 || angle < 270) {      
-            displacement = new Vector2(cam.pixelWidth, -cam.pixelHeight) - (Vector2) transform.position;
-        } else { 
-            displacement = new Vector2(0, -cam.pixelHeight) - (Vector2) transform.position;
+        if (Mathf.Abs(windForce.magnitude) > 2) {
+            print(angle);
+            print("wind!");
+            //pitch in direction of wind
+            Vector2 displacement = windForce;
+            float desiredPitch = Mathf.Atan2(displacement.y, displacement.x) * Mathf.Rad2Deg;
+            pitchCommand = Mathf.DeltaAngle(angle, desiredPitch) * sensitivity * Mathf.Deg2Rad;
+            //print(pitchCommand);
+        } else {
+            // if the plane is tilted too low, tilt the plane up
+            // if the plane is going the wrong direction (left) turn the plane around
+            // else have the plane follow a slow decent 
+            float desiredAngle = 0;
+           // print(angle);
+            if (angle < 360 && angle > 270) {
+                desiredAngle = angle + 20;
+            } else if (angle > 90 && angle <= 270) {
+                desiredAngle = angle + 45;
+            } else {
+                desiredAngle = angle-25;
+            }
+           // print("desired: " + desiredAngle);
+            // calculate the pitch and pitchcommand from displacement
+            pitchCommand = Mathf.DeltaAngle(angle, desiredAngle) * sensitivity * Mathf.Deg2Rad;
+            //print(pitchCommand);
         }
-        
-        // calculate the pitch and pitchcommand from displacement
-        float desiredPitch = Mathf.Atan2(displacement.y, displacement.x) * Mathf.Rad2Deg;
-        float pitch = transform.eulerAngles.z;
-        pitchCommand = Mathf.DeltaAngle(pitch, desiredPitch) * sensitivity * Mathf.Deg2Rad;
+       
     }
 
     // Gives a float force for a Plane

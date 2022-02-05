@@ -19,7 +19,7 @@ public class Plane : Entity
 
 		rb = GetComponent<Rigidbody2D>();
 		rb.inertia = aerodynamics.inertia;
-		rb.velocity = new Vector2(3, -1);
+		rb.velocity = new Vector2(4, -1);
 	}
 
 	// Called once per frame
