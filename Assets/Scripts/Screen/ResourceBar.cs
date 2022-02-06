@@ -71,7 +71,7 @@ public class ResourceBar : MonoBehaviour
     }
 
     // increase resource bar when items are used
-    void addResource(int addition)
+    public void addResource(int addition)
     {
         currentResources += addition;
         //updateUI();
