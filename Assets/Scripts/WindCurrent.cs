@@ -39,6 +39,10 @@ public class WindCurrent : MonoBehaviour
     public void setForce(float force) {
         this.force = force;
     }
+    public float getForce()
+    {
+        return force;
+    }
 
     public void setDirection(Vector2 direction) {
         this.direction = direction;

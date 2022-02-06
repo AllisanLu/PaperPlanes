@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Plane : Entity
 {
-//private Rigidbody2D rb;
 
 	public PlaneController controller;
 
@@ -80,6 +79,13 @@ public class Plane : Entity
 	{
 		// Check if collision is with Tree object
 		if (other.collider.gameObject.CompareTag("Tree"))
+		{
+			// Call death method to respawn
+			// TODO: Add an animation after collision before respawn for 
+			//       better playability
+			die();
+		}
+		if (other.collider.gameObject.CompareTag("Water"))
 		{
 			// Call death method to respawn
 			// TODO: Add an animation after collision before respawn for 
