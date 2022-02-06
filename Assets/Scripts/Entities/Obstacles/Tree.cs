@@ -18,12 +18,12 @@ public class Tree : Obstacle
     }
 
     // Check for collision with plane (if we don't want instant death)
-    void OnCollisionEnter2D(Collision2D other)
+ /*   void OnCollisionEnter2D(Collision2D other)
     {
         if (other.collider.gameObject.CompareTag("Player"))
         {
-            // if we want to not have this as instant death have player press a key to launch again at the cose of health
+            // if we want to not have this as instant death have player press a key to launch again at the cost of health
             ResourceBar.instance.collision(damageToStart);
         }
-    }
+    }*/
 }

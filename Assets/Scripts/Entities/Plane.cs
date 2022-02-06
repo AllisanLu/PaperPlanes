@@ -74,7 +74,7 @@ public class Plane : Entity
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
-	// Add collider for plane (for now just for the tree collision)
+	// Add collider for plane usually collision with obstacles to play death animations
 	public void OnCollisionEnter2D(Collision2D other) 
 	{
 		// Check if collision is with Tree object
