@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+script: platform.cs
+event trigger: box collider 2d, is trigger: true, size: event trigger area
+physical platform: box collider 2d, default
+*/
+
 public class Platform : Entity
 {
     // Start is called before the first frame update
