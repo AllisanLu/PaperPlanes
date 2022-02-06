@@ -24,6 +24,7 @@ public class Refill : Item
         {
             //adds x resources to the resource bar when touched by player
             ResourceBar.instance.addResource(additionalResources);
+            Destroy(transform.gameObject);
         }
     }
 }
