@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Plane : Entity
 {
-//private Rigidbody2D rb;
 
 	public PlaneController controller;
 
@@ -19,7 +18,7 @@ public class Plane : Entity
 
 		rb = GetComponent<Rigidbody2D>();
 		rb.inertia = aerodynamics.inertia;
-		rb.velocity = new Vector2(3, -1);
+		rb.velocity = new Vector2(4, 1);
 	}
 
 	// Called once per frame
@@ -73,6 +72,26 @@ public class Plane : Entity
 		//die and respawn
 		// SceneManager.LoadScene("SampleScene"); 
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+	}
+
+	// Add collider for plane usually collision with obstacles to play death animations
+	public void OnCollisionEnter2D(Collision2D other) 
+	{
+		// Check if collision is with Tree object
+		if (other.collider.gameObject.CompareTag("Tree"))
+		{
+			// Call death method to respawn
+			// TODO: Add an animation after collision before respawn for 
+			//       better playability
+			die();
+		}
+		if (other.collider.gameObject.CompareTag("Water"))
+		{
+			// Call death method to respawn
+			// TODO: Add an animation after collision before respawn for 
+			//       better playability
+			die();
+		}
 	}
 
 }

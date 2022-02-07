@@ -5,12 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
+    private static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
     public CanvasGroup canvasGroup;
     // Update is called once per frame
 
-   void Start() {
+    public static PauseMenu instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+    void Start() {
        canvasGroup = pauseMenuUI.GetComponent<CanvasGroup>();
         Hide();
     }
@@ -19,7 +25,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Esc Pressed!");
+           // Debug.Log("Esc Pressed!");
             if (GameIsPaused) {
                 Resume();
             } else {
@@ -60,5 +66,10 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame() {
         Debug.Log("Quitting Game");
         Application.Quit();
+    }
+
+    public bool isPaused()
+    {
+        return GameIsPaused;
     }
 }
