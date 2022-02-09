@@ -11,6 +11,8 @@ public class Plane : Entity
 
 	public Aerodynamic aerodynamics;
 
+	public bool hasShield = false;
+
 
     // Use this for initialization
     void Start 	() {
@@ -74,5 +76,7 @@ public class Plane : Entity
 		// SceneManager.LoadScene("SampleScene"); 
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
+
+
 
 }
