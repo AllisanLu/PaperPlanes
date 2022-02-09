@@ -24,4 +24,15 @@ public class Bird : Enemy
         // //decays the windforce
         // windForceDecay();
     }
+
+    // Triggers when plane is under
+    void OnCollisionEnter2D(Collision2D other)
+    {
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+            ResourceBar.instance.collision(damage);
+        }
+
+    }
 }
