@@ -105,6 +105,21 @@ public class Plane : Entity
 		else 
 		{
 			shield.IsActive = false;
+
+		// Check if collision is with Tree object
+		if (other.collider.gameObject.CompareTag("Tree"))
+		{
+			// Call death method to respawn
+			// TODO: Add an animation after collision before respawn for 
+			//       better playability
+			die();
+		}
+		if (other.collider.gameObject.CompareTag("Water"))
+		{
+			// Call death method to respawn
+			// TODO: Add an animation after collision before respawn for 
+			//       better playability
+			die();
 		}
 	}
 

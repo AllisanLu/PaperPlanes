@@ -24,4 +24,18 @@ public class Balloon : Enemy
         //decays the windforce
         windForceDecay();
     }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.collider.gameObject.CompareTag("Player"))
+        {
+            Plane plane = other.collider.GetComponent<Plane>();
+            Vector2 displacement = plane.transform.position - this.transform.position;
+            Vector2 balloonForce = -(displacement.normalized) * 250;
+            plane.getRigidBody().AddForce(balloonForce);
+
+            //balloon pop animation
+            Destroy(this.gameObject);
+        }
+    }
 }
