@@ -12,8 +12,16 @@ public class Bird : Enemy
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        //gets command from its controller
+        Vector2 command = behaviorController.GetMove();
+        transform.position = command;
+
+        // //adds on the windForce if there is any
+        // rb.AddForce(windForce);
+
+        // //decays the windforce
+        // windForceDecay();
     }
 }
