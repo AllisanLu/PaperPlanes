@@ -10,8 +10,7 @@ public class Plane : Entity
 
 	public Aerodynamic aerodynamics;
 
-	private Shield shield;
-
+	public Shield shield;
 
     // Use this for initialization
     void Start 	() {
@@ -22,8 +21,10 @@ public class Plane : Entity
 		rb.inertia = aerodynamics.inertia;
 		rb.velocity = new Vector2(4, 1);
 
-		shield = GetComponent<Shield>();
-		shield.IsActive = false;
+		// shield = GetComponentInChildren<Shield>();
+		// shield.IsActive = true;
+
+		
 	}
 
 	// Called once per frame
@@ -82,9 +83,16 @@ public class Plane : Entity
 	// Add collider for plane usually collision with obstacles to play death animations
 	public void OnCollisionEnter2D(Collision2D other) 
 	{
+		//Check if collision is with Shield object
+		//if it is, make shield a child
+		// if (other.collider.CompareTag("Shield")){
+            	
+		// } 
+
 		//Object reference not set to an instance of an object
-		if (shield.IsActive)
+		if (!shield.IsActive)
 		{ 
+			print("hit something while shield is not active");
 
 			// Check if collision is with Tree object
 			if (other.collider.gameObject.CompareTag("Tree"))
@@ -104,6 +112,8 @@ public class Plane : Entity
 		}
 		else 
 		{
+			print("hit something while shield is active");
+			print("remove shield power");
 			shield.IsActive = false;
 		}
 	}

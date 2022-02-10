@@ -5,6 +5,7 @@ using UnityEngine;
 public class Shield : MonoBehaviour
 {
     public GameObject shield;
+    
     private bool isActive;
 
 
@@ -12,7 +13,7 @@ public class Shield : MonoBehaviour
     //start out with shield on screen, while player has no shield
     void Start()
     {
-        isActive = false;
+        
     }
 
     // Update is called once per frame
@@ -22,14 +23,17 @@ public class Shield : MonoBehaviour
     }
 
     //if player hits the shield,
-    //the player gains the shield which vanishes from the screen
+    //the player gains the shield which ideally vanishes from the screen
+    //doesn't vanish right now
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
-            Destroy(transform.gameObject);
             isActive = true; 
             print("shield hit");
+            //make shield child class of parent class
+            shield.transform.parent = other.transform;
+            
         }
     }
 
@@ -45,3 +49,4 @@ public class Shield : MonoBehaviour
         }
     }
 }
+
