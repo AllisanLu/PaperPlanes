@@ -132,5 +132,6 @@ public class Plane : Entity
 			die();
 		}
 	}
+	}
 
 }
