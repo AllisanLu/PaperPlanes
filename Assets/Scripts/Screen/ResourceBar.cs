@@ -25,9 +25,9 @@ public class ResourceBar : MonoBehaviour
         currentResources = maxResources;
         resourceBar.maxValue = maxResources;
         resourceBar.value = maxResources;
-        regenerationSpeed = 1f;
+        regenerationSpeed = 3f;
 
-        windScale = 0.2f;
+        windScale = 0.5f;
         
         // run void regeneration() every 1s after 1s delay
         InvokeRepeating("regeneration", 1f, 1f);
