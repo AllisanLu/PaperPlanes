@@ -115,6 +115,21 @@ public class Plane : Entity
 			print("hit something while shield is active");
 			print("remove shield power");
 			shield.IsActive = false;
+
+		// Check if collision is with Tree object
+		if (other.collider.gameObject.CompareTag("Tree"))
+		{
+			// Call death method to respawn
+			// TODO: Add an animation after collision before respawn for 
+			//       better playability
+			die();
+		}
+		if (other.collider.gameObject.CompareTag("Water"))
+		{
+			// Call death method to respawn
+			// TODO: Add an animation after collision before respawn for 
+			//       better playability
+			die();
 		}
 	}
 
