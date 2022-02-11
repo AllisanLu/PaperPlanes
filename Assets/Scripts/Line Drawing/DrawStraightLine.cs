@@ -14,73 +14,115 @@ public class DrawStraightLine : MonoBehaviour
 
     public Vector3 endMousePos;
     public List<Vector2> positions;
+    public float windLength;
+    public ResourceBar resourceBar;
+    public PauseMenu pause;
+
+    public float strength;
     void Start()
     {
-        
+        strength = 0.2f;
     }
 
     // Update is called once per frame
-     void Update()
+    void Update()
     {
-        if(Input.GetMouseButtonDown(0)) 
+        if (!PauseMenu.instance.isPaused())
         {
-            CreateLine();
-            startMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            if (Input.GetMouseButtonDown(0))
+            {
+                CreateLine();
+                startMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+            }
+            if (Input.GetMouseButton(0))
+            {
+                mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                windLength = Vector3.Distance(new Vector3(startMousePos.x, startMousePos.y, 0f), new Vector3(mousePos.x, mousePos.y, 0f));
+                if (windLength * ResourceBar.instance.getWindScale() <= ResourceBar.instance.getCurrentResources()) 
+                {
+                    line.SetPosition(0, new Vector3(startMousePos.x, startMousePos.y, 0f));
+                    line.SetPosition(1, new Vector3(mousePos.x, mousePos.y, 0f));
+                } 
+                else
+                {
+                   float ratio = ResourceBar.instance.getCurrentResources() / (ResourceBar.instance.getWindScale() * windLength);
+                   Vector3 vector = Vector3.Scale(new Vector3(mousePos.x, mousePos.y, 0f) - new Vector3(startMousePos.x, startMousePos.y, 0f), new Vector3(ratio, ratio, 0));
+                   Vector3 final = new Vector3(startMousePos.x, startMousePos.y, 0f) + vector;
+                   line.SetPosition(0, new Vector3(startMousePos.x, startMousePos.y, 0f));
+                   line.SetPosition(1, final);
+                }
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                line.material.SetColor("_Color", new Color(1f, 1f, 1f, 1f));
+
+                mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+                windLength = Vector3.Distance(new Vector3(startMousePos.x, startMousePos.y, 0f), new Vector3(mousePos.x, mousePos.y, 0f));
+                if (windLength * ResourceBar.instance.getWindScale() <= ResourceBar.instance.getCurrentResources()) 
+                {
+                    line.SetPosition(0, new Vector3(startMousePos.x, startMousePos.y, 0f));
+                    line.SetPosition(1, new Vector3(mousePos.x, mousePos.y, 0f));
+                } 
+                else
+                {
+                   float ratio = ResourceBar.instance.getCurrentResources() / (ResourceBar.instance.getWindScale() * windLength);
+                   Vector3 vector = Vector3.Scale(new Vector3(mousePos.x, mousePos.y, 0f) - new Vector3(startMousePos.x, startMousePos.y, 0f), new Vector3(ratio, ratio, 0));
+                   Vector3 final = new Vector3(startMousePos.x, startMousePos.y, 0f) + vector;
+                   line.SetPosition(0, new Vector3(startMousePos.x, startMousePos.y, 0f));
+                   line.SetPosition(1, final);
+                }
+
+                windLength = Vector3.Distance(line.GetPosition(0), line.GetPosition(1));
+                //Debug.Log(windLength);
+
+                ResourceBar.instance.windResourceUsage(windLength);
+
+                addColliderToLine();
+
+            }
         }
-        if(Input.GetMouseButton(0))
-        {
-            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            line.SetPosition(0, new Vector3(startMousePos.x, startMousePos.y, 0f));
-            line.SetPosition(1, new Vector3(mousePos.x, mousePos.y, 0f));
-        }
-        if(Input.GetMouseButtonUp(0)) 
-        {
-            
-            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-
-            line.SetPosition(0, new Vector3(startMousePos.x, startMousePos.y, 0f));
-            line.SetPosition(1, new Vector3(mousePos.x, mousePos.y, 0f));
-
-            addColliderToLine();
-
-        }
-
 
     }
 
-    void CreateLine() 
+    void CreateLine()
     {
-        currentLine = Instantiate(WindPrefab, new Vector3(0,0,0), Quaternion.identity);
+        currentLine = Instantiate(WindPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         positions.Clear();
         line = currentLine.GetComponent<LineRenderer>();
-        line.useWorldSpace = true;    
+        line.SetWidth(2f, 2f);
+        line.material.SetColor("_Color", new Color(1f, 1f, 1f, 0.3f));
+
+        line.useWorldSpace = true;
 
     }
 
     void addColliderToLine()
     {
         GameObject wind = new GameObject("WindCollider");
-        wind.AddComponent<WindCurrent>();
+        WindCurrent windcurrent = wind.AddComponent<WindCurrent>();
 
-        BoxCollider2D col = wind.AddComponent<BoxCollider2D> ();
+        windcurrent.force = (mousePos - startMousePos).magnitude * strength;
+
+        BoxCollider2D col = wind.AddComponent<BoxCollider2D>();
+
         col.isTrigger = true;
         col.transform.SetParent(currentLine.GetComponent<LineRenderer>().transform);
-        float lineLength = Vector3.Distance (startMousePos, mousePos); // length of line
-        col.size = new Vector2(lineLength, 0.5f); // size of collider is set where X is length of line, Y is width of line, Z will be set as per requirement
-        Vector3 midPoint = (startMousePos + mousePos)/2;
+        float lineLength = Vector3.Distance(startMousePos, mousePos); // length of line
+        col.size = new Vector2(lineLength, 2f); // size of collider is set where X is length of line, Y is width of line, Z will be set as per requirement
+        Vector3 midPoint = (startMousePos + mousePos) / 2;
         currentLine.transform.position = midPoint;
         col.transform.position = midPoint; // setting position of collider object
         // Following lines calculate the angle between startPos and endPos
-        float angle = (Mathf.Abs (startMousePos.y - mousePos.y) / Mathf.Abs (startMousePos.x - mousePos.x));
-        if((startMousePos.y<mousePos.y && startMousePos.x>mousePos.x) || (mousePos.y<startMousePos.y && mousePos.x>startMousePos.x))
+        float angle = (Mathf.Abs(startMousePos.y - mousePos.y) / Mathf.Abs(startMousePos.x - mousePos.x));
+        if ((startMousePos.y < mousePos.y && startMousePos.x > mousePos.x) || (mousePos.y < startMousePos.y && mousePos.x > startMousePos.x))
         {
-            angle*=-1;
+            angle *= -1;
         }
-        angle = Mathf.Rad2Deg * Mathf.Atan (angle);
+        angle = Mathf.Rad2Deg * Mathf.Atan(angle);
         //print(angle);
-        col.transform.Rotate (0, 0, angle);
+        col.transform.Rotate(0, 0, angle);
 
     }
 }

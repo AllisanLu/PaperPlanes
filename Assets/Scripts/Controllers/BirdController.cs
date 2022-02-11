@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BirdController : EnemyController
 {
+    public float speed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,10 @@ public class BirdController : EnemyController
     void Update()
     {
         
+    }
+
+    // Moves bird to the left at a constant rate
+    public override Vector2 GetMove() {
+        return (Vector2) transform.position + (new Vector2(-1, 0) * speed);
     }
 }

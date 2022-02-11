@@ -20,6 +20,7 @@ public class WindCurrent : MonoBehaviour
     {
         col = GetComponent<BoxCollider>();
         currentLine = GetComponentInParent<LineRenderer>();
+        currentLine.SetWidth(2f,2f);
         position1 = currentLine.GetPosition(0);
         position2 = currentLine.GetPosition(1);
         direction = position2 - position1;
@@ -37,6 +38,10 @@ public class WindCurrent : MonoBehaviour
 
     public void setForce(float force) {
         this.force = force;
+    }
+    public float getForce()
+    {
+        return force;
     }
 
     public void setDirection(Vector2 direction) {

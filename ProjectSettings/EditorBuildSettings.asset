@@ -5,10 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: Assets/Scenes/Testing Scenes/katelynn/StartUI.unity
+    guid: 1cd8bd6d282634fc98d384726e441615
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/boomo.unity
+    path: Assets/Scenes/MainDemo.unity
     guid: 26c7c4c49c1752f4e8b3f7fe4aa95f03
+  - enabled: 0
+    path: Assets/Scenes/Testing Scenes/Resource Bar/ResourceBar.unity
+    guid: 8b0a566544bab7b4b9351b83ad05810c
+  - enabled: 0
+    path: Assets/Scenes/Testing Scenes/Elizabeth/WindText.unity
+    guid: b80971401d9f48f498df74fb8c551f21
+  - enabled: 0
+    path: Assets/Scenes/Testing Scenes/Madison/Demo2.unity
+    guid: 4f274a2a1e1ed3d47a1ca3970e68e850
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 9b3657d7175eab24287c8048b24cf149
   m_configObjects: {}
