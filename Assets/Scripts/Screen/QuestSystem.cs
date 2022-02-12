@@ -17,13 +17,14 @@ public class QuestSystem : MonoBehaviour
     void Start()
     {
         quests = new ArrayList();
-        currentQuest = quests[0];
+        quests.Add("Test");
+        currentQuest = (string) quests[0];
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public string GetCurrentQuest() {
@@ -32,7 +33,7 @@ public class QuestSystem : MonoBehaviour
 
     public void SetCurrentQuest(string quest) {
         quests.Remove(currentQuest);
-        currentQuest = a;
+        currentQuest = quest;
     }
 
     public void AddQuest(string quest) {
