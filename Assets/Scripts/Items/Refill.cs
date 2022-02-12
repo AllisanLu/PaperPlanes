@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Refill : Item
 {
+
+    public int additionalResources =0; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +22,9 @@ public class Refill : Item
     {
         if (other.tag == "Player")
         {
-            print("Refilling...");
+            //adds x resources to the resource bar when touched by player
+            ResourceBar.instance.addResource(additionalResources);
+            Destroy(transform.gameObject);
         }
     }
 }
