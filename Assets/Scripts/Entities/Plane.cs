@@ -7,7 +7,7 @@ public class Plane : Entity
 {
 
 	public PlaneController controller;
-
+	public Animator animator;
 	public Aerodynamic aerodynamics;
 
 
@@ -60,6 +60,7 @@ public class Plane : Entity
 		if (rb.velocity.magnitude > 20) {
 			rb.velocity = rb.velocity.normalized * 20;
 		}
+		animator.SetFloat("speed", rb.velocity.magnitude);
 	}
 
 	// returns the RigidBody for the Plane
