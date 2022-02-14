@@ -1711,6 +1711,7 @@ MonoBehaviour:
   positions: []
   windLength: 0
   resourceBar: {fileID: 0}
+  pause: {fileID: 0}
   strength: 0
 --- !u!114 &1184925033
 MonoBehaviour:
@@ -2700,7 +2701,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 40, y: 11.25}
+  m_Size: {x: 80, y: 22.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
