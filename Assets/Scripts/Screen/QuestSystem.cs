@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class QuestSystem : MonoBehaviour
 {
-    private ArrayList quests;
-    private string currentQuest;
+    private static ArrayList quests;
 
     public static QuestSystem instance;
 
@@ -17,8 +16,11 @@ public class QuestSystem : MonoBehaviour
     void Start()
     {
         quests = new ArrayList();
-        quests.Add("Test");
-        currentQuest = (string) quests[0];
+        // Temporary quests for debugging
+        quests.Add(new Quest("Objective 1", true, false, new ArrayList()));
+        quests.Add(new Quest("Objective 2", false, false, new ArrayList()));
+        quests.Add(new Quest("Objective 3", true, false, new ArrayList()));
+        quests.Add(new Quest("Objective 4", true, false, new ArrayList()));
     }
 
     // Update is called once per frame
@@ -27,20 +29,26 @@ public class QuestSystem : MonoBehaviour
 
     }
 
-    public string GetCurrentQuest() {
-        return currentQuest;
+    public static ArrayList GetCurrentQuests() {
+        // Loop through quests to find current quests
+        ArrayList currents = new ArrayList();
+        foreach (Quest q in quests) {
+            if (q.current) {
+                currents.Add(q);
+            }
+        }
+        return currents;
     }
 
-    public void SetCurrentQuest(string quest) {
-        quests.Remove(currentQuest);
-        currentQuest = quest;
+    public static void SetCurrentQuest(Quest quest) {
+        quest.UpdateCurrent(true);
     }
 
-    public void AddQuest(string quest) {
+    public static void AddQuest(Quest quest) {
         quests.Add(quest);
     }
 
-    public void RemoveQuest(string quest) {
+    public static void RemoveQuest(Quest quest) {
         quests.Remove(quest);
     }
 }

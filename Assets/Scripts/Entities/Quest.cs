@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Quest : MonoBehaviour
 {
-    string QuestDescription;
-    bool current;
-    bool completed;
-    ArrayList dialogue;
+    public string QuestDescription;
+    public bool current;
+    public bool completed;
+    public ArrayList dialogue;
     // Start is called before the first frame update
     void Start()
     {
