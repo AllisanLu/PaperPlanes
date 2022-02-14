@@ -93,6 +93,11 @@ public class Plane : Entity
 			//       better playability
 			die();
 		}
+		if (other.collider.gameObject.CompareTag("Platform"))
+		{
+			rb.velocity = new Vector2(0, 0);
+			Debug.Log("Plane velocity set to 0");
+		}
 	}
 
 }

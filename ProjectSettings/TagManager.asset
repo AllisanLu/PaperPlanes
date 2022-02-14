@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tree
   - Water
+  - Platform
   layers:
   - Default
   - TransparentFX
