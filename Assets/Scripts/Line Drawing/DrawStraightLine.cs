@@ -25,9 +25,6 @@ public class DrawStraightLine : MonoBehaviour
         if (strength == 0) {
             strength = 0.2f;
         }
-        if (baseValue == 0) {
-            baseValue = 0.10f;
-        }
     }
 
     // Update is called once per frame
