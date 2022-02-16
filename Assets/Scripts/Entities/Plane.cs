@@ -31,8 +31,8 @@ public class Plane : Entity
 		// else if too high push back down
 		if (transform.position.y < 0) {
 			die();
-		} else if (transform.position.y > 22) {
-			rb.AddForce(new Vector2(0, -5));
+		} else if (transform.position.y > 15) {
+			rb.AddForce(new Vector2(1, -4));
 
 			if (rb.rotation > 35) {
 				rb.rotation -= 2;
