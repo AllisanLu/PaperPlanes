@@ -83,6 +83,7 @@ public class DrawStraightLine : MonoBehaviour
                 ResourceBar.instance.windResourceUsage(windLength);
 
                 addColliderToLine();
+                line.SetWidth(0.5f, 0.5f);
 
             }
         }
@@ -94,7 +95,6 @@ public class DrawStraightLine : MonoBehaviour
         currentLine = Instantiate(WindPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         positions.Clear();
         line = currentLine.GetComponent<LineRenderer>();
-        line.SetWidth(2f, 2f);
         line.material.SetColor("_Color", new Color(1f, 1f, 1f, 0.3f));
 
         line.useWorldSpace = true;
