@@ -83,7 +83,7 @@ public class DrawStraightLine : MonoBehaviour
                 ResourceBar.instance.windResourceUsage(windLength);
 
                 addColliderToLine();
-                line.SetWidth(0.5f, 0.5f);
+                // line.SetWidth(0.5f, 0.5f);
 
             }
         }
