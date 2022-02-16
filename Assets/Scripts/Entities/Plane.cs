@@ -7,8 +7,9 @@ public class Plane : Entity
 {
 
 	public PlaneController controller;
-
+	public Animator animator;
 	public Aerodynamic aerodynamics;
+	private bool onPlatform = false;
 
 
     // Use this for initialization
@@ -47,36 +48,41 @@ public class Plane : Entity
 			print("angular: " + rb.angularVelocity);
 		}
 
-        // Body frame velocity
-		aerodynamics.bodyVelocity = transform.InverseTransformVector(rb.velocity);
+		if (!onPlatform)
+		{
+			// Body frame velocity
+			aerodynamics.bodyVelocity = transform.InverseTransformVector(rb.velocity);
 
-        // Angle of attack
-		aerodynamics.alpha = Mathf.Atan2(-aerodynamics.bodyVelocity.y, aerodynamics.bodyVelocity.x);
+			// Angle of attack
+			aerodynamics.alpha = Mathf.Atan2(-aerodynamics.bodyVelocity.y, aerodynamics.bodyVelocity.x);
 
-        // Aerodynamic force
-        Vector2 force = aerodynamics.aeroForce();
-		rb.AddForce(force);
+			// Aerodynamic force
+			Vector2 force = aerodynamics.aeroForce();
+			rb.AddForce(force);
 
-		// Get torque from controller
-		float pitchCommand = controller.GetAction();
+			// Get torque from controller
+			float pitchCommand = controller.GetAction();
 
-		rb.AddTorque(pitchCommand * aerodynamics.controlStrength * aerodynamics.bodyVelocity.sqrMagnitude);
+			rb.AddTorque(pitchCommand * aerodynamics.controlStrength * aerodynamics.bodyVelocity.sqrMagnitude);
 
-        // Stability torque
-		rb.AddTorque(-aerodynamics.alpha * aerodynamics.stability * aerodynamics.bodyVelocity.sqrMagnitude);
+			// Stability torque
+			rb.AddTorque(-aerodynamics.alpha * aerodynamics.stability * aerodynamics.bodyVelocity.sqrMagnitude);
 
-        // Damping torque
-		rb.AddTorque(-aerodynamics.damping * rb.angularVelocity * Mathf.Deg2Rad);
+			// Damping torque
+			rb.AddTorque(-aerodynamics.damping * rb.angularVelocity * Mathf.Deg2Rad);
 
-		// Adjusts plane aerodynamic force based off wind contact
-		rb.AddForce(windForce);
+			// Adjusts plane aerodynamic force based off wind contact
+			rb.AddForce(windForce);
+
+			if (rb.velocity.magnitude > 20)
+			{
+				rb.velocity = rb.velocity.normalized * 20;
+			}
+			animator.SetFloat("speed", rb.velocity.magnitude);
+		}
 
 		// Brings force back to original aerodynamic force after being affected by the wind
 		windForceDecay();
-
-		if (rb.velocity.magnitude > 20) {
-			rb.velocity = rb.velocity.normalized * 20;
-		}
 	}
 
 	// returns the RigidBody for the Plane
@@ -108,6 +114,11 @@ public class Plane : Entity
 			// TODO: Add an animation after collision before respawn for 
 			//       better playability
 			die();
+		}
+		if (other.collider.gameObject.CompareTag("Platform"))
+		{
+			rb.velocity = new Vector2(0, 0);
+			onPlatform = true;
 		}
 	}
 

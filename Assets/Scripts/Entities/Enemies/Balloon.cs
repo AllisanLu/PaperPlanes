@@ -32,7 +32,6 @@ public class Balloon : Enemy
             Plane plane = other.collider.GetComponent<Plane>();
             Vector2 displacement = plane.transform.position - this.transform.position;
             Vector2 balloonForce = -(displacement.normalized) * 250;
-            print(balloonForce.magnitude);
             plane.getRigidBody().AddForce(balloonForce);
 
             //balloon pop animation
