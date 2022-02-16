@@ -27,9 +27,25 @@ public class Plane : Entity
 
 		Camera cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 		
-		//if the plane is below the screen it dies
+		// if the plane is below the screen it dies
+		// else if too high push back down
 		if (transform.position.y < 0) {
 			die();
+		} else if (transform.position.y > 22) {
+			rb.AddForce(new Vector2(0, -5));
+
+			if (rb.rotation > 35) {
+				rb.rotation -= 2;
+			} else if (rb.rotation < -70) {
+				rb.rotation += 6;
+			}
+
+			if (rb.angularVelocity < -60) {
+				rb.angularVelocity += 2;
+			}
+			print("y: " + transform.position.y);
+			print("rotation: " + rb.rotation);
+			print("angular: " + rb.angularVelocity);
 		}
 
 		if (!onPlatform)
