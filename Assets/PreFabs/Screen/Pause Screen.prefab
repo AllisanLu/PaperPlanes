@@ -697,6 +697,7 @@ GameObject:
   - component: {fileID: 2977036143542971517}
   - component: {fileID: 2977036143542971515}
   - component: {fileID: 2977036143542971516}
+  - component: {fileID: 7149933611652597276}
   m_Layer: 5
   m_Name: Pause Screen
   m_TagString: Untagged
@@ -790,3 +791,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 2977036143542971518}
   canvasGroup: {fileID: 0}
+--- !u!114 &7149933611652597276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2977036143542971518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 687996826
+      Data2: 1154189910
+      Data3: -1447215228
+      Data4: 710638876
+    Path: event:/Wind
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
