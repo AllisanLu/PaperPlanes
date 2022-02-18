@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8352408524884439462}
   - component: {fileID: 8352408524884439463}
+  - component: {fileID: 574428138443355566}
   m_Layer: 0
   m_Name: WindTextureTest
   m_TagString: Untagged
@@ -129,3 +130,23 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &574428138443355566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8352408524884439456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a40643aeac401448b348a29927ee897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textures:
+  - {fileID: 2800000, guid: 3f23f9971d55a92458491454f76ee10d, type: 3}
+  - {fileID: 2800000, guid: 899b495896345d144b06fe7be1bbbdf8, type: 3}
+  - {fileID: 2800000, guid: 7f8a5315ea2ca1640a3acf7371c0725a, type: 3}
+  - {fileID: 2800000, guid: 66669432adf58f54ba729a12ee71dff8, type: 3}
+  - {fileID: 2800000, guid: cc3c49f11fbdac04790bd071a6093e79, type: 3}
+  - {fileID: 2800000, guid: 9746ca50f169a3f419a509345ed7cc57, type: 3}
+  - {fileID: 2800000, guid: 85ef2445c63cb994390ebbd01ed729ee, type: 3}
