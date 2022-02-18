@@ -33,6 +33,7 @@ public class Shield : MonoBehaviour
             print("shield hit");
             //make shield child class of parent class
             shield.transform.parent = other.transform;
+            shield.transform.localPosition = new Vector3(0, 0, 0);
             
         }
     }
@@ -41,11 +42,11 @@ public class Shield : MonoBehaviour
     {
         get 
         {
-            return isActive;
+            return IsActive;
         }
         set 
         {
-            isActive = value;
+            IsActive = value;
         }
     }
 }
