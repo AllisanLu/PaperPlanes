@@ -734,7 +734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a9f4c8db6b14c7478c785f76fe3bd97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WindPrefab: {fileID: 8352408524884439456, guid: c61ee06993c2d8e459972ac1653d6725, type: 3}
+  WindPrefab: {fileID: 8352408524884439456, guid: b2521649c520ab442ac768517eeef917, type: 3}
   currentLine: {fileID: 0}
   line: {fileID: 0}
   boxCollider: {fileID: 0}
