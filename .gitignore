@@ -10,6 +10,14 @@
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 
+# FMOD Editor Generated Files
+!/[Aa]ssets/FMODStudioCache.asset
+!/[Aa]ssets/FMODStudioCache.asset.meta
+Fmod.log
+Fmod_editor.log
+!/[Aa]ssets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
+!/[Aa]ssets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset.meta
+
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/
