@@ -23,7 +23,7 @@ public class Rain : Enemy
 
         if (other.gameObject.CompareTag("Player"))
         {
-            ResourceBar.instance.collision(damage);
+            other.GetComponent<Plane>().takeDamage(damage);
         }
         
     }

@@ -103,6 +103,19 @@ public class Plane : Entity
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
+	public void takeDamage(int damage)
+    {
+		if (!(shield != null && !shield.IsActive()))
+		{
+			ResourceBar.instance.collision(damage);
+		} else
+        {
+			shield.setIsActive(false);
+			GameObject.Destroy(shield.gameObject);
+			shield = null;
+		}
+	}
+
 	// Add collider for plane usually collision with obstacles to play death animations
 	public void OnCollisionEnter2D(Collision2D other) 
 	{
@@ -117,8 +130,6 @@ public class Plane : Entity
 			//Object reference not set to an instance of an object
 			if (shield != null && shield.IsActive())
 			{
-				print("hit something while shield is active");
-				print("remove shield power");
 
 				shield.setIsActive(false);
 				GameObject.Destroy(shield.gameObject);
