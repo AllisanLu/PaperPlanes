@@ -10,6 +10,8 @@ public class Plane : Entity
 	public Animator animator;
 	public Aerodynamic aerodynamics;
 
+	public Shield shield;
+	public bool IsActive;
 
     // Use this for initialization
     void Start 	() {
@@ -19,6 +21,13 @@ public class Plane : Entity
 		rb = GetComponent<Rigidbody2D>();
 		rb.inertia = aerodynamics.inertia;
 		rb.velocity = new Vector2(4, 1);
+
+		Shield shield = new Shield();
+
+
+
+
+		
 	}
 
 	// Called once per frame
@@ -78,21 +87,43 @@ public class Plane : Entity
 	// Add collider for plane usually collision with obstacles to play death animations
 	public void OnCollisionEnter2D(Collision2D other) 
 	{
-		// Check if collision is with Tree object
-		if (other.collider.gameObject.CompareTag("Tree"))
-		{
-			// Call death method to respawn
-			// TODO: Add an animation after collision before respawn for 
-			//       better playability
-			die();
+		//Check if collision is with Shield object
+		//if it is, protect plane once
+
+		print(shield.IsActive);
+
+		//Object reference not set to an instance of an object
+		if (shield.IsActive)
+		{ 
+			print("hit something while shield is not active");
+
+			
+
+			// Check if collision is with Tree object
+			if (other.collider.gameObject.CompareTag("Tree"))
+			{
+				// Call death method to respawn
+				// TODO: Add an animation after collision before respawn for 
+				//       better playability
+				die();
+			}
+			if (other.collider.gameObject.CompareTag("Water"))
+			{
+				// Call death method to respawn
+				// TODO: Add an animation after collision before respawn for 
+				//       better playability
+				die();
+			}
 		}
-		if (other.collider.gameObject.CompareTag("Water"))
+		else 
 		{
-			// Call death method to respawn
-			// TODO: Add an animation after collision before respawn for 
-			//       better playability
-			die();
+			print("hit something while shield is active");
+			print("remove shield power");
+			shield.IsActive = false;
 		}
+
+	}
 	}
 
-}
+
+
