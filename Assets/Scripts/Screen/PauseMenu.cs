@@ -11,6 +11,9 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
 
     public static PauseMenu instance;
+    FMOD.Studio.EventInstance PauseSong;
+    FMOD.Studio.Bus MasterBus;
+
 
     private void Awake()
     {
@@ -18,17 +21,28 @@ public class PauseMenu : MonoBehaviour
     }
     void Start() {
        canvasGroup = pauseMenuUI.GetComponent<CanvasGroup>();
+       PauseSong = FMODUnity.RuntimeManager.CreateInstance("event:/Pause");
+
         Hide();
     }
     
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
            // Debug.Log("Esc Pressed!");
             if (GameIsPaused) {
+                //MasterBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+
+                PauseSong.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                PauseSong.release();
+
                 Resume();
             } else {
+                PauseSong = FMODUnity.RuntimeManager.CreateInstance("event:/Pause");
+                PauseSong.start();
+                //FMODUnity.RuntimeManager.PlayOneShot("event:/Pause");
                 Pause();
             }
         }
