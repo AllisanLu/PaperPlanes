@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 public class ResourceBar : MonoBehaviour 
 {
+    private static float maxResources = 60;
     private static float currentResources;
     private static float regenerationSpeed;
     private static float windScale;
