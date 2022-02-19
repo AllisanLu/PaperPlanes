@@ -1753,6 +1753,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1375403659}
   - component: {fileID: 1375403660}
+  - component: {fileID: 1375403661}
   m_Layer: 0
   m_Name: Checkpoint
   m_TagString: Untagged
@@ -1768,7 +1769,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375403658}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 72.70099, y: 6.1912627, z: -10.196523}
+  m_LocalPosition: {x: 64.94, y: 6.1912627, z: -10.196523}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1440984970}
@@ -1787,7 +1788,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 2.791349}
+  m_Offset: {x: 1.3707962, y: 8.030134}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1798,8 +1799,20 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 23.677032}
+  m_Size: {x: 3.7415924, y: 52.047153}
   m_EdgeRadius: 0
+--- !u!114 &1375403661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375403658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe58e2eaf459fca4b9e84c5a9def4135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1440984969
 GameObject:
   m_ObjectHideFlags: 0
