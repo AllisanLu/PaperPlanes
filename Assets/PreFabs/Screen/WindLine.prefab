@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8352408524884439462}
   - component: {fileID: 8352408524884439463}
+  - component: {fileID: 7836032637427401921}
+  - component: {fileID: 5775100922507601126}
   m_Layer: 0
   m_Name: WindLine
   m_TagString: Untagged
@@ -50,7 +52,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0c3157f37a3fd6b418e058d08c88e5ff, type: 2}
+  - {fileID: 2100000, guid: 88b4845405f90048188689eac84c4c68, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76,7 +78,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.5
+    widthMultiplier: 2
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -129,3 +131,57 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &7836032637427401921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8352408524884439456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a40643aeac401448b348a29927ee897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textures:
+  - {fileID: 2800000, guid: 3f23f9971d55a92458491454f76ee10d, type: 3}
+  - {fileID: 2800000, guid: 899b495896345d144b06fe7be1bbbdf8, type: 3}
+  - {fileID: 2800000, guid: 7f8a5315ea2ca1640a3acf7371c0725a, type: 3}
+  - {fileID: 2800000, guid: 66669432adf58f54ba729a12ee71dff8, type: 3}
+  - {fileID: 2800000, guid: cc3c49f11fbdac04790bd071a6093e79, type: 3}
+  - {fileID: 2800000, guid: 9746ca50f169a3f419a509345ed7cc57, type: 3}
+  - {fileID: 2800000, guid: 85ef2445c63cb994390ebbd01ed729ee, type: 3}
+  - {fileID: 2800000, guid: 8a31bc098c8ccc04ca11adc3a36f9ed6, type: 3}
+  - {fileID: 2800000, guid: 0b39d2505cabc6346a2e30f310e99c2b, type: 3}
+  - {fileID: 2800000, guid: 8d799c8593021f543b9395084042ee88, type: 3}
+  - {fileID: 2800000, guid: 3d1fde872efe0eb4e940a06348306b77, type: 3}
+--- !u!114 &5775100922507601126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8352408524884439456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 687996826
+      Data2: 1154189910
+      Data3: -1447215228
+      Data4: 710638876
+    Path: event:/Wind
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

@@ -25,9 +25,7 @@ public class Cloud : Enemy
         if (other.gameObject.CompareTag("Player"))
         {
             rb = other.gameObject.GetComponent<Rigidbody2D>();
-           // print(rb.velocity);
             rb.velocity = Vector2.Scale(new Vector2(speedup, speedup), rb.velocity);
-            // print(rb.velocity);
             Destroy(transform.parent.gameObject);
         }
         
