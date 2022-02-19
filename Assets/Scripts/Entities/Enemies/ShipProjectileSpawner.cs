@@ -2,14 +2,15 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class CannonballSpawner : MonoBehaviour 
+public class ShipProjectileSpawner : MonoBehaviour 
 {
     // Create enum for spawning different objects
-    enum firedObjects {NOTHING = 0, CANNONBALL, JAVLIN};
+    public enum firedObjects {NOTHING = 0, CANNONBALL, JAVLIN};
 
     public GameObject cannonball;
+    public GameObject javlin;
     public int fireDelay;
-    public int[][] firePattern;
+    public List<firedObjects[]> firePattern;
 
     // public boolean setRandomFire;
 
@@ -22,11 +23,13 @@ public class CannonballSpawner : MonoBehaviour
 
         // Debugging firing pattern
         // Firing pattern mapping: firedObjects[5 items][number of waves]
-        firedObjects[] wave1 = {firedObjects.CANNONBALL, firedObjects.NOTHING, firedObjects.NOTHING, firedObjects.CANNONBALL, firedObjects.CANNONBALL};
-        firedObjects[] wave2 = {firedObjects.JAVLIN, firedObjects.JAVLIN, firedObjects.CANNONBALL, firedObjects.CANNONBALL, firedObjects.CANNONBALL};
-        List<firedObjects[]> objects = new List<firedObjects[]>() {wave1, wave2};
+        firedObjects[] wave1 = {0, 0, 0, (firedObjects) 1, (firedObjects) 1};
+        firedObjects[] wave2 = {(firedObjects) 2, (firedObjects) 2, (firedObjects) 1, (firedObjects) 1, (firedObjects) 1};
+        firedObjects[] wave3 = {0, 0, 0, (firedObjects) 2, (firedObjects) 2};
+        firedObjects[] wave4 = {0, 0, 0, (firedObjects) 1, (firedObjects) 2};
+        firePattern = new List<firedObjects[]>() {wave1, wave2, wave3, wave4};
 
-        StartCoroutine(startSpawning(objects));
+        StartCoroutine(startSpawning(firePattern));
 
     }
 
@@ -48,7 +51,7 @@ public class CannonballSpawner : MonoBehaviour
                     Instantiate(cannonball, spawnLocation, Quaternion.identity, transform);
                     break;
                 case firedObjects.JAVLIN: 
-                    Debug.Log("Threw a javlin");
+                    Instantiate(javlin, spawnLocation, Quaternion.identity, transform);
                     break;
             }
         }
