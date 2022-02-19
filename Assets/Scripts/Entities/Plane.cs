@@ -7,8 +7,9 @@ public class Plane : Entity
 {
 
 	public PlaneController controller;
-
+	public Animator animator;
 	public Aerodynamic aerodynamics;
+	private bool onPlatform = false;
 
 	public Shield shield;
 	public bool IsActive;
@@ -35,40 +36,62 @@ public class Plane : Entity
 
 		Camera cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 		
-		//if the plane is below the screen it dies
+		// if the plane is below the screen it dies
+		// else if too high push back down
 		if (transform.position.y < 0) {
 			die();
+		} else if (transform.position.y > 15) {
+			rb.AddForce(new Vector2(1, -4));
+
+			if (rb.rotation > 35) {
+				rb.rotation -= 2;
+			} else if (rb.rotation < -70) {
+				rb.rotation += 6;
+			}
+
+			if (rb.angularVelocity < -60) {
+				rb.angularVelocity += 2;
+			}
+			print("y: " + transform.position.y);
+			print("rotation: " + rb.rotation);
+			print("angular: " + rb.angularVelocity);
 		}
-        // Body frame velocity
-		aerodynamics.bodyVelocity = transform.InverseTransformVector(rb.velocity);
 
-        // Angle of attack
-		aerodynamics.alpha = Mathf.Atan2(-aerodynamics.bodyVelocity.y, aerodynamics.bodyVelocity.x);
+		if (!onPlatform)
+		{
+			// Body frame velocity
+			aerodynamics.bodyVelocity = transform.InverseTransformVector(rb.velocity);
 
-        // Aerodynamic force
-        Vector2 force = aerodynamics.aeroForce();
-		rb.AddForce(force);
+			// Angle of attack
+			aerodynamics.alpha = Mathf.Atan2(-aerodynamics.bodyVelocity.y, aerodynamics.bodyVelocity.x);
 
-		// Get torque from controller
-		float pitchCommand = controller.GetAction();
+			// Aerodynamic force
+			Vector2 force = aerodynamics.aeroForce();
+			rb.AddForce(force);
 
-		rb.AddTorque(pitchCommand * aerodynamics.controlStrength * aerodynamics.bodyVelocity.sqrMagnitude);
+			// Get torque from controller
+			float pitchCommand = controller.GetAction();
 
-        // Stability torque
-		rb.AddTorque(-aerodynamics.alpha * aerodynamics.stability * aerodynamics.bodyVelocity.sqrMagnitude);
+			rb.AddTorque(pitchCommand * aerodynamics.controlStrength * aerodynamics.bodyVelocity.sqrMagnitude);
 
-        // Damping torque
-		rb.AddTorque(-aerodynamics.damping * rb.angularVelocity * Mathf.Deg2Rad);
+			// Stability torque
+			rb.AddTorque(-aerodynamics.alpha * aerodynamics.stability * aerodynamics.bodyVelocity.sqrMagnitude);
 
-		// Adjusts plane aerodynamic force based off wind contact
-		rb.AddForce(windForce);
+			// Damping torque
+			rb.AddTorque(-aerodynamics.damping * rb.angularVelocity * Mathf.Deg2Rad);
+
+			// Adjusts plane aerodynamic force based off wind contact
+			rb.AddForce(windForce);
+
+			if (rb.velocity.magnitude > 20)
+			{
+				rb.velocity = rb.velocity.normalized * 20;
+			}
+			animator.SetFloat("speed", rb.velocity.magnitude);
+		}
 
 		// Brings force back to original aerodynamic force after being affected by the wind
 		windForceDecay();
-
-		if (rb.velocity.magnitude > 20) {
-			rb.velocity = rb.velocity.normalized * 20;
-		}
 	}
 
 	// returns the RigidBody for the Plane
@@ -120,7 +143,11 @@ public class Plane : Entity
 			print("remove shield power");
 			shield.IsActive = false;
 		}
-
+		if (other.collider.gameObject.CompareTag("Platform"))
+		{
+			rb.velocity = new Vector2(0, 0);
+			onPlatform = true;
+		}
 	}
 	}
 
