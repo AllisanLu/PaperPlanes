@@ -34,20 +34,19 @@ public class Shield : MonoBehaviour
             //make shield child class of parent class
             shield.transform.parent = other.transform;
             shield.transform.localPosition = new Vector3(0, 0, 0);
-            
+
+            Plane plane = other.GetComponent<Plane>();
+            plane.setShield(this);
         }
     }
 
-    public bool IsActive
+   public bool IsActive()
     {
-        get 
-        {
-            return IsActive;
-        }
-        set 
-        {
-            IsActive = value;
-        }
+        return isActive;
+    }
+    public void setIsActive(bool active)
+    {
+        this.isActive = active;
     }
 }
 
