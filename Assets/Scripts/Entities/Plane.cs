@@ -130,7 +130,6 @@ public class Plane : Entity
 			//Object reference not set to an instance of an object
 			if (shield != null && shield.IsActive())
 			{
-
 				shield.setIsActive(false);
 				GameObject.Destroy(shield.gameObject);
 				shield = null;
