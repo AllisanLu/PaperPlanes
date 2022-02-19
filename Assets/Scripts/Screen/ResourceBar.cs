@@ -6,7 +6,6 @@ using System.Collections.Generic;
 
 public class ResourceBar : MonoBehaviour 
 {
-    private static float maxResources = 100;
     private static float currentResources;
     private static float regenerationSpeed;
     private static float windScale;
@@ -25,9 +24,9 @@ public class ResourceBar : MonoBehaviour
         currentResources = maxResources;
         resourceBar.maxValue = maxResources;
         resourceBar.value = maxResources;
-        regenerationSpeed = 3f;
+        regenerationSpeed = 1.5f;
 
-        windScale = 0.5f;
+        windScale = 0.3f;
         
         // run void regeneration() every 1s after 1s delay
         InvokeRepeating("regeneration", 1f, 1f);
