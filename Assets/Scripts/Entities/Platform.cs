@@ -35,7 +35,6 @@ public class Platform : Entity
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Entered platform region");
             instance.GetComponent<Renderer>().enabled = true;
         }
     }
@@ -43,7 +42,6 @@ public class Platform : Entity
     void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Landed on platform");
             // cutscene
         }
     }

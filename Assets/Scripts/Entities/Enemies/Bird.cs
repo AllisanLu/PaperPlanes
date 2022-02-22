@@ -30,7 +30,7 @@ public class Bird : Enemy
 
         if (other.gameObject.CompareTag("Player"))
         {
-            ResourceBar.instance.collision(damage);
+            other.collider.GetComponent<Plane>().takeDamage(damage);
         }
 
     }
