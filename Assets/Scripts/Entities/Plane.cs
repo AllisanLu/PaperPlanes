@@ -10,7 +10,6 @@ public class Plane : Entity
 	public Animator animator;
 	public Aerodynamic aerodynamics;
 	private bool onPlatform = false;
-
 	public Shield shield;
 	public bool IsActive;
 
@@ -21,6 +20,8 @@ public class Plane : Entity
 
     // Use this for initialization
     void Start 	() {
+			this.gameObject.transform.position = CheckpointManager.planePosition;
+			this.gameObject.transform.rotation = CheckpointManager.planeRotation;
         controller = this.GetComponent<PlaneController>();
 		aerodynamics = this.GetComponent<Aerodynamic>();
 
