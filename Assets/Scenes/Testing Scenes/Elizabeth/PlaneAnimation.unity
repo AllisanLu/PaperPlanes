@@ -631,6 +631,7 @@ MonoBehaviour:
   resourceBar: {fileID: 0}
   pause: {fileID: 0}
   strength: 0.2
+  baseValue: 0
 --- !u!114 &1000189493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1159,8 +1160,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: raincloud
       objectReference: {fileID: 0}
+    - target: {fileID: 8832320806322198633, guid: a04372ec3cd4a3d4eab1e20b31aad949, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 7.544386
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832320806322198633, guid: a04372ec3cd4a3d4eab1e20b31aad949, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 7.544386
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832320806322198633, guid: a04372ec3cd4a3d4eab1e20b31aad949, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 7.544386
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832320806322198633, guid: a04372ec3cd4a3d4eab1e20b31aad949, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832320806322198633, guid: a04372ec3cd4a3d4eab1e20b31aad949, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.19
+      objectReference: {fileID: 0}
     - target: {fileID: 8832320806815699732, guid: a04372ec3cd4a3d4eab1e20b31aad949, type: 3}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832320806815699732, guid: a04372ec3cd4a3d4eab1e20b31aad949, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832320806815699732, guid: a04372ec3cd4a3d4eab1e20b31aad949, type: 3}
+      propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8832320806815699732, guid: a04372ec3cd4a3d4eab1e20b31aad949, type: 3}
