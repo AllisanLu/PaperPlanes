@@ -4830,7 +4830,7 @@ Transform:
   m_GameObject: {fileID: 8832320805850911563}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 10.77, y: 15.73, z: 0}
-  m_LocalScale: {x: 8.90891, y: 9.658609, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8832320806851830351}
   - {fileID: 8832320806322198633}
@@ -4974,6 +4974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   behaviorController: {fileID: 0}
+  animator: {fileID: 0}
   speedup: 4
   cloud: {fileID: 0}
   anim: {fileID: 3875677090935988338}
@@ -5069,4 +5070,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   behaviorController: {fileID: 0}
+  animator: {fileID: 0}
   anim: {fileID: 3875677090935988338}
