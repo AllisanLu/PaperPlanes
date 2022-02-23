@@ -26,9 +26,8 @@ public class WaterSprout : Obstacle
             if (wind.getForce() > 2)
             {
                 anim.SetBool("dying", true);
-
                 //Play animation before destroying object
-                Destroy(this.gameObject, 0.6f);
+                Destroy(this.gameObject, 0.40f);
             }
         }
     }
