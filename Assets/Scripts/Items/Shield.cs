@@ -29,6 +29,7 @@ public class Shield : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            print("hit squall");
             isActive = true; 
             //make shield child class of parent class
             shield.transform.parent = other.transform;
