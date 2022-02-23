@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class WaterSprout : Obstacle
 {
+
     public Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
+        Physics2D.IgnoreLayerCollision(6, 7, true);
         anim.SetBool("dying", false);
     }
 
@@ -23,8 +26,9 @@ public class WaterSprout : Obstacle
             if (wind.getForce() > 2)
             {
                 anim.SetBool("dying", true);
+
                 //Play animation before destroying object
-                Destroy(this.gameObject, 0.5f);
+                Destroy(this.gameObject, 0.6f);
             }
         }
     }

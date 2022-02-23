@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1334260372526676190}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WaterSprout
   m_TagString: Water
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1434112597366447959}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.890127, y: 6.002842, z: -1.3338611}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.11, y: 1.11, z: 1}
   m_Children:
   - {fileID: 6388398364635194996}
   - {fileID: 4396449108159868426}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 5044995837928596707}
   - component: {fileID: 4756817979541236679}
   - component: {fileID: 8553403542771092797}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WaterSproutMiddle
   m_TagString: Water
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 5891820544484008749}
   - component: {fileID: 6588049628744699155}
   - component: {fileID: 4738305334978171624}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WaterSproutBottom
   m_TagString: Water
   m_Icon: {fileID: 0}
@@ -377,7 +377,7 @@ GameObject:
   - component: {fileID: 7453134679612658562}
   - component: {fileID: 7243461813043245323}
   - component: {fileID: 3006806771089488160}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WaterSproutTop
   m_TagString: Water
   m_Icon: {fileID: 0}
