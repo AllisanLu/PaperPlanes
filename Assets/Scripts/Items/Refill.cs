@@ -5,7 +5,7 @@ using UnityEngine;
 public class Refill : Item
 {
     public Animator animator;
-    public int additionalResources =0;
+    public int additionalResources = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +25,7 @@ public class Refill : Item
             //adds x resources to the resource bar when touched by player
             ResourceBar.instance.addResource(additionalResources);
             animator.SetBool("Dying", true);
-            Destroy(transform.gameObject, 0.6f);
+            Destroy(transform.gameObject, 0.5f);
         }
     }
 }

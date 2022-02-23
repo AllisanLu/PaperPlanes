@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: refilldeath.anim.anim
+  m_Name: refilldeath
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,18 +20,16 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -6475541938694456319, guid: bbb31c22ad73c4a70ab689361a85d801, type: 3}
-    - time: 0.083333336
       value: {fileID: -1465041662216398222, guid: bbb31c22ad73c4a70ab689361a85d801, type: 3}
-    - time: 0.16666667
+    - time: 0.083333336
       value: {fileID: 2711056362991276576, guid: bbb31c22ad73c4a70ab689361a85d801, type: 3}
-    - time: 0.25
+    - time: 0.16666667
       value: {fileID: 154868728000454592, guid: bbb31c22ad73c4a70ab689361a85d801, type: 3}
-    - time: 0.33333334
+    - time: 0.25
       value: {fileID: 7813656121649777971, guid: bbb31c22ad73c4a70ab689361a85d801, type: 3}
-    - time: 0.41666666
+    - time: 0.33333334
       value: {fileID: 2737023221412366454, guid: bbb31c22ad73c4a70ab689361a85d801, type: 3}
-    - time: 0.5
+    - time: 0.41666666
       value: {fileID: 6682414206616861984, guid: bbb31c22ad73c4a70ab689361a85d801, type: 3}
     attribute: m_Sprite
     path: 
@@ -52,7 +50,6 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -6475541938694456319, guid: bbb31c22ad73c4a70ab689361a85d801, type: 3}
     - {fileID: -1465041662216398222, guid: bbb31c22ad73c4a70ab689361a85d801, type: 3}
     - {fileID: 2711056362991276576, guid: bbb31c22ad73c4a70ab689361a85d801, type: 3}
     - {fileID: 154868728000454592, guid: bbb31c22ad73c4a70ab689361a85d801, type: 3}
@@ -64,7 +61,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5833333
+    m_StopTime: 0.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
