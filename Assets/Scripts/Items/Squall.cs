@@ -22,7 +22,7 @@ public class Squall : Item
     {
         if (other.tag == "Player")
         {
-            ResourceBar.instance.setSquallActive();
+            ResourceBar.instance.getSquall().setSquallActive();
             Destroy(transform.gameObject);
         
         }

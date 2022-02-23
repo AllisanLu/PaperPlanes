@@ -24,7 +24,7 @@ public class WindCurrent : MonoBehaviour
         position1 = currentLine.GetPosition(0);
         position2 = currentLine.GetPosition(1);
         direction = position2 - position1;
-        ResourceBar.instance.useSquall();
+        ResourceBar.instance.getSquall().useSquall();
     }
 
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class WindCurrent : MonoBehaviour
     //if squall is active, multiply force by 2
     public Vector2 getWindForce() {
         
-        if (ResourceBar.instance.getSquallActive()) {
+        if (ResourceBar.instance.getSquall().getSquallActive()) {
             return direction.normalized * (force * 2);
         }
     

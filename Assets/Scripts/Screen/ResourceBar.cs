@@ -11,13 +11,11 @@ public class ResourceBar : MonoBehaviour
     private static float regenerationSpeed;
     private static float windScale;
 
-    private static int squall;
-    private static bool squallActive;
-    private static int squallItems;
-
     public Slider resourceBar;
 
     public static ResourceBar instance;
+
+    private SquallUI squallUI;
 
     private void Awake() 
     {
@@ -68,23 +66,9 @@ public class ResourceBar : MonoBehaviour
         resourceBar.value = currentResources;
     }
 
-    public void useSquall(){
-            if (squall > 0) {
-                squall -= 1;
-            }
-        }
-
-    //sets squall capacity
-    public void setSquallActive() {
-        squallActive = true;
-        squall = 3;
-    }
-
-    public bool getSquallActive() {
-        if (squall == 0) {
-            squallActive = false;
-        }
-        return squallActive;
+    public SquallUI getSquall()
+    {
+        return squallUI;
     }
 
     // get current amount of resources
