@@ -24,6 +24,7 @@ public class WindCurrent : MonoBehaviour
         position1 = currentLine.GetPosition(0);
         position2 = currentLine.GetPosition(1);
         direction = position2 - position1;
+        ResourceBar.instance.useSquall();
     }
 
     // Update is called once per frame
@@ -32,13 +33,22 @@ public class WindCurrent : MonoBehaviour
         Destroy(transform.parent.gameObject, deathTime);
     }
 
+    //if squall is active, multiply force by 2
     public Vector2 getWindForce() {
+        
+        if (ResourceBar.instance.getSquallActive()) {
+            return direction.normalized * (force * 2);
+        }
+    
         return direction.normalized * force;
     }
+
 
     public void setForce(float force) {
         this.force = force;
     }
+
+    
     public float getForce()
     {
         return force;
