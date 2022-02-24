@@ -7,6 +7,7 @@ TagManager:
   - Tree
   - Water
   - Platform
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -14,8 +15,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - WaterSpout
+  - Bird
   - 
   - 
   - 

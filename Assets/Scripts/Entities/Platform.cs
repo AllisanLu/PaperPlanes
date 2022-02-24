@@ -38,7 +38,6 @@ public class Platform : Entity
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Entered platform region");
             instance.GetComponent<Renderer>().enabled = true;
         }
     }
