@@ -15,6 +15,8 @@ public class ResourceBar : MonoBehaviour
 
     public static ResourceBar instance;
 
+    public SquallUI squallUI;
+
     private void Awake() 
     {
         instance = this;
@@ -62,6 +64,11 @@ public class ResourceBar : MonoBehaviour
         currentResources -= amount;
         currentResources = Math.Max(currentResources, 0);
         resourceBar.value = currentResources;
+    }
+
+    public SquallUI getSquall()
+    {
+        return squallUI;
     }
 
     // get current amount of resources
