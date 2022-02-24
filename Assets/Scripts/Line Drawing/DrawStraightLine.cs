@@ -18,8 +18,8 @@ public class DrawStraightLine : MonoBehaviour
     public ResourceBar resourceBar;
     public PauseMenu pause;
 
-    public float strength = .5f;
-    public float baseValue = 2f;
+    private float strength = .5f;
+    private float baseValue = 2f;
     void Start()
     {
         //baseValue = 5;

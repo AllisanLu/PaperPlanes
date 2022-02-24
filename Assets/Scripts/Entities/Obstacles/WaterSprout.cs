@@ -11,6 +11,7 @@ public class WaterSprout : Obstacle
     void Start()
     {
         Physics2D.IgnoreLayerCollision(6, 7, true);
+        Physics2D.IgnoreLayerCollision(6, 8, true);
         anim.SetBool("dying", false);
     }
 
