@@ -21,8 +21,8 @@ public class Plane : Entity
 
     // Use this for initialization
     void Start 	() {
-			this.gameObject.transform.position = CheckpointManager.planePosition;
-			this.gameObject.transform.rotation = CheckpointManager.planeRotation;
+		this.gameObject.transform.position = CheckpointManager.planePosition;
+		this.gameObject.transform.rotation = CheckpointManager.planeRotation;
         controller = this.GetComponent<PlaneController>();
 		aerodynamics = this.GetComponent<Aerodynamic>();
 
