@@ -10,9 +10,11 @@ public class Plane : Entity
 	public Animator animator;
 	public Aerodynamic aerodynamics;
 	private bool onPlatform = false;
+	private bool cutSceneDone = false;
 
 	public Shield shield;
 	public bool IsActive;
+	public int frameCounter = 0;
 
 	public void setShield(Shield shield)
     {
@@ -33,9 +35,30 @@ public class Plane : Entity
 
 	// Called once per frame
 	void FixedUpdate() {
-
 		Camera cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-		
+		if (PlatformManager.cutSceneDone) {
+			onPlatform = false;
+
+			//Custom Force
+			Vector2 force = new Vector2(15,15.5F);
+
+			// Scale Velocity according to force.
+			rb.velocity = new Vector2(20 * Mathf.Abs(Mathf.Cos(force.x)), 20 * Mathf.Abs(Mathf.Sin(force.y)));
+			rb.AddForce(force);
+
+			// Get torque from controller
+			float pitchCommand = controller.GetAction();
+			rb.AddTorque(pitchCommand * aerodynamics.controlStrength * aerodynamics.bodyVelocity.sqrMagnitude);
+
+			// Stability torque
+			rb.AddTorque(-aerodynamics.alpha * aerodynamics.stability * aerodynamics.bodyVelocity.sqrMagnitude);
+
+			// Adjusts plane aerodynamic force based off wind contact
+			rb.AddForce(windForce);
+			PlatformManager.cutSceneDone = false;
+
+
+		}
 		// if the plane is below the screen it dies
 		// else if too high push back down
 		if (transform.position.y < 0) {
@@ -96,6 +119,7 @@ public class Plane : Entity
 		return rb;
 	}
 
+
 	// Commits death on the plane and restarts the screen
 	public void die() {
 		//die and respawn
@@ -130,7 +154,6 @@ public class Plane : Entity
 			//Object reference not set to an instance of an object
 			if (shield != null && shield.IsActive())
 			{
-
 				shield.setIsActive(false);
 				GameObject.Destroy(shield.gameObject);
 				shield = null;
@@ -156,6 +179,18 @@ public class Plane : Entity
 			}
 		}
 	}
+
+	IEnumerator ExampleCoroutine()
+    {
+        //Print the time of when the function is first called.
+        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(5);
+
+        //After we have waited 5 seconds print the time again.
+        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
+    }
 }
 
 
