@@ -24,7 +24,6 @@ public class Squall : Item
         {
             ResourceBar.instance.getSquall().setSquallActive();
             Destroy(transform.gameObject);
-        
         }
     }
 }
