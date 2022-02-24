@@ -15,7 +15,7 @@ public class ResourceBar : MonoBehaviour
 
     public static ResourceBar instance;
 
-    private SquallUI squallUI;
+    public SquallUI squallUI;
 
     private void Awake() 
     {

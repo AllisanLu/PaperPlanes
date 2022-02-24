@@ -8,7 +8,7 @@ public class SquallUI : MonoBehaviour
     private static bool squallActive;
     private static int squallItems;
 
-    Animator animator = null;
+    public Animator animator = null;
 
     public void useSquall()
     {
