@@ -5,9 +5,10 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     // Start is called before the first frame update
+    private Animator anim;
     void Start()
     {
-        
+        anim = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -23,7 +24,7 @@ public class Checkpoint : MonoBehaviour
             Vector3 newPos = new Vector3(this.gameObject.transform.position.x, 15f, 0);
             // set checkpoint position to new position
             CheckpointManager.planePosition = newPos;
-            this.gameObject.GetComponent<Renderer>().material.color = new Color(0, 255, 0, 0.5f);
+            anim.Play("shrine_fill");
         }
     }
 }
