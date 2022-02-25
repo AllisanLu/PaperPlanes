@@ -6,8 +6,10 @@ public class Checkpoint : MonoBehaviour
 {
     // Start is called before the first frame update
     private Animator anim;
+    private bool activated;
     void Start()
     {
+        activated = false;
         anim = gameObject.GetComponent<Animator>();
     }
 
@@ -23,8 +25,11 @@ public class Checkpoint : MonoBehaviour
             // y position is 15f (original position)
             Vector3 newPos = new Vector3(this.gameObject.transform.position.x, 15f, 0);
             // set checkpoint position to new position
+
             CheckpointManager.planePosition = newPos;
-            anim.Play("shrine_fill");
+            if (!activated) {
+                anim.Play("shrine_fill");
+            }
         }
     }
 }
