@@ -12,9 +12,11 @@ public class ShipProjectileSpawner : MonoBehaviour
     public GameObject javlin;
     public GameObject[] cannonSpawns;
     public GameObject[] javelinSpawns;
-
     public int fireDelay;
     public List<firedObjects[]> firePattern;
+
+    // To track which of the 3 phases we are in in the future
+    private int phase = 0;
 
     // public boolean setRandomFire;
 
@@ -23,8 +25,6 @@ public class ShipProjectileSpawner : MonoBehaviour
     // This script will simply instantiate the Prefab when the game starts.
     void Start()
     {
-        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-
         // Debugging firing pattern
         // Firing pattern mapping: firedObjects[5 items][number of waves]
         firedObjects[] wave1 = {0, 0, 0, (firedObjects) 1, (firedObjects) 1};
@@ -33,11 +33,24 @@ public class ShipProjectileSpawner : MonoBehaviour
         firedObjects[] wave4 = {0, 0, 0, (firedObjects) 1, (firedObjects) 2};
         firePattern = new List<firedObjects[]>() {wave1, wave2, wave3, wave4};
         
-        StartCoroutine(startSpawning(firePattern));
-
+        // TODO remove StartCoroutine
+        // StartCoroutine(startSpawning(firePattern));
     }
 
-    IEnumerator startSpawning(List<firedObjects[]> objects) {
+    // Look at SpawnerTest to how to instantiate ShipProjectileSpawner
+    public ShipProjectileSpawner() {
+        firedObjects[] wave1 = {0, 0, 0, (firedObjects) 1, (firedObjects) 1};
+        firedObjects[] wave2 = {(firedObjects) 2, (firedObjects) 2, (firedObjects) 1, (firedObjects) 1, (firedObjects) 1};
+        firedObjects[] wave3 = {0, 0, 0, (firedObjects) 2, (firedObjects) 2};
+        firedObjects[] wave4 = {0, 0, 0, (firedObjects) 1, (firedObjects) 2};
+        firePattern = new List<firedObjects[]>() {wave1, wave2, wave3, wave4};
+    }
+
+    public void start() {
+        StartCoroutine(startSpawning(firePattern));
+    }
+
+    private IEnumerator startSpawning(List<firedObjects[]> objects) {
         // Goes through every "wave" of objects and waits fireDelay before going to the next wave
         foreach (firedObjects[] wave in objects) {
             spawnItemsFromPattern(wave);
