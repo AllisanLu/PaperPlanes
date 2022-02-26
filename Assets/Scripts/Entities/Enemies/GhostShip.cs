@@ -6,13 +6,18 @@ public class GhostShip : Entity
 {
     private Camera cam;
     private float animationSpeed = 0.01f;
+    private GameObject currentSpawner;
+    private ShipProjectileSpawner spawnerScript;
+    public GameObject spawner;
+    public Sprite bigShip;
     // adjust lines 42, 56, 64 for animations
 
     // Start is called before the first frame update
     void Start()
     {
-        
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        currentSpawner = Instantiate(spawner, cam.transform.position, Quaternion.identity, transform) as GameObject;
+        spawnerScript = currentSpawner.GetComponent<ShipProjectileSpawner>();
         this.GetComponent<Renderer>().enabled = false;
     }
 
@@ -24,7 +29,7 @@ public class GhostShip : Entity
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && this.GetComponent<Renderer>().enabled == false)
         {
             Debug.Log("Entered ghost ship region");
 
@@ -57,16 +62,17 @@ public class GhostShip : Entity
             yield return new WaitForSeconds(animationSpeed);
         }
 
-        transform.position += new Vector3(20, 0, 0);
+        transform.position += new Vector3(1.25f, 10, 0f);
         yield return new WaitForSeconds(animationSpeed*25);
-
-        while (transform.position.y > 20) {
+        this.GetComponent<SpriteRenderer>().sprite = bigShip;
+        
+        while (transform.position.y > 11.25) {
             transform.position += new Vector3(0, -0.1f, 0);
             yield return new WaitForSeconds(animationSpeed);
         }
 
         yield return new WaitForSeconds(animationSpeed*25);
 
-        // start shooting
+        spawnerScript.start();
     }
 }

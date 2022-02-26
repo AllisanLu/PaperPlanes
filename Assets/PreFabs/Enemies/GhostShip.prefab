@@ -122,3 +122,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb4b09e084829145adfc4ce6d11a4b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 934504021190186314, guid: 4e7f2d69f9f808f4da874d29d4f1f643, type: 3}
+  bigShip: {fileID: 21300000, guid: 8bbd0554bffdcee43846094d35307858, type: 3}
