@@ -6,9 +6,7 @@ public class GhostShip : Entity
 {
     private Camera cam;
     private float animationSpeed = 0.01f;
-    private GameObject currentSpawner;
     private ShipProjectileSpawner spawnerScript;
-    public GameObject spawner;
     public Sprite bigShip;
     // adjust lines 42, 56, 64 for animations
 
@@ -16,9 +14,8 @@ public class GhostShip : Entity
     void Start()
     {
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        currentSpawner = Instantiate(spawner, cam.transform.position, Quaternion.identity, transform) as GameObject;
-        spawnerScript = currentSpawner.GetComponent<ShipProjectileSpawner>();
         this.GetComponent<Renderer>().enabled = false;
+        spawnerScript = GetComponentInChildren<ShipProjectileSpawner>();
     }
 
     // Update is called once per frame
