@@ -30,7 +30,6 @@ public class Shield : MonoBehaviour
         if (other.tag == "Player")
         {
             isActive = true; 
-            print("shield hit");
             //make shield child class of parent class
             shield.transform.parent = other.transform;
             shield.transform.localPosition = new Vector3(0, 0, 0);

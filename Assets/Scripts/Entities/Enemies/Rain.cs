@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Rain : Enemy
 {
-    
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +14,9 @@ public class Rain : Enemy
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        if (anim.GetBool("dying")) {
+            Destroy(transform.gameObject, 0.2f);
+        }
     }
     
     // Triggers when plane is under
