@@ -6,10 +6,13 @@ public class Cloud : Enemy
 {
     public float speedup;
     public GameObject cloud;
+
+    public Animator anim;
     
     // Start is called before the first frame update
     void Start()
     {
+        anim.SetBool("dying", false);
         //cloud = this.GetComponent<GameObject>();
     }
 
@@ -25,10 +28,9 @@ public class Cloud : Enemy
         if (other.gameObject.CompareTag("Player"))
         {
             rb = other.gameObject.GetComponent<Rigidbody2D>();
-           // print(rb.velocity);
             rb.velocity = Vector2.Scale(new Vector2(speedup, speedup), rb.velocity);
-            // print(rb.velocity);
-            Destroy(transform.parent.gameObject);
+            anim.SetBool("dying", true);
+            Destroy(transform.parent.gameObject, 1f);
         }
         
     }

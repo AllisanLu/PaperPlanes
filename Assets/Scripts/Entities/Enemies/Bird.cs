@@ -8,7 +8,8 @@ public class Bird : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        
+        Physics2D.IgnoreLayerCollision(6, 7, true);
+
     }
 
     // Update is called once per frame
@@ -26,12 +27,12 @@ public class Bird : Enemy
     }
 
     // Triggers when plane is under
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
 
         if (other.gameObject.CompareTag("Player"))
         {
-            ResourceBar.instance.collision(damage);
+            other.GetComponent<Plane>().takeDamage(damage);
         }
 
     }

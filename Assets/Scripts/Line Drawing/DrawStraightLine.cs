@@ -18,10 +18,16 @@ public class DrawStraightLine : MonoBehaviour
     public ResourceBar resourceBar;
     public PauseMenu pause;
 
-    public float strength;
+    private float strength = .5f;
+    private float baseValue = 2f;
     void Start()
     {
-        strength = 0.2f;
+        //baseValue = 5;
+        if (strength == 0) {
+            strength = 0.5f;
+        }
+        //strength = 0.5f;
+
     }
 
     // Update is called once per frame
@@ -80,6 +86,7 @@ public class DrawStraightLine : MonoBehaviour
                 ResourceBar.instance.windResourceUsage(windLength);
 
                 addColliderToLine();
+                // line.SetWidth(0.5f, 0.5f);
 
             }
         }
@@ -91,7 +98,6 @@ public class DrawStraightLine : MonoBehaviour
         currentLine = Instantiate(WindPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         positions.Clear();
         line = currentLine.GetComponent<LineRenderer>();
-        line.SetWidth(2f, 2f);
         line.material.SetColor("_Color", new Color(1f, 1f, 1f, 0.3f));
 
         line.useWorldSpace = true;
@@ -103,7 +109,7 @@ public class DrawStraightLine : MonoBehaviour
         GameObject wind = new GameObject("WindCollider");
         WindCurrent windcurrent = wind.AddComponent<WindCurrent>();
 
-        windcurrent.force = (mousePos - startMousePos).magnitude * strength;
+        windcurrent.force = baseValue + (mousePos - startMousePos).magnitude * strength;
 
         BoxCollider2D col = wind.AddComponent<BoxCollider2D>();
 

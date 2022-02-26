@@ -47,11 +47,11 @@ public class WindCurrent : MonoBehaviour
     public void setDirection(Vector2 direction) {
         this.direction = direction;
     }
-    
+
     // returns the Line Renderer for the Wind Current
-	public LineRenderer getCurrentLine() {
-		return currentLine;
-	}
+    public LineRenderer getCurrentLine() {
+        return currentLine;
+    }
 
     // void OnTriggerEnter2D(Collider2D other) {
     //     //print(other.GetComponent<Plane>());

@@ -34,8 +34,11 @@ public class Balloon : Enemy
             Vector2 balloonForce = -(displacement.normalized) * 250;
             plane.getRigidBody().AddForce(balloonForce);
 
+            other.collider.GetComponent<Plane>().takeDamage(damage);
+
             //balloon pop animation
-            Destroy(this.gameObject);
+            animator.SetBool("dead", true);
+            Destroy(this.gameObject, 0.40f);
         }
     }
 }
