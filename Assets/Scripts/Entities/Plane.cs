@@ -123,7 +123,7 @@ public class Plane : Entity
 	// Commits death on the plane and restarts the screen
 	public void die() {
 		//die and respawn
-		// SceneManager.LoadScene("SampleScene"); 
+		// SceneManager.LoadScene("SampleScene");
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
@@ -141,7 +141,7 @@ public class Plane : Entity
 	}
 
 	// Add collider for plane usually collision with obstacles to play death animations
-	public void OnCollisionEnter2D(Collision2D other) 
+	public void OnCollisionEnter2D(Collision2D other)
 	{
 		//Check if collision is with Shield object
 		//if it is, protect plane once
@@ -165,21 +165,22 @@ public class Plane : Entity
 				if (other.collider.gameObject.CompareTag("Tree"))
 				{
 					// Call death method to respawn
-					// TODO: Add an animation after collision before respawn for 
+					// TODO: Add an animation after collision before respawn for
 					//       better playability
 					die();
 				}
 				if (other.collider.gameObject.CompareTag("Water"))
 				{
 					// Call death method to respawn
-					// TODO: Add an animation after collision before respawn for 
+					// TODO: Add an animation after collision before respawn for
 					//       better playability
+					die();
+				}
+				if (other.collider.gameObject.CompareTag("Stone"))
+				{
 					die();
 				}
 			}
 		}
 	}
 }
-
-
-
