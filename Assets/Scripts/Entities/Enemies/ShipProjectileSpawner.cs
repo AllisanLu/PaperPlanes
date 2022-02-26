@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -9,6 +10,9 @@ public class ShipProjectileSpawner : MonoBehaviour
 
     public GameObject cannonball;
     public GameObject javlin;
+    public GameObject[] cannonSpawns;
+    public GameObject[] javelinSpawns;
+
     public int fireDelay;
     public List<firedObjects[]> firePattern;
 
@@ -28,7 +32,7 @@ public class ShipProjectileSpawner : MonoBehaviour
         firedObjects[] wave3 = {0, 0, 0, (firedObjects) 2, (firedObjects) 2};
         firedObjects[] wave4 = {0, 0, 0, (firedObjects) 1, (firedObjects) 2};
         firePattern = new List<firedObjects[]>() {wave1, wave2, wave3, wave4};
-
+        
         StartCoroutine(startSpawning(firePattern));
 
     }
@@ -45,13 +49,12 @@ public class ShipProjectileSpawner : MonoBehaviour
 
         // Spawns every item in a wave at 5 different locations on the screen
         for (int i = 0; i < spawningArray.Length; i++) {
-            Vector3 spawnLocation = cam.transform.position + new Vector3(25, 8 + (-4 * i), 0);
             switch (spawningArray[i]) {
                 case firedObjects.CANNONBALL:
-                    Instantiate(cannonball, spawnLocation, Quaternion.identity, transform);
+                    Instantiate(cannonball, cannonSpawns[i].transform.position, Quaternion.identity, transform);
                     break;
                 case firedObjects.JAVLIN: 
-                    Instantiate(javlin, spawnLocation, Quaternion.identity, transform);
+                    Instantiate(javlin, javelinSpawns[i].transform.position, Quaternion.identity, transform);
                     break;
             }
         }
