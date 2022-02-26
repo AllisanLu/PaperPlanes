@@ -6,6 +6,7 @@ public class Enemy : Entity
 {
     public int damage;
     public EnemyController behaviorController = null;
+    public Animator animator = null;
     // Start is called before the first frame update
     void Start()
     {

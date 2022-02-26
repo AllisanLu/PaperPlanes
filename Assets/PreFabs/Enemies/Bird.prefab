@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1842776488634684914}
   - component: {fileID: 1105011718466164373}
   - component: {fileID: 6386098389530891126}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bird
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,6 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   behaviorController: {fileID: 1842776488634684915}
+  animator: {fileID: 0}
 --- !u!70 &1105011718466164373
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
