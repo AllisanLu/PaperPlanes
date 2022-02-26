@@ -176,6 +176,10 @@ public class Plane : Entity
 					//       better playability
 					die();
 				}
+				if (other.collider.gameObject.CompareTag("Wave"))
+				{
+					die();
+				}
 			}
 		}
 	}

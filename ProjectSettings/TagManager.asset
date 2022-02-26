@@ -8,6 +8,7 @@ TagManager:
   - Water
   - Platform
   - Shield
+  - Wave
   layers:
   - Default
   - TransparentFX
