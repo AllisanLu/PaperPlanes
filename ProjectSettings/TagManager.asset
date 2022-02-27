@@ -9,6 +9,7 @@ TagManager:
   - Platform
   - Shield
   - Wave
+  - Stone
   layers:
   - Default
   - TransparentFX
