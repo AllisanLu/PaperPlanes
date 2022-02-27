@@ -1,0 +1,44 @@
+[NAME=JALEEL!]Dancers on the pole-y (JELEEL!, yeah)
+
+Show me what'chu got, she gon' show me (Ooh, yeah)
+
+Step into the spot and they know me (JELEEL!, yeah)
+
+Movin' kinda hot like I'm OD
+
+[NAME=Lil Durk]Never care so much, ran out of 'Woods
+
+Just pass the Dutch (Pass the Dutch)
+
+Your homies died, you don't never slide
+
+It ain't adding up (It ain't addin' up)
+
+[NAME=PLAYBOI CARTI]WAKE UP F1LTHY
+
+[NAME=Lil Durk]New opp pack in the air, this gas or what?
+
+He'd still be alive right now, if you neighbors ain't gas him up
+
+EndQueue
+
+** Multiple choice ** (Needs work)
+
+But you'd probably still want everything in the same file right?
+
+[CHOICE=Y] YES
+[CHOICE=N] NO
+
+{Y} Well you're in luck, that's what we're doing here!
+
+{N} Ah, well you can really do a number of things, but I'll tell you my way.
+
+You need 2 things really.
+
+1) You need a way to mark choices.
+2) You need a way to mark the next line of dialogue to say.
+
+With these you could probably make a system to handle elementary branching dialouge.
+
+Too much branching dialogue could be a headache for this system, if you think this is necessary for your game, you'll definitely want to develop a more modular system..
+
