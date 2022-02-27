@@ -178,6 +178,9 @@ public class Plane : Entity
 				}
 				if (other.collider.gameObject.CompareTag("Stone"))
 				{
+					// Call death method to respawn
+					// TODO: Add an animation after collision before respawn for 
+					//       better playability
 					die();
 				}
 			}
