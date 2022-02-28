@@ -64,21 +64,26 @@ public class Plane : Entity
 		}
 		// if the plane is below the screen it dies
 		// else if too high push back down
+		//skybox
 		if (transform.position.y < 0) {
 			die();
-		} else if (transform.position.y > 15) {
-			rb.AddForce(new Vector2(1, -5));
+		}
+		else if (transform.position.y > 23)
+		{
+			transform.position = new Vector2(transform.position.x, 23);
+		} else if (transform.position.y > 13) {
+			rb.AddForce(new Vector2(2, -5.5f));
 
-			if (rb.rotation > 35) {
-				rb.rotation -= 2;
+			if (rb.rotation > 30) {
+				rb.rotation -= 3;
 			} else if (rb.rotation < -70) {
 				rb.rotation += 6;
 			}
 
-			if (rb.angularVelocity < -60) {
-				rb.angularVelocity += 2;
+			if (rb.angularVelocity < -40) {
+				rb.angularVelocity += 3;
 			}
-		}
+		} 
 
 		if (!onPlatform)
 		{
@@ -126,7 +131,6 @@ public class Plane : Entity
 	// Commits death on the plane and restarts the screen
 	public void die() {
 		//die and respawn
-		// SceneManager.LoadScene("SampleScene");
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
