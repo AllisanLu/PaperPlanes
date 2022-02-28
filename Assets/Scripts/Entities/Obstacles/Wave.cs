@@ -20,9 +20,5 @@ public class Wave : MonoBehaviour
         float y = -0.1f * (Mathf.Sin(Time.deltaTime * 3f));
         transform.position = transform.position + new Vector3(horizontal * Time.deltaTime, y, 0);
         
-        
-
-        
-        
     }
 }

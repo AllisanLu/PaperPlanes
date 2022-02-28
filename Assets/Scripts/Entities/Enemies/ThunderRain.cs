@@ -23,7 +23,6 @@ public class ThunderRain : Enemy
         ticks++;
         if (ticks % 100 < 50)
         {
-            print("should be thundering :(");
             anim.SetBool("thunder", true);
         }
         else

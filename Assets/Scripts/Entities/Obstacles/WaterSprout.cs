@@ -29,6 +29,15 @@ public class WaterSprout : Obstacle
                 anim.SetBool("dying", true);
                 //Play animation before destroying object
             }
+        } 
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Plane plane = collision.collider.GetComponent<Plane>();
+        if (plane != null && plane.shield != null)
+        {
+            print("plane hit the water");
+            anim.SetBool("dying", true);
         }
     }
 }
