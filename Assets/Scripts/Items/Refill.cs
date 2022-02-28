@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Refill : Item
 {
-    public Animator animator;
+    private Animator animator;
     public int additionalResources = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-      animator.SetBool("Dying", false);
+        animator = this.gameObject.GetComponent<Animator>();
+        animator.SetBool("Dying", false);
     }
 
     // Update is called once per frame
@@ -25,7 +26,6 @@ public class Refill : Item
             //adds x resources to the resource bar when touched by player
             ResourceBar.instance.addResource(additionalResources);
             animator.SetBool("Dying", true);
-            Destroy(transform.gameObject, 0.5f);
         }
     }
 }
