@@ -21,23 +21,27 @@ public class ThunderRain : Enemy
             Destroy(transform.gameObject, 0.2f);
         }
         ticks++;
+        if (ticks % 100 < 50)
+        {
+            print("should be thundering :(");
+            anim.SetBool("thunder", true);
+        }
+        else
+        {
+            anim.SetBool("thunder", false);
+        }
     }
 
-    // Triggers when plane is under
+        // Triggers when plane is under
     void OnTriggerEnter2D(Collider2D other)
     {
 
         if (other.gameObject.CompareTag("Player"))
         {
-            if (ticks % 100 < 50)
+            if (ticks % 100 < 11)
             {
-                print("should be thundering :(");
-                anim.SetBool("thunder", true);
                 damage *= 2;
-            } else
-            {
-                anim.SetBool("thunder", false);
-            }
+            } 
             other.GetComponent<Plane>().takeDamage(damage);
         }
 
