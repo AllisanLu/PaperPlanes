@@ -14,9 +14,12 @@ public class Plane : Entity
 	public bool IsActive;
 	public int frameCounter = 0;
 
+	private Animator shieldAnim;
+
 	public void setShield(Shield shield)
     {
 		this.shield = shield;
+		shieldAnim = shield.gameObject.GetComponent<Animator>();
     }
 
     // Use this for initialization
@@ -135,8 +138,7 @@ public class Plane : Entity
 		} else
         {
 			shield.setIsActive(false);
-			GameObject.Destroy(shield.gameObject);
-			shield = null;
+			shieldAnim.SetBool("dying", true);
 		}
 	}
 
@@ -155,7 +157,7 @@ public class Plane : Entity
 			if (shield != null && shield.IsActive())
 			{
 				shield.setIsActive(false);
-				GameObject.Destroy(shield.gameObject);
+				shieldAnim.SetBool("dying", true);
 				shield = null;
 			}
 			else

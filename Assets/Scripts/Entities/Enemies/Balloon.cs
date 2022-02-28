@@ -38,7 +38,6 @@ public class Balloon : Enemy
 
             //balloon pop animation
             animator.SetBool("dead", true);
-            Destroy(this.gameObject, 0.40f);
         }
     }
 }

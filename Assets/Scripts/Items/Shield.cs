@@ -9,11 +9,11 @@ public class Shield : MonoBehaviour
     private bool isActive;
 
 
+
     // Start is called before the first frame update
     //start out with shield on screen, while player has no shield
     void Start()
     {
-        
     }
 
     // Update is called once per frame
