@@ -163,6 +163,10 @@ public class Plane : Entity
 				shield.setIsActive(false);
 				shieldAnim.SetBool("dying", true);
 				shield = null;
+				if (other.collider.gameObject.CompareTag("Water"))
+                {
+					other.collider.GetComponent<WaterSprout>().die();
+                }
 			}
 			else
 			{

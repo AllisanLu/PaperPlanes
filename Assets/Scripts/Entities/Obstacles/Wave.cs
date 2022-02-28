@@ -9,7 +9,6 @@ public class Wave : MonoBehaviour
     void Start()
     {
         x = 1;
-        //Physics2D.IgnoreLayerCollision(6, 7, true);
     }
 
     // Update is called once per frame
