@@ -27,6 +27,10 @@ public class Shark : Enemy
             transform.position = startPos;
             rb.velocity = startVelocity;
         }
+        //rotate the rb to match the velocity
+        Vector2 v = rb.velocity;
+        float angle = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg + 90;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -41,7 +45,6 @@ public class Shark : Enemy
 
     void OnDrawGizmos()
     {
-
         //Draw the parabola by sample a few times
         Gizmos.color = Color.red;
         Vector2 endPos = startPos + new Vector2(expectedDistance, 0);
