@@ -11,9 +11,8 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
 
     public static PauseMenu instance;
-    FMOD.Studio.EventInstance PauseSong;
-    FMOD.Studio.EventInstance Level1Song;
-    FMOD.Studio.Bus MasterBus;
+
+    public MusicManager music;
 
     
 
@@ -23,16 +22,11 @@ public class PauseMenu : MonoBehaviour
     }
     void Start() {
         canvasGroup = pauseMenuUI.GetComponent<CanvasGroup>();
-        PauseSong = FMODUnity.RuntimeManager.CreateInstance("event:/Pause");
-        Level1Song = FMODUnity.RuntimeManager.CreateInstance("event:/Level_1");
-        Level1Song.start();
-
         Hide();
     }
 
     void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
            // Debug.Log("Esc Pressed!");
@@ -50,16 +44,10 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void Resume () {
-        var emitter = GetComponent<FMODUnity.StudioEventEmitter>();
-        var instanced = emitter.EventInstance;
-
-        instanced.setPaused(false);
-        Level1Song.setPaused(false);
-
-
-        PauseSong.start();
-        PauseSong.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        PauseSong.release();
+        //MusicManager.PauseSong.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        //MusicManager.PauseSong.release();
+        //MusicManager.Level1Song.setPaused(false);
+        MusicManager.instance.StopPauseMenuMusic();
         Hide();
         Time.timeScale = 1f;
         GameIsPaused = false;
@@ -76,15 +64,11 @@ public class PauseMenu : MonoBehaviour
  }
 
     void Pause () {
-        var emitter = GetComponent<FMODUnity.StudioEventEmitter>();
-        var instanced = emitter.EventInstance;
+        // MusicManager.PauseSong.start();
+        MusicManager.instance.StopPauseMenuMusic();
+        //MusicManager.Level1Song.setPaused(true);
 
-        instanced.setPaused(true);
-        Level1Song.setPaused(true);
 
-        Level1Song.setPaused(true);    
-        PauseSong = FMODUnity.RuntimeManager.CreateInstance("event:/Pause");
-        PauseSong.start();
         Show();
         Time.timeScale = 0f;
         GameIsPaused = true;
