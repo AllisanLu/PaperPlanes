@@ -26,6 +26,7 @@ public class Plane : Entity
     void Start 	() {
 		this.gameObject.transform.position = CheckpointManager.planePosition;
 		this.gameObject.transform.rotation = CheckpointManager.planeRotation;
+
         controller = this.GetComponent<PlaneController>();
 		aerodynamics = this.GetComponent<Aerodynamic>();
 
@@ -171,8 +172,8 @@ public class Plane : Entity
 			else
 			{
 
-				// Check if collision is with Tree object
-				if (other.collider.gameObject.CompareTag("Tree"))
+				// Check if collision is with an obstacle
+				if (other.collider.gameObject.CompareTag("Obstacle"))
 				{
 					// Call death method to respawn
 					// TODO: Add an animation after collision before respawn for
@@ -184,17 +185,6 @@ public class Plane : Entity
 					// Call death method to respawn
 					// TODO: Add an animation after collision before respawn for
 					//       better playability
-					die();
-				}
-				if (other.collider.gameObject.CompareTag("Stone"))
-				{
-					// Call death method to respawn
-					// TODO: Add an animation after collision before respawn for 
-					//       better playability
-					die();
-				}
-				if (other.collider.gameObject.CompareTag("Wave"))
-				{
 					die();
 				}
 			}

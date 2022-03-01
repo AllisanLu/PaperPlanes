@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2834408304109823758}
   - component: {fileID: 2834408303077992272}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: thundercloud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 2834408304075691605}
   - component: {fileID: 2834408304075691607}
   - component: {fileID: 2834408304075691627}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: rain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 2834408304619875442}
   - component: {fileID: 2834408304619875440}
   - component: {fileID: 2834408304619875452}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: cloud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   speedup: 4
   cloud: {fileID: 0}
-  anim: {fileID: 2834408304619875452}
 --- !u!95 &2834408304619875452
 Animator:
   serializedVersion: 3
@@ -279,7 +278,7 @@ GameObject:
   - component: {fileID: 4578490755638724587}
   - component: {fileID: 114946647036221085}
   - component: {fileID: 2664666842804073861}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: rainGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}

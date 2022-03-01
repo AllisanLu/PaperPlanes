@@ -4,12 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Tree
   - Water
   - Platform
   - Shield
+  - Obstacle
   - Wave
-  - Stone
   layers:
   - Default
   - TransparentFX
