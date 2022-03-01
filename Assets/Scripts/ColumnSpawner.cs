@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ColumnSpawner : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class ColumnSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ResourceBar.instance.setRegenerationSpeed(ResourceBar.instance.getCapacity() - ResourceBar.instance.getCurrentResources());
         if (timer > maxTime)
         {
             this.transform.position = this.transform.position + new Vector3(70, 0, 0);
@@ -29,5 +31,10 @@ public class ColumnSpawner : MonoBehaviour
             timer = 0;
         }
         timer += Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            SceneManager.LoadScene("MainDemo");
+        }
     }
 }
