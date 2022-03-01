@@ -9,8 +9,6 @@ public class Shield : MonoBehaviour
     private SpriteRenderer renderer;
     private bool isActive;
 
-
-
     // Start is called before the first frame update
     //start out with shield on screen, while player has no shield
     void Start()

@@ -16,12 +16,6 @@ public class Plane : Entity
 
 	private Animator shieldAnim;
 
-	public void setShield(Shield shield)
-    {
-		this.shield = shield;
-		shieldAnim = shield.gameObject.GetComponent<Animator>();
-    }
-
     // Use this for initialization
     void Start 	() {
 		this.gameObject.transform.position = CheckpointManager.planePosition;
@@ -123,11 +117,11 @@ public class Plane : Entity
 		windForceDecay();
 	}
 
-	// returns the RigidBody for the Plane
-	public Rigidbody2D getRigidBody() {
-		return rb;
+	public void setShield(Shield shield)
+	{
+		this.shield = shield;
+		shieldAnim = shield.gameObject.GetComponent<Animator>();
 	}
-
 
 	// Commits death on the plane and restarts the screen
 	public void die() {
