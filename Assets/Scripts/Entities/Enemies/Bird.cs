@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bird : Enemy
 {
-    
+    private int lastHit = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,16 +24,23 @@ public class Bird : Enemy
 
         // //decays the windforce
         // windForceDecay();
+        animator.SetBool("collide", false);
+        lastHit++;
     }
 
-    // Triggers when plane is under
-    void OnTriggerEnter2D(Collider2D other)
+    // Triggers when plane is hitting the borb
+    void OnCollisionEnter2D(Collision2D other)
     {
-
         if (other.gameObject.CompareTag("Player"))
         {
-            other.GetComponent<Plane>().takeDamage(damage);
+            other.collider.GetComponent<Plane>().takeDamage(damage);
+            animator.SetBool("collide", true);
+            Physics2D.IgnoreCollision(other.collider, GetComponent<Collider2D>());
+            lastHit = 0;
         }
-
+        if (lastHit > 10)
+        {
+            Physics2D.IgnoreCollision(other.collider, GetComponent<Collider2D>(), false);
+        }
     }
 }
