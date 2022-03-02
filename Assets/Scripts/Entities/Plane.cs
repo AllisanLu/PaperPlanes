@@ -18,8 +18,6 @@ public class Plane : Entity
 
     // Use this for initialization
     void Start 	() {
-		MusicManager.Level1Song.start();
-
 		this.gameObject.transform.position = CheckpointManager.planePosition;
 		this.gameObject.transform.rotation = CheckpointManager.planeRotation;
 
@@ -128,8 +126,6 @@ public class Plane : Entity
 	// Commits death on the plane and restarts the screen
 	public void die() {
 		//die and respawn
-		//MusicManager.Level1Song.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-		MusicManager.Level1Song.release();
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
