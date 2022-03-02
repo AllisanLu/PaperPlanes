@@ -4,10 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Tree
   - Water
   - Platform
   - Shield
+  - Obstacle
+  - Wave
   layers:
   - Default
   - TransparentFX
@@ -16,8 +17,8 @@ TagManager:
   - Water
   - UI
   - WaterSpout
-  - Bird
-  - Balloon
+  - Enemy
+  - 
   - 
   - 
   - 
