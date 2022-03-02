@@ -89,6 +89,11 @@ public class ResourceBar : MonoBehaviour
         maxResources = capacity;
     }
 
+    public float getCapacity()
+    {
+        return maxResources;
+    }
+
     // increase resource bar capacity
     public void increaseCapacity(int increase)
     {
@@ -102,9 +107,14 @@ public class ResourceBar : MonoBehaviour
     }
 
     // set resource bar regeneration speed
-    public void setRegenerationSpeed(int regeneration)
+    public void setRegenerationSpeed(float regeneration)
     {
         regenerationSpeed = regeneration;
+    }
+
+    public float getRegenerationSpeed()
+    {
+        return regenerationSpeed;
     }
 
     // increase resource bar regeneration speed

@@ -14,15 +14,13 @@ public class Plane : Entity
 	public bool IsActive;
 	public int frameCounter = 0;
 
-	public void setShield(Shield shield)
-    {
-		this.shield = shield;
-    }
+	private Animator shieldAnim;
 
     // Use this for initialization
     void Start 	() {
 		this.gameObject.transform.position = CheckpointManager.planePosition;
 		this.gameObject.transform.rotation = CheckpointManager.planeRotation;
+
         controller = this.GetComponent<PlaneController>();
 		aerodynamics = this.GetComponent<Aerodynamic>();
 
@@ -61,21 +59,26 @@ public class Plane : Entity
 		}
 		// if the plane is below the screen it dies
 		// else if too high push back down
+		//skybox
 		if (transform.position.y < 0) {
 			die();
-		} else if (transform.position.y > 15) {
-			rb.AddForce(new Vector2(1, -5));
+		}
+		else if (transform.position.y > 23)
+		{
+			transform.position = new Vector2(transform.position.x, 23);
+		} else if (transform.position.y > 13) {
+			rb.AddForce(new Vector2(2, -5.5f));
 
-			if (rb.rotation > 35) {
-				rb.rotation -= 2;
+			if (rb.rotation > 30) {
+				rb.rotation -= 3;
 			} else if (rb.rotation < -70) {
 				rb.rotation += 6;
 			}
 
-			if (rb.angularVelocity < -60) {
-				rb.angularVelocity += 2;
+			if (rb.angularVelocity < -40) {
+				rb.angularVelocity += 3;
 			}
-		}
+		} 
 
 		if (!onPlatform)
 		{
@@ -114,16 +117,15 @@ public class Plane : Entity
 		windForceDecay();
 	}
 
-	// returns the RigidBody for the Plane
-	public Rigidbody2D getRigidBody() {
-		return rb;
+	public void setShield(Shield shield)
+	{
+		this.shield = shield;
+		shieldAnim = shield.gameObject.GetComponent<Animator>();
 	}
-
 
 	// Commits death on the plane and restarts the screen
 	public void die() {
 		//die and respawn
-		// SceneManager.LoadScene("SampleScene"); 
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
@@ -135,13 +137,12 @@ public class Plane : Entity
 		} else
         {
 			shield.setIsActive(false);
-			GameObject.Destroy(shield.gameObject);
-			shield = null;
+			shieldAnim.SetBool("dying", true);
 		}
 	}
 
 	// Add collider for plane usually collision with obstacles to play death animations
-	public void OnCollisionEnter2D(Collision2D other) 
+	public void OnCollisionEnter2D(Collision2D other)
 	{
 		//Check if collision is with Shield object
 		//if it is, protect plane once
@@ -155,24 +156,28 @@ public class Plane : Entity
 			if (shield != null && shield.IsActive())
 			{
 				shield.setIsActive(false);
-				GameObject.Destroy(shield.gameObject);
+				shieldAnim.SetBool("dying", true);
 				shield = null;
+				if (other.collider.gameObject.CompareTag("Water"))
+                {
+					other.collider.GetComponent<WaterSprout>().die();
+                }
 			}
 			else
 			{
 
-				// Check if collision is with Tree object
-				if (other.collider.gameObject.CompareTag("Tree"))
+				// Check if collision is with an obstacle
+				if (other.collider.gameObject.CompareTag("Obstacle"))
 				{
 					// Call death method to respawn
-					// TODO: Add an animation after collision before respawn for 
+					// TODO: Add an animation after collision before respawn for
 					//       better playability
 					die();
 				}
 				if (other.collider.gameObject.CompareTag("Water"))
 				{
 					// Call death method to respawn
-					// TODO: Add an animation after collision before respawn for 
+					// TODO: Add an animation after collision before respawn for
 					//       better playability
 					die();
 				}
@@ -180,6 +185,3 @@ public class Plane : Entity
 		}
 	}
 }
-
-
-

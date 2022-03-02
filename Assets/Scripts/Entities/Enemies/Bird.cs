@@ -8,7 +8,7 @@ public class Bird : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        Physics2D.IgnoreLayerCollision(6, 7, true);
+     //   Physics2D.IgnoreLayerCollision(6, 7, true);
 
     }
 

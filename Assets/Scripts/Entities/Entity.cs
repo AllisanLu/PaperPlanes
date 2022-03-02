@@ -57,4 +57,10 @@ public class Entity : MonoBehaviour
             windForce = wind.getWindForce();
         }
     }
+
+    // returns the RigidBody for the Entity
+    public Rigidbody2D getRigidBody()
+    {
+        return rb;
+    }
 }
