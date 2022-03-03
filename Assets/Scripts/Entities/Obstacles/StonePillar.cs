@@ -25,5 +25,5 @@ public class StonePillar : Obstacle
             // if we want to not have this as instant death have player press a key to launch again at the cost of health
             ResourceBar.instance.collision(damageToStart);
         }
-    }*/
+    } */
 }

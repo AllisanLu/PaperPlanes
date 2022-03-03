@@ -11,8 +11,7 @@ public class Balloon : Enemy
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    public override void Move()
     {
         //gets command from its controller
         Vector2 command = behaviorController.GetMove();
@@ -38,7 +37,6 @@ public class Balloon : Enemy
 
             //balloon pop animation
             animator.SetBool("dead", true);
-            Destroy(this.gameObject, 0.40f);
         }
     }
 }
