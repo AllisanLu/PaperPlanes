@@ -9,17 +9,6 @@ public class Entity : MonoBehaviour
     protected Vector2 windForce;
 
     private int tick;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     //Setter for wind force
     public void setWindForce(Vector2 force) {
@@ -56,5 +45,11 @@ public class Entity : MonoBehaviour
         {
             windForce = wind.getWindForce();
         }
+    }
+
+    // returns the RigidBody for the Entity
+    public Rigidbody2D getRigidBody()
+    {
+        return rb;
     }
 }

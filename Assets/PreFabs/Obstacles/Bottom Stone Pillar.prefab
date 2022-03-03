@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6337585420430200457}
   - component: {fileID: 5792500918407854404}
+  - component: {fileID: 7465755125756119787}
   m_Layer: 0
   m_Name: Top
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,6 +58,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.75, y: 0.85}
   m_EdgeRadius: 0
+--- !u!114 &7465755125756119787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780386429324610896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b26ba9aedbf7b463bab4dcd95e3fcddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToStart: 0
 --- !u!1 &1805029441615110431
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,7 +85,7 @@ GameObject:
   - component: {fileID: 5818421605498319968}
   m_Layer: 0
   m_Name: Bottom Stone Pillar
-  m_TagString: Stone
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Squall : Item
 {
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = this.gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -23,7 +24,7 @@ public class Squall : Item
         if (other.tag == "Player")
         {
             ResourceBar.instance.getSquall().setSquallActive();
-            Destroy(transform.gameObject);
+            anim.SetBool("dying", true);
         }
     }
 }

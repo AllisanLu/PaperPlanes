@@ -8,18 +8,6 @@ public class Quest
     public bool current;
     public bool completed;
     public ArrayList dialogue;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     public Quest(string QuestDescription, bool current, bool completed, ArrayList dialogue) {
         this.QuestDescription = QuestDescription;
