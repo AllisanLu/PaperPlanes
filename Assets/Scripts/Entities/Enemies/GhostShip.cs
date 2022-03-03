@@ -8,6 +8,7 @@ public class GhostShip : Entity
     private float animationSpeed = 0.01f;
     private ShipProjectileSpawner spawnerScript;
     public Sprite bigShip;
+    private Component[] a;
     // adjust lines 42, 56, 64 for animations
 
     // Start is called before the first frame update
@@ -15,6 +16,12 @@ public class GhostShip : Entity
     {
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         this.GetComponent<Renderer>().enabled = false;
+        a = this.GetComponentsInChildren(typeof(Renderer));
+        foreach (Component b in a)
+        {
+            Renderer c = (Renderer) b;
+            c.enabled = false;
+        }
         spawnerScript = GetComponentInChildren<ShipProjectileSpawner>();
     }
 
@@ -33,6 +40,11 @@ public class GhostShip : Entity
             transform.parent = cam.transform;
             transform.position += new Vector3(5, -15, 0);
             this.GetComponent<Renderer>().enabled = true;
+            foreach (Component b in a)
+            {
+                Renderer c = (Renderer) b;
+                c.enabled = true;
+            }
             StartCoroutine(animateIn());
         }
     }
