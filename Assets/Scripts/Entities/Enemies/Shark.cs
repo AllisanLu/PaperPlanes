@@ -17,6 +17,7 @@ public class Shark : Enemy
         behaviorController = GetComponent<SharkController>();
         startVelocity = ((SharkController)behaviorController).getStartVelocity(expectedDistance, expectedHeight);
         rb.velocity = startVelocity;
+        startPos = transform.position;
     }
 
     // Update is called once per frame
@@ -47,13 +48,13 @@ public class Shark : Enemy
     {
         //Draw the parabola by sample a few times
         Gizmos.color = Color.red;
-        Vector2 endPos = startPos + new Vector2(expectedDistance, 0);
-        Gizmos.DrawLine(startPos, endPos);
+        Vector2 endPos = new Vector2(transform.position.x, transform.position.y) + new Vector2(expectedDistance, 0);
+        Gizmos.DrawLine(transform.position, endPos);
         float count = 20;
         Vector2 lastP = startPos;
         for (float i = 0; i < count + 1; i++)
         {
-            Vector3 p = SampleParabola(startPos, endPos, expectedHeight, i / count);
+            Vector3 p = SampleParabola(transform.position, endPos, expectedHeight, i / count);
             Gizmos.color = i % 2 == 0 ? Color.blue : Color.green;
             Gizmos.DrawLine(lastP, p);
             lastP = p;
