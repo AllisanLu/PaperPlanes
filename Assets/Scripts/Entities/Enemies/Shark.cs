@@ -16,8 +16,17 @@ public class Shark : Enemy
         rb = GetComponent<Rigidbody2D>();   
         behaviorController = GetComponent<SharkController>();
         startVelocity = ((SharkController)behaviorController).getStartVelocity(expectedDistance, expectedHeight);
-        rb.velocity = startVelocity;
         startPos = transform.position;
+        rb.gravityScale = 0;
+    }
+
+    public override void Move()
+    {
+        if (rb.gravityScale <= 0)
+        {
+            rb.gravityScale = 1;
+            rb.velocity = startVelocity;
+        }
     }
 
     public void FixedUpdate()
@@ -27,6 +36,12 @@ public class Shark : Enemy
             transform.position = startPos;
             rb.velocity = startVelocity;
         }
+
+        if (GetComponent<Renderer>().isVisible)
+        {
+            Move();
+        }
+
         //rotate the rb to match the velocity
         Vector2 v = rb.velocity;
         float angle = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg + 90;
