@@ -3976,6 +3976,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1805029441615110425, guid: 355e9b72d0531fc49b454bbce6cad53d, type: 3}
+      propertyPath: m_Size.y
+      value: 7.8333235
+      objectReference: {fileID: 0}
+    - target: {fileID: 1805029441615110425, guid: 355e9b72d0531fc49b454bbce6cad53d, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.5579314
+      objectReference: {fileID: 0}
     - target: {fileID: 1805029441615110431, guid: 355e9b72d0531fc49b454bbce6cad53d, type: 3}
       propertyPath: m_Name
       value: WideTree
