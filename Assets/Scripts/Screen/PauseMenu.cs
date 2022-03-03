@@ -5,53 +5,72 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    private static bool GameIsPaused = false;
+    private bool GameIsPaused {
+        get { return gameIsPaused; }
+        set {
+            if (value) {
+                // call pause
+                Pause();
+            } else {
+                // call resume
+                Resume();
+            }
+            gameIsPaused = value;
+        }
+    }
+    private static bool gameIsPaused;
+
     public GameObject pauseMenuUI;
     public CanvasGroup canvasGroup;
     // Update is called once per frame
 
     public static PauseMenu instance;
-    FMOD.Studio.EventInstance PauseSong;
-    FMOD.Studio.Bus MasterBus;
 
+    public MusicManager music;
+
+    
 
     private void Awake()
     {
         instance = this;
     }
     void Start() {
-       canvasGroup = pauseMenuUI.GetComponent<CanvasGroup>();
-       PauseSong = FMODUnity.RuntimeManager.CreateInstance("event:/Pause");
-
+        canvasGroup = pauseMenuUI.GetComponent<CanvasGroup>();
         Hide();
     }
-    
+
     void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
            // Debug.Log("Esc Pressed!");
             if (GameIsPaused) {
                 //MasterBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                GameIsPaused = false;
 
-                PauseSong.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-                PauseSong.release();
+                //Resume();
 
-                Resume();
-            } else {
-                PauseSong = FMODUnity.RuntimeManager.CreateInstance("event:/Pause");
-                PauseSong.start();
-                //FMODUnity.RuntimeManager.PlayOneShot("event:/Pause");
-                Pause();
+            } else {    
+                GameIsPaused = true;
+
+                //Pause();
+
             }
         }
     }
 
     public void Resume () {
+        //MusicManager.PauseSong.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        //MusicManager.PauseSong.release();
+        //MusicManager.Level1Song.setPaused(false);
+        // MusicManager.instance.StopPauseMenuMusic();
+        MusicManager._instance.StopPauseMenuMusic();
+        MusicManager._instance.UnPauseLevelMusic();
+        Debug.Log("Resume");
         Hide();
         Time.timeScale = 1f;
-        GameIsPaused = false;
+
+        //GameIsPaused = false;
     }
 
     void Hide() {
@@ -59,15 +78,24 @@ public class PauseMenu : MonoBehaviour
      canvasGroup.blocksRaycasts = false; //this prevents the UI element to receive input events
     }
 
-     void Show() {
+    void Show() {
      canvasGroup.alpha = 1f;
      canvasGroup.blocksRaycasts = true;
- }
+    }
 
     void Pause () {
+        //MusicManager.PauseSong.start();
+        //MusicManager.instance.StopPauseMenuMusic();
+        //MusicManager.LevelSong.setPaused(true);
+        MusicManager._instance.PauseLevelMusic();
+        //MusicManager._instance.StopLevelMusic();
+        MusicManager._instance.PlayPauseMenuMusic();
+        Debug.Log("Pause");
+
         Show();
         Time.timeScale = 0f;
-        GameIsPaused = true;
+
+        //GameIsPaused = true;
     }
 
 
@@ -86,4 +114,9 @@ public class PauseMenu : MonoBehaviour
     {
         return GameIsPaused;
     }
+
+    public void setPaused() {
+        GameIsPaused = true;
+    }
+
 }

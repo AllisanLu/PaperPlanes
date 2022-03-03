@@ -4,36 +4,37 @@ using UnityEngine;
 
 public class Bird : Enemy
 {
-    
+    private int lastHit = 0;
     // Start is called before the first frame update
     void Start()
     {
-        Physics2D.IgnoreLayerCollision(6, 7, true);
+     //   Physics2D.IgnoreLayerCollision(6, 7, true);
 
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    public override void Move()
     {
         //gets command from its controller
         Vector2 command = behaviorController.GetMove();
         transform.position = command;
 
-        // //adds on the windForce if there is any
-        // rb.AddForce(windForce);
-
-        // //decays the windforce
-        // windForceDecay();
+        animator.SetBool("collide", false);
+        lastHit++;
     }
 
-    // Triggers when plane is under
-    void OnTriggerEnter2D(Collider2D other)
+    // Triggers when plane is hitting the borb
+    void OnCollisionEnter2D(Collision2D other)
     {
-
         if (other.gameObject.CompareTag("Player"))
         {
-            other.GetComponent<Plane>().takeDamage(damage);
+            other.collider.GetComponent<Plane>().takeDamage(damage);
+            animator.SetBool("collide", true);
+            Physics2D.IgnoreCollision(other.collider, GetComponent<Collider2D>());
+            lastHit = 0;
         }
-
+        if (lastHit > 10)
+        {
+            Physics2D.IgnoreCollision(other.collider, GetComponent<Collider2D>(), false);
+        }
     }
 }
