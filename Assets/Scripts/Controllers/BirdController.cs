@@ -13,12 +13,6 @@ public class BirdController : EnemyController
         bird = GetComponent<Bird>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     // Moves bird to the left at a constant rate
     public override Vector2 GetMove() {
         if (bird.animator.GetBool("collide"))

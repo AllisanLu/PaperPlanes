@@ -15,8 +15,16 @@ public class Enemy : Entity
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        if(GetComponent<Renderer>().isVisible)
+        {
+            Move();
+        }
+    }
+
+    public virtual void Move()
+    {
+
     }
 }

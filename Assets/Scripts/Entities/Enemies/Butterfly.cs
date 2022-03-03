@@ -10,8 +10,7 @@ public class Butterfly : Enemy
         
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    public override void Move()
     {
         Vector2 command = behaviorController.GetMove();
         transform.position = command;

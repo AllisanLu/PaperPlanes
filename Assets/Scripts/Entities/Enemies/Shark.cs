@@ -20,8 +20,7 @@ public class Shark : Enemy
         startPos = transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Move()
     {
         if (transform.position.y < 0)
         {
