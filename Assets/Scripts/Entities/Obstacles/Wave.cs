@@ -16,9 +16,9 @@ public class Wave : MonoBehaviour
     {
         if (GetComponent<Renderer>().isVisible)
         {
-            float horizontal = -1.5f;
-            float y = -0.1f * (Mathf.Sin(Time.deltaTime * 3f));
-            transform.position = transform.position + new Vector3(horizontal * Time.deltaTime, y, 0);
+            float horizontal = -8f;
+            float y = 0.05f * Mathf.Sin(Time.time * 4) + transform.position.y;
+            transform.position = new Vector2(horizontal * Time.deltaTime + transform.position.x, y);
         }  
     }
 }

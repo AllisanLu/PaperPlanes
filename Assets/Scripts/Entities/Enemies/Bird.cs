@@ -5,13 +5,14 @@ using UnityEngine;
 public class Bird : Enemy
 {
     private int lastHit = 0;
+    private Vector2 startPos;
     // Start is called before the first frame update
     void Start()
     {
+        startPos = transform.position;
      //   Physics2D.IgnoreLayerCollision(6, 7, true);
-
-    }
-
+    }   
+    
     public override void Move()
     {
         //gets command from its controller
@@ -20,6 +21,16 @@ public class Bird : Enemy
 
         animator.SetBool("collide", false);
         lastHit++;
+    }
+
+    void OnDrawGizmos() 
+    {
+        Gizmos.color = Color.red;
+        Vector2 endPos = startPos + (Vector2) (transform.rotation * new Vector3(-20,0,0));
+        Debug.Log("start" + startPos);
+        Debug.Log("end" + endPos);
+
+        Gizmos.DrawLine(startPos, endPos);
     }
 
     // Triggers when plane is hitting the borb

@@ -17,12 +17,6 @@ public class Cloud : Enemy
         //cloud = this.GetComponent<GameObject>();
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-
-    }
-    
     // Triggers when plane is under
     void OnTriggerEnter2D(Collider2D other)
     {

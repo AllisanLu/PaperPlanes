@@ -10,7 +10,6 @@ public class Enemy : Entity
     // Start is called before the first frame update
     void Start()
     {
-        print("runs this too");
         Physics2D.IgnoreLayerCollision(7, 7, true);
     }
 

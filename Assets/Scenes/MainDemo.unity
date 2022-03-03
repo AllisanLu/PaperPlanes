@@ -1304,6 +1304,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1842776488634684914, guid: 1f91dd41594d42344a9abd5ecb360f4a, type: 3}
+      propertyPath: xAngle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1842776488634684914, guid: 1f91dd41594d42344a9abd5ecb360f4a, type: 3}
+      propertyPath: yAngle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1842776488634684914, guid: 1f91dd41594d42344a9abd5ecb360f4a, type: 3}
+      propertyPath: zAngle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1842776488634684915, guid: 1f91dd41594d42344a9abd5ecb360f4a, type: 3}
+      propertyPath: zAngle
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1842776488634684925, guid: 1f91dd41594d42344a9abd5ecb360f4a, type: 3}
       propertyPath: m_Color.b
       value: 1
