@@ -20,7 +20,7 @@ public class Shark : Enemy
         startPos = transform.position;
     }
 
-    public override void Move()
+    public void FixedUpdate()
     {
         if (transform.position.y < 0)
         {
