@@ -1,0 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Butterfly : Enemy
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        Vector2 command = behaviorController.GetMove();
+        transform.position = command;
+    }
+
+    // Triggers when plane is hitting the borb
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            other.collider.GetComponent<Plane>().takeDamage(damage);
+        }
+    }
+}
