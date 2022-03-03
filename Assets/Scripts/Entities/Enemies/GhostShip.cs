@@ -82,6 +82,6 @@ public class GhostShip : Entity
 
         yield return new WaitForSeconds(animationSpeed*25);
 
-        spawnerScript.start();
+        spawnerScript.startPhase2();
     }
 }

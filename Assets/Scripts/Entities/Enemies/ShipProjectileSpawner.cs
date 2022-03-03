@@ -12,8 +12,12 @@ public class ShipProjectileSpawner : MonoBehaviour
     public GameObject javlin;
     public GameObject[] cannonSpawns;
     public GameObject[] javelinSpawns;
-    public int fireDelay;
-    public List<firedObjects[]> firePattern;
+    public float fireDelay;
+    public float quickFireDelay;
+
+    private List<int[]> phase1;
+    private List<int[]> phase2;
+    private List<int[]> phase3;
 
     // To track which of the 3 phases we are in in the future
     private int phase = 0;
@@ -23,38 +27,61 @@ public class ShipProjectileSpawner : MonoBehaviour
     private Camera cam;
 
     // This script will simply instantiate the Prefab when the game starts.
-    void Start()
-    {
+    void Start(){
         // Debugging firing pattern
         // Firing pattern mapping: firedObjects[5 items][number of waves]
-        firedObjects[] wave1 = {0, 0, 0, (firedObjects) 1, (firedObjects) 1};
-        firedObjects[] wave2 = {(firedObjects) 2, (firedObjects) 2, (firedObjects) 1, (firedObjects) 1, (firedObjects) 1};
-        firedObjects[] wave3 = {0, 0, 0, (firedObjects) 2, (firedObjects) 2};
-        firedObjects[] wave4 = {0, 0, 0, (firedObjects) 1, (firedObjects) 2};
-        firePattern = new List<firedObjects[]>() {wave1, wave2, wave3, wave4};
-        
-        // TODO remove StartCoroutine
-        // StartCoroutine(startSpawning(firePattern));
+        phase1 = new List<int[]>() {
+            new int[] {0, 0, 0, 1, 1}, 
+            new int[] {0, 0, 1, 1, 0},
+            new int[] {0, 1, 1, 0, 0},
+            new int[] {1, 1, 0, 0, 0},
+            new int[] {1, 1, 1, 0, 1},
+            new int[] {1, 0, 1, 1, 1},
+            new int[] {1, 1, 0, 1, 1},
+            new int[] {0, 1, 1, 1, 1},
+            new int[] {1, 0, 1, 0, 1},
+            new int[] {0, 0, 1, 1, 1},
+            new int[] {1, 1, 1, 0, 0},
+        };
+        phase2 = new List<int[]>() {
+            new int[] {0, 0, 1, 0, 0},
+            new int[] {1, 1, 0, 1, 1},
+            new int[] {},
+            new int[] {1, 1, 0, 1, 1},
+            new int[] {0, 0, 1, 0, 0},
+            new int[] {},
+            new int[] {0, 0, 1, 0, 0},
+            new int[] {0, 1, 0, 1, 0},
+            new int[] {1, 0, 0, 0, 1},
+            new int[] {},
+            new int[] {1, 0, 0, 0, 1},
+            new int[] {0, 1, 0, 1, 0},
+            new int[] {0, 0, 1, 0, 0},
+            new int[] {},
+            new int[] {1, 0, 0, 0, 0},
+            new int[] {0, 1, 0, 0, 0},
+            new int[] {0, 0, 1, 0, 0},
+            new int[] {0, 0, 0, 1, 0}
+        };
     }
 
-    // Look at SpawnerTest to how to instantiate ShipProjectileSpawner
-    public ShipProjectileSpawner() {
-        firedObjects[] wave1 = {0, 0, 0, (firedObjects) 1, (firedObjects) 1};
-        firedObjects[] wave2 = {(firedObjects) 2, (firedObjects) 2, (firedObjects) 1, (firedObjects) 1, (firedObjects) 1};
-        firedObjects[] wave3 = {0, 0, 0, (firedObjects) 2, (firedObjects) 2};
-        firedObjects[] wave4 = {0, 0, 0, (firedObjects) 1, (firedObjects) 2};
-        firePattern = new List<firedObjects[]>() {wave1, wave2, wave3, wave4};
+    public void startPhase1() {
+        StartCoroutine(startSpawning(phase1, false));
     }
 
-    public void start() {
-        StartCoroutine(startSpawning(firePattern));
+    public void startPhase2() {
+        StartCoroutine(startSpawning(phase2, true));
     }
 
-    private IEnumerator startSpawning(List<firedObjects[]> objects) {
+    private IEnumerator startSpawning(List<int[]> objects, bool usingQuickfire) {
         // Goes through every "wave" of objects and waits fireDelay before going to the next wave
-        foreach (firedObjects[] wave in objects) {
-            spawnItemsFromPattern(wave);
-            yield return new WaitForSeconds(fireDelay);
+        foreach (int[] wave in objects) {
+            spawnItemsFromPattern(Array.ConvertAll(wave, projectile => (firedObjects) projectile));
+            if (usingQuickfire && wave.Length != 0) {
+                yield return new WaitForSeconds(quickFireDelay);
+            } else {
+                yield return new WaitForSeconds(fireDelay);
+            }
         }
     }
 
