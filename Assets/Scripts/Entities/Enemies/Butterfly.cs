@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class Butterfly : Enemy
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public override void Move()
     {
         Vector2 command = behaviorController.GetMove();
