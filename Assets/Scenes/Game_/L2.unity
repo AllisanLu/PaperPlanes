@@ -3291,6 +3291,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 437850852}
     m_Modifications:
+    - target: {fileID: 7083443932703044593, guid: a04372ec3cd4a3d4eab1e20b31aad949, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 8832320805850911563, guid: a04372ec3cd4a3d4eab1e20b31aad949, type: 3}
       propertyPath: m_Name
       value: RainCloud (1)
