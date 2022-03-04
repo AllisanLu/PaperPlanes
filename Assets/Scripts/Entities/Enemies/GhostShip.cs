@@ -40,13 +40,17 @@ public class GhostShip : Entity
             transform.parent = cam.transform;
             transform.position += new Vector3(5, -15, 0);
             this.GetComponent<Renderer>().enabled = true;
-            foreach (Component b in a)
-            {
-                Renderer c = (Renderer) b;
-                c.enabled = true;
-            }
-            StartCoroutine(animateIn());
+            StartCoroutine(startGhostShip());
         }
+    }
+
+    IEnumerator startGhostShip()
+    {
+        yield return StartCoroutine(animateIn());
+        yield return StartCoroutine(cutscene());
+        yield return StartCoroutine(animateToPosition());
+        yield return StartCoroutine(endCutscene());
+        yield return StartCoroutine(animateOut());
     }
 
     IEnumerator animateIn()
@@ -56,12 +60,11 @@ public class GhostShip : Entity
             transform.position += new Vector3(0, 0.1f, 0);
             yield return new WaitForSeconds(animationSpeed);
         }
-        cutscene();
     }
 
-    void cutscene() {
+    IEnumerator cutscene() {
         Debug.Log("Cutscene.");
-        StartCoroutine(animateToPosition());
+        yield return null;
     }
 
     IEnumerator animateToPosition()
@@ -82,9 +85,21 @@ public class GhostShip : Entity
 
         yield return new WaitForSeconds(animationSpeed*25);
 
-        spawnerScript.startPhase1();
-        //Can call phase 2 through spawnerScript.startPhase2();
+        yield return StartCoroutine(spawnerScript.startPhase1());
+        yield return StartCoroutine(spawnerScript.startPhase2());
+    }
 
-        //TODO Add animation/time between phases
+    IEnumerator endCutscene() {
+        Debug.Log("Cutscene.");
+        yield return null;
+    }
+
+    IEnumerator animateOut()
+    {
+        Debug.Log(transform.position.y);
+        while (transform.position.y < 35) {
+            transform.position += new Vector3(0, 0.1f, 0);
+            yield return new WaitForSeconds(animationSpeed);
+        }
     }
 }

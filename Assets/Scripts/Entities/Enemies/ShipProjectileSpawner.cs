@@ -65,12 +65,12 @@ public class ShipProjectileSpawner : MonoBehaviour
         };
     }
 
-    public void startPhase1() {
-        StartCoroutine(startSpawning(phase1, false));
+    public IEnumerator startPhase1() {
+        yield return StartCoroutine(startSpawning(phase1, false));
     }
 
-    public void startPhase2() {
-        StartCoroutine(startSpawning(phase2, true));
+    public IEnumerator startPhase2() {
+        yield return StartCoroutine(startSpawning(phase2, true));
     }
 
     private IEnumerator startSpawning(List<int[]> objects, bool usingQuickfire) {
