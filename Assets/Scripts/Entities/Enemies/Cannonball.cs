@@ -33,4 +33,9 @@ public class Cannonball : Enemy
         }
 
     }
+
+    void OnBecameInvisible()
+    {
+        DestroyObject(gameObject);
+    }
 }
