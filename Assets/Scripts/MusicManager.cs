@@ -73,9 +73,7 @@ public class MusicManager : MonoBehaviour
                 StartLevelMusic();
                 levelSongPlaying = true;
             }
-            //StartLevelMusic();
-            Debug.Log(currentScene);
-            Debug.Log(reference);
+
 
 
             levelChanged = false;
@@ -84,7 +82,6 @@ public class MusicManager : MonoBehaviour
         if (currentScene != "MainMenu") {
             StopTitleMusic();
             //StartLevelMusic();
-            Debug.Log(reference);
         }
 
 
