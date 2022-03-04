@@ -21,7 +21,7 @@ public class MoveToNextScene : MonoBehaviour
     {
         if (collider.tag == "Player")
         {
-            //load the next level/scene
+            print("loading: " + nameOfNextScene);
             SceneManager.LoadScene(nameOfNextScene);
         }
     }
