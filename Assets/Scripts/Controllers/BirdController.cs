@@ -27,8 +27,6 @@ public class BirdController : EnemyController
     void OnDrawGizmos() {
         Gizmos.color = Color.red;
         Vector2 endPos = startPos + (Vector2) direction * 10f;
-        Debug.Log("start" + startPos);
-        Debug.Log("end" + endPos);
 
         Gizmos.DrawLine(startPos, endPos);
     }

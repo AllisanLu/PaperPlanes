@@ -47,7 +47,7 @@ public class Shark : Enemy
 
     public static Quaternion LookAtTarget(Vector2 rotation)
     {
-        return Quaternion.Euler(0, 180, -Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg);
+        return Quaternion.Euler(180, 0, -Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg);
     }
 
 

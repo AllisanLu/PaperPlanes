@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GhostShip : Entity
 {
@@ -102,6 +103,8 @@ public class GhostShip : Entity
             transform.position += new Vector3(0, 0.1f, 0);
             yield return new WaitForSeconds(animationSpeed);
         }
+        SceneManager.LoadScene("GameEnd");
+        CheckpointManager.resetPosition();
     }
 
     private void renderShip() {
