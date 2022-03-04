@@ -22,16 +22,6 @@ public class Platform : Entity
         button.GetComponent<Button>().onClick.AddListener(TaskOnClick); //Binding On Click Method.
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
 
     // Triggers when plane is on platform
     void OnTriggerEnter2D(Collider2D other)

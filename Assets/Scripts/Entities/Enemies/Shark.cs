@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class Shark : Enemy
 {
-    private Vector2 startPos;
     public float expectedDistance = 5;
     public float expectedHeight = 5;
+    public float speed;
 
     private Vector2 startVelocity;
+    private Vector2 startPos;
+    private Vector2 targetPos;
+
+    private float dist;
+    private float nextX;
+    private float baseY;
+    private float height;
 
     // Start is called before the first frame update
     void Start()
@@ -16,22 +23,33 @@ public class Shark : Enemy
         rb = GetComponent<Rigidbody2D>();   
         behaviorController = GetComponent<SharkController>();
         startVelocity = ((SharkController)behaviorController).getStartVelocity(expectedDistance, expectedHeight);
-        rb.velocity = startVelocity;
+        startPos = transform.position;
+        targetPos = new Vector2(startPos.x + expectedDistance, 0);
+        rb.gravityScale = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Move()
     {
-        if (transform.position.y < 0)
+        dist = targetPos.x - startPos.x;
+        nextX = Mathf.MoveTowards(transform.position.x, targetPos.x, speed * Time.deltaTime);
+        baseY = Mathf.Lerp(startPos.y, targetPos.y, (nextX - startPos.x) /dist);
+        height = expectedHeight * (nextX - startPos.x) * (nextX - targetPos.x) / (-0.25f * dist * dist);
+
+        Vector3 movePosition = new Vector3(nextX, baseY + height, transform.position.z);
+        transform.rotation = LookAtTarget(movePosition - transform.position);
+        transform.position = movePosition;
+
+        if ((Vector2) transform.position == targetPos)
         {
             transform.position = startPos;
-            rb.velocity = startVelocity;
         }
-        //rotate the rb to match the velocity
-        Vector2 v = rb.velocity;
-        float angle = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg + 90;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
+
+    public static Quaternion LookAtTarget(Vector2 rotation)
+    {
+        return Quaternion.Euler(180, 0, -Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg);
+    }
+
 
     void OnCollisionEnter2D(Collision2D other)
     {
@@ -47,13 +65,13 @@ public class Shark : Enemy
     {
         //Draw the parabola by sample a few times
         Gizmos.color = Color.red;
-        Vector2 endPos = startPos + new Vector2(expectedDistance, 0);
-        Gizmos.DrawLine(startPos, endPos);
+        Vector2 endPos = new Vector2(transform.position.x, transform.position.y) + new Vector2(expectedDistance, 0);
+        Gizmos.DrawLine(transform.position, endPos);
         float count = 20;
         Vector2 lastP = startPos;
         for (float i = 0; i < count + 1; i++)
         {
-            Vector3 p = SampleParabola(startPos, endPos, expectedHeight, i / count);
+            Vector3 p = SampleParabola(transform.position, endPos, expectedHeight, i / count);
             Gizmos.color = i % 2 == 0 ? Color.blue : Color.green;
             Gizmos.DrawLine(lastP, p);
             lastP = p;

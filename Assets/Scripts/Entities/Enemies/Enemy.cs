@@ -10,13 +10,20 @@ public class Enemy : Entity
     // Start is called before the first frame update
     void Start()
     {
-        print("runs this too");
         Physics2D.IgnoreLayerCollision(7, 7, true);
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        if(GetComponent<Renderer>().isVisible)
+        {
+            Move();
+        }
+    }
+
+    public virtual void Move()
+    {
+
     }
 }
