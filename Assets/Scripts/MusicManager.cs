@@ -6,10 +6,13 @@ public class MusicManager : MonoBehaviour
 {
     public static MusicManager _instance;
     public static MusicManager Instance { get {return _instance; } }
-    [SerializeField] private FMODUnity.EventReference reference;
+    [SerializeField] public FMODUnity.EventReference reference;
     public static FMOD.Studio.EventInstance PauseSong;
     public static FMOD.Studio.EventInstance LevelSong;
+    public static FMOD.Studio.EventInstance TitleSong;
     public static bool levelStarted = false;
+    public static bool levelChanged = false;
+    private string currentScene;
     //public static bool pauseSongStarted = false;
 
     //public PauseMenu pausemenu;
@@ -18,23 +21,13 @@ public class MusicManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PauseSong = FMODUnity.RuntimeManager.CreateInstance("event:/Pause");
+        PauseSong = FMODUnity.RuntimeManager.CreateInstance("event:/Songs/Pause/PauseSong");
         LevelSong = FMODUnity.RuntimeManager.CreateInstance(reference);
+        TitleSong = FMODUnity.RuntimeManager.CreateInstance("event:/Songs/Title2");
+        currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
 
-        //LevelSong.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
-        //LevelSong = FMODUnity.RuntimeManager.CreateInstance("event:/Level_1");
-
-        if (levelStarted == false) {
-            // if (LevelSong.isValid()){
-            //     throw new UnityException("Song invalid start1");
-            // }
-            LevelSong.start();
-
-            //StartLevelMusic();
-            Debug.Log("song started");
-        }
-        levelStarted = true;
-
+        TitleSong.start();
+ 
 		DontDestroyOnLoad(gameObject);
     }
 
@@ -47,18 +40,67 @@ public class MusicManager : MonoBehaviour
         else {
             _instance = this;
         }
+        //SceneManager.sceneLoaded += OnSceneLoaded
     }
 
     void Update()
     {
+        LevelSong = FMODUnity.RuntimeManager.CreateInstance(reference);
 
+        if (currentScene != UnityEngine.SceneManagement.SceneManager.GetActiveScene().name) {
+            levelChanged = true;
+            currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        }
+        if (levelChanged) {
+            StartLevelMusic();
+            reference = reference;
+            LevelSong = FMODUnity.RuntimeManager.CreateInstance(reference);
+            Debug.Log(currentScene);
+            Debug.Log(reference);
+
+
+            levelChanged = false;
+        }
+        // if (!levelStarted && currentScene != "MainMenu") {
+        //     StartLevelMusic();
+        //     levelStarted = true;
+        //    // Debug.Log(currentScene);
+        // }
+        //Debug.Log(currentScene);
+
+
+        // if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name != "MainMenu") {
+        //     // LevelSong.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        //     // LevelSong.release();
+        //     Debug.Log("title song started");
+        // } else {
+        //     // TitleSong.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        //     // TitleSong.release();
+        //     Debug.Log("title song stopped");
+        //     Debug.Log(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+
+        // }
+        // if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "MainMenu") {
+        //     Debug.Log("MainMenu");
+        // }
+        if (currentScene != "MainMenu") {
+            StopTitleMusic();
+            //StartLevelMusic();
+            Debug.Log(reference);
+        }
 
 
     }
 
     //NONE OF THE BELOW FUNCTIONS ACTUALLY WORK
-    public void TestingFMOD() {
-        Debug.Log("arghh");
+
+    public void StopTitleMusic() {
+        TitleSong.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        TitleSong.release();
+    }
+
+    public void ChangeLevelSong() {
+        LevelSong = FMODUnity.RuntimeManager.CreateInstance(reference);
     }
 
     public void StartLevelMusic() {
