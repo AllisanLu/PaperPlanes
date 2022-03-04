@@ -34,7 +34,7 @@ public class ColumnSpawner : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            SceneManager.LoadScene("MainDemo");
+            SceneManager.LoadScene("L1A2");
         }
     }
 }
