@@ -59,6 +59,12 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    public void Unpause()
+    {
+        GameIsPaused = false;
+        Hide();
+    }
+
     public void Resume () {
         //MusicManager.PauseSong.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         //MusicManager.PauseSong.release();
@@ -66,7 +72,6 @@ public class PauseMenu : MonoBehaviour
         // MusicManager.instance.StopPauseMenuMusic();
         MusicManager._instance.StopPauseMenuMusic();
         MusicManager._instance.UnPauseLevelMusic();
-        Debug.Log("Resume");
         Hide();
         Time.timeScale = 1f;
 
@@ -102,7 +107,7 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu() {
         Debug.Log("Loading Menu...");
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void QuitGame() {
