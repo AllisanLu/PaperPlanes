@@ -21,7 +21,7 @@ public class MoveToNextScene : MonoBehaviour
     {
         if (collider.tag == "Player")
         {
-            print("loading: " + nameOfNextScene);
+            CheckpointManager.resetPosition();
             SceneManager.LoadScene(nameOfNextScene);
         }
     }
