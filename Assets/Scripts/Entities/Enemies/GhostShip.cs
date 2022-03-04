@@ -75,7 +75,7 @@ public class GhostShip : Entity
             yield return new WaitForSeconds(animationSpeed);
         }
 
-        transform.position += new Vector3(1.25f, 10, 0f);
+        transform.position += new Vector3(15f, 10, 0f);
         yield return new WaitForSeconds(animationSpeed*25);
         this.GetComponent<SpriteRenderer>().sprite = bigShip;
         
