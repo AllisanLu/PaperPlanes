@@ -17,7 +17,7 @@ public class ShipProjectileSpawner : MonoBehaviour
 
     private List<int[]> phase1;
     private List<int[]> phase2;
-    private List<int[]> phase3;
+    // private List<int[]> phase3;
 
     // To track which of the 3 phases we are in in the future
     private int phase = 0;

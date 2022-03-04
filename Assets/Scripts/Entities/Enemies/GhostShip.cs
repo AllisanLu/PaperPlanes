@@ -88,6 +88,7 @@ public class GhostShip : Entity
 
         yield return StartCoroutine(spawnerScript.startPhase1());
         yield return StartCoroutine(spawnerScript.startPhase2());
+        yield return new WaitForSeconds(3);
     }
 
     IEnumerator endCutscene() {
