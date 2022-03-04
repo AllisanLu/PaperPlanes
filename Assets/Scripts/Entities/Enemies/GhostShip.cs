@@ -77,7 +77,7 @@ public class GhostShip : Entity
         transform.position += new Vector3(15f, 10, 0f);
         yield return new WaitForSeconds(animationSpeed*25);
         this.GetComponent<SpriteRenderer>().sprite = bigShip;
-        
+        renderShip();
         while (transform.position.y > 11.25) {
             transform.position += new Vector3(0, -0.1f, 0);
             yield return new WaitForSeconds(animationSpeed);
@@ -100,6 +100,15 @@ public class GhostShip : Entity
         while (transform.position.y < 35) {
             transform.position += new Vector3(0, 0.1f, 0);
             yield return new WaitForSeconds(animationSpeed);
+        }
+    }
+
+    private void renderShip() {
+        this.GetComponent<Renderer>().enabled = true;
+        foreach (Component b in a)
+        {
+            Renderer c = (Renderer) b;
+            c.enabled = true;
         }
     }
 }
