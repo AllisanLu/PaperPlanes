@@ -641,7 +641,7 @@ MonoBehaviour:
   - {fileID: 567248002732659424}
   - {fileID: 567248002538084944}
   - {fileID: 567248004337223976}
-  fireDelay: 1
+  fireDelay: 2
   quickFireDelay: 0
 --- !u!1 &567248003947190723
 GameObject:
