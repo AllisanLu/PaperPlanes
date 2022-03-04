@@ -8,7 +8,7 @@ public class UpdateQuest : MonoBehaviour
     [SerializeField]
     private Text questDisplay;
     
-    private bool isOn = true;
+    private bool isOn = false;
     // Start is called before the first frame update
     void Start()
     {

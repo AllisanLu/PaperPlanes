@@ -1598,6 +1598,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 567248003627776317, guid: 5017937fdf051954f919417c8058991a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.31
+      objectReference: {fileID: 0}
     - target: {fileID: 1065569011666384880, guid: 5017937fdf051954f919417c8058991a, type: 3}
       propertyPath: m_Name
       value: GhostShip
@@ -1664,6 +1668,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1065569011666384885, guid: 5017937fdf051954f919417c8058991a, type: 3}
       propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065569011666384885, guid: 5017937fdf051954f919417c8058991a, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1065569011666384886, guid: 5017937fdf051954f919417c8058991a, type: 3}

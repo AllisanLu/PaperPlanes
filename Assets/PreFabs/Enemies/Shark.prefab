@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 300269373821354266}
   - component: {fileID: 300269373821354270}
   - component: {fileID: 300269373821354271}
-  - component: {fileID: 300269373821354264}
+  - component: {fileID: 4232825666095639762}
   m_Layer: 0
   m_Name: Shark
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300269373821354276}
-  m_LocalRotation: {x: -0, y: -0, z: -0.22716856, w: 0.9738555}
+  m_LocalRotation: {x: 0, y: 0, z: -0.22716966, w: 0.9738552}
   m_LocalPosition: {x: -3.3, y: -1.1, z: 1.7596238}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -74,9 +74,11 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
+
   m_SortingOrder: 1
   m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
   m_Color: {r: 0, g: 0.3158722, b: 1, a: 1}
+
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,10 +101,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  behaviorController: {fileID: 0}
+  behaviorController: {fileID: 300269373821354270}
   animator: {fileID: 0}
   expectedDistance: 20
   expectedHeight: 15
+  speed: 6
 --- !u!114 &300269373821354270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,7 +140,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &300269373821354264
+--- !u!70 &4232825666095639762
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,6 +153,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
-  m_Direction: 0
+  m_Offset: {x: 0.00000001989504, y: -0.2399528}
+  m_Size: {x: 6.999999, y: 2.2825048}
+  m_Direction: 1

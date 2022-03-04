@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class Shark : Enemy
 {
-    private Vector2 startPos;
     public float expectedDistance = 5;
     public float expectedHeight = 5;
+    public float speed;
 
     private Vector2 startVelocity;
+    private Vector2 startPos;
+    private Vector2 targetPos;
+
+    private float dist;
+    private float nextX;
+    private float baseY;
+    private float height;
 
     // Start is called before the first frame update
     void Start()
@@ -17,36 +24,32 @@ public class Shark : Enemy
         behaviorController = GetComponent<SharkController>();
         startVelocity = ((SharkController)behaviorController).getStartVelocity(expectedDistance, expectedHeight);
         startPos = transform.position;
+        targetPos = new Vector2(startPos.x + expectedDistance, 0);
         rb.gravityScale = 0;
     }
 
     public override void Move()
     {
-        if (rb.gravityScale <= 0)
-        {
-            rb.gravityScale = 1;
-            rb.velocity = startVelocity;
-        }
-    }
+        dist = targetPos.x - startPos.x;
+        nextX = Mathf.MoveTowards(transform.position.x, targetPos.x, speed * Time.deltaTime);
+        baseY = Mathf.Lerp(startPos.y, targetPos.y, (nextX - startPos.x) /dist);
+        height = expectedHeight * (nextX - startPos.x) * (nextX - targetPos.x) / (-0.25f * dist * dist);
 
-    public void FixedUpdate()
-    {
-        if (transform.position.y < 0)
+        Vector3 movePosition = new Vector3(nextX, baseY + height, transform.position.z);
+        transform.rotation = LookAtTarget(movePosition - transform.position);
+        transform.position = movePosition;
+
+        if ((Vector2) transform.position == targetPos)
         {
             transform.position = startPos;
-            rb.velocity = startVelocity;
         }
-
-        if (GetComponent<Renderer>().isVisible)
-        {
-            Move();
-        }
-
-        //rotate the rb to match the velocity
-        Vector2 v = rb.velocity;
-        float angle = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg + 90;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
+
+    public static Quaternion LookAtTarget(Vector2 rotation)
+    {
+        return Quaternion.Euler(0, 180, -Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg);
+    }
+
 
     void OnCollisionEnter2D(Collision2D other)
     {
