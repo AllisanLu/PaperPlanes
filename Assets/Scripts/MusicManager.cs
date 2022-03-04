@@ -1,15 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class MusicManager : MonoBehaviour
 {
     public static MusicManager _instance;
     public static MusicManager Instance { get {return _instance; } }
-    [SerializeField] private FMODUnity.EventReference reference;
+    [SerializeField] public FMODUnity.EventReference reference;
     public static FMOD.Studio.EventInstance PauseSong;
     public static FMOD.Studio.EventInstance LevelSong;
+    public static FMOD.Studio.EventInstance TitleSong;
     public static bool levelStarted = false;
+    public static bool levelChanged = false;
+    private string currentScene;
+    private bool levelSongPlaying;
+    //private int titleSongCount = 0;
+
     //public static bool pauseSongStarted = false;
 
     //public PauseMenu pausemenu;
@@ -18,23 +25,13 @@ public class MusicManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PauseSong = FMODUnity.RuntimeManager.CreateInstance("event:/Pause");
+        PauseSong = FMODUnity.RuntimeManager.CreateInstance("event:/Songs/Pause/PauseSong");
         LevelSong = FMODUnity.RuntimeManager.CreateInstance(reference);
+        TitleSong = FMODUnity.RuntimeManager.CreateInstance("event:/Songs/Title2");
+        currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
 
-        //LevelSong.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
-        //LevelSong = FMODUnity.RuntimeManager.CreateInstance("event:/Level_1");
-
-        if (levelStarted == false) {
-            // if (LevelSong.isValid()){
-            //     throw new UnityException("Song invalid start1");
-            // }
-            LevelSong.start();
-
-            //StartLevelMusic();
-            Debug.Log("song started");
-        }
-        levelStarted = true;
-
+        TitleSong.start();
+ 
 		DontDestroyOnLoad(gameObject);
     }
 
@@ -49,16 +46,58 @@ public class MusicManager : MonoBehaviour
         }
     }
 
+  
+
     void Update()
     {
+        //LevelSong = FMODUnity.RuntimeManager.CreateInstance(reference);
+        // SceneManager.activeSceneChanged = (prev, next) => {
+        //     declare variable reference
+        //     switch(next.name) {
 
+        //     case "tutorial": reference = insert hard coded reference here; break;
+        //     // ... rest of the thing
+        //     }
+        // // level song <- create new instance for the reference
+        // }
+        
+        if (currentScene != UnityEngine.SceneManagement.SceneManager.GetActiveScene().name) {
+            levelChanged = true;
+            currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        }
+
+        if (levelChanged) {
+
+            //LevelSong = FMODUnity.RuntimeManager.CreateInstance(reference);
+            if (!levelSongPlaying) {
+                StartLevelMusic();
+                levelSongPlaying = true;
+            }
+            //StartLevelMusic();
+            Debug.Log(currentScene);
+            Debug.Log(reference);
+
+
+            levelChanged = false;
+        }
+
+        if (currentScene != "MainMenu") {
+            StopTitleMusic();
+            //StartLevelMusic();
+            Debug.Log(reference);
+        }
 
 
     }
 
-    //NONE OF THE BELOW FUNCTIONS ACTUALLY WORK
-    public void TestingFMOD() {
-        Debug.Log("arghh");
+
+    public void StopTitleMusic() {
+        TitleSong.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        TitleSong.release();
+    }
+
+    public void ChangeLevelSong() {
+        LevelSong = FMODUnity.RuntimeManager.CreateInstance(reference);
     }
 
     public void StartLevelMusic() {
@@ -67,7 +106,7 @@ public class MusicManager : MonoBehaviour
 
     public void StopLevelMusic() {
         LevelSong.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        LevelSong.release();
+        //LevelSong.release();
     }
 
     public void PauseLevelMusic() {
@@ -94,51 +133,12 @@ public class MusicManager : MonoBehaviour
     public void PlayPauseMenuMusic() {
         PauseSong.start();
         Debug.Log("Song start");
-        // if(PauseMenu.instance.isPaused()) {
-        //     //_instance.PlayPauseMenuMusic();
-        //     //_instance.PlayPauseMenuMusic();
-        //     Debug.Log("Paused: " + PauseMenu.instance.isPaused());
-        //     Level1Song.setPaused(true);
 
-        //     if (pauseSongStarted == false) {
-        //         //PauseSong.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        //         pauseSongStarted = true;
-
-        //         PauseSong.start();
-        //         Debug.Log("Song started:" + pauseSongStarted);
-
-        //     }
-        //     //PauseSong.start();
-
-
-        //     //PlayPauseMenuMusic();
-        // }
-        //Debug.Log("hi");
     }
 
     public void StopPauseMenuMusic() {
 
         PauseSong.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        //PauseSong.release();
-        // if(!PauseMenu.instance.isPaused()) {
-        //     Level1Song.setPaused(false);    
-        //     Debug.Log("Paused: " + PauseMenu.instance.isPaused());
 
-        //     if (pauseSongStarted == true) {
-        //         //Level1Song.start();
-        //         pauseSongStarted = false;           
-
-        //         PauseSong.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        //         PauseSong.release();
-        //         Debug.Log("Song started:" + pauseSongStarted);
-
-
-        //     }
-        //     //_instance.StopPauseMenuMusic();
-        //     //PauseSong.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        //     Debug.Log("Bye");
-
-        // }
-        //Debug.Log("hi");
     }
 }

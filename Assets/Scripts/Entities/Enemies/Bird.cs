@@ -27,8 +27,6 @@ public class Bird : Enemy
     {
         Gizmos.color = Color.red;
         Vector2 endPos = startPos + (Vector2) (transform.rotation * new Vector3(-20,0,0));
-        Debug.Log("start" + startPos);
-        Debug.Log("end" + endPos);
 
         Gizmos.DrawLine(startPos, endPos);
     }

@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame() {
         SceneManager.LoadScene("Tutorial");
+        CheckpointManager.resetPosition();
     }
 
     public void QuitGame() {
