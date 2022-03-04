@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2008825760057338089}
   - component: {fileID: 2008825760057338088}
   - component: {fileID: 2008825760057338091}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LevelRainGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -866,7 +866,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 25
       minScalar: 10
       maxCurve:
         serializedVersion: 2
