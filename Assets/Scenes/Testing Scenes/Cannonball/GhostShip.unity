@@ -1590,14 +1590,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1176426961}
     m_Modifications:
-    - target: {fileID: 567248003627776316, guid: 5017937fdf051954f919417c8058991a, type: 3}
-      propertyPath: quickFireDelay
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 567248003627776317, guid: 5017937fdf051954f919417c8058991a, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1065569011666384880, guid: 5017937fdf051954f919417c8058991a, type: 3}
       propertyPath: m_Name
       value: GhostShip
@@ -1605,14 +1597,6 @@ PrefabInstance:
     - target: {fileID: 1065569011666384884, guid: 5017937fdf051954f919417c8058991a, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1065569011666384884, guid: 5017937fdf051954f919417c8058991a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1065569011666384884, guid: 5017937fdf051954f919417c8058991a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1065569011666384884, guid: 5017937fdf051954f919417c8058991a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1653,26 +1637,6 @@ PrefabInstance:
     - target: {fileID: 1065569011666384884, guid: 5017937fdf051954f919417c8058991a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1065569011666384885, guid: 5017937fdf051954f919417c8058991a, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1065569011666384885, guid: 5017937fdf051954f919417c8058991a, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1065569011666384885, guid: 5017937fdf051954f919417c8058991a, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1065569011666384886, guid: 5017937fdf051954f919417c8058991a, type: 3}
-      propertyPath: m_Size.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1065569011666384886, guid: 5017937fdf051954f919417c8058991a, type: 3}
-      propertyPath: m_Size.y
-      value: 22
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5017937fdf051954f919417c8058991a, type: 3}

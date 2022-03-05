@@ -30,7 +30,13 @@ public class Cannonball : Enemy
         if (other.gameObject.CompareTag("Player"))
         {
             ResourceBar.instance.collision(damage);
+            Destroy(this.gameObject);
         }
 
+    }
+
+    void OnBecameInvisible()
+    {
+        DestroyObject(gameObject);
     }
 }

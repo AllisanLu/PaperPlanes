@@ -31,6 +31,10 @@ public class Javlin : Enemy
         {
             ResourceBar.instance.collision(damage);
         }
-
+    }
+    
+    void OnBecameInvisible()
+    {
+        DestroyObject(gameObject);
     }
 }

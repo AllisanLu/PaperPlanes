@@ -17,7 +17,7 @@ public class ShipProjectileSpawner : MonoBehaviour
 
     private List<int[]> phase1;
     private List<int[]> phase2;
-    private List<int[]> phase3;
+    // private List<int[]> phase3;
 
     // To track which of the 3 phases we are in in the future
     private int phase = 0;
@@ -65,12 +65,12 @@ public class ShipProjectileSpawner : MonoBehaviour
         };
     }
 
-    public void startPhase1() {
-        StartCoroutine(startSpawning(phase1, false));
+    public IEnumerator startPhase1() {
+        yield return StartCoroutine(startSpawning(phase1, false));
     }
 
-    public void startPhase2() {
-        StartCoroutine(startSpawning(phase2, true));
+    public IEnumerator startPhase2() {
+        yield return StartCoroutine(startSpawning(phase2, true));
     }
 
     private IEnumerator startSpawning(List<int[]> objects, bool usingQuickfire) {
