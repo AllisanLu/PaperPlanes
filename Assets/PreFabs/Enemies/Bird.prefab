@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1842776488634684914}
   - component: {fileID: 1105011718466164373}
   - component: {fileID: 6386098389530891126}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bird
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 3610544276808657746, guid: 89fb1055efdf2470e84a5720d9c50a59, type: 3}
   m_Color: {r: 1, g: 0.9194752, b: 0, a: 1}
   m_FlipX: 0
@@ -107,7 +107,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1842776488634684915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.3
+  zAngle: 0
 --- !u!114 &1842776488634684914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,8 +134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db28ddbc42c8b3e47a3529e1cb8b811b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 6
   behaviorController: {fileID: 1842776488634684915}
+  animator: {fileID: 6386098389530891126}
 --- !u!70 &1105011718466164373
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

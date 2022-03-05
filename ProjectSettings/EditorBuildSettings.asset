@@ -11,19 +11,34 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Testing Scenes/katelynn/StartUI.unity
     guid: 1cd8bd6d282634fc98d384726e441615
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainDemo.unity
     guid: 26c7c4c49c1752f4e8b3f7fe4aa95f03
   - enabled: 0
     path: Assets/Scenes/Testing Scenes/Resource Bar/ResourceBar.unity
     guid: 8b0a566544bab7b4b9351b83ad05810c
   - enabled: 0
-    path: Assets/Scenes/Testing Scenes/Elizabeth/WindText.unity
-    guid: b80971401d9f48f498df74fb8c551f21
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/Scenes/Testing Scenes/Madison/Demo2.unity
     guid: 4f274a2a1e1ed3d47a1ca3970e68e850
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/Game_/MainMenu.unity
     guid: 9b3657d7175eab24287c8048b24cf149
+  - enabled: 1
+    path: Assets/Scenes/Game_/Tutorial.unity
+    guid: d27504920a269244182681d9d5562e18
+  - enabled: 1
+    path: Assets/Scenes/Game_/L1A2.unity
+    guid: 79fc4d981bf80e841a99e3e23344c733
+  - enabled: 1
+    path: Assets/Scenes/Game_/L1A3.unity
+    guid: d5755dc89f1fb3344a1aaad268e54761
+  - enabled: 1
+    path: Assets/Scenes/Game_/L2.unity
+    guid: 0276ff7756f21564a8ff68e440459496
+  - enabled: 1
+    path: Assets/Scenes/Game_/GameEnd.unity
+    guid: 26e93199fae02fd49af81c4efa1a4f60
   m_configObjects: {}
