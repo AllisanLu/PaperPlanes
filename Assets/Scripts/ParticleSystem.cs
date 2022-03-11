@@ -26,11 +26,8 @@ public class ParticleSystem : MonoBehaviour
     }
 
     IEnumerator waitforseconds() {
-        Debug.Log("Here");
         this.GetComponent<Renderer>().enabled = true;
-        Debug.Log("WATIING");
-        yield return new WaitForSeconds(3);
-        Debug.Log("STOPPED");
+        yield return new WaitForSeconds(2);
         hasClicked = false;
         this.GetComponent<Renderer>().enabled = false;
     }

@@ -681,7 +681,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 1
+  moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -1441,7 +1441,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 12
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1888,26 +1888,26 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.18583126, g: 0.4528302, b: 0.25947028, a: 1}
-        key1: {r: 0.3962264, g: 0.29343182, b: 0.29343182, a: 0.6745098}
-        key2: {r: 0, g: 0, b: 0, a: 0}
-        key3: {r: 0, g: 0, b: 0, a: 0}
+        key0: {r: 1, g: 0.60045624, b: 0, a: 1}
+        key1: {r: 0.3962264, g: 0.29343182, b: 0.29343182, a: 0.7411765}
+        key2: {r: 0.3962264, g: 0.29343182, b: 0.29343182, a: 0}
+        key3: {r: 0.3962264, g: 0.29343182, b: 0.29343182, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 33153
-        ctime2: 0
-        ctime3: 0
+        ctime1: 49344
+        ctime2: 42405
+        ctime3: 42405
         ctime4: 0
         ctime5: 0
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 33539
+        atime1: 49151
         atime2: 65535
-        atime3: 0
+        atime3: 65535
         atime4: 0
         atime5: 0
         atime6: 0
@@ -6229,6 +6229,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -21.583
       objectReference: {fileID: 0}
+    - target: {fileID: 4091132677060719147, guid: a7061cb9d32c39a408c768501bed437b, type: 3}
+      propertyPath: collisionParticles
+      value: 
+      objectReference: {fileID: 236587326}
     - target: {fileID: 4091132677060719148, guid: a7061cb9d32c39a408c768501bed437b, type: 3}
       propertyPath: m_Name
       value: Plane
@@ -7217,6 +7221,7 @@ GameObject:
   - component: {fileID: 2010827308}
   - component: {fileID: 2010827307}
   - component: {fileID: 2010827306}
+  - component: {fileID: 2010827309}
   m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
@@ -12019,6 +12024,19 @@ Transform:
   m_Father: {fileID: 1055912773}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 15.903, y: -61.189, z: 12.507}
+--- !u!114 &2010827309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010827305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b19f1fab4532490b8fcc0ab185eb045, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasClicked: 0
 --- !u!1001 &2026118507
 PrefabInstance:
   m_ObjectHideFlags: 0
