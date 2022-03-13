@@ -13,6 +13,7 @@ public class Platform : Entity
 {
     private Platform instance;
     public GameObject button;
+    public QuestIndicator questIndicator;
 
     private void Awake() 
     {
@@ -22,8 +23,7 @@ public class Platform : Entity
         button.GetComponent<Button>().onClick.AddListener(TaskOnClick); //Binding On Click Method.
     }
 
-
-    // Triggers when plane is on platform
+    // Triggers when plane is close to platform
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -32,6 +32,7 @@ public class Platform : Entity
         }
     }
 
+    // Triggers when plane is on platform
     void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.CompareTag("Player"))
         {
