@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e10f201332b150c42b37db169ea473af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 4
   behaviorController: {fileID: 6056238093580020240}
   animator: {fileID: 2595764049311018300}
 --- !u!114 &6056238093580020240

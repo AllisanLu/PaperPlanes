@@ -25,12 +25,14 @@ public class WaterSprout : Obstacle
         {
             if (wind.getForce() > 2)
             {
-                anim.SetBool("dying", true);
+                die();
             }
         } 
     }
     public void die()
     {
+        //get rid of collider
+        Destroy(GetComponent<Collider2D>());
         anim.SetBool("dying", true);
     }
 }
