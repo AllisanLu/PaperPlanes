@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1805029441615110420}
   - component: {fileID: 1805029441615110425}
   - component: {fileID: 5818421605498319968}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Top Stone Pillar
   m_TagString: Obstacle
   m_Icon: {fileID: 0}

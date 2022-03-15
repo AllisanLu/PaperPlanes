@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 public class Plane : Entity
 {
+	public bool invincible = false;
 
 	public PlaneController controller;
 	public Animator animator;
@@ -33,6 +34,11 @@ public class Plane : Entity
 		shield = null;
 
 		collisionParticles.GetComponent<Renderer>().enabled = false;
+
+		if(invincible)
+        {
+			gameObject.layer = 3;
+        }
 	}
 
 	// Called once per frame

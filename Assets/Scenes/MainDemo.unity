@@ -646,7 +646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attenuationObject: {fileID: 0}
+  attenuationObject: {fileID: 477382593}
   ListenerNumber: -1
 --- !u!1 &501141376
 GameObject:
@@ -2605,12 +2605,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -21.583
       objectReference: {fileID: 0}
+    - target: {fileID: 4091132677060719147, guid: a7061cb9d32c39a408c768501bed437b, type: 3}
+      propertyPath: invincible
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4091132677060719148, guid: a7061cb9d32c39a408c768501bed437b, type: 3}
       propertyPath: m_Name
       value: Plane
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1055912775, guid: a7061cb9d32c39a408c768501bed437b, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7061cb9d32c39a408c768501bed437b, type: 3}
 --- !u!1001 &6965437828075477274
 PrefabInstance:

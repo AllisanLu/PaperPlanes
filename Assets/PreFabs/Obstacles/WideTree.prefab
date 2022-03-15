@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5556991361342240424}
   - component: {fileID: 2163373111309252053}
   - component: {fileID: 1446755995436824359}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WideTree
   m_TagString: Obstacle
   m_Icon: {fileID: 0}

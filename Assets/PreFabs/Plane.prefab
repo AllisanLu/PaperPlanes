@@ -9656,7 +9656,6 @@ GameObject:
   - component: {fileID: 4091132677060719151}
   - component: {fileID: 8738986180038902444}
   - component: {fileID: 1902726658632964352}
-  - component: {fileID: 1055912775}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Player
@@ -9692,6 +9691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0160a9e842db348a908a972c294a09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invincible: 0
   controller: {fileID: 4091132677060719145}
   animator: {fileID: 8738986180038902444}
   aerodynamics: {fileID: 4091132677060719150}
@@ -9852,17 +9852,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1055912775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4091132677060719148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attenuationObject: {fileID: 0}
-  ListenerNumber: -1
