@@ -40,7 +40,11 @@ public class MusicManager : MonoBehaviour
         currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
 
         //TitleSong.start();
-        StartTitleMusic();
+        if (currentScene != "MainDemo") {
+            StartTitleMusic();
+        } else {
+            StartLevelMusic();
+        }
 		DontDestroyOnLoad(gameObject);
     }
 
