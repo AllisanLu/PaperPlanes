@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MoveToNextScene : MonoBehaviour
 {
     public string nameOfNextScene = "";
+    
     void Start()
     {
         
@@ -22,7 +23,9 @@ public class MoveToNextScene : MonoBehaviour
         if (collider.tag == "Player")
         {
             CheckpointManager.resetPosition();
-            SceneManager.LoadScene(nameOfNextScene);
+            GameObject transitionObject = LevelTransitions.instance.gameObject;
+            LevelTransitions transitionScript = transitionObject.GetComponent<LevelTransitions>();
+            StartCoroutine(transitionScript.LevelTransition(nameOfNextScene));
         }
     }
 }
