@@ -34,7 +34,9 @@ public class ColumnSpawner : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            SceneManager.LoadScene("L1A2");
+            GameObject transitionObject = LevelTransitions.instance.gameObject;
+            LevelTransitions transitionScript = transitionObject.GetComponent<LevelTransitions>();
+            StartCoroutine(transitionScript.LevelTransition("L1A2"));
         }
     }
 }
