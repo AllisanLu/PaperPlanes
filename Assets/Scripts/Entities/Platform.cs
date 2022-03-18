@@ -13,6 +13,7 @@ public class Platform : Entity
 {
     private Platform instance;
     public GameObject button;
+    public QuestIndicator questIndicator;
     public double finalYPosition = 2.50;
     public float fadeSpeed = 1f;
 
@@ -57,6 +58,7 @@ public class Platform : Entity
         }
     }
 
+    // Triggers when plane is on platform
     void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.CompareTag("Player"))
         {
