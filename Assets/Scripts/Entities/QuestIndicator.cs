@@ -17,7 +17,7 @@ public class QuestIndicator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     // Shows when plane is within range
@@ -32,4 +32,5 @@ public class QuestIndicator : MonoBehaviour
     public void DisableRender()
     {
         instance.GetComponent<Renderer>().enabled = false;
-    } 
+    }
+}
