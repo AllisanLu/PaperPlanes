@@ -14,7 +14,8 @@ public class Platform : MonoBehaviour
     public GameObject button;
     public QuestIndicator questIndicator;
     public double finalYPosition;
-    public float fadeSpeed = 1f;
+    public float fadeSpeed = 0.05f;
+    private bool summoned = false;
 
     private void Awake() 
     {
@@ -39,7 +40,11 @@ public class Platform : MonoBehaviour
         
         if (inRange && transform.position.y < finalYPosition) {
             transform.Translate((Vector2.up * (Time.deltaTime * 5)));
-            StartCoroutine(FadeInIObject());
+            if (!summoned)
+            {
+                StartCoroutine(FadeInIObject());
+                summoned = true;
+            }
         } 
     }
 
@@ -75,8 +80,9 @@ public class Platform : MonoBehaviour
         Color objColor = this.GetComponent<Renderer>().material.color;
         objColor.a = 0;
 
-        while (objColor.a < 1) { 
-            float fadeAmount = objColor.a + (fadeSpeed * Time.deltaTime * 100);
+        while (objColor.a < 1) {
+            float fadeAmount = objColor.a + (fadeSpeed * Time.deltaTime * 10);
+            print(fadeAmount);
             objColor = new Color(objColor.r, objColor.g, objColor.b, fadeAmount);
             this.GetComponent<Renderer>().material.color = objColor;
             yield return null;
