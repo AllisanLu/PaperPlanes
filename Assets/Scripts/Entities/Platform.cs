@@ -9,18 +9,16 @@ event trigger: box collider 2d, is trigger: true, size: event trigger area
 physical platform: box collider 2d, default
 */
 
-public class Platform : Entity
+public class Platform : MonoBehaviour
 {
-    private Platform instance;
     public GameObject button;
     public QuestIndicator questIndicator;
-    public double finalYPosition = 2.50;
+    public double finalYPosition;
     public float fadeSpeed = 1f;
 
     private void Awake() 
     {
-        instance = this;
-        instance.GetComponent<Renderer>().enabled = false;
+        this.GetComponent<Renderer>().enabled = false;
         button.SetActive(false); //Button is not visibile.
         button.GetComponent<Button>().onClick.AddListener(TaskOnClick); //Binding On Click Method.
     }
@@ -28,35 +26,30 @@ public class Platform : Entity
     // Start is called before the first frame update
     void Start()
     {
-        
+        finalYPosition = transform.position.y + 3;
     }
 
     // Update is called once per frame
     //If plane is in range of platform, move up and fade in until it hits the final position
     //resets each time plane restarts at checkpoint
     void Update()
-
     {
-        bool inRange = instance.GetComponent<Renderer>().enabled;
+        bool inRange = this.GetComponent<Renderer>().enabled;
         
-        if (inRange && transform.position.y < finalYPosition) { 
+        if (inRange && transform.position.y < finalYPosition) {
             transform.Translate((Vector2.up * (Time.deltaTime * 5)));
             StartCoroutine(FadeInIObject());
-        } else {
-            Vector2 newPosition = new Vector2(transform.position.x, transform.position.y);
-            transform.position = newPosition;
-
-        }
+        } 
     }
 
-    // Triggers when plane is on platform
-    void OnTriggerEnter2D(Collider2D other)
-    {
+    // Triggers when plane is near the
+     void OnTriggerEnter2D(Collider2D other)
+     {
         if (other.gameObject.CompareTag("Player"))
-        {
-            instance.GetComponent<Renderer>().enabled = true;
+         {
+            this.GetComponent<Renderer>().enabled = true;
         }
-    }
+     }
 
     // Triggers when plane is on platform
     void OnCollisionEnter2D(Collision2D other) {
@@ -78,13 +71,13 @@ public class Platform : Entity
     //while object is not fully transparent, gradually change transparency
     public IEnumerator FadeInIObject()
     {
-        Color objColor = instance.GetComponent<Renderer>().material.color;
+        Color objColor = this.GetComponent<Renderer>().material.color;
         objColor.a = 0;
 
         while (objColor.a < 1) { 
             float fadeAmount = objColor.a + (fadeSpeed * Time.deltaTime * 100);
             objColor = new Color(objColor.r, objColor.g, objColor.b, fadeAmount);
-            instance.GetComponent<Renderer>().material.color = objColor;
+            this.GetComponent<Renderer>().material.color = objColor;
             yield return null;
         }
 
