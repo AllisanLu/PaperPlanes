@@ -552,7 +552,7 @@ Transform:
   - {fileID: 1788199057}
   - {fileID: 1529655501}
   - {fileID: 7666908}
-  - {fileID: 757835495}
+  - {fileID: 1448778777}
   - {fileID: 1108855078}
   - {fileID: 8646642288436587496}
   - {fileID: 536450390}
@@ -684,8 +684,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 176, y: 149.68}
-  m_SizeDelta: {x: 65.2796, y: 24.8993}
+  m_AnchoredPosition: {x: 252.19, y: 136}
+  m_SizeDelta: {x: 13.5724, y: 6.2847}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &501141378
 MonoBehaviour:
@@ -1007,6 +1007,10 @@ PrefabInstance:
       propertyPath: button
       value: 
       objectReference: {fileID: 501141376}
+    - target: {fileID: 2608546000580805152, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 501141376}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
 --- !u!114 &655580153 stripped
@@ -1024,11 +1028,6 @@ MonoBehaviour:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 257622632565597358, guid: 9c774698e03354242ab7c720c25f2815, type: 3}
   m_PrefabInstance: {fileID: 1227604744}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &757835495 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2562227227971989752, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
-  m_PrefabInstance: {fileID: 537038735}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &808550239 stripped
 Transform:
@@ -1578,6 +1577,11 @@ PrefabInstance:
 Animator:
   m_CorrespondingSourceObject: {fileID: 2595764049311018300, guid: 661f4ff513a249940b15eea816c692f7, type: 3}
   m_PrefabInstance: {fileID: 1386251588}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1448778777 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2608546000580805154, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
+  m_PrefabInstance: {fileID: 537038735}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1521156940
 GameObject:
