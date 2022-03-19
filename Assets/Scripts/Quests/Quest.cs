@@ -29,7 +29,6 @@ public class Quest
         this.dialogue.Insert(index, dialogue);
     }
 
-
     public void UpdateCompleted(bool newCompleted) {
         this.completed = newCompleted;
     }
