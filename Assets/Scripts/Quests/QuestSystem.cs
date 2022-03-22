@@ -17,10 +17,10 @@ public class QuestSystem : MonoBehaviour
     {
         quests = new ArrayList();
         // Temporary quests for debugging
-        quests.Add(new Quest("Objective 1", true, false, new ArrayList()));
-        quests.Add(new Quest("Objective 2", false, false, new ArrayList()));
-        quests.Add(new Quest("Objective 3", true, false, new ArrayList()));
-        quests.Add(new Quest("Objective 4", true, false, new ArrayList()));
+      //  quests.Add(new Quest("Objective 1", true, false, new ArrayList()));
+      //  quests.Add(new Quest("Objective 2", false, false, new ArrayList()));
+      //  quests.Add(new Quest("Objective 3", true, false, new ArrayList()));
+      //  quests.Add(new Quest("Objective 4", true, false, new ArrayList()));
     }
 
     // Update is called once per frame

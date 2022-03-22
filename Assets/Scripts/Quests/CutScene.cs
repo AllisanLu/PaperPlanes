@@ -6,7 +6,6 @@ public class CutScene : MonoBehaviour
 {
     public bool start;
     public Quest quest;
-    public DialogueTrigger npc;
 
     // Start is called before the first frame update
     void Start()
@@ -20,19 +19,21 @@ public class CutScene : MonoBehaviour
         
     }
 
-    public void Dialog()
+    public void OnTriggerExit2D(Collider2D other)
     {
         //call the quest and put dialog on screen lol
 
-        npc.TriggerDialogue();
-
-        //set cutscene done to true )b
-        if (start)
+        //updates the quests the player has
+        if (other.gameObject.tag == "Player")
         {
-            QuestSystem.AddQuest(quest);
-        } else
-        {
-            QuestSystem.RemoveQuest(quest);
+            if (start)
+            {
+                QuestSystem.AddQuest(quest);
+            }
+            else
+            {
+                QuestSystem.RemoveQuest(quest);
+            }
         }
 
     }  

@@ -31,7 +31,7 @@ public class UpdateQuest : MonoBehaviour
         }
         // Display all current quests in Text UI element
         ArrayList quests = QuestSystem.GetCurrentQuests();
-        string text = "CURRENT QUESTS: \n";
+        string text = "Messages: \n";
         foreach (Quest q in quests) {
             // Add quest description per line
             text += q.QuestDescription + "\n";
