@@ -48,6 +48,11 @@ public class QuestSystem : MonoBehaviour
         quests.Add(quest);
     }
 
+    public static Quest getQuest(Quest quest)
+    {
+        return (Quest) quests[quests.IndexOf(quest)];
+    }
+
     public static void RemoveQuest(Quest quest) {
         quests.Remove(quest);
     }

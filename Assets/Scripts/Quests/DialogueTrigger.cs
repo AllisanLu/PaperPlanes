@@ -71,6 +71,8 @@ public class DialogueTrigger : MonoBehaviour
             {
                 TriggerDialogue();
             }
+            CutScene cs = this.GetComponent<CutScene>();
+            cs.HandleQuest();
             // Debug.Log("Collision");
         }
     }

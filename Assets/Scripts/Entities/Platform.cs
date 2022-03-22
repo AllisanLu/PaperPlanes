@@ -87,7 +87,6 @@ public class Platform : MonoBehaviour
 
         while (objColor.a < 1) {
             float fadeAmount = objColor.a + (fadeSpeed * Time.deltaTime * 10);
-            print(fadeAmount);
             objColor = new Color(objColor.r, objColor.g, objColor.b, fadeAmount);
             this.GetComponent<Renderer>().material.color = objColor;
             yield return null;

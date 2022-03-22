@@ -5,36 +5,39 @@ using UnityEngine;
 public class CutScene : MonoBehaviour
 {
     public bool start;
+    public string questName;
     public Quest quest;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        quest = new Quest(questName, true, false, null);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void OnTriggerExit2D(Collider2D other)
+    public void HandleQuest()
     {
+        print("Cutscene enter");
         //call the quest and put dialog on screen lol
 
-        //updates the quests the player has
-        if (other.gameObject.tag == "Player")
+        //updates the quests the player 
+        if (start)
         {
-            if (start)
-            {
-                QuestSystem.AddQuest(quest);
-            }
-            else
-            {
-                QuestSystem.RemoveQuest(quest);
-            }
+            QuestSystem.AddQuest(quest);
+            print("added quest");
+        }
+        else
+        {
+            Quest complete = QuestSystem.getQuest(quest);
+            complete.UpdateCompleted(true);
+            //  complete.UpdateCurrent(false);
         }
 
-    }  
+
+    }
 }
