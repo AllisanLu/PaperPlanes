@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class CutScene : MonoBehaviour
 {
-    Quest quest;
+    public bool start;
+    public Quest quest;
+    public DialogueTrigger npc;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +24,16 @@ public class CutScene : MonoBehaviour
     {
         //call the quest and put dialog on screen lol
 
+        npc.TriggerDialogue();
+
         //set cutscene done to true )b
-    }
-    
+        if (start)
+        {
+            QuestSystem.AddQuest(quest);
+        } else
+        {
+            QuestSystem.RemoveQuest(quest);
+        }
+
+    }  
 }

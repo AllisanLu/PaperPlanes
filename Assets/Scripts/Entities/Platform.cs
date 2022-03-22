@@ -11,17 +11,19 @@ physical platform: box collider 2d, default
 
 public class Platform : MonoBehaviour
 {
-    public GameObject button;
+    //public GameObject button;
     public QuestIndicator questIndicator;
     public double finalYPosition;
     public float fadeSpeed = 0.05f;
     private bool summoned = false;
 
+    private bool canRelaunch = false;
+
     private void Awake() 
     {
         this.GetComponent<Renderer>().enabled = false;
-        button.SetActive(false); //Button is not visibile.
-        button.GetComponent<Button>().onClick.AddListener(TaskOnClick); //Binding On Click Method.
+       // button.SetActive(false); //Button is not visibile.
+       // button.GetComponent<Button>().onClick.AddListener(TaskOnClick); //Binding On Click Method.
     }
 
     // Start is called before the first frame update
@@ -46,6 +48,11 @@ public class Platform : MonoBehaviour
                 summoned = true;
             }
         } 
+
+        if (canRelaunch && Input.GetKeyDown(KeyCode.A))
+        {
+            TaskOnClick();
+        }
     }
 
     // Triggers when plane is near the
@@ -61,15 +68,13 @@ public class Platform : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.CompareTag("Player"))
         {
-            // cutscene
-        } // Need to check if CutScene is done.
-        button.SetActive(true); //Shows Button on Screen
+            canRelaunch = true;
+        } 
     }
 
     void TaskOnClick(){
         PlatformManager.cutSceneDone = true; //Sets that the CutSceneis Done and Player wants to fly
         Destroy(this.gameObject); //Destorys the Platform
-        button.SetActive(false); //Button disappears.
     }
     
     //slowly fades object in

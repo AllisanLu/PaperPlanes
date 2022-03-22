@@ -27,7 +27,7 @@ public class DialogueTrigger : MonoBehaviour
     // public bool useCollision; // unused for now
 
     /* Called when you want to start dialogue */
-    void TriggerDialogue()
+    public void TriggerDialogue()
     {
         ReadTextFile(); // loads in the text file
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue); // Accesses Dialogue Manager and Starts Dialogue
