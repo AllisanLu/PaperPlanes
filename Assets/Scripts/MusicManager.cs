@@ -7,14 +7,21 @@ public class MusicManager : MonoBehaviour
 {
     public static MusicManager _instance;
     public static MusicManager Instance { get {return _instance; } }
-    [SerializeField] public FMODUnity.EventReference reference;
+    [SerializeField] public FMODUnity.EventReference reference1;
+    [SerializeField] public FMODUnity.EventReference reference2;
+
     public static FMOD.Studio.EventInstance PauseSong;
     public static FMOD.Studio.EventInstance LevelSong;
+    public static FMOD.Studio.EventInstance Level2Song;
+
     public static FMOD.Studio.EventInstance TitleSong;
     public static bool levelStarted = false;
     public static bool levelChanged = false;
     private string currentScene;
-    private bool levelSongPlaying;
+    private bool titleSongPlaying = false;
+    private bool levelSongPlaying = false;
+    private bool level2SongPlaying = false;
+
     //private int titleSongCount = 0;
 
     //public static bool pauseSongStarted = false;
@@ -26,12 +33,18 @@ public class MusicManager : MonoBehaviour
     void Start()
     {
         PauseSong = FMODUnity.RuntimeManager.CreateInstance("event:/Songs/Pause/PauseSong");
-        LevelSong = FMODUnity.RuntimeManager.CreateInstance(reference);
+        LevelSong = FMODUnity.RuntimeManager.CreateInstance(reference1);
+        Level2Song = FMODUnity.RuntimeManager.CreateInstance(reference2);
+
         TitleSong = FMODUnity.RuntimeManager.CreateInstance("event:/Songs/Title2");
         currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
 
-        TitleSong.start();
- 
+        //TitleSong.start();
+        if (currentScene != "MainDemo") {
+            StartTitleMusic();
+        } else {
+            StartLevelMusic();
+        }
 		DontDestroyOnLoad(gameObject);
     }
 
@@ -67,11 +80,42 @@ public class MusicManager : MonoBehaviour
         }
 
         if (levelChanged) {
-
+            if (currentScene != "MainMenu") {
+                StopTitleMusic();
+                titleSongPlaying = false;
+                //StartLevelMusic();
+            }
+            if (!(currentScene == "Tutorial" || currentScene == "L1A2" || currentScene == "L1A3" ) && levelSongPlaying) {
+                StopLevelMusic();
+                levelSongPlaying = false;
+                //StartLevelMusic();
+            }
+            if (currentScene != "L2" && level2SongPlaying) {
+                StopLevel2Music();
+                level2SongPlaying = false;
+            }
+            if (!titleSongPlaying && currentScene == "MainMenu") {
+                StartTitleMusic();
+                titleSongPlaying = true;
+            }
             //LevelSong = FMODUnity.RuntimeManager.CreateInstance(reference);
-            if (!levelSongPlaying) {
+            if (!levelSongPlaying && currentScene == "Tutorial") {
                 StartLevelMusic();
+                //StartLevel2Music();
+
                 levelSongPlaying = true;
+                Debug.Log("reached");
+            }
+
+            if (!level2SongPlaying && currentScene == "L2") {
+                StartLevel2Music();
+                level2SongPlaying = true;
+               
+
+            }
+
+            if (currentScene == "MainMenu") {
+                StopPauseMenuMusic();
             }
 
 
@@ -79,23 +123,56 @@ public class MusicManager : MonoBehaviour
             levelChanged = false;
         }
 
-        if (currentScene != "MainMenu") {
-            StopTitleMusic();
-            //StartLevelMusic();
-        }
+        // if (currentScene != "MainMenu") {
+        //     StopTitleMusic();
+        //     titleSongPlaying = false;
+        //     //StartLevelMusic();
+        // }
+        // if (!(currentScene == "Tutorial" || /*currentScene == "L1A2" ||*/ currentScene == "L1A3" ) && levelSongPlaying) {
+        //     StopLevelMusic();
+        //     levelSongPlaying = false;
+        //     //StartLevelMusic();
+        // }
+        // if (currentScene != "L12A" && level2SongPlaying) {
+        //     StopLevel2Music();
+        //     level2SongPlaying = false;
+        // }
 
 
     }
 
+
+    public void StartLevel2Music() {
+        Level2Song.start();
+    }
+
+    public void PauseLevel2Music() {
+
+        Level2Song.setPaused(true);
+    }
+
+
+    public void UnPauseLevel2Music() {
+        Level2Song.setPaused(false);
+    }
+
+    public void StopLevel2Music() {
+        Level2Song.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        //LevelSong.release();
+    }
+
+    public void StartTitleMusic() {
+        TitleSong.start();
+    }
 
     public void StopTitleMusic() {
         TitleSong.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         TitleSong.release();
     }
 
-    public void ChangeLevelSong() {
-        LevelSong = FMODUnity.RuntimeManager.CreateInstance(reference);
-    }
+    // public void ChangeLevelSong() {
+    //     LevelSong = FMODUnity.RuntimeManager.CreateInstance(reference);
+    // }
 
     public void StartLevelMusic() {
         LevelSong.start();
@@ -114,14 +191,6 @@ public class MusicManager : MonoBehaviour
 
 
     public void UnPauseLevelMusic() {
-        //LevelSong.setPaused(false);
-        if (!LevelSong.isValid()){
-            throw new UnityException("Song invalid unpause");
-        }
-        if (LevelSong.setPaused(true) != FMOD.RESULT.OK)
-        {
-            throw new UnityException("Cannot toggle pause");
-        }
         LevelSong.setPaused(false);
         Debug.Log("LevelSong Unpaused");
 
