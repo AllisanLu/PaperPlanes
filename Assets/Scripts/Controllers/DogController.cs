@@ -8,11 +8,22 @@ public class DogController : EnemyController
     Dog dog;
     public float acceleration = 1;
 
+public float speed;
+    public  float zAngle;
+    private Vector3 forward = new Vector3(-1,0,0);
+    private Vector3 movement;
+    private Vector3 direction;
+    private Vector2 startPos;
 
     // Start is called before the first frame update
     void Start()
     {
         dog = GetComponent<Dog>();
+        transform.Rotate(0,0,zAngle);
+        movement = transform.rotation * forward;
+        direction = movement * speed;
+        startPos = transform.position;
+
     }
 
     // Update is called once per frame
@@ -31,7 +42,9 @@ public class DogController : EnemyController
 
        // float acceleration = dog.getRigidBody().gravityScale;
 
+
         y = Mathf.Sqrt(2 * acceleration * 2 * height * 3.75f);
+
 
         float time = 2 * y / acceleration;
 
@@ -39,4 +52,11 @@ public class DogController : EnemyController
 
         return new Vector2(x, y);
     }
-}
+
+
+    // Moves bird to the left at a constant rate
+    public override Vector2 GetMove() {
+        //return (Vector2) transform.position + (new Vector2(-1, 0) * speed);
+        return (Vector2) transform.position + (Vector2) direction;
+    }
+} 

@@ -16,20 +16,37 @@ public class Dog : Enemy
     private float nextX;
     private float baseY;
     private float height;
+    private float runX;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();   
         behaviorController = GetComponent<DogController>();
+
         startVelocity = ((DogController)behaviorController).getStartVelocity(expectedDistance, expectedHeight);
-        startPos = transform.position;
+        startPos = new Vector2(transform.position.x + 10.2f, transform.position.y);
+
         targetPos = new Vector2(startPos.x + expectedDistance, 0);
         rb.gravityScale = 0;
     }
 
     public override void Move()
     {
+        Run();
+        //Jump();
+        
+    }
+
+    public void Run() {
+        runX = Mathf.Lerp(transform.position.x, startPos.x, 0.5f * Time.deltaTime);
+        Vector3 runPosition = new Vector3(runX, 0, transform.position.z);
+        transform.rotation = LookAtTarget(runPosition - transform.position);
+        transform.position = runPosition; 
+    }
+
+    public void Jump() {
+
         dist = targetPos.x - startPos.x;
         nextX = Mathf.MoveTowards(transform.position.x, targetPos.x, speed * Time.deltaTime);
         baseY = Mathf.Lerp(startPos.y, targetPos.y, (nextX - startPos.x) /dist);
@@ -38,11 +55,6 @@ public class Dog : Enemy
         Vector3 movePosition = new Vector3(nextX, baseY + height, transform.position.z);
         transform.rotation = LookAtTarget(movePosition - transform.position);
         transform.position = movePosition;
-
-        if ((Vector2) transform.position == targetPos)
-        {
-            transform.position = startPos;
-        }
     }
 
     public static Quaternion LookAtTarget(Vector2 rotation)
@@ -60,6 +72,9 @@ public class Dog : Enemy
         }
 
     }
+    
+    
+    /* 
 
     void OnDrawGizmos()
     {
@@ -76,7 +91,7 @@ public class Dog : Enemy
             Gizmos.DrawLine(lastP, p);
             lastP = p;
         }
-    }
+    } */
 
     #region Parabola sampling function
     /// <summary>
