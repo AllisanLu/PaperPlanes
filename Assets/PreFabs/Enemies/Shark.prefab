@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e74025bf5214421b075996d54c7cac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 25
   behaviorController: {fileID: 300269373821354270}
   animator: {fileID: 0}
   expectedDistance: 20
@@ -129,7 +129,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.5
+  m_Mass: 0.8
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1

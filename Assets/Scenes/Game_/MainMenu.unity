@@ -223,6 +223,14 @@ PrefabInstance:
       value: event:/Songs/LevelSong/Level1
       objectReference: {fileID: 0}
     - target: {fileID: 8129331683755848767, guid: 8bb1e5d088ce6ee45bf3540ff9daebd4, type: 3}
+      propertyPath: reference1.Path
+      value: event:/Songs/LevelSong/Level1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129331683755848767, guid: 8bb1e5d088ce6ee45bf3540ff9daebd4, type: 3}
+      propertyPath: reference2.Path
+      value: event:/Songs/LevelSong/Level2PlaceHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129331683755848767, guid: 8bb1e5d088ce6ee45bf3540ff9daebd4, type: 3}
       propertyPath: reference.Guid.Data1
       value: 1643151419
       objectReference: {fileID: 0}
@@ -237,6 +245,38 @@ PrefabInstance:
     - target: {fileID: 8129331683755848767, guid: 8bb1e5d088ce6ee45bf3540ff9daebd4, type: 3}
       propertyPath: reference.Guid.Data4
       value: -1468868397
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129331683755848767, guid: 8bb1e5d088ce6ee45bf3540ff9daebd4, type: 3}
+      propertyPath: reference1.Guid.Data1
+      value: 1643151419
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129331683755848767, guid: 8bb1e5d088ce6ee45bf3540ff9daebd4, type: 3}
+      propertyPath: reference1.Guid.Data2
+      value: 1297565138
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129331683755848767, guid: 8bb1e5d088ce6ee45bf3540ff9daebd4, type: 3}
+      propertyPath: reference1.Guid.Data3
+      value: 864999341
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129331683755848767, guid: 8bb1e5d088ce6ee45bf3540ff9daebd4, type: 3}
+      propertyPath: reference1.Guid.Data4
+      value: -1468868397
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129331683755848767, guid: 8bb1e5d088ce6ee45bf3540ff9daebd4, type: 3}
+      propertyPath: reference2.Guid.Data1
+      value: 370586136
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129331683755848767, guid: 8bb1e5d088ce6ee45bf3540ff9daebd4, type: 3}
+      propertyPath: reference2.Guid.Data2
+      value: 1316887691
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129331683755848767, guid: 8bb1e5d088ce6ee45bf3540ff9daebd4, type: 3}
+      propertyPath: reference2.Guid.Data3
+      value: -164732540
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129331683755848767, guid: 8bb1e5d088ce6ee45bf3540ff9daebd4, type: 3}
+      propertyPath: reference2.Guid.Data4
+      value: -17717826
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bb1e5d088ce6ee45bf3540ff9daebd4, type: 3}
@@ -399,7 +439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}

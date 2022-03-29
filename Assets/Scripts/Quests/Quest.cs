@@ -29,7 +29,6 @@ public class Quest
         this.dialogue.Insert(index, dialogue);
     }
 
-
     public void UpdateCompleted(bool newCompleted) {
         this.completed = newCompleted;
     }
@@ -38,5 +37,13 @@ public class Quest
         this.current = newCurrent;
     }
 
+    public override bool Equals(object? obj)
+    {
+        if (obj.GetType().Name == "Quest")
+        {
+            return ((Quest)obj).QuestDescription == this.QuestDescription;
+        }
+        return false;
+    }
 
 }

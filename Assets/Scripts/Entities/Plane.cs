@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
 
 public class Plane : Entity
 {
+	public bool invincible = false;
 
 	public PlaneController controller;
 	public Animator animator;
@@ -13,6 +15,7 @@ public class Plane : Entity
 	public Shield shield;
 	public bool IsActive;
 	public int frameCounter = 0;
+	public ParticleSystem collisionParticles;
 
 	private Animator shieldAnim;
 
@@ -29,6 +32,13 @@ public class Plane : Entity
 		rb.velocity = new Vector2(4, 1);
 
 		shield = null;
+
+		collisionParticles.GetComponent<Renderer>().enabled = false;
+
+		if(invincible)
+        {
+			gameObject.layer = 3;
+        }
 	}
 
 	// Called once per frame
@@ -149,12 +159,21 @@ public class Plane : Entity
 
 		if (other.collider.gameObject.CompareTag("Platform"))
 		{
+			// turn on collision particles
+			collisionParticles.GetComponent<Renderer>().enabled = true;
+			// call method to remove particles after 1s
+			StartCoroutine(RemoveCollisionParticles());
+
 			rb.velocity = new Vector2(0, 0);
 			onPlatform = true;
 		} else {
 			//Object reference not set to an instance of an object
 			if (shield != null && shield.IsActive())
 			{
+				// turn on collision particles
+				collisionParticles.GetComponent<Renderer>().enabled = true;
+				// call method to remove particles after 1s
+				StartCoroutine(RemoveCollisionParticles());
 				shield.setIsActive(false);
 				shieldAnim.SetBool("dying", true);
 				shield = null;
@@ -174,14 +193,28 @@ public class Plane : Entity
 					//       better playability
 					die();
 				}
-				if (other.collider.gameObject.CompareTag("Water"))
+				else if (other.collider.gameObject.CompareTag("Water"))
 				{
 					// Call death method to respawn
 					// TODO: Add an animation after collision before respawn for
 					//       better playability
 					die();
+				} 
+				else 
+				{
+					// turn on collision particles
+					collisionParticles.GetComponent<Renderer>().enabled = true;
+					// call method to remove particles after 1s
+					StartCoroutine(RemoveCollisionParticles());
 				}
 			}
+		}
+	}
+
+	public IEnumerator RemoveCollisionParticles() {
+		while (true) {
+			yield return new WaitForSeconds(1);
+			collisionParticles.GetComponent<Renderer>().enabled = false;
 		}
 	}
 }
