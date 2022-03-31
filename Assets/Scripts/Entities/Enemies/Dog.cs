@@ -6,7 +6,8 @@ public class Dog : Enemy
 {
     public float expectedDistance = 5;
     public float expectedHeight = 5;
-    public float speed;
+    public float jumpSpeed;
+    public float runSpeed;
 
     private Vector2 startVelocity;
     private Vector2 startPos;
@@ -25,30 +26,32 @@ public class Dog : Enemy
         behaviorController = GetComponent<DogController>();
 
         startVelocity = ((DogController)behaviorController).getStartVelocity(expectedDistance, expectedHeight);
-        startPos = new Vector2(transform.position.x + 10.2f, transform.position.y);
 
-        targetPos = new Vector2(startPos.x + expectedDistance, 0);
+        startPos = new Vector3(transform.position.x + expectedDistance, 0, transform.position.z);
+        targetPos = new Vector2(startPos.x + expectedDistance + expectedDistance, 0);
+
         rb.gravityScale = 0;
     }
 
     public override void Move()
     {
-        Run();
-        //Jump();
-        
+        if (transform.position.x >= startPos.x) {
+            print("jump");
+            Jump();
+        } else {
+            Run();
+        }
     }
 
     public void Run() {
-        runX = Mathf.Lerp(transform.position.x, startPos.x, 0.5f * Time.deltaTime);
-        Vector3 runPosition = new Vector3(runX, 0, transform.position.z);
-        transform.rotation = LookAtTarget(runPosition - transform.position);
+        //runX = Mathf.Lerp(transform.position.x, startPos.x, 0.5f * Time.deltaTime);
+        Vector3 runPosition = new Vector3(transform.position.x + runSpeed, 0, transform.position.z);
         transform.position = runPosition; 
     }
 
     public void Jump() {
-
         dist = targetPos.x - startPos.x;
-        nextX = Mathf.MoveTowards(transform.position.x, targetPos.x, speed * Time.deltaTime);
+        nextX = Mathf.MoveTowards(transform.position.x, targetPos.x, jumpSpeed * Time.deltaTime);
         baseY = Mathf.Lerp(startPos.y, targetPos.y, (nextX - startPos.x) /dist);
         height = expectedHeight * (nextX - startPos.x) * (nextX - targetPos.x) / (-0.25f * dist * dist);
 
