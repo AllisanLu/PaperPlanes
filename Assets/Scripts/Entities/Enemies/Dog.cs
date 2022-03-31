@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class Dog : Enemy
 {
-    public float expectedDistance = 5;
-    public float expectedHeight = 5;
-    public float jumpSpeed;
+    public float runDistance;
     public float runSpeed;
 
-    private Vector2 startVelocity;
-    private Vector2 startPos;
-    private Vector2 targetPos;
+    public float jumpHeight;
+    public float jumpDistance;
+    public float jumpSpeed;
+
+    private Vector2 jumpVelocity;
+    private Vector2 jumpTarget;
+    private Vector2 leftTarget;
+    private Vector2 rightTarget;
+    private Vector2 jumpStart;
 
     private float dist;
     private float nextX;
@@ -19,45 +23,61 @@ public class Dog : Enemy
     private float height;
     private float runX;
 
+    private bool reverse = false;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();   
         behaviorController = GetComponent<DogController>();
 
-        startVelocity = ((DogController)behaviorController).getStartVelocity(expectedDistance, expectedHeight);
+        jumpVelocity = ((DogController)behaviorController).getStartVelocity(jumpDistance, jumpHeight);
 
-        startPos = new Vector3(transform.position.x + expectedDistance, 0, transform.position.z);
-        targetPos = new Vector2(startPos.x + expectedDistance + expectedDistance, 0);
+        leftTarget = new Vector2(transform.position.x, 0); // run start
+        jumpStart = new Vector2(transform.position.x + runDistance, 0);
+        rightTarget = new Vector2(jumpStart.x + jumpDistance * 2, 0);
 
         rb.gravityScale = 0;
     }
 
     public override void Move()
     {
-        if (transform.position.x >= startPos.x) {
-            Jump();
+        if (transform.position.x >= jumpStart.x) {
+            if (reverse) {
+                Run(-1);
+            } else {
+                Jump(jumpStart, rightTarget);
+            }
         } else {
-            Run();
+            if (reverse) {
+                Jump(jumpStart, leftTarget);
+            } else {
+                Run(1);
+            }
         }
     }
 
-    public void Run() {
+    public void Run(int direction) {
         //runX = Mathf.Lerp(transform.position.x, startPos.x, 0.5f * Time.deltaTime);
-        Vector3 runPosition = new Vector3(transform.position.x + runSpeed, 0, transform.position.z);
-        transform.position = runPosition; 
+        Vector3 runPosition = new Vector3(transform.position.x + (runSpeed * direction), 0, transform.position.z);
+        transform.position = runPosition;
     }
 
-    public void Jump() {
-        dist = targetPos.x - startPos.x;
-        nextX = Mathf.MoveTowards(transform.position.x, targetPos.x, jumpSpeed * Time.deltaTime);
-        baseY = Mathf.Lerp(startPos.y, targetPos.y, (nextX - startPos.x) /dist);
-        height = expectedHeight * (nextX - startPos.x) * (nextX - targetPos.x) / (-0.25f * dist * dist);
+    public void Jump(Vector2 start, Vector2 target) {
+        dist = target.x - start.x;
+        nextX = Mathf.MoveTowards(transform.position.x, target.x, jumpSpeed * Time.deltaTime);
+        baseY = Mathf.Lerp(start.y, target.y, (nextX - start.x) /dist);
+        height = jumpHeight * (nextX - start.x) * (nextX - target.x) / (-0.25f * dist * dist);
 
         Vector3 movePosition = new Vector3(nextX, baseY + height, transform.position.z);
         transform.rotation = LookAtTarget(movePosition - transform.position);
         transform.position = movePosition;
+
+        if ((Vector2) transform.position == target) {
+            reverse = !reverse;
+        }
     }
+
 
     public static Quaternion LookAtTarget(Vector2 rotation)
     {
@@ -75,25 +95,23 @@ public class Dog : Enemy
 
     }
     
-    
-    /* 
 
     void OnDrawGizmos()
     {
         //Draw the parabola by sample a few times
         Gizmos.color = Color.red;
-        Vector2 endPos = new Vector2(transform.position.x, transform.position.y) + new Vector2(expectedDistance, 0);
-        Gizmos.DrawLine(transform.position, endPos);
+        Vector2 endPos = new Vector2(transform.position.x, transform.position.y) + new Vector2(jumpDistance, 0);
+        Gizmos.DrawLine(transform.position, rightTarget);
         float count = 20;
-        Vector2 lastP = startPos;
+        Vector2 lastP = jumpStart;
         for (float i = 0; i < count + 1; i++)
         {
-            Vector3 p = SampleParabola(transform.position, endPos, expectedHeight, i / count);
+            Vector3 p = SampleParabola(transform.position, rightTarget, jumpHeight, i / count);
             Gizmos.color = i % 2 == 0 ? Color.blue : Color.green;
             Gizmos.DrawLine(lastP, p);
             lastP = p;
         }
-    } */
+    }
 
     #region Parabola sampling function
     /// <summary>
