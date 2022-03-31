@@ -221,8 +221,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69efe1f6b7eaa5a45969e873b4aaf4ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 0}
   questIndicator: {fileID: 557802945890617173}
+  finalYPosition: 0
+  fadeSpeed: 0.05
 --- !u!61 &2608546000580805155
 BoxCollider2D:
   m_ObjectHideFlags: 0
