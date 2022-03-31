@@ -36,7 +36,6 @@ public class Dog : Enemy
     public override void Move()
     {
         if (transform.position.x >= startPos.x) {
-            print("jump");
             Jump();
         } else {
             Run();
