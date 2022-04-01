@@ -2215,6 +2215,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StoryManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8772239778483968605, guid: ddbd2e0dacab2c54a8acbe74aff1081f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8772239778483968606, guid: ddbd2e0dacab2c54a8acbe74aff1081f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2463,9 +2467,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1521156945}
     m_Modifications:
+    - target: {fileID: 4220245757699342128, guid: 290a00ee82a6cb34fb007f8ef05ffa11, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4220245759137771508, guid: 290a00ee82a6cb34fb007f8ef05ffa11, type: 3}
       propertyPath: m_Name
       value: DialogueManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220245759137771508, guid: 290a00ee82a6cb34fb007f8ef05ffa11, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4220245759176415306, guid: 290a00ee82a6cb34fb007f8ef05ffa11, type: 3}
       propertyPath: m_Pivot.x
@@ -2621,6 +2633,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7402277093530013244, guid: 3f59acbfed754134f95b219a02be5732, type: 3}
+      propertyPath: start
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5785303225086785576, guid: 3f59acbfed754134f95b219a02be5732, type: 3}
       propertyPath: m_Name
       value: TestDiagTrigger
