@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 6197117471027456201}
   - component: {fileID: 6197117471027456200}
   - component: {fileID: 6197117471027456215}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Banner
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

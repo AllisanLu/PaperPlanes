@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6593684012284436277}
   - component: {fileID: 9060662722672533426}
   - component: {fileID: 3104149726993176831}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lamppost
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

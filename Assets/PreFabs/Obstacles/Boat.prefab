@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2769205228013172709}
   - component: {fileID: 2861515563351386439}
   - component: {fileID: 7498480264680737275}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Boat
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
