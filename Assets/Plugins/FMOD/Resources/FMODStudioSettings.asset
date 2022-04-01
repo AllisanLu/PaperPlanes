@@ -411,7 +411,7 @@ MonoBehaviour:
   sourceProjectPath: ../../FMOD Studio/Planes/Planes.fspro
   sourceBankPath: Assets/FMODBanks/Desktop
   SourceBankPathUnformatted: 
-  BankRefreshCooldown: 5
+  BankRefreshCooldown: -2
   ShowBankRefreshWindow: 1
   AutomaticEventLoading: 1
   BankLoadType: 0
