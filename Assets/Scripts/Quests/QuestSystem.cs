@@ -47,7 +47,10 @@ public class QuestSystem : MonoBehaviour
     }
 
     public static void AddQuest(Quest quest) {
-        quests.Add(quest);
+        if (quests.IndexOf(quest) < 0)
+        {
+            quests.Add(quest);
+        }
     }
 
     public static Quest getQuest(Quest quest)
