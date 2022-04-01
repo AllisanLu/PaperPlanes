@@ -21,6 +21,8 @@ public class QuestSystem : MonoBehaviour
       //  quests.Add(new Quest("Objective 2", false, false, new ArrayList()));
       //  quests.Add(new Quest("Objective 3", true, false, new ArrayList()));
       //  quests.Add(new Quest("Objective 4", true, false, new ArrayList()));
+      	DontDestroyOnLoad(this);
+
     }
 
     // Update is called once per frame

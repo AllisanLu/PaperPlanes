@@ -30,8 +30,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 3545641348144777565}
-  - {fileID: 8691227177845738603}
+  - {fileID: 7266919306015308282}
+  - {fileID: 2879306675767886132}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -108,6 +108,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6793710494103851819}
     m_Modifications:
+    - target: {fileID: 4220245759137771508, guid: 290a00ee82a6cb34fb007f8ef05ffa11, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220245759176415306, guid: 290a00ee82a6cb34fb007f8ef05ffa11, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.004211426
+      objectReference: {fileID: 0}
     - target: {fileID: 8033504425105512643, guid: 290a00ee82a6cb34fb007f8ef05ffa11, type: 3}
       propertyPath: m_FontData.m_Font
       value: 
@@ -206,9 +214,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 290a00ee82a6cb34fb007f8ef05ffa11, type: 3}
---- !u!224 &3545641348144777565 stripped
+--- !u!224 &7266919306015308282 stripped
 RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8033504426246023405, guid: 290a00ee82a6cb34fb007f8ef05ffa11, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4220245759176415306, guid: 290a00ee82a6cb34fb007f8ef05ffa11, type: 3}
   m_PrefabInstance: {fileID: 6793710493953909168}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6793710495407332202
@@ -310,10 +318,22 @@ PrefabInstance:
       propertyPath: m_FontData.m_Font
       value: 
       objectReference: {fileID: 12800000, guid: e1d05aebd52f6904ea71d2402a9f265c, type: 3}
+    - target: {fileID: 8772239778483968605, guid: ddbd2e0dacab2c54a8acbe74aff1081f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772239778483968606, guid: ddbd2e0dacab2c54a8acbe74aff1081f, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772239778483968606, guid: ddbd2e0dacab2c54a8acbe74aff1081f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.004211426
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddbd2e0dacab2c54a8acbe74aff1081f, type: 3}
---- !u!224 &8691227177845738603 stripped
+--- !u!224 &2879306675767886132 stripped
 RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2798259989715588865, guid: ddbd2e0dacab2c54a8acbe74aff1081f, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8772239778483968606, guid: ddbd2e0dacab2c54a8acbe74aff1081f, type: 3}
   m_PrefabInstance: {fileID: 6793710495407332202}
   m_PrefabAsset: {fileID: 0}
