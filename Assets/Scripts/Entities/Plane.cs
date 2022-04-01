@@ -73,11 +73,11 @@ public class Plane : Entity
 		if (transform.position.y < 0) {
 			die();
 		}
-		else if (transform.position.y > 23)
+		else if (transform.position.y > 22)
 		{
-			transform.position = new Vector2(transform.position.x, 23);
+			transform.position = new Vector2(transform.position.x, 22);
 		} else if (transform.position.y > 13) {
-			rb.AddForce(new Vector2(2, -5.5f));
+			rb.AddForce(new Vector2(2, -6.5f));
 
 			if (rb.rotation > 30) {
 				rb.rotation -= 3;

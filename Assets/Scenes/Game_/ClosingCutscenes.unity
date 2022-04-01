@@ -752,8 +752,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bc079fc7b51baf641a8fe06352379818, type: 3}
   - {fileID: 21300000, guid: 7efb80cd5c2c249498169b8af6f890da, type: 3}
   cutsceneText:
-  - first cutscene text
-  - second cutscene text
+  - Having witnessed both the strength of the people and the hardships they had endured
+    in her absence, Mistra once again took up her mantle.
+  - Having touched so many lives with the message she carried, the people reaffirmed
+    their bond with the goddess and peace and prosperity returned to the islands.
   textObject: {fileID: 2030556058}
   transition: {fileID: 1688710277}
   transitionTime: 1

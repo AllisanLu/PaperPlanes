@@ -86,13 +86,16 @@ public class DialogueManager : MonoBehaviour
     {
         if (inputStream.Count == 0 || inputStream.Peek().Contains("EndQueue")) // special phrase to stop dialogue
         {
-            inputStream.Dequeue(); // Clear Queue
+            if (inputStream.Count > 0) {
+                inputStream.Dequeue(); // Clear Queue
+            }
             EndDialogue();
         }
         else if (inputStream.Peek().Contains("[NAME="))
         {
             string name = inputStream.Peek();
             name = inputStream.Dequeue().Substring(name.IndexOf('=') + 1, name.IndexOf(']') - (name.IndexOf('=') + 1));
+            print(NameText);
             NameText.text = name;
             // for the portrait, havent implemented, just an idea, we can just search for a gameobject or image file with the same name and display it in a box (i think)
             // use this for the circle mask, https://subscription.packtpub.com/book/game-development/9781785885822/1/ch01lvl1sec13/adding-a-circular-mask-to-an-image
@@ -126,11 +129,10 @@ public class DialogueManager : MonoBehaviour
     }
     // yoink, https://forum.unity.com/threads/how-to-detect-if-mouse-is-over-ui.1025533/
        private void Update()
-    {   if (IsPointerOverUIElement()) {
-        if(Input.GetMouseButtonDown(0)){
+        {   
+        if(Input.GetKeyDown(KeyCode.Z)) {
             AdvanceDialogue();
         }
-    }
         //print(IsPointerOverUIElement() ? "Over UI" : "Not over UI");
     }
  
