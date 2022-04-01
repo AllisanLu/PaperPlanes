@@ -753,9 +753,13 @@ MonoBehaviour:
   - {fileID: 2188131705803234524, guid: 09b1759adfb3c274d98cfe0bcc1c4282, type: 3}
   - {fileID: 21300000, guid: 9a0c05fe69a0ea64c89ff0d99181dab9, type: 3}
   cutsceneText:
-  - first cutscene text
-  - second cutscene text
-  - third cutscene text
+  - Wind Goddess Mistra once watched over these seas. Preserving the peace and connecting
+    the people within through the messages she delivered through paper planes.
+  - However, the gratitude of the islanders faded with time, and Mistra was disheartened
+    by their callous disregard for the duties she upheld. In time, she left.
+  - "Without a guiding hand the winds ran wild, bringing chaos to the islands. But
+    by some strange whimsy, the winds also brought one lost message to Mistra\u2019s
+    home once again."
   textObject: {fileID: 2030556058}
   transition: {fileID: 1688710277}
   transitionTime: 1

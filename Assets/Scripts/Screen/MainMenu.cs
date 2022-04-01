@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public void PlayGame() {
-        SceneManager.LoadScene("OpeningArt");
+        SceneManager.LoadScene("OpeningCutscenes");
         CheckpointManager.resetPosition();
     }
 
