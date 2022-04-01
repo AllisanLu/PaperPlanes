@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParticleSystem : MonoBehaviour
+public class ParticleSystemScript : MonoBehaviour
 {
     public bool hasClicked;
     // Start is called before the first frame update
