@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5785303225086785591}
   - component: {fileID: 5785303225086785589}
   - component: {fileID: 5785303225086785588}
+  - component: {fileID: -7402277093530013244}
   m_Layer: 0
   m_Name: TestDiagTrigger
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -125,3 +126,17 @@ MonoBehaviour:
   TextFileAsset: {fileID: 4900000, guid: 142f6d8d590577d4fa482c27929980bc, type: 3}
   TriggerWithButton: 0
   indicator: {fileID: 0}
+--- !u!114 &-7402277093530013244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5785303225086785576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5469eb07a9ee841a0f09ea5776fc9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  start: 0
+  questName: 
