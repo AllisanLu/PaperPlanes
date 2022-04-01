@@ -49,6 +49,11 @@ public class Plane : Entity
 
 	// Called once per frame
 	void FixedUpdate() {
+		if (planeDead) {
+			this.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+			this.gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0f; 
+			return;
+		}
 		Camera cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 		if (PlatformManager.cutSceneDone) {
 			onPlatform = false;
@@ -226,6 +231,8 @@ public class Plane : Entity
 
 	public IEnumerator ActivateDeathParticlesAndDie() {
 		while(true) {
+			planeDead = true;
+
 			this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
 			this.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 			this.gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0f; 
