@@ -1,8 +1,9 @@
 using UnityEngine;
 using System;
-// using System.Random;
+using Random=System.Random;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class ShipProjectileSpawner : MonoBehaviour 
 {
@@ -15,7 +16,7 @@ public class ShipProjectileSpawner : MonoBehaviour
     public GameObject[] javelinSpawns;
     public float fireDelay;
     public float quickFireDelay;
-    // public Random rand = new Random();
+    public Random rand = new Random();
 
     private List<int[]> firingLibrary;
     private List<int[]> phase1;
@@ -78,34 +79,47 @@ public class ShipProjectileSpawner : MonoBehaviour
     public IEnumerator startPhase2() {
         yield return StartCoroutine(startSpawning(phase2, true));
     }
+    
+    /// Spawns cannon balls where the number of cannons fired per wave is centered on averageNumFired with a standard distribution and number of waves
+    public IEnumerator startGuassianRandom(int numWaves, int averageNumFired, double stdDev) {
+        for (int i = 0; i < numWaves; i++) {
+            int randomNumSpawned = (int) Math.Round(calcGaussianValue(averageNumFired, stdDev));
+            if (randomNumSpawned > 5) randomNumSpawned = 5;
+            if (randomNumSpawned < 0) randomNumSpawned = 0;
+            int[] firingSequence = populateFiringArray(randomNumSpawned);
+            spawnItemsFromPattern(firingSequence);
+            yield return new WaitForSeconds(fireDelay);
+        }
+    }
 
-    // public IEnumerator startGuassianRandom(int numWaves, int averageNumFired) {
-    //     Random rand = new Random(); //reuse this if you are generating many
-    //     double u1 = 1.0-rand.NextDouble(); //uniform(0,1] random doubles
-    //     double u2 = 1.0-rand.NextDouble();
-    //     double randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) *
-    //                 Math.Sin(2.0 * Math.PI * u2); //random normal(0,1)
-    //     double randNormal =
-    //                 mean + stdDev * randStdNormal; //random normal(mean,stdDev^2)
-    // }
+    ///Calculates a value based on a Gaussian distrbution centered around an average with a specificed standard distribution
+    private double calcGaussianValue(int averageNumFired, double stdDev) {
+        double u1 = 1.0-rand.NextDouble(); //uniform(0,1] random doubles
+        double u2 = 1.0-rand.NextDouble();
+        double randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) *
+                    Math.Sin(2.0 * Math.PI * u2); //random normal(0,1)
+        double randNormal =
+                    averageNumFired + stdDev * randStdNormal; //random normal(mean,stdDev^2)
+        return randNormal;
+    }
 
-    // public IEnumerator startSetRandom(int numWaves, int numCannonsFired) {
-    //     List<int[]> randomPhase = new List<int[]>();
-    //     for (int i = 0; i < numWaves; i++) {
-    //         int randNum = rand.Next(0, randomList.Length);
-    //         int[] wave = new int[5];
-    //         while(wave[randNum] != 0) {
-    //             randNum[i] = 1;
-    //         }
-    //         randomPhase.Add(wave);
-    //     }
-    //     yield return StartCoroutine(startSpawning(randomPhase, false));
-    // }
+    ///Helper method that populates a with numOfObjects number of cannon balls which is calculated from the Gaussian distribution
+    private int[] populateFiringArray(int numOfObjects) {
+        int[] firingSequence = new int[5];
+        List<int> possible = Enumerable.Range(0, 5).ToList();
+        for (int i = 0; i < numOfObjects; i++) {
+            int index = rand.Next(0, possible.Count());
+            print (index);
+            firingSequence[index] = 1;
+            possible.RemoveAt(index);
+        }
+        return firingSequence;
+    }
 
     private IEnumerator startSpawning(List<int[]> objects, bool usingQuickfire) {
         // Goes through every "wave" of objects and waits fireDelay before going to the next wave
         foreach (int[] wave in objects) {
-            spawnItemsFromPattern(Array.ConvertAll(wave, projectile => (firedObjects) projectile));
+            spawnItemsFromPattern(wave);
             if (usingQuickfire && wave.Length != 0) {
                 yield return new WaitForSeconds(quickFireDelay);
             } else {
@@ -114,11 +128,11 @@ public class ShipProjectileSpawner : MonoBehaviour
         }
     }
 
-    void spawnItemsFromPattern(firedObjects[] spawningArray) {
-
+    void spawnItemsFromPattern(int[] spawningArray) {
         // Spawns every item in a wave at 5 different locations on the screen
-        for (int i = 0; i < spawningArray.Length; i++) {
-            switch (spawningArray[i]) {
+        firedObjects[] wave = Array.ConvertAll(spawningArray, projectile => (firedObjects) projectile);
+        for (int i = 0; i < wave.Length; i++) {
+            switch (wave[i]) {
                 case firedObjects.CANNONBALL:
                     Instantiate(cannonball, cannonSpawns[i].transform.position, Quaternion.identity, transform);
                     break;

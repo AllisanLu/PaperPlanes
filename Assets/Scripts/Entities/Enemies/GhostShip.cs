@@ -86,6 +86,9 @@ public class GhostShip : Entity
 
         yield return new WaitForSeconds(animationSpeed*25);
 
+        //startGaussianRandom(numWaves, average, stdDistr)
+        //This method starts spawning numWaves of waves with the number of cannons averaging around "average" value
+        yield return StartCoroutine(spawnerScript.startGuassianRandom(6, 5, 1));
         yield return StartCoroutine(spawnerScript.startPhase1());
         yield return StartCoroutine(spawnerScript.startPhase2());
         yield return new WaitForSeconds(3);
