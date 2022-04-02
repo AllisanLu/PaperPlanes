@@ -48,10 +48,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efdd9583943c0ad4eaf0d4edfc7e91e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reference:
+  reference1:
     Guid:
-      Data1: -970380710
-      Data2: 1205978052
-      Data3: 880815541
-      Data4: -454989376
-    Path: event:/Level_1
+      Data1: 1643151419
+      Data2: 1297565138
+      Data3: 864999341
+      Data4: -1468868397
+    Path: event:/Songs/LevelSong/Level1
+  reference2:
+    Guid:
+      Data1: -123714228
+      Data2: 1102339350
+      Data3: -1232060014
+      Data4: 1206556132
+    Path: event:/Songs/LevelSong/Level2
+  reference3:
+    Guid:
+      Data1: -351594092
+      Data2: 1315835236
+      Data3: -1233248379
+      Data4: -1948725979
+    Path: event:/Songs/LevelSong/Level3/Level3

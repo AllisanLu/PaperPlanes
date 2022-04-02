@@ -17,7 +17,7 @@ public class Windmill : Obstacle
     void FixedUpdate ()
     {
         transform.Rotate (0, 0, rotationVal * Time.deltaTime);
-        Debug.Log(rotationVal);
+        // Debug.Log(rotationVal);
     }
 
     void OnTriggerEnter2D(Collider2D other)
