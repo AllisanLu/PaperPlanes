@@ -7,8 +7,11 @@ public class UpdateQuest : MonoBehaviour
 {
     [SerializeField]
     private Text questDisplay;
+
+    [SerializeField]
+  //  private GameObject questDisplay;
     
-    private bool isOn = false;
+    private bool isOn = true;
     // Start is called before the first frame update
     void Start()
     {
