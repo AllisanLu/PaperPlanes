@@ -66,6 +66,8 @@ public class PauseMenu : MonoBehaviour
         MusicManager._instance.StopPauseMenuMusic();
         MusicManager._instance.UnPauseLevelMusic();
         MusicManager._instance.UnPauseLevel2Music();
+        MusicManager._instance.UnPauseLevel3Music();
+
 
         Hide();
         Time.timeScale = 1f;
@@ -85,6 +87,7 @@ public class PauseMenu : MonoBehaviour
 
         MusicManager._instance.PauseLevelMusic();
         MusicManager._instance.PauseLevel2Music();
+        MusicManager._instance.PauseLevel3Music();
 
         MusicManager._instance.PlayPauseMenuMusic();
         Debug.Log("Pause");

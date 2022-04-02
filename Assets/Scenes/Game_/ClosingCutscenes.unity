@@ -747,7 +747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numSlides: 2
-  nextScene: MainMenu
+  nextScene: GameEnd
   art:
   - {fileID: 21300000, guid: bc079fc7b51baf641a8fe06352379818, type: 3}
   - {fileID: 21300000, guid: 7efb80cd5c2c249498169b8af6f890da, type: 3}

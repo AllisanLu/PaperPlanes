@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class QuestSystem : MonoBehaviour
 {
-    private static ArrayList quests;
+    private static ArrayList quests = new ArrayList();
 
     public static QuestSystem instance;
 
@@ -15,12 +15,14 @@ public class QuestSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        quests = new ArrayList();
+       // quests = new ArrayList();
         // Temporary quests for debugging
       //  quests.Add(new Quest("Objective 1", true, false, new ArrayList()));
       //  quests.Add(new Quest("Objective 2", false, false, new ArrayList()));
       //  quests.Add(new Quest("Objective 3", true, false, new ArrayList()));
       //  quests.Add(new Quest("Objective 4", true, false, new ArrayList()));
+      	DontDestroyOnLoad(this);
+
     }
 
     // Update is called once per frame
@@ -45,7 +47,10 @@ public class QuestSystem : MonoBehaviour
     }
 
     public static void AddQuest(Quest quest) {
-        quests.Add(quest);
+        if (quests.IndexOf(quest) < 0)
+        {
+            quests.Add(quest);
+        }
     }
 
     public static Quest getQuest(Quest quest)

@@ -103,7 +103,7 @@ public class GhostShip : Entity
             transform.position += new Vector3(0, 0.1f, 0);
             yield return new WaitForSeconds(animationSpeed);
         }
-        SceneManager.LoadScene("GameEnd");
+        SceneManager.LoadScene("L3");
         CheckpointManager.resetPosition();
     }
 
