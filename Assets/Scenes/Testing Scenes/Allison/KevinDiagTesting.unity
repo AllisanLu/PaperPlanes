@@ -397,6 +397,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1873344123}
     m_Modifications:
+    - target: {fileID: 4045835363055497511, guid: 20d340bf524971145974e83217ce27c3, type: 3}
+      propertyPath: questDisplay
+      value: 
+      objectReference: {fileID: 580684624}
     - target: {fileID: 4045835364019839028, guid: 20d340bf524971145974e83217ce27c3, type: 3}
       propertyPath: m_Text
       value: 'Messages:'
@@ -724,20 +728,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4091132677060719148, guid: a7061cb9d32c39a408c768501bed437b, type: 3}
   m_PrefabInstance: {fileID: 4091132677084530125}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &477382594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 477382593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attenuationObject: {fileID: 0}
-  ListenerNumber: -1
 --- !u!1001 &537038735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -993,6 +983,11 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!1 &580684624 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4045835364019839030, guid: 20d340bf524971145974e83217ce27c3, type: 3}
+  m_PrefabInstance: {fileID: 386436855}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &631265499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2652,7 +2647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7575124283476855443, guid: 57d887b7def31e847a6f313144703285, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57d887b7def31e847a6f313144703285, type: 3}
