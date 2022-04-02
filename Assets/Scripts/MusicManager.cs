@@ -9,10 +9,13 @@ public class MusicManager : MonoBehaviour
     public static MusicManager Instance { get {return _instance; } }
     [SerializeField] public FMODUnity.EventReference reference1;
     [SerializeField] public FMODUnity.EventReference reference2;
+    [SerializeField] public FMODUnity.EventReference reference3;
+
 
     public static FMOD.Studio.EventInstance PauseSong;
     public static FMOD.Studio.EventInstance LevelSong;
     public static FMOD.Studio.EventInstance Level2Song;
+    public static FMOD.Studio.EventInstance Level3Song;
 
     public static FMOD.Studio.EventInstance TitleSong;
     public static bool levelStarted = false;
@@ -21,6 +24,7 @@ public class MusicManager : MonoBehaviour
     private bool titleSongPlaying = false;
     private bool levelSongPlaying = false;
     private bool level2SongPlaying = false;
+    private bool level3SongPlaying = false;
 
     //private int titleSongCount = 0;
 
@@ -35,7 +39,7 @@ public class MusicManager : MonoBehaviour
         PauseSong = FMODUnity.RuntimeManager.CreateInstance("event:/Songs/Pause/PauseSong");
         LevelSong = FMODUnity.RuntimeManager.CreateInstance(reference1);
         Level2Song = FMODUnity.RuntimeManager.CreateInstance(reference2);
-
+        Level3Song = FMODUnity.RuntimeManager.CreateInstance(reference3);
         TitleSong = FMODUnity.RuntimeManager.CreateInstance("event:/Songs/Title2");
         currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
 
@@ -94,6 +98,10 @@ public class MusicManager : MonoBehaviour
                 StopLevel2Music();
                 level2SongPlaying = false;
             }
+            if (currentScene != "L3" && level3SongPlaying) {
+                StopLevel3Music();
+                level3SongPlaying = false;
+            }
             if (!titleSongPlaying && currentScene == "MainMenu") {
                 StartTitleMusic();
                 titleSongPlaying = true;
@@ -110,8 +118,11 @@ public class MusicManager : MonoBehaviour
             if (!level2SongPlaying && currentScene == "L2") {
                 StartLevel2Music();
                 level2SongPlaying = true;
-               
+            }
 
+            if (!level3SongPlaying && currentScene == "L3") {
+                StartLevel3Music();
+                level3SongPlaying = true;
             }
 
             if (currentScene == "MainMenu") {
@@ -141,10 +152,29 @@ public class MusicManager : MonoBehaviour
 
     }
 
+    public void StartLevel3Music() {
+        Level3Song.start();
+    }
 
+
+    public void PauseLevel3Music() {
+
+        Level3Song.setPaused(true);
+    }
+
+
+    public void UnPauseLevel3Music() {
+        Level3Song.setPaused(false);
+    }
+
+    public void StopLevel3Music() {
+        Level3Song.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        //LevelSong.release();
+    }
     public void StartLevel2Music() {
         Level2Song.start();
     }
+
 
     public void PauseLevel2Music() {
 

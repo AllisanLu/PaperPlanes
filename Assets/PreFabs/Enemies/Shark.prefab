@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 300269373821354270}
   - component: {fileID: 300269373821354271}
   - component: {fileID: 4232825666095639762}
-  m_Layer: 0
+  - component: {fileID: 3562520973380825018}
+  m_Layer: 7
   m_Name: Shark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,3 +155,22 @@ CapsuleCollider2D:
   m_Offset: {x: 0.00000001989504, y: -0.2399528}
   m_Size: {x: 6.999999, y: 2.2825048}
   m_Direction: 1
+--- !u!95 &3562520973380825018
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300269373821354276}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 70b96cacdd851c540967ebe2dbb20758, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

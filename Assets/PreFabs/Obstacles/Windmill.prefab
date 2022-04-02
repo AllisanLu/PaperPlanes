@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7606112113526051052}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Windmill
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 7606112113558929394}
   - component: {fileID: 7606112113558929393}
   - component: {fileID: 7606112113558929392}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 7606112113763062658}
   - component: {fileID: 7606112113763062657}
   - component: {fileID: 7606112113763062659}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Blades
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
