@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +12,7 @@ using UnityEngine;
  * To handle talking to an NPC, we first attach this script to an NPC along with a dialogue file we write (e.g. .txt)
  */
 
-public class DialogueTrigger : MonoBehaviour
+public class StoryTrigger : MonoBehaviour
 {
     public TextAsset TextFileAsset; // your imported text file for your NPC
     public bool TriggerWithButton;
@@ -30,7 +30,7 @@ public class DialogueTrigger : MonoBehaviour
     public void TriggerDialogue()
     {
         ReadTextFile(); // loads in the text file
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue); // Accesses Dialogue Manager and Starts Dialogueer
+        FindObjectOfType<StoryManager>().StartDialogue(dialogue); // Accesses Dialogue Manager and Starts Dialogueer
     }
 
     /* loads in your text file */
@@ -42,7 +42,7 @@ public class DialogueTrigger : MonoBehaviour
 
         foreach (string line in lines) // for every line of dialogue
         {
-            if (!string.IsNullOrEmpty(line) )// ignore empty lines of dialogue
+            if (!string.IsNullOrEmpty(line))// ignore empty lines of dialogue
             {
                 if (line.StartsWith("[")) // e.g [NAME=Michael] Hello, my name is Michael
                 {
@@ -94,10 +94,10 @@ public class DialogueTrigger : MonoBehaviour
                 }
                 nextTime = Time.timeSinceLevelLoad + waitTime;
             }
-            else 
+            else
             {
                 nextTime = Time.timeSinceLevelLoad + waitTime;
-                FindObjectOfType<DialogueManager>().AdvanceDialogue();
+                FindObjectOfType<StoryManager>().AdvanceDialogue();
             }
         }
         else if (other.gameObject.tag == "Player")
@@ -116,13 +116,13 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            FindObjectOfType<DialogueManager>().EndDialogue();
+            FindObjectOfType<StoryManager>().EndDialogue();
             dialogueTiggered = false;
 
             if (indicator != null && indicator.activeSelf == true)
-                {
-                    indicator.SetActive(false);
-                }
+            {
+                indicator.SetActive(false);
+            }
         }
     }
 }
