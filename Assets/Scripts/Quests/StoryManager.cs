@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,12 +13,10 @@ using UnityEngine.EventSystems;
  * the Dialogue Box when appropriate
  */
 
-public class DialogueManager : MonoBehaviour
+public class StoryManager : MonoBehaviour
 {
     public GameObject CanvasBox; // your fancy canvas box that holds your text objects
     public Text TextBox; // the text body
-    public Text NameText; // the text body of the name you want to display
-    public Image Portrait; // the image of the portrait you want to display
     public bool freezePlayerOnDialogue = true;
 
     // private bool isOpen; // represents if the dialogue box is open or closed
@@ -44,7 +42,7 @@ public class DialogueManager : MonoBehaviour
         rb.velocity = new Vector2(0, 0);
         // plane controller doesn't have a ForceIdle() method, it seems liek it's supposed to "freeze" the player?
         // animController.ForceIdle();
-        
+
         // if u want, just implement or call a freeze method here
         // im not sure how the owners want freezing to be implemented or whether or not they want freezing or not
         // so im just leaving this blank
@@ -74,8 +72,10 @@ public class DialogueManager : MonoBehaviour
     {
         PrintDialogue();
     }
-    public void OnMouseOver(){
-        if(Input.GetMouseButtonDown(0)){
+    public void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
             AdvanceDialogue();
         }
         Debug.Log("this ran pagchomp");
@@ -86,7 +86,8 @@ public class DialogueManager : MonoBehaviour
     {
         if (inputStream.Count == 0 || inputStream.Peek().Contains("EndQueue")) // special phrase to stop dialogue
         {
-            if (inputStream.Count > 0) {
+            if (inputStream.Count > 0)
+            {
                 inputStream.Dequeue(); // Clear Queue
             }
             EndDialogue();
@@ -95,12 +96,11 @@ public class DialogueManager : MonoBehaviour
         {
             string name = inputStream.Peek();
             name = inputStream.Dequeue().Substring(name.IndexOf('=') + 1, name.IndexOf(']') - (name.IndexOf('=') + 1));
-        //    print(NameText);
-            NameText.text = name;
+           // NameText.text = name;
             // for the portrait, havent implemented, just an idea, we can just search for a gameobject or image file with the same name and display it in a box (i think)
             // use this for the circle mask, https://subscription.packtpub.com/book/game-development/9781785885822/1/ch01lvl1sec13/adding-a-circular-mask-to-an-image
             // im too lazy to pull out photoshop atm
-            
+
             // use dictionary to store the names and sprites, make sure name matches with names in the script
             // then, do portrait = dictionary_name[name]
 
@@ -118,7 +118,7 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         TextBox.text = "";
-        NameText.text = "";
+      //  NameText.text = "";
         inputStream.Clear();
         CanvasBox.SetActive(false);
         // isOpen = false;
@@ -128,22 +128,23 @@ public class DialogueManager : MonoBehaviour
         }
     }
     // yoink, https://forum.unity.com/threads/how-to-detect-if-mouse-is-over-ui.1025533/
-       private void Update()
-        {   
-        if(Input.GetKeyDown(KeyCode.Z)) {
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
             AdvanceDialogue();
         }
         //print(IsPointerOverUIElement() ? "Over UI" : "Not over UI");
     }
- 
- 
+
+
     //Returns 'true' if we touched or hovering on Unity UI element.
     public bool IsPointerOverUIElement()
     {
         return IsPointerOverUIElement(GetEventSystemRaycastResults());
     }
- 
- 
+
+
     //Returns 'true' if we touched or hovering on Unity UI element.
     private bool IsPointerOverUIElement(List<RaycastResult> eventSystemRaysastResults)
     {
@@ -155,8 +156,8 @@ public class DialogueManager : MonoBehaviour
         }
         return false;
     }
- 
- 
+
+
     //Gets all event system raycast results of current mouse or touch position.
     static List<RaycastResult> GetEventSystemRaycastResults()
     {

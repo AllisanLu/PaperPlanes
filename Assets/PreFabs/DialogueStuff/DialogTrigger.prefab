@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5785303225086785588}
   - component: {fileID: -7402277093530013244}
   m_Layer: 0
-  m_Name: TestDiagTrigger
+  m_Name: DialogTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

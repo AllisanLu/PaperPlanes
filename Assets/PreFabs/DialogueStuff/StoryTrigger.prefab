@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5385013671874625222}
   - component: {fileID: 2740057163899122552}
   - component: {fileID: 1087920032526044650}
-  - component: {fileID: 8768920446185367954}
+  - component: {fileID: 6860725560489566301}
   m_Layer: 0
-  m_Name: TestStoryTrigger
+  m_Name: StoryTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,7 +110,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &8768920446185367954
+--- !u!114 &6860725560489566301
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7575124283476855443}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa2b315833de2764db930e1775a32b4c, type: 3}
+  m_Script: {fileID: 11500000, guid: 65a7350ecb0c4864c986c1301247e22d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TextFileAsset: {fileID: 4900000, guid: ee27cd43fa8bd0e45aec7420a52a6122, type: 3}

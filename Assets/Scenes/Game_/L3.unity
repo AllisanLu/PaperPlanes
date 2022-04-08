@@ -5238,6 +5238,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasDialogue
       objectReference: {fileID: 0}
+    - target: {fileID: 6793710494103851818, guid: 4dcb8d33b070ac24b879dfb7f8951670, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6793710494103851819, guid: 4dcb8d33b070ac24b879dfb7f8951670, type: 3}
       propertyPath: m_Pivot.x
       value: 0
