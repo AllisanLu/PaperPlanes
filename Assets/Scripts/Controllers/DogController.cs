@@ -7,8 +7,7 @@ public class DogController : EnemyController
 
     Dog dog;
     public float acceleration = 1;
-
-public float speed;
+    public float speed;
     public  float zAngle;
     private Vector3 forward = new Vector3(-1,0,0);
     private Vector3 movement;
