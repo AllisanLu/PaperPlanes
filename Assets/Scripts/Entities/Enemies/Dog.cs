@@ -6,6 +6,8 @@ public class Dog : Enemy
 {
     public float runDistance;
     public float runSpeed;
+    public int startoffset;
+    public int endoffset;
 
     public float jumpHeight;
     public float jumpDistance;
@@ -25,6 +27,8 @@ public class Dog : Enemy
 
     private bool reverse = false;
 
+    public Plane plane;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,18 +45,20 @@ public class Dog : Enemy
     }
 
     public override void Move()
-    {
-        if (transform.position.x >= jumpStart.x) {
-            if (reverse) {
-                Run(-1);
+    {   
+        if (plane.gameObject.transform.position.x + startoffset > transform.position.x && plane.gameObject.transform.position.x < transform.position.x + endoffset) {
+            if (transform.position.x >= jumpStart.x) {
+                if (reverse) {
+                    Run(-1);
+                } else {
+                    Jump(jumpStart, rightTarget);
+                }
             } else {
-                Jump(jumpStart, rightTarget);
-            }
-        } else {
-            if (reverse) {
-                Jump(jumpStart, leftTarget);
-            } else {
-                Run(1);
+                if (reverse) {
+                    Jump(jumpStart, leftTarget);
+                } else {
+                    Run(1);
+                }
             }
         }
     }
