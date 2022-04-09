@@ -51,10 +51,15 @@ public class ResourceBar : MonoBehaviour
     }
 
     // increase resource bar when items are used
-    public void addResource(int addition)
+    public void addResource(float addition)
     {
         currentResources += addition;
         currentResources = Math.Min(currentResources, maxResources);
+    }
+
+    public void maxResource()
+    {
+        addResource((int) maxResources);
     }
 
     // reduce resource bar when collision happens

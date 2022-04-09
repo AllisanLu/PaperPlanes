@@ -25,11 +25,11 @@ public class UpdateQuest : MonoBehaviour
             Color color = questDisplay.color;
             if (isOn)
             {
-                color.a = 0f;
+                color.a = 1f;
             }
             else
             {
-                color.a = 1f;
+                color.a = 0f;
             }
             isOn = !isOn;
             questDisplay.color = color;
@@ -39,7 +39,7 @@ public class UpdateQuest : MonoBehaviour
         // Display all current quests in Text UI element
         ArrayList quests = QuestSystem.GetCurrentQuests();
         //questDisplay.GetComponent<Text>().text = "Messages:";
-        string text = "Messages: ";
+        string text = "Messages: \n";
         foreach (Quest q in quests) {
             // Add quest description per line
              text += q.QuestDescription + "\n";

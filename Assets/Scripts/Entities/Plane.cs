@@ -99,7 +99,12 @@ public class Plane : Entity
 			if (rb.angularVelocity < -40) {
 				rb.angularVelocity += 3;
 			}
-		} 
+		}
+
+		if (transform.position.y > 21)
+        {
+			ResourceBar.instance.addResource(-0.05f);
+		}
 
 		if (!onPlatform)
 		{
