@@ -95,7 +95,7 @@ public class DialogueManager : MonoBehaviour
         {
             string name = inputStream.Peek();
             name = inputStream.Dequeue().Substring(name.IndexOf('=') + 1, name.IndexOf(']') - (name.IndexOf('=') + 1));
-            print(NameText);
+        //    print(NameText);
             NameText.text = name;
             // for the portrait, havent implemented, just an idea, we can just search for a gameobject or image file with the same name and display it in a box (i think)
             // use this for the circle mask, https://subscription.packtpub.com/book/game-development/9781785885822/1/ch01lvl1sec13/adding-a-circular-mask-to-an-image

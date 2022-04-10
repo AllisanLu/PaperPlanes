@@ -30,7 +30,7 @@ public class DialogueTrigger : MonoBehaviour
     public void TriggerDialogue()
     {
         ReadTextFile(); // loads in the text file
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue); // Accesses Dialogue Manager and Starts Dialogue
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue); // Accesses Dialogue Manager and Starts Dialogueer
     }
 
     /* loads in your text file */
