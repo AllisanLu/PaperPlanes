@@ -49,6 +49,13 @@ public class Plane : Entity
 
 	// Called once per frame
 	void FixedUpdate() {
+		if (onPlatform) {
+			if (rb.rotation > 20) {
+                rb.rotation -= 3;
+            } else if (rb.rotation < -20) {
+                rb.rotation += 3;
+            }
+		}
 		if (planeDead) {
 			this.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 			this.gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0f; 
@@ -103,7 +110,7 @@ public class Plane : Entity
 
 		if (transform.position.y > 21)
         {
-			ResourceBar.instance.addResource(-0.05f);
+			ResourceBar.instance.addResource(-0.09f);
 		}
 
 		if (!onPlatform)
