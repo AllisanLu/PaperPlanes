@@ -102,7 +102,7 @@ public class Dog : Enemy
     }
     
 
-    void OnDrawGizmos()
+    /*void OnDrawGizmos()
     {
         //Draw the parabola by sample a few times
         Gizmos.color = Color.red;
@@ -159,5 +159,5 @@ public class Dog : Enemy
             return result;
         }
     }
-    #endregion
+    #endregion*/
 }
