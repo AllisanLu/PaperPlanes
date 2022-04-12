@@ -3223,6 +3223,10 @@ PrefabInstance:
       value: 'Messages:'
       objectReference: {fileID: 0}
     - target: {fileID: 4045835364019839028, guid: 20d340bf524971145974e83217ce27c3, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4045835364019839028, guid: 20d340bf524971145974e83217ce27c3, type: 3}
       propertyPath: m_FontData.m_Font
       value: 
       objectReference: {fileID: 12800000, guid: 96059937fe159ad4e9e91c0b49f5350a, type: 3}

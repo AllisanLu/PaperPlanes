@@ -12499,15 +12499,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4045835364019839028, guid: 20d340bf524971145974e83217ce27c3, type: 3}
       propertyPath: m_Color.b
-      value: 0.745283
+      value: 0.7254902
       objectReference: {fileID: 0}
     - target: {fileID: 4045835364019839028, guid: 20d340bf524971145974e83217ce27c3, type: 3}
       propertyPath: m_Color.g
-      value: 0.089058906
+      value: 0.29411766
       objectReference: {fileID: 0}
     - target: {fileID: 4045835364019839028, guid: 20d340bf524971145974e83217ce27c3, type: 3}
       propertyPath: m_Color.r
-      value: 0.6987633
+      value: 0.49019608
       objectReference: {fileID: 0}
     - target: {fileID: 4045835364019839028, guid: 20d340bf524971145974e83217ce27c3, type: 3}
       propertyPath: m_FontData.m_Font
