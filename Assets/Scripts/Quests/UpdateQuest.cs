@@ -42,7 +42,13 @@ public class UpdateQuest : MonoBehaviour
         string text = "Messages: \n";
         foreach (Quest q in quests) {
             // Add quest description per line
-             text += q.QuestDescription + "\n";
+            if (q.completed)
+            {
+                text += q.QuestDescription + " (C) "+  "\n";
+            } else
+            {
+                text += q.QuestDescription + "\n";
+            }
 /*            GameObject go = new GameObject();
             go.AddComponent<Text>();
             go.GetComponent<Text>().text = q.QuestDescription;
