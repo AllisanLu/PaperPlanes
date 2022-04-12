@@ -16,7 +16,7 @@ public class MainMenu : MonoBehaviour
     }
 
     public void Level1() {
-        SceneManager.LoadScene("L1A2");
+        SceneManager.LoadScene("L1");
         CheckpointManager.resetPosition();
     }
 
