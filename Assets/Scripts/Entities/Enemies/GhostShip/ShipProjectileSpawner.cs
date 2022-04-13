@@ -25,7 +25,6 @@ public class ShipProjectileSpawner : MonoBehaviour
     // private List<int[]> phase3;
 
     // To track which of the 3 phases we are in in the future
-    private int phase = 0;
 
     // public boolean setRandomFire;
 
@@ -38,10 +37,10 @@ public class ShipProjectileSpawner : MonoBehaviour
 
 
         phase1 = new List<int[]>() {
-            new int[] {0, 0, 0, 2, 1}, 
-            new int[] {0, 0, 1, 1, 0},
-            new int[] {0, 1, 1, 0, 0},
-            new int[] {1, 1, 0, 0, 0},
+            new int[] {0, 2, 0, 2, 1}, 
+            new int[] {0, 2, 1, 1, 0},
+            new int[] {2, 1, 1, 0, 0},
+            new int[] {1, 1, 0, 0, 2},
             new int[] {1, 1, 1, 0, 1},
             new int[] {1, 0, 1, 1, 1},
             new int[] {1, 1, 0, 1, 1},
@@ -109,7 +108,6 @@ public class ShipProjectileSpawner : MonoBehaviour
         List<int> possible = Enumerable.Range(0, 5).ToList();
         for (int i = 0; i < numOfObjects; i++) {
             int index = rand.Next(0, possible.Count());
-            print (index);
             firingSequence[index] = 1;
             possible.RemoveAt(index);
         }
@@ -134,10 +132,10 @@ public class ShipProjectileSpawner : MonoBehaviour
         for (int i = 0; i < wave.Length; i++) {
             switch (wave[i]) {
                 case firedObjects.CANNONBALL:
-                    Instantiate(cannonball, cannonSpawns[i].transform.position, Quaternion.identity, transform);
+                    StartCoroutine(cannonSpawns[i].GetComponent<Cannon>().fireProjectile());
                     break;
                 case firedObjects.JAVLIN: 
-                    Instantiate(javlin, javelinSpawns[i].transform.position, Quaternion.identity, transform);
+                    StartCoroutine(javelinSpawns[i].GetComponent<Crossbow>().fireProjectile());
                     break;
             }
         }

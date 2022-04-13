@@ -35,6 +35,6 @@ public class Javlin : Enemy
     
     void OnBecameInvisible()
     {
-        DestroyObject(gameObject);
+        Destroy(gameObject);
     }
 }
