@@ -20,8 +20,8 @@ public class Crossbow : MonoBehaviour
     }
 
     public IEnumerator fireProjectile() {
-        anim.Play("crossbow_fire");
-        yield return new WaitForSeconds(.4f);
+        anim.SetTrigger("Fire");
+        yield return new WaitForSeconds(.6f);
         Instantiate(crossbow, this.transform.position, Quaternion.identity, transform);
     }
 }

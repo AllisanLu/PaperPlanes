@@ -20,8 +20,8 @@ public class Cannon : MonoBehaviour
     }
 
     public IEnumerator fireProjectile() {
-        anim.Play("cannon-fire");
-        yield return new WaitForSeconds(.2f);
+        anim.SetTrigger("Fire");
+        yield return new WaitForSeconds(.3f);
         Instantiate(cannonball, this.transform.position, Quaternion.identity, transform);
     }
 }

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Cannonball : Enemy
 {
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -30,9 +31,13 @@ public class Cannonball : Enemy
         if (other.gameObject.CompareTag("Player"))
         {
             ResourceBar.instance.collision(damage);
-            Destroy(this.gameObject);
+            anim.SetTrigger("Explode");
         }
 
+    }
+
+    private void die() {
+        Destroy(this.gameObject);
     }
 
     void OnBecameInvisible()

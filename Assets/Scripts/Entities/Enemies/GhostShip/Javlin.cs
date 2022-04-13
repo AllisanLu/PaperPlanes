@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Javlin : Enemy
 {
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -30,7 +31,12 @@ public class Javlin : Enemy
         if (other.gameObject.CompareTag("Player"))
         {
             ResourceBar.instance.collision(damage);
+            anim.SetTrigger("Dissolve");
         }
+    }
+
+    private void die() {
+        Destroy(this.gameObject);
     }
     
     void OnBecameInvisible()

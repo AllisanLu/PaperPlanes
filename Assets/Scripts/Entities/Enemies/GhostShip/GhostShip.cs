@@ -36,7 +36,7 @@ public class GhostShip : Entity
     {
         if (other.gameObject.CompareTag("Player") && this.GetComponent<Renderer>().enabled == false)
         {
-            Debug.Log("Entered ghost ship region");
+            // Debug.Log("Entered ghost ship region");
 
             transform.parent = cam.transform;
             transform.position += new Vector3(5, -15, 0);
@@ -56,7 +56,7 @@ public class GhostShip : Entity
 
     IEnumerator animateIn()
     {
-        Debug.Log(transform.position.y);
+        // Debug.Log(transform.position.y);
         while (transform.position.y < 10) {
             transform.position += new Vector3(0, 0.1f, 0);
             yield return new WaitForSeconds(animationSpeed);
@@ -64,14 +64,14 @@ public class GhostShip : Entity
     }
 
     IEnumerator cutscene() {
-        Debug.Log("Cutscene.");
+        // Debug.Log("Cutscene.");
         yield return null;
     }
 
     IEnumerator animateToPosition()
     {
         while (transform.position.y < 25) {
-            transform.position += new Vector3(0, 0.1f, 0);
+            transform.position += new Vector3(0, 0.5f, 0);
             yield return new WaitForSeconds(animationSpeed);
         }
 
@@ -80,7 +80,7 @@ public class GhostShip : Entity
         this.GetComponent<SpriteRenderer>().sprite = bigShip;
         renderShip();
         while (transform.position.y > 11.25) {
-            transform.position += new Vector3(0, -0.1f, 0);
+            transform.position += new Vector3(0, -0.5f, 0);
             yield return new WaitForSeconds(animationSpeed);
         }
 
@@ -95,13 +95,12 @@ public class GhostShip : Entity
     }
 
     IEnumerator endCutscene() {
-        Debug.Log("Cutscene.");
+        // Debug.Log("Cutscene.");
         yield return null;
     }
 
     IEnumerator animateOut()
     {
-        Debug.Log(transform.position.y);
         while (transform.position.y < 35) {
             transform.position += new Vector3(0, 0.1f, 0);
             yield return new WaitForSeconds(animationSpeed);
