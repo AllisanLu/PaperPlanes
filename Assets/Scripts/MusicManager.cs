@@ -92,7 +92,7 @@ public class MusicManager : MonoBehaviour
                 titleSongPlaying = false;
                 //StartLevelMusic();
             }
-            if (!(currentScene == "Tutorial" || currentScene == "L1A2" || currentScene == "L1A3" ) && levelSongPlaying) {
+            if (!(currentScene == "Tutorial" || currentScene == "L1A2" || currentScene == "L1A3" || currentScene == "L1" ) && levelSongPlaying) {
                 StopLevelMusic();
                 levelSongPlaying = false;
                 //StartLevelMusic();
