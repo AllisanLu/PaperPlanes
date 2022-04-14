@@ -222,13 +222,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efdd9583943c0ad4eaf0d4edfc7e91e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reference:
+  reference1:
     Guid:
-      Data1: -970380710
-      Data2: 1205978052
-      Data3: 880815541
-      Data4: -454989376
-    Path: event:/Level_1
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  reference2:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  reference3:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!224 &350389712
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1678,7 +1692,7 @@ MonoBehaviour:
       Data2: 1154189910
       Data3: -1447215228
       Data4: 710638876
-    Path: event:/Wind
+    Path: event:/SFX/Wind
   Event: 
   PlayEvent: 1
   StopEvent: 2

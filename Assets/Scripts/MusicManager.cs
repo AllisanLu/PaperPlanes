@@ -32,10 +32,12 @@ public class MusicManager : MonoBehaviour
 
     //public PauseMenu pausemenu;
     FMOD.Studio.Bus MasterBus;
+    public static float volume = 1.0f;
     
     // Start is called before the first frame update
     void Start()
     {
+        MasterBus = FMODUnity.RuntimeManager.GetBus("bus:/");
         PauseSong = FMODUnity.RuntimeManager.CreateInstance("event:/Songs/Pause/PauseSong");
         LevelSong = FMODUnity.RuntimeManager.CreateInstance(reference1);
         Level2Song = FMODUnity.RuntimeManager.CreateInstance(reference2);
@@ -67,6 +69,7 @@ public class MusicManager : MonoBehaviour
 
     void Update()
     {
+        MasterBus.setVolume(volume);
         //LevelSong = FMODUnity.RuntimeManager.CreateInstance(reference);
         // SceneManager.activeSceneChanged = (prev, next) => {
         //     declare variable reference
@@ -152,6 +155,10 @@ public class MusicManager : MonoBehaviour
 
     }
 
+
+    public void MasterVolumeLevel(float newVolume) {
+        volume = newVolume;
+    }
     public void StartLevel3Music() {
         Level3Song.start();
     }

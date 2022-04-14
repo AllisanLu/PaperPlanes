@@ -155,7 +155,7 @@ Transform:
   - {fileID: 2008850957}
   - {fileID: 1058625755}
   - {fileID: 1031860983}
-  - {fileID: 1459122473}
+  - {fileID: 330481289}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -504,9 +504,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1291923921}
+  - {fileID: 1354973429}
   - {fileID: 609426725}
   - {fileID: 344216701}
-  - {fileID: 1354973429}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -786,6 +786,11 @@ PrefabInstance:
       objectReference: {fileID: 1354973428}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
+--- !u!4 &330481289 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2608546000580805154, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
+  m_PrefabInstance: {fileID: 330481288}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &344216701 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4045835364019839031, guid: 20d340bf524971145974e83217ce27c3, type: 3}
@@ -1171,7 +1176,7 @@ MonoBehaviour:
       Data2: 1154189910
       Data3: -1447215228
       Data4: 710638876
-    Path: event:/Wind
+    Path: event:/SFX/Wind
   Event: 
   PlayEvent: 1
   StopEvent: 2
@@ -1878,7 +1883,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 222141186}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2173,11 +2178,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7149933611652597276, guid: 9ddfa7afbad2bc144bfbb4ca55c3c474, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9ddfa7afbad2bc144bfbb4ca55c3c474, type: 3}
---- !u!4 &1459122473 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2562227227971989752, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
-  m_PrefabInstance: {fileID: 330481288}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1588231793 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1805029441615110424, guid: 549ad4a2c2597014aa82d9c53b4f16f1, type: 3}
