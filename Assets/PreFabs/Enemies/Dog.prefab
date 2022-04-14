@@ -103,9 +103,12 @@ MonoBehaviour:
   animator: {fileID: 0}
   runDistance: 10
   runSpeed: 0.25
+  startoffset: 5
+  endoffset: 10
   jumpHeight: 10
   jumpDistance: 3
   jumpSpeed: 6
+  plane: {fileID: 0}
 --- !u!50 &6290869607567196769
 Rigidbody2D:
   serializedVersion: 4
