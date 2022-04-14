@@ -1601,13 +1601,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2608546000580805155, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 22.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2608546000580805155, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 11.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2608546000580805159, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 22.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2608546000580805159, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 11.25
+      objectReference: {fileID: 0}
     - target: {fileID: 2608546000580805165, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
       propertyPath: m_Name
       value: Platform (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4570513795043671646, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
       propertyPath: questName
-      value: LetterToTheLightKeeper
+      value: Letter To The Light Keeper
       objectReference: {fileID: 0}
     - target: {fileID: 8530354835004880814, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
       propertyPath: portrait
@@ -3480,7 +3496,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4570513795043671646, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
       propertyPath: questName
-      value: HomeBlown
+      value: Home Blown
       objectReference: {fileID: 0}
     - target: {fileID: 8530354835004880814, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
       propertyPath: portrait
@@ -6868,6 +6884,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2608546000580805155, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 22.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2608546000580805155, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 11.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2608546000580805159, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 22.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2608546000580805159, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 11.25
+      objectReference: {fileID: 0}
     - target: {fileID: 2608546000580805165, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
       propertyPath: m_Name
       value: Platform
@@ -6878,7 +6910,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4570513795043671646, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
       propertyPath: questName
-      value: LetterToTheLightKeeper
+      value: Letter To The Light Keeper
       objectReference: {fileID: 0}
     - target: {fileID: 8530354835004880814, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
       propertyPath: portrait
