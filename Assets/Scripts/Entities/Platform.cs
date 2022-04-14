@@ -61,8 +61,13 @@ public class Platform : MonoBehaviour
      {
         if (other.gameObject.CompareTag("Player"))
          {
-            Rigidbody2D rb = other.gameObject.GetComponent<Rigidbody2D>();
-            this.GetComponent<Renderer>().enabled = true;
+            DialogueTrigger dialogueTrigger = GetComponentInChildren<DialogueTrigger>();
+            CutScene cutscene = dialogueTrigger.GetComponent<CutScene>();
+            if (cutscene.start || QuestSystem.contains(cutscene.quest))
+            {
+                Rigidbody2D rb = other.gameObject.GetComponent<Rigidbody2D>();
+                this.GetComponent<Renderer>().enabled = true;
+            }
         }
      }
 

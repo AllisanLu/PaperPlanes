@@ -52,6 +52,11 @@ public class QuestSystem : MonoBehaviour
         return (Quest) quests[quests.IndexOf(quest)];
     }
 
+    public static bool contains(Quest quest)
+    {
+        return quests.IndexOf(quest) >= 0;
+    }
+
     public static void RemoveQuest(Quest quest) {
         quests.Remove(quest);
     }
