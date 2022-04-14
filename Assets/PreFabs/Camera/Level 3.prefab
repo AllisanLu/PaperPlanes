@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3578816496251887256}
   - component: {fileID: 2323496564061925988}
   m_Layer: 0
-  m_Name: level_one_bg_cloud
+  m_Name: level_three_bg_cloud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9c1ade57c9b2ef543b8b5d2660c25a12, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ec51e982c6759c54bba8a4145c394f7a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 3317038717781925065}
   - component: {fileID: 3317038717781925066}
   m_Layer: 0
-  m_Name: temp_background_area1_Foreground
+  m_Name: level_three_layer_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,8 +167,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 9977aa0f610dfba489c5de5c2822a8ee, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 7954da7233e13344eb48687f89f7e77b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 3317038718792859470}
   - component: {fileID: 3317038718792859471}
   m_Layer: 0
-  m_Name: level_one_bg
+  m_Name: level_three_bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -264,7 +264,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c029aab57cff1da4f87f3b696e499fa1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ca242b9d9e98dc542b33d66cb308392e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -298,7 +298,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3317038718932616903}
   m_Layer: 0
-  m_Name: Level 1
+  m_Name: Level 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 3317038719021980952}
   - component: {fileID: 3317038719021980953}
   m_Layer: 0
-  m_Name: level_one_layer_1
+  m_Name: level_three_layer_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -395,7 +395,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4cfe12f96cc733d4f862f3e006325d88, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 85761cf634e317b4faaab7a064f4ac94, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -431,7 +431,7 @@ GameObject:
   - component: {fileID: 3317038719096406878}
   - component: {fileID: 3317038719096406879}
   m_Layer: 0
-  m_Name: level_one_layer_2
+  m_Name: level_three_layer_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -491,7 +491,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a3c9dfe21784bb546a071cedd3c49d8c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 74474140b6376be49b6bdd8fa19dcaa7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
