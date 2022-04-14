@@ -3971,7 +3971,7 @@ MonoBehaviour:
       Data2: 1154189910
       Data3: -1447215228
       Data4: 710638876
-    Path: event:/Wind
+    Path: event:/SFX/Wind
   Event: 
   PlayEvent: 1
   StopEvent: 2

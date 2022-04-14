@@ -977,6 +977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceBar: {fileID: 1530418406}
+  squallUI: {fileID: 0}
 --- !u!114 &1128802451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1526,7 +1527,7 @@ MonoBehaviour:
       Data2: 1154189910
       Data3: -1447215228
       Data4: 710638876
-    Path: event:/Wind
+    Path: event:/SFX/Wind
   Event: 
   PlayEvent: 1
   StopEvent: 2
@@ -1574,8 +1575,6 @@ MonoBehaviour:
   windLength: 0
   resourceBar: {fileID: 0}
   pause: {fileID: 0}
-  strength: 0.2
-  baseValue: 0
 --- !u!4 &1937550288
 Transform:
   m_ObjectHideFlags: 0
