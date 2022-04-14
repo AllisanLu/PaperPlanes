@@ -22,7 +22,6 @@ public class Cannon : MonoBehaviour
     public IEnumerator fireProjectile() {
         anim.SetTrigger("Fire");
         yield return new WaitForSeconds(.3f);
-        print(this.transform.position);
         Instantiate(cannonball, this.transform.position, Quaternion.identity, transform);
     }
 }
