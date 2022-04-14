@@ -958,6 +958,10 @@ PrefabInstance:
       value: DialogTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 5785303225086785588, guid: 3f59acbfed754134f95b219a02be5732, type: 3}
+      propertyPath: portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 928d90e706654784c93e5e3561c2c097, type: 3}
+    - target: {fileID: 5785303225086785588, guid: 3f59acbfed754134f95b219a02be5732, type: 3}
       propertyPath: TextFileAsset
       value: 
       objectReference: {fileID: 4900000, guid: aac8e851f2f1f9248bdfb8db81a127c1, type: 3}
@@ -6417,6 +6421,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0.005004883
       objectReference: {fileID: 0}
+    - target: {fileID: 2879306675797123659, guid: 4dcb8d33b070ac24b879dfb7f8951670, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: e1d05aebd52f6904ea71d2402a9f265c, type: 3}
     - target: {fileID: 6793710494103851818, guid: 4dcb8d33b070ac24b879dfb7f8951670, type: 3}
       propertyPath: m_Name
       value: CanvasDialogue
@@ -6505,9 +6513,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7266919304925391504, guid: 4dcb8d33b070ac24b879dfb7f8951670, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: e1d05aebd52f6904ea71d2402a9f265c, type: 3}
+    - target: {fileID: 7266919305360398019, guid: 4dcb8d33b070ac24b879dfb7f8951670, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: e1d05aebd52f6904ea71d2402a9f265c, type: 3}
     - target: {fileID: 7266919306015308282, guid: 4dcb8d33b070ac24b879dfb7f8951670, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.005004883
+      objectReference: {fileID: 0}
+    - target: {fileID: 7266919306021677328, guid: 4dcb8d33b070ac24b879dfb7f8951670, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7266919306021677328, guid: 4dcb8d33b070ac24b879dfb7f8951670, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7266919306021677328, guid: 4dcb8d33b070ac24b879dfb7f8951670, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7266919306021677328, guid: 4dcb8d33b070ac24b879dfb7f8951670, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7266919306021677328, guid: 4dcb8d33b070ac24b879dfb7f8951670, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7266919306021677329, guid: 4dcb8d33b070ac24b879dfb7f8951670, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7266919306021677342, guid: 4dcb8d33b070ac24b879dfb7f8951670, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dcb8d33b070ac24b879dfb7f8951670, type: 3}
@@ -6818,6 +6862,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogTrigger (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5785303225086785588, guid: 3f59acbfed754134f95b219a02be5732, type: 3}
+      propertyPath: portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: ff89b02d169babe44bba875d08356d32, type: 3}
     - target: {fileID: 5785303225086785588, guid: 3f59acbfed754134f95b219a02be5732, type: 3}
       propertyPath: TextFileAsset
       value: 
@@ -11636,6 +11684,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogTrigger (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5785303225086785588, guid: 3f59acbfed754134f95b219a02be5732, type: 3}
+      propertyPath: portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 027ab79f3b1bda14fa1452046a34cdf0, type: 3}
     - target: {fileID: 5785303225086785588, guid: 3f59acbfed754134f95b219a02be5732, type: 3}
       propertyPath: TextFileAsset
       value: 

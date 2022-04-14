@@ -2122,6 +2122,10 @@ PrefabInstance:
       value: DialogTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 5785303225086785588, guid: 3f59acbfed754134f95b219a02be5732, type: 3}
+      propertyPath: portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: bde1cc178023cd442ba6453f2225f921, type: 3}
+    - target: {fileID: 5785303225086785588, guid: 3f59acbfed754134f95b219a02be5732, type: 3}
       propertyPath: TextFileAsset
       value: 
       objectReference: {fileID: 4900000, guid: 17f3d2f09cc9a4245bed0678d1c5ea69, type: 3}
@@ -3099,6 +3103,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestDiagTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 5785303225086785588, guid: 3f59acbfed754134f95b219a02be5732, type: 3}
+      propertyPath: portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 47bbb1814215df649a0c251a5fad5fe7, type: 3}
     - target: {fileID: 5785303225086785588, guid: 3f59acbfed754134f95b219a02be5732, type: 3}
       propertyPath: TextFileAsset
       value: 
@@ -6653,7 +6661,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8978292821337946842, guid: 37a73fec84692be4684a3ea01452befa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2319016
+      value: 2.9
       objectReference: {fileID: 0}
     - target: {fileID: 8978292821337946842, guid: 37a73fec84692be4684a3ea01452befa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7255,11 +7263,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8978292821337946842, guid: 37a73fec84692be4684a3ea01452befa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 632.31903
+      value: 632
       objectReference: {fileID: 0}
     - target: {fileID: 8978292821337946842, guid: 37a73fec84692be4684a3ea01452befa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.006567
+      value: 11.4
       objectReference: {fileID: 0}
     - target: {fileID: 8978292821337946842, guid: 37a73fec84692be4684a3ea01452befa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8164,6 +8172,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestDiagTrigger (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5785303225086785588, guid: 3f59acbfed754134f95b219a02be5732, type: 3}
+      propertyPath: portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 246c686100ed7e64dba15cfa7398aaf1, type: 3}
     - target: {fileID: 5785303225086785588, guid: 3f59acbfed754134f95b219a02be5732, type: 3}
       propertyPath: TextFileAsset
       value: 
@@ -9390,7 +9402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8978292821337946842, guid: 37a73fec84692be4684a3ea01452befa, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8978292821337946842, guid: 37a73fec84692be4684a3ea01452befa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9461,7 +9473,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 10, y: 10}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
