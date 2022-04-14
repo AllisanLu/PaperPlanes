@@ -82,6 +82,7 @@ public class GhostShip : Entity
         transform.position += new Vector3(12f, 10, -1.5f);
         yield return new WaitForSeconds(animationSpeed*40);
         this.GetComponent<SpriteRenderer>().sprite = bigShip;
+        shipSprite.sortingOrder = 1;
         shipSprite.color = new Color (1, 1, 1, 1);
         renderShip();
 
