@@ -34,11 +34,18 @@ public class DialogueTrigger : MonoBehaviour
     {
         ReadTextFile(); // loads in the text file
         CutScene cutscene = GetComponent<CutScene>();
-        if (cutscene.start || QuestSystem.contains(cutscene.quest))
+        if (cutscene != null)
         {
-            CutScene cs = this.GetComponent<CutScene>();
-            cs.HandleQuest();
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue, portrait); // Accesses Dialogue Manager and Starts Dialogueer
+            if (cutscene.start || QuestSystem.contains(cutscene.quest))
+            {
+                CutScene cs = this.GetComponent<CutScene>();
+                cs.HandleQuest();
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue, portrait); // Accesses Dialogue Manager and Starts Dialogueer
+            }
+        } else
+        {
+            print("ooga booga");
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue, portrait);
         }
     }
 
