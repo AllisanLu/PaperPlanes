@@ -102,8 +102,8 @@ public class DialogueManager : MonoBehaviour
             // use this for the circle mask, https://subscription.packtpub.com/book/game-development/9781785885822/1/ch01lvl1sec13/adding-a-circular-mask-to-an-image
             // im too lazy to pull out photoshop atm
 
-            CanvasBox.GetComponentInChildren<Image>().sprite = Portrait;
-            CanvasBox.GetComponentInChildren<Image>().color = new Color(255, 255, 255, 255);
+            CanvasBox.GetComponentsInChildren<Image>()[1].sprite = Portrait;
+            CanvasBox.GetComponentsInChildren<Image>()[1].color = new Color(255, 255, 255, 255);
             // use dictionary to store the names and sprites, make sure name matches with names in the script
             // then, do portrait = dictionary_name[name]
 
