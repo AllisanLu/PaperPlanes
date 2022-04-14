@@ -33,7 +33,6 @@ public class Cannonball : Enemy
             ResourceBar.instance.collision(damage);
             anim.SetTrigger("Explode");
         }
-
     }
 
     private void die() {
