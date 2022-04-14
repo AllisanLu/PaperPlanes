@@ -8,6 +8,7 @@ public class GhostShip : Entity
     private Camera cam;
     private float animationSpeed = 0.01f;
     private ShipProjectileSpawner spawnerScript;
+    private SpriteRenderer shipSprite;
     public Sprite bigShip;
     private Component[] a;
     // adjust lines 42, 56, 64 for animations
@@ -16,6 +17,7 @@ public class GhostShip : Entity
     void Start()
     {
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        shipSprite = GetComponent<SpriteRenderer>();
         this.GetComponent<Renderer>().enabled = false;
         a = this.GetComponentsInChildren(typeof(Renderer));
         foreach (Component b in a)
@@ -36,10 +38,11 @@ public class GhostShip : Entity
     {
         if (other.gameObject.CompareTag("Player") && this.GetComponent<Renderer>().enabled == false)
         {
-            Debug.Log("Entered ghost ship region");
+            // Debug.Log("Entered ghost ship region");
 
             transform.parent = cam.transform;
-            transform.position += new Vector3(5, -15, 0);
+            transform.position += new Vector3(5, -15, 3);
+            shipSprite.color = new Color (0.7478169f, 0.6681648f, 0.990566f, 1);
             this.GetComponent<Renderer>().enabled = true;
             StartCoroutine(startGhostShip());
         }
@@ -56,7 +59,7 @@ public class GhostShip : Entity
 
     IEnumerator animateIn()
     {
-        Debug.Log(transform.position.y);
+        // Debug.Log(transform.position.y);
         while (transform.position.y < 10) {
             transform.position += new Vector3(0, 0.1f, 0);
             yield return new WaitForSeconds(animationSpeed);
@@ -64,41 +67,48 @@ public class GhostShip : Entity
     }
 
     IEnumerator cutscene() {
-        Debug.Log("Cutscene.");
+        // Debug.Log("Cutscene.");
         yield return null;
     }
 
     IEnumerator animateToPosition()
     {
+        float deltaY = .1f;
         while (transform.position.y < 25) {
-            transform.position += new Vector3(0, 0.1f, 0);
+            transform.position += new Vector3(0, deltaY, 0);
+            deltaY += .005f;
             yield return new WaitForSeconds(animationSpeed);
         }
-
-        transform.position += new Vector3(15f, 10, 0f);
-        yield return new WaitForSeconds(animationSpeed*25);
+        transform.position += new Vector3(12f, 10, -3.5f);
+        yield return new WaitForSeconds(animationSpeed*40);
         this.GetComponent<SpriteRenderer>().sprite = bigShip;
+        shipSprite.color = new Color (1, 1, 1, 1);
         renderShip();
+
+        deltaY = -.5f;
         while (transform.position.y > 11.25) {
-            transform.position += new Vector3(0, -0.1f, 0);
+            transform.position += new Vector3(0, deltaY, 0);
+            deltaY += .0052321f;
             yield return new WaitForSeconds(animationSpeed);
         }
 
         yield return new WaitForSeconds(animationSpeed*25);
 
+        //startGaussianRandom(numWaves, average, stdDistr)
+        //This method starts spawning numWaves of waves with the number of cannons averaging around "average" value
         yield return StartCoroutine(spawnerScript.startPhase1());
+        yield return StartCoroutine(spawnerScript.startGuassianRandom(6, 5, 1));
         yield return StartCoroutine(spawnerScript.startPhase2());
         yield return new WaitForSeconds(3);
     }
 
     IEnumerator endCutscene() {
-        Debug.Log("Cutscene.");
+        // Debug.Log("Cutscene.");
         yield return null;
     }
 
     IEnumerator animateOut()
     {
-        Debug.Log(transform.position.y);
         while (transform.position.y < 35) {
             transform.position += new Vector3(0, 0.1f, 0);
             yield return new WaitForSeconds(animationSpeed);

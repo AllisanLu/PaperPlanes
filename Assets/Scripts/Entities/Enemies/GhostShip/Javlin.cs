@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cannonball : Enemy
+public class Javlin : Enemy
 {
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -30,13 +31,16 @@ public class Cannonball : Enemy
         if (other.gameObject.CompareTag("Player"))
         {
             ResourceBar.instance.collision(damage);
-            Destroy(this.gameObject);
+            anim.SetTrigger("Dissolve");
         }
-
     }
 
+    private void die() {
+        Destroy(this.gameObject);
+    }
+    
     void OnBecameInvisible()
     {
-        DestroyObject(gameObject);
+        Destroy(gameObject);
     }
 }
