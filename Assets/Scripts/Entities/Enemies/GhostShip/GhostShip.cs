@@ -79,7 +79,7 @@ public class GhostShip : Entity
             deltaY += .005f;
             yield return new WaitForSeconds(animationSpeed);
         }
-        transform.position += new Vector3(12f, 10, -3.5f);
+        transform.position += new Vector3(12f, 10, -1.5f);
         yield return new WaitForSeconds(animationSpeed*40);
         this.GetComponent<SpriteRenderer>().sprite = bigShip;
         shipSprite.color = new Color (1, 1, 1, 1);
