@@ -22,7 +22,6 @@ public class CutScene : MonoBehaviour
 
     public void HandleQuest()
     {
-        print("Cutscene enter");
         //call the quest and put dialog on screen lol
 
         //updates the quests the player 
