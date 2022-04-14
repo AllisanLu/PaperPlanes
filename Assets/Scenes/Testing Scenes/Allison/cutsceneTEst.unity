@@ -596,7 +596,7 @@ RectTransform:
   m_LocalScale: {x: 3.2414913, y: 3.2414913, z: 3.2414913}
   m_Children: []
   m_Father: {fileID: 1521156945}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1001,7 +1001,7 @@ MonoBehaviour:
       Data2: 1154189910
       Data3: -1447215228
       Data4: 710638876
-    Path: event:/Wind
+    Path: event:/SFX/Wind
   Event: 
   PlayEvent: 1
   StopEvent: 2
@@ -1292,8 +1292,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 2051140443}
   - {fileID: 501141377}
+  - {fileID: 2051140443}
   - {fileID: 1569347062}
   - {fileID: 60374841}
   - {fileID: 148716910}
@@ -1622,6 +1622,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1521156945}
     m_Modifications:
+    - target: {fileID: 4220245759176415306, guid: 290a00ee82a6cb34fb007f8ef05ffa11, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8033504426246023405, guid: 290a00ee82a6cb34fb007f8ef05ffa11, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1714,7 +1718,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 290a00ee82a6cb34fb007f8ef05ffa11, type: 3}
 --- !u!224 &2051140443 stripped
 RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8033504426246023405, guid: 290a00ee82a6cb34fb007f8ef05ffa11, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4220245759176415306, guid: 290a00ee82a6cb34fb007f8ef05ffa11, type: 3}
   m_PrefabInstance: {fileID: 2051140442}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2077277044

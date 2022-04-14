@@ -529,10 +529,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 250579119}
+  - {fileID: 537038736}
   - {fileID: 1529655501}
   - {fileID: 7666908}
   - {fileID: 8646642288436587496}
-  - {fileID: 757835495}
   - {fileID: 1108855078}
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -900,6 +900,11 @@ PrefabInstance:
       objectReference: {fileID: 501141376}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
+--- !u!4 &537038736 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2608546000580805154, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
+  m_PrefabInstance: {fileID: 537038735}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &655580153 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 257622632565597362, guid: 9c774698e03354242ab7c720c25f2815, type: 3}
@@ -985,11 +990,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 568704f6e585f0344871d0e6721d482c, type: 3}
---- !u!4 &757835495 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2562227227971989752, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
-  m_PrefabInstance: {fileID: 537038735}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &853566017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1136,7 +1136,7 @@ MonoBehaviour:
       Data2: 1154189910
       Data3: -1447215228
       Data4: 710638876
-    Path: event:/Wind
+    Path: event:/SFX/Wind
   Event: 
   PlayEvent: 1
   StopEvent: 2

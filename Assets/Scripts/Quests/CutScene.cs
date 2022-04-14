@@ -29,7 +29,7 @@ public class CutScene : MonoBehaviour
         if (start)
         {
             QuestSystem.AddQuest(quest);
-            print("added quest");
+            //print("added quest");
         }
         else
         {
