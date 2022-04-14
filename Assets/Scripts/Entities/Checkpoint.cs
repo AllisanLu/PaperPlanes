@@ -18,6 +18,7 @@ public class Checkpoint : MonoBehaviour
             // new checkpoint respawn is the same x position as the gameobject
             // y position is 15f (original position)
             Vector3 newPos = new Vector3(this.gameObject.transform.position.x, 15f, 0);
+            ResourceBar.instance.maxResource();
             // set checkpoint position to new position
 
             CheckpointManager.planePosition = newPos;

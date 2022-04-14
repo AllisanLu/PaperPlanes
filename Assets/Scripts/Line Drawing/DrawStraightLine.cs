@@ -127,7 +127,6 @@ public class DrawStraightLine : MonoBehaviour
             angle *= -1;
         }
         angle = Mathf.Rad2Deg * Mathf.Atan(angle);
-        print(angle);
         if(windLength > 0) {
             col.transform.Rotate(0, 0, angle);
         }
