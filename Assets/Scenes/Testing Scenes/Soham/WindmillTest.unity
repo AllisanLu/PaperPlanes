@@ -720,6 +720,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8129331683755848767, guid: 8bb1e5d088ce6ee45bf3540ff9daebd4, type: 3}
+      propertyPath: reference3.Path
+      value: event:/Songs/LevelSong/Level3/Level3Full
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129331683755848767, guid: 8bb1e5d088ce6ee45bf3540ff9daebd4, type: 3}
+      propertyPath: reference3.Guid.Data1
+      value: 1386550202
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129331683755848767, guid: 8bb1e5d088ce6ee45bf3540ff9daebd4, type: 3}
+      propertyPath: reference3.Guid.Data2
+      value: 1125791929
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129331683755848767, guid: 8bb1e5d088ce6ee45bf3540ff9daebd4, type: 3}
+      propertyPath: reference3.Guid.Data3
+      value: -595220587
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129331683755848767, guid: 8bb1e5d088ce6ee45bf3540ff9daebd4, type: 3}
+      propertyPath: reference3.Guid.Data4
+      value: 150996947
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bb1e5d088ce6ee45bf3540ff9daebd4, type: 3}
 --- !u!114 &1154837082 stripped

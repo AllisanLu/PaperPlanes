@@ -16,13 +16,18 @@ public class Plane : Entity
 	public bool IsActive;
 	public int frameCounter = 0;
 	public ParticleSystem collisionParticles;
+	public ParticleSystem deathParticles;
+	public ParticleSystem windTrail;
 
 	private Animator shieldAnim;
+	private bool planeDead;
 
     // Use this for initialization
     void Start 	() {
+		planeDead = false;
 		this.gameObject.transform.position = CheckpointManager.planePosition;
 		this.gameObject.transform.rotation = CheckpointManager.planeRotation;
+		this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
 
         controller = this.GetComponent<PlaneController>();
 		aerodynamics = this.GetComponent<Aerodynamic>();
@@ -34,6 +39,7 @@ public class Plane : Entity
 		shield = null;
 
 		collisionParticles.GetComponent<Renderer>().enabled = false;
+		deathParticles.GetComponent<Renderer>().enabled = false;
 
 		if(invincible)
         {
@@ -43,6 +49,11 @@ public class Plane : Entity
 
 	// Called once per frame
 	void FixedUpdate() {
+		if (planeDead) {
+			this.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+			this.gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0f; 
+			return;
+		}
 		Camera cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 		if (PlatformManager.cutSceneDone) {
 			onPlatform = false;
@@ -71,7 +82,7 @@ public class Plane : Entity
 		// else if too high push back down
 		//skybox
 		if (transform.position.y < 0) {
-			die();
+			StartCoroutine(ActivateDeathParticlesAndDie());
 		}
 		else if (transform.position.y > 22)
 		{
@@ -191,14 +202,14 @@ public class Plane : Entity
 					// Call death method to respawn
 					// TODO: Add an animation after collision before respawn for
 					//       better playability
-					die();
+					StartCoroutine(ActivateDeathParticlesAndDie());
 				}
 				else if (other.collider.gameObject.CompareTag("Water"))
 				{
 					// Call death method to respawn
 					// TODO: Add an animation after collision before respawn for
 					//       better playability
-					die();
+					StartCoroutine(ActivateDeathParticlesAndDie());
 				} 
 				else 
 				{
@@ -215,6 +226,29 @@ public class Plane : Entity
 		while (true) {
 			yield return new WaitForSeconds(1);
 			collisionParticles.GetComponent<Renderer>().enabled = false;
+		}
+	}
+
+	public IEnumerator ActivateDeathParticlesAndDie() {
+		while(true) {
+			planeDead = true;
+
+			this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+			this.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+			this.gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0f; 
+
+			collisionParticles.GetComponent<Renderer>().enabled = false;
+			windTrail.GetComponent<Renderer>().enabled = false;
+
+			deathParticles.transform.position = this.gameObject.transform.position;
+
+			deathParticles.GetComponent<Renderer>().enabled = true;
+			deathParticles.GetComponent<ParticleSystem>().Play();
+
+			yield return new WaitForSeconds(1);
+
+			deathParticles.GetComponent<Renderer>().enabled = false;
+			die();
 		}
 	}
 }
