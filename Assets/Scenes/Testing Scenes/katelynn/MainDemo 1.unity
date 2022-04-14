@@ -1036,7 +1036,7 @@ MonoBehaviour:
       Data2: 1154189910
       Data3: -1447215228
       Data4: 710638876
-    Path: event:/Wind
+    Path: event:/SFX/Wind
   Event: 
   PlayEvent: 1
   StopEvent: 2
@@ -1582,9 +1582,11 @@ MonoBehaviour:
   damage: 0
   behaviorController: {fileID: 1809483064}
   animator: {fileID: 0}
-  expectedDistance: 20
-  expectedHeight: 15
-  speed: 6
+  runDistance: 0
+  runSpeed: 0
+  jumpHeight: 0
+  jumpDistance: 0
+  jumpSpeed: 0
 --- !u!212 &1809483063
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1649,6 +1651,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   acceleration: 1
+  speed: 0
+  zAngle: 0
 --- !u!1 &1860026034
 GameObject:
   m_ObjectHideFlags: 0

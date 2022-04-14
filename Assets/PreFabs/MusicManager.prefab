@@ -64,8 +64,8 @@ MonoBehaviour:
     Path: event:/Songs/LevelSong/Level2
   reference3:
     Guid:
-      Data1: -351594092
-      Data2: 1315835236
-      Data3: -1233248379
-      Data4: -1948725979
-    Path: event:/Songs/LevelSong/Level3/Level3
+      Data1: 1386550202
+      Data2: 1125791929
+      Data3: -595220587
+      Data4: 150996947
+    Path: event:/Songs/LevelSong/Level3/Level3Full

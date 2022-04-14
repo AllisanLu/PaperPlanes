@@ -253,7 +253,7 @@ Transform:
   - {fileID: 1788199057}
   - {fileID: 1529655501}
   - {fileID: 7666908}
-  - {fileID: 757835495}
+  - {fileID: 537038736}
   - {fileID: 1108855078}
   - {fileID: 8646642288436587496}
   - {fileID: 536450390}
@@ -710,6 +710,11 @@ PrefabInstance:
       objectReference: {fileID: 501141376}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
+--- !u!4 &537038736 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2608546000580805154, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
+  m_PrefabInstance: {fileID: 537038735}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &655580153 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 257622632565597362, guid: 9c774698e03354242ab7c720c25f2815, type: 3}
@@ -725,11 +730,6 @@ MonoBehaviour:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 257622632565597358, guid: 9c774698e03354242ab7c720c25f2815, type: 3}
   m_PrefabInstance: {fileID: 1227604744}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &757835495 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2562227227971989752, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
-  m_PrefabInstance: {fileID: 537038735}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &808550239 stripped
 Transform:
@@ -882,7 +882,7 @@ MonoBehaviour:
       Data2: 1154189910
       Data3: -1447215228
       Data4: 710638876
-    Path: event:/Wind
+    Path: event:/SFX/Wind
   Event: 
   PlayEvent: 1
   StopEvent: 2
@@ -1181,13 +1181,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efdd9583943c0ad4eaf0d4edfc7e91e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reference:
+  reference1:
     Guid:
-      Data1: -970380710
-      Data2: 1205978052
-      Data3: 880815541
-      Data4: -454989376
-    Path: event:/Level_1
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  reference2:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  reference3:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &1259505875
 GameObject:
   m_ObjectHideFlags: 0
