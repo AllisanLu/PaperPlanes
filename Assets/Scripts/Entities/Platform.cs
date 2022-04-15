@@ -20,8 +20,11 @@ public class Platform : MonoBehaviour
     private bool moved = false;
     private bool canRelaunch = false;
 
+    private Animator animator;
+
     private void Awake() 
     {
+        animator = GetComponentInChildren<DialogueTrigger>().GetComponentInChildren<Animator>();
         this.GetComponent<Renderer>().enabled = false;
        // button.SetActive(false); //Button is not visibile.
        // button.GetComponent<Button>().onClick.AddListener(TaskOnClick); //Binding On Click Method.
@@ -52,7 +55,9 @@ public class Platform : MonoBehaviour
 
         if (canRelaunch && Input.GetKeyDown(KeyCode.A))
         {
-            TaskOnClick();
+            //run animation here
+            animator.SetBool("Done", true);
+            StartCoroutine(TaskOnClick());
         }
     }
 
@@ -78,6 +83,7 @@ public class Platform : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.CompareTag("Player"))
         {
+            animator.SetBool("Reading", true);
             canRelaunch = true;
             Rigidbody2D rb = other.gameObject.GetComponent<Rigidbody2D>();
             if (rb.rotation > 20) {
@@ -92,9 +98,11 @@ public class Platform : MonoBehaviour
         } 
     }
 
-    void TaskOnClick(){
+    IEnumerator TaskOnClick(){
+        //Destorys the Platform
+        yield return new WaitForSeconds(0.5f);
         PlatformManager.cutSceneDone = true; //Sets that the CutSceneis Done and Player wants to fly
-        Destroy(this.gameObject); //Destorys the Platform
+        Destroy(this.gameObject);
     }
     
     //slowly fades object in
