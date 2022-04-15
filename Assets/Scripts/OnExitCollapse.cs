@@ -23,6 +23,7 @@ public class OnExitCollapse : StateMachineBehaviour
     //}
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         animator.SetBool("IdleFull", false);
+        animator.SetBool("Full", false);
         animator.SetBool("IdleCollapsed", true);
 
     }

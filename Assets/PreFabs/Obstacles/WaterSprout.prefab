@@ -220,7 +220,7 @@ MonoBehaviour:
       Data4: -2129444520
     Path: event:/SFX/Water Splash Sound Effect
   Event: 
-  PlayEvent: 2
+  PlayEvent: 5
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 1
@@ -416,7 +416,7 @@ MonoBehaviour:
       Data4: -2129444520
     Path: event:/SFX/Water Splash Sound Effect
   Event: 
-  PlayEvent: 2
+  PlayEvent: 5
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 1
@@ -612,7 +612,7 @@ MonoBehaviour:
       Data4: -2129444520
     Path: event:/SFX/Water Splash Sound Effect
   Event: 
-  PlayEvent: 2
+  PlayEvent: 5
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 1
