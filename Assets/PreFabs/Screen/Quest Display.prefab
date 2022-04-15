@@ -83,7 +83,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: -519052415876542791, guid: f453c836caae0b64696db503e6410e77, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -212,7 +212,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Messages: '
+  m_Text: 
 --- !u!114 &4045835364019839026
 MonoBehaviour:
   m_ObjectHideFlags: 0

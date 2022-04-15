@@ -15,6 +15,10 @@ public class UpdateQuest : MonoBehaviour
     void Start()
     {
         anim = this.GetComponent<Animator>();
+        Color color = questDisplay.color;
+        color.a = 0f;
+        questDisplay.color = color;
+    
     }
 
     // Update is called once per frame
@@ -23,24 +27,25 @@ public class UpdateQuest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q)) {
             // toggle visibility of questDisplay
             Color color = questDisplay.color;
-            if (isOn)
-            {
-                color.a = 1f;
-                anim.Play("ScrollUnroll");
-            }
-            else
-            {
-                color.a = 0f;
-            }
             isOn = !isOn;
-            questDisplay.color = color;
+            if (isOn) {
+                anim.SetTrigger("Unroll");
+                color.a = 1f;
+
+            }
+            else {
+                anim.SetTrigger("Reroll");
+                color.a = 0f;
+
+            }
+            StartCoroutine(colorDelay(color, questDisplay));
 /*            isOn = !isOn;
             questDisplay.SetActive(isOn);*/
         }
         // Display all current quests in Text UI element
         ArrayList quests = QuestSystem.GetCurrentQuests();
         //questDisplay.GetComponent<Text>().text = "Messages:";
-        string text = "Messages: \n";
+        string text = "";
         foreach (Quest q in quests) {
             // Add quest description per line
             if (q.completed)
@@ -57,5 +62,10 @@ public class UpdateQuest : MonoBehaviour
         }
         // Set UI text to quest description text
         questDisplay.text = text;
+    }
+
+    public IEnumerator colorDelay(Color color, Text questDisplay) {
+        yield return new WaitForSeconds(1f);
+        questDisplay.color = color;
     }
 }
