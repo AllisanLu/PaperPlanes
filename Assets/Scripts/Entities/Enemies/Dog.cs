@@ -31,7 +31,7 @@ public class Dog : Enemy
 
     private Plane plane;
 
-    private Animator anim;
+   // private Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +40,6 @@ public class Dog : Enemy
 
         rb = GetComponent<Rigidbody2D>();   
         behaviorController = GetComponent<DogController>();
-
         plane = FindObjectOfType<Plane>();
 
         jumpVelocity = ((DogController)behaviorController).getStartVelocity(jumpDistance, jumpHeight);
@@ -65,15 +64,29 @@ public class Dog : Enemy
     {   
         if (plane.gameObject.transform.position.x + startoffset > transform.position.x && plane.gameObject.transform.position.x < transform.position.x + endoffset) {
             if (transform.position.x >= jumpStart.x) {
+                animator.SetBool("Run", true);
                 if (reverse) {
+                    if (transform.localScale.x < 0)
+                    {
+                        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                    }
                     Run(-1);
                 } else {
+                    animator.SetBool("Jump", true);
                     Jump(jumpStart, rightTarget);
+                    animator.SetBool("Jump", false);
                 }
             } else {
+                animator.SetBool("Run", true);
                 if (reverse) {
+                    animator.SetBool("Jump", true);
                     Jump(jumpStart, leftTarget);
+                    animator.SetBool("Jump", false);
                 } else {
+                    if (transform.localScale.x > 0)
+                    {
+                        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                    }
                     Run(1);
                 }
             }
@@ -93,7 +106,7 @@ public class Dog : Enemy
         height = jumpHeight * (nextX - start.x) * (nextX - target.x) / (-0.25f * dist * dist);
 
         Vector3 movePosition = new Vector3(nextX, baseY + height, transform.position.z);
-        transform.rotation = LookAtTarget(movePosition - transform.position);
+        //transform.rotation = LookAtTarget(movePosition - transform.position);
         transform.position = movePosition;
 
         if ((Vector2) transform.position == target) {
