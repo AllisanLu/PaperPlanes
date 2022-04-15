@@ -5,20 +5,34 @@ using UnityEngine;
 public class Bird : Enemy
 {
     private int lastHit = 0;
+    //[SerializeField] public FMODUnity.EventReference reference1;
+    public static FMOD.Studio.EventInstance Chirp;
+    public bool chirped = false;
+
+
     private Vector2 startPos;
     // Start is called before the first frame update
     void Start()
     {
+        Chirp = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Birb");
         startPos = transform.position;
      //   Physics2D.IgnoreLayerCollision(6, 7, true);
     }   
-    
+    void Update()
+    {
+        if(GetComponent<Renderer>().isVisible && !chirped)
+        {   
+            chirped = true;
+            Chirp.start();
+
+        }
+    }
     public override void Move()
     {
         //gets command from its controller
         Vector2 command = behaviorController.GetMove();
         transform.position = command;
-
+        //Chirp.start();
         animator.SetBool("collide", false);
         lastHit++;
     }
