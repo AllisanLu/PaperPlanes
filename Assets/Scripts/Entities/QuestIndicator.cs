@@ -25,7 +25,9 @@ public class QuestIndicator : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            instance.GetComponent<Renderer>().enabled = true;
+          
+           instance.GetComponent<Renderer>().enabled = true;
+          
         }
     }
 
