@@ -9,12 +9,12 @@ public class UpdateQuest : MonoBehaviour
     private Text questDisplay;
 
     //public GameObject questDisplay;
-    
-    private bool isOn = true;
+    private Animator anim;
+    private bool isOn = false;
     // Start is called before the first frame update
     void Start()
     {
-
+        anim = this.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,6 +26,7 @@ public class UpdateQuest : MonoBehaviour
             if (isOn)
             {
                 color.a = 1f;
+                anim.Play("ScrollUnroll");
             }
             else
             {
