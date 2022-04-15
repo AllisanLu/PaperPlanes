@@ -2812,6 +2812,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Canvas '
       objectReference: {fileID: 0}
+    - target: {fileID: 3459549619120095457, guid: 3049f931166515e40b42801d11b5c34b, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3459549619120095457, guid: 3049f931166515e40b42801d11b5c34b, type: 3}
+      propertyPath: m_FontData.m_LineSpacing
+      value: 4.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3459549619120095458, guid: 3049f931166515e40b42801d11b5c34b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -150
+      objectReference: {fileID: 0}
+    - target: {fileID: 3459549619120095458, guid: 3049f931166515e40b42801d11b5c34b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -128.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3601528568350319328, guid: 3049f931166515e40b42801d11b5c34b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4926564442038094520, guid: 003f1391c588c8f41944bff015b93c5b, type: 3}
     - target: {fileID: 4791797107983278874, guid: 3049f931166515e40b42801d11b5c34b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2819,6 +2839,14 @@ PrefabInstance:
     - target: {fileID: 4791797107983278874, guid: 3049f931166515e40b42801d11b5c34b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6179678186176312209, guid: 3049f931166515e40b42801d11b5c34b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -36.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6179678186176312209, guid: 3049f931166515e40b42801d11b5c34b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 45.2
       objectReference: {fileID: 0}
     - target: {fileID: 7242970678506507105, guid: 3049f931166515e40b42801d11b5c34b, type: 3}
       propertyPath: m_AnchorMax.x

@@ -53,7 +53,6 @@ public class DogController : EnemyController
     }
 
 
-    // Moves bird to the left at a constant rate
     public override Vector2 GetMove() {
         //return (Vector2) transform.position + (new Vector2(-1, 0) * speed);
         return (Vector2) transform.position + (Vector2) direction;
