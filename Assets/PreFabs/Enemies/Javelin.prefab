@@ -14,8 +14,7 @@ GameObject:
   - component: {fileID: 5773023537181837436}
   - component: {fileID: 444575470769412826}
   - component: {fileID: 5986891903229134531}
-  - component: {fileID: -488299919738025755}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Javelin
   m_TagString: Untagged
   m_Icon: {fileID: 0}

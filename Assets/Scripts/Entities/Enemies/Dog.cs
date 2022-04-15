@@ -29,8 +29,7 @@ public class Dog : Enemy
     private bool barked = false;
     public static FMOD.Studio.EventInstance Bark;
 
-    public Plane plane;
-    
+    private Plane plane;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +38,8 @@ public class Dog : Enemy
 
         rb = GetComponent<Rigidbody2D>();   
         behaviorController = GetComponent<DogController>();
+
+        plane = FindObjectOfType<Plane>();
 
         jumpVelocity = ((DogController)behaviorController).getStartVelocity(jumpDistance, jumpHeight);
 

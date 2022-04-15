@@ -23,5 +23,6 @@ public class Cannon : MonoBehaviour
         anim.SetTrigger("Fire");
         yield return new WaitForSeconds(.3f);
         Instantiate(cannonball, this.transform.position, Quaternion.identity, transform);
+        cannonball.layer = LayerMask.NameToLayer("Enemy");
     }
 }
