@@ -20,6 +20,7 @@ public class DialogueTrigger : MonoBehaviour
     public Sprite portrait;
     public bool TriggerWithButton;
     public GameObject indicator;
+    public bool switchDialogMode = false;
     // public Vector3 optionalIndicatorOffset = new Vector3 (0,0,0);
     private Queue<string> dialogue = new Queue<string>(); // stores the dialogue (Great Performance!)
     private float waitTime = 0.5f; // lag time for advancing dialogue so you can actually read it
@@ -136,6 +137,11 @@ public class DialogueTrigger : MonoBehaviour
                 {
                     indicator.SetActive(false);
                 }
+        }
+
+        if (switchDialogMode)
+        {
+            FindObjectOfType<DialogueManager>().freezePlayerOnDialogue = !FindObjectOfType<DialogueManager>().freezePlayerOnDialogue;
         }
     }
 }
