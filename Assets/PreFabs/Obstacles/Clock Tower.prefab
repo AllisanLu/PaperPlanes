@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8165816576800002056}
   - component: {fileID: 481654330257021741}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Roof
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 5603212065420782037}
   - component: {fileID: 5603212065420782036}
   - component: {fileID: -2947227603960744204}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Clock Tower
   m_TagString: Obstacle
   m_Icon: {fileID: 0}

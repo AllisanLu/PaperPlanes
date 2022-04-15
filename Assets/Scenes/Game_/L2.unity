@@ -693,7 +693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4091132677060719147, guid: a7061cb9d32c39a408c768501bed437b, type: 3}
       propertyPath: invincible
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4091132677060719148, guid: a7061cb9d32c39a408c768501bed437b, type: 3}
       propertyPath: m_Name
@@ -3006,6 +3006,10 @@ PrefabInstance:
     - target: {fileID: 1434112597366447959, guid: d06b67b91d51107468a7e3cdd8bb00c0, type: 3}
       propertyPath: m_Name
       value: WaterSprout (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4921389328241482223, guid: d06b67b91d51107468a7e3cdd8bb00c0, type: 3}
+      propertyPath: PlayEvent
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d06b67b91d51107468a7e3cdd8bb00c0, type: 3}

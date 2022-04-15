@@ -124,7 +124,6 @@ public class StoryTrigger : MonoBehaviour
             }
             if (switchStoryMode)
             {
-                print("im so sad");
                 FindObjectOfType<StoryManager>().freezePlayerOnDialogue = !FindObjectOfType<StoryManager>().freezePlayerOnDialogue;
             }
         }

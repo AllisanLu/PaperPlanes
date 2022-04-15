@@ -20,6 +20,7 @@ public class Platform : MonoBehaviour
     private bool moved = false;
     private bool canRelaunch = false;
 
+
     private void Awake() 
     {
         this.GetComponent<Renderer>().enabled = false;

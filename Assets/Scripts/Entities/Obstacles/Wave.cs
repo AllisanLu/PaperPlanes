@@ -11,9 +11,13 @@ public class Wave : MonoBehaviour
     [SerializeField]
     float bobHeight;
     Vector3 pos;
+    public static FMOD.Studio.EventInstance WaveSFX;
+    private bool wave = false;
 
     void Start()
     {
+        WaveSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Wave");
+
         pos = transform.position;
     }
 
@@ -23,6 +27,16 @@ public class Wave : MonoBehaviour
         {
             float newY = Mathf.Sin(Time.time * bobSpeed) * bobHeight + pos.y;
             transform.position = new Vector2(xDisplacement * Time.deltaTime + transform.position.x, newY);
+        }  
+
+    }
+
+    void FixedUpdate() 
+    {
+        if (GetComponent<Renderer>().isVisible && !wave)
+        {
+            wave = true;
+            WaveSFX.start();
         }  
     }
 }
