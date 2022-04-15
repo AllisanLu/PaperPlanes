@@ -17,6 +17,7 @@ public class StoryTrigger : MonoBehaviour
     public TextAsset TextFileAsset; // your imported text file for your NPC
     public bool TriggerWithButton;
     public GameObject indicator;
+    public bool switchStoryMode = false;
     // public Vector3 optionalIndicatorOffset = new Vector3 (0,0,0);
     private Queue<string> dialogue = new Queue<string>(); // stores the dialogue (Great Performance!)
     private float waitTime = 0.5f; // lag time for advancing dialogue so you can actually read it
@@ -120,6 +121,11 @@ public class StoryTrigger : MonoBehaviour
             if (indicator != null && indicator.activeSelf == true)
             {
                 indicator.SetActive(false);
+            }
+            if (switchStoryMode)
+            {
+                print("im so sad");
+                FindObjectOfType<StoryManager>().freezePlayerOnDialogue = !FindObjectOfType<StoryManager>().freezePlayerOnDialogue;
             }
         }
     }

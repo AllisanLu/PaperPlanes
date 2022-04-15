@@ -44,7 +44,6 @@ public class DialogueTrigger : MonoBehaviour
             }
         } else
         {
-            print("ooga booga");
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue, portrait);
         }
     }
