@@ -57,7 +57,11 @@ public class Platform : MonoBehaviour
         if (canRelaunch && Input.GetKeyDown(KeyCode.A))
         {
             //run animation here
-            animator.SetBool("Done", true);
+            if (animator != null)
+            {
+                animator.SetBool("Done", true);
+                animator.SetBool("Reading", false);
+            }
             StartCoroutine(TaskOnClick());
         }
     }
@@ -84,7 +88,10 @@ public class Platform : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.CompareTag("Player"))
         {
-            animator.SetBool("Reading", true);
+            if (animator != null)
+            {
+                animator.SetBool("Reading", true);
+            }
             canRelaunch = true;
             Rigidbody2D rb = other.gameObject.GetComponent<Rigidbody2D>();
             if (rb.rotation > 20) {
@@ -101,7 +108,7 @@ public class Platform : MonoBehaviour
 
     IEnumerator TaskOnClick(){
         //Destorys the Platform
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
         PlatformManager.cutSceneDone = true; //Sets that the CutSceneis Done and Player wants to fly
         Destroy(this.gameObject);
     }
