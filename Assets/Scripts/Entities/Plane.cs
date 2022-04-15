@@ -110,7 +110,7 @@ public class Plane : Entity
 
 		if (transform.position.y > 21)
         {
-			ResourceBar.instance.addResource(-0.09f);
+			ResourceBar.instance.addResource(-0.12f);
 		}
 
 		if (!onPlatform)

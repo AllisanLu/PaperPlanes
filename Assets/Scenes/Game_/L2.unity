@@ -4027,6 +4027,10 @@ PrefabInstance:
       propertyPath: freezePlayerOnDialogue
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3299245891330751205, guid: 4dcb8d33b070ac24b879dfb7f8951670, type: 3}
+      propertyPath: m_Color.a
+      value: 0.63529414
+      objectReference: {fileID: 0}
     - target: {fileID: 6793710494103851818, guid: 4dcb8d33b070ac24b879dfb7f8951670, type: 3}
       propertyPath: m_Name
       value: CanvasDialogue
