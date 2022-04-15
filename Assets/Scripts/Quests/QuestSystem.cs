@@ -15,12 +15,6 @@ public class QuestSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // quests = new ArrayList();
-        // Temporary quests for debugging
-      //  quests.Add(new Quest("Objective 1", true, false, new ArrayList()));
-      //  quests.Add(new Quest("Objective 2", false, false, new ArrayList()));
-      //  quests.Add(new Quest("Objective 3", true, false, new ArrayList()));
-      //  quests.Add(new Quest("Objective 4", true, false, new ArrayList()));
       	DontDestroyOnLoad(this);
 
     }
@@ -56,6 +50,11 @@ public class QuestSystem : MonoBehaviour
     public static Quest getQuest(Quest quest)
     {
         return (Quest) quests[quests.IndexOf(quest)];
+    }
+
+    public static bool contains(Quest quest)
+    {
+        return quests.IndexOf(quest) >= 0;
     }
 
     public static void RemoveQuest(Quest quest) {

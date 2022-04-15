@@ -1,7 +1,9 @@
 ﻿using System.Collections;
-using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+
 
 /********************
  * DIALOGUE TRIGGER *
@@ -15,6 +17,7 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     public TextAsset TextFileAsset; // your imported text file for your NPC
+    public Sprite portrait;
     public bool TriggerWithButton;
     public GameObject indicator;
     // public Vector3 optionalIndicatorOffset = new Vector3 (0,0,0);
@@ -30,7 +33,13 @@ public class DialogueTrigger : MonoBehaviour
     public void TriggerDialogue()
     {
         ReadTextFile(); // loads in the text file
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue); // Accesses Dialogue Manager and Starts Dialogue
+        CutScene cutscene = GetComponent<CutScene>();
+        if (cutscene.start || QuestSystem.contains(cutscene.quest))
+        {
+            CutScene cs = this.GetComponent<CutScene>();
+            cs.HandleQuest();
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue, portrait); // Accesses Dialogue Manager and Starts Dialogueer
+        }
     }
 
     /* loads in your text file */
@@ -71,8 +80,6 @@ public class DialogueTrigger : MonoBehaviour
             {
                 TriggerDialogue();
             }
-            CutScene cs = this.GetComponent<CutScene>();
-            cs.HandleQuest();
             // Debug.Log("Collision");
         }
     }

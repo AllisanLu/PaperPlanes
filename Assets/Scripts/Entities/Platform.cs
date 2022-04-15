@@ -17,6 +17,7 @@ public class Platform : MonoBehaviour
     public float fadeSpeed = 0.05f;
     private bool summoned = false;
 
+    private bool moved = false;
     private bool canRelaunch = false;
 
     private void Awake() 
@@ -60,7 +61,13 @@ public class Platform : MonoBehaviour
      {
         if (other.gameObject.CompareTag("Player"))
          {
-            this.GetComponent<Renderer>().enabled = true;
+            DialogueTrigger dialogueTrigger = GetComponentInChildren<DialogueTrigger>();
+            CutScene cutscene = dialogueTrigger.GetComponent<CutScene>();
+            if (cutscene.start || QuestSystem.contains(cutscene.quest))
+            {
+                Rigidbody2D rb = other.gameObject.GetComponent<Rigidbody2D>();
+                this.GetComponent<Renderer>().enabled = true;
+            }
         }
      }
 
@@ -69,6 +76,16 @@ public class Platform : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             canRelaunch = true;
+            Rigidbody2D rb = other.gameObject.GetComponent<Rigidbody2D>();
+            if (rb.rotation > 20) {
+                rb.rotation -= 3;
+            } else if (rb.rotation < -20) {
+                rb.rotation += 3;
+            }
+            if (!moved && other.gameObject.transform.position.x <= this.transform.position.x + 2) {
+                other.gameObject.transform.position += new Vector3(2f, 0f, 0f);
+            }
+            moved = true;
         } 
     }
 

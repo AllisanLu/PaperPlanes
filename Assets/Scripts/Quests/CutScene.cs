@@ -22,14 +22,13 @@ public class CutScene : MonoBehaviour
 
     public void HandleQuest()
     {
-        print("Cutscene enter");
         //call the quest and put dialog on screen lol
 
         //updates the quests the player 
         if (start)
         {
             QuestSystem.AddQuest(quest);
-            print("added quest");
+            //print("added quest");
         }
         else
         {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class PauseMenu : MonoBehaviour
     }
     private static bool gameIsPaused;
 
-    public GameObject pauseMenuUI;
+    public GameObject pauseMenuUI, pauseButton;
     public CanvasGroup canvasGroup;
     // Update is called once per frame
 
@@ -30,6 +31,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Awake()
     {
+        pauseButton.GetComponent<Button>().enabled = true;
         instance = this;
     }
     void Start() {
@@ -58,11 +60,13 @@ public class PauseMenu : MonoBehaviour
 
     public void Unpause()
     {
+        pauseButton.GetComponent<Button>().enabled = true;
         GameIsPaused = false;
         Hide();
     }
 
     public void Resume () {
+        pauseButton.GetComponent<Button>().enabled = true;
         MusicManager._instance.StopPauseMenuMusic();
         MusicManager._instance.UnPauseLevelMusic();
         MusicManager._instance.UnPauseLevel2Music();
@@ -83,8 +87,8 @@ public class PauseMenu : MonoBehaviour
      canvasGroup.blocksRaycasts = true;
     }
 
-    void Pause () {
-
+    public void Pause () {
+        pauseButton.GetComponent<Button>().enabled = false;
         MusicManager._instance.PauseLevelMusic();
         MusicManager._instance.PauseLevel2Music();
         MusicManager._instance.PauseLevel3Music();

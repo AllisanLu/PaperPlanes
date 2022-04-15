@@ -18,7 +18,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject CanvasBox; // your fancy canvas box that holds your text objects
     public Text TextBox; // the text body
     public Text NameText; // the text body of the name you want to display
-    public Image Portrait; // the image of the portrait you want to display
+    public Sprite Portrait; // the image of the portrait you want to display
     public bool freezePlayerOnDialogue = true;
 
     // private bool isOpen; // represents if the dialogue box is open or closed
@@ -57,7 +57,7 @@ public class DialogueManager : MonoBehaviour
         animController.enabled = true;
     }
 
-    public void StartDialogue(Queue<string> dialogue)
+    public void StartDialogue(Queue<string> dialogue, Sprite image)
     {
         if (freezePlayerOnDialogue)
         {
@@ -67,6 +67,7 @@ public class DialogueManager : MonoBehaviour
         CanvasBox.SetActive(true); // open the dialogue box
         // isOpen = true;
         inputStream = dialogue; // store the dialogue from dialogue trigger
+        Portrait = image;
         PrintDialogue(); // Prints out the first line of dialogue
     }
 
@@ -95,17 +96,21 @@ public class DialogueManager : MonoBehaviour
         {
             string name = inputStream.Peek();
             name = inputStream.Dequeue().Substring(name.IndexOf('=') + 1, name.IndexOf(']') - (name.IndexOf('=') + 1));
-            print(NameText);
+        //    print(NameText);
             NameText.text = name;
             // for the portrait, havent implemented, just an idea, we can just search for a gameobject or image file with the same name and display it in a box (i think)
             // use this for the circle mask, https://subscription.packtpub.com/book/game-development/9781785885822/1/ch01lvl1sec13/adding-a-circular-mask-to-an-image
             // im too lazy to pull out photoshop atm
-            
+
+            CanvasBox.GetComponentsInChildren<Image>()[1].sprite = Portrait;
+            CanvasBox.GetComponentsInChildren<Image>()[1].color = new Color(255, 255, 255, 255);
             // use dictionary to store the names and sprites, make sure name matches with names in the script
             // then, do portrait = dictionary_name[name]
 
             // Sprite portrait = 
             // Portrait.sprite = portrait;
+
+
 
             PrintDialogue(); // print the rest of this line
         }

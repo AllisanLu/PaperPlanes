@@ -36,7 +36,7 @@ public class ColumnSpawner : MonoBehaviour
         {
             GameObject transitionObject = LevelTransitions.instance.gameObject;
             LevelTransitions transitionScript = transitionObject.GetComponent<LevelTransitions>();
-            StartCoroutine(transitionScript.LevelTransition("L1A2"));
+            StartCoroutine(transitionScript.LevelTransition("L1"));
         }
     }
 }
