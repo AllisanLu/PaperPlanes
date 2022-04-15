@@ -2853,7 +2853,7 @@ PrefabInstance:
     - target: {fileID: 8530354835004880814, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
       propertyPath: portrait
       value: 
-      objectReference: {fileID: 21300000, guid: 47bbb1814215df649a0c251a5fad5fe7, type: 3}
+      objectReference: {fileID: 21300000, guid: d157e8433d6d0d64c95fd3c0c0755862, type: 3}
     - target: {fileID: 8530354835004880814, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
       propertyPath: TextFileAsset
       value: 
@@ -4847,7 +4847,7 @@ PrefabInstance:
     - target: {fileID: 8530354835004880814, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
       propertyPath: portrait
       value: 
-      objectReference: {fileID: 21300000, guid: 246c686100ed7e64dba15cfa7398aaf1, type: 3}
+      objectReference: {fileID: 21300000, guid: c3a8e01daeabe0c499c9299f5ed89ee1, type: 3}
     - target: {fileID: 8530354835004880814, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
       propertyPath: TextFileAsset
       value: 
@@ -5592,6 +5592,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1517328951}
     m_Modifications:
+    - target: {fileID: 6290869607567196770, guid: de7bc6f7e9cd042ecabe294112f01771, type: 3}
+      propertyPath: endoffset
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6290869607567196770, guid: de7bc6f7e9cd042ecabe294112f01771, type: 3}
+      propertyPath: startoffset
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6290869607567196774, guid: de7bc6f7e9cd042ecabe294112f01771, type: 3}
       propertyPath: m_Name
       value: Dog (8)
@@ -8082,7 +8090,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10, y: 10}
+    oldSize: {x: 3.3333333, y: 3.3333333}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

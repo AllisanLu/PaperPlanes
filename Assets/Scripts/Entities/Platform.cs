@@ -67,6 +67,9 @@ public class Platform : MonoBehaviour
             {
                 Rigidbody2D rb = other.gameObject.GetComponent<Rigidbody2D>();
                 this.GetComponent<Renderer>().enabled = true;
+            } else
+            {
+                Destroy(this.gameObject);
             }
         }
      }
