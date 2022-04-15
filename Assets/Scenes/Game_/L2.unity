@@ -2999,6 +2999,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterSprout (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4921389328241482223, guid: d06b67b91d51107468a7e3cdd8bb00c0, type: 3}
+      propertyPath: PlayEvent
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d06b67b91d51107468a7e3cdd8bb00c0, type: 3}
 --- !u!4 &1165900059 stripped
