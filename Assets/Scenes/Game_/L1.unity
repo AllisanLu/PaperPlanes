@@ -1678,7 +1678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4570513795043671646, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
       propertyPath: questName
-      value: Letter To The Light Keeper
+      value: Light Keeper
       objectReference: {fileID: 0}
     - target: {fileID: 8530354835004880814, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
       propertyPath: portrait
@@ -7081,7 +7081,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4570513795043671646, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
       propertyPath: questName
-      value: Letter To The Light Keeper
+      value: Light Keeper
       objectReference: {fileID: 0}
     - target: {fileID: 8530354835004880814, guid: 4d256ae19d2ad8d4b996547ea7ed041b, type: 3}
       propertyPath: portrait
