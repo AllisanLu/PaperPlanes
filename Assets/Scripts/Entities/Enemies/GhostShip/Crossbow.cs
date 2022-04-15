@@ -23,5 +23,6 @@ public class Crossbow : MonoBehaviour
         anim.SetTrigger("Fire");
         yield return new WaitForSeconds(.6f);
         Instantiate(crossbow, this.transform.position, Quaternion.identity, transform);
+        crossbow.layer = LayerMask.NameToLayer("Enemy");
     }
 }
