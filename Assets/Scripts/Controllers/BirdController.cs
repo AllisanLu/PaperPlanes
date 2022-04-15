@@ -13,12 +13,9 @@ public class BirdController : EnemyController
 
     Bird bird;
 
-
     // Start is called before the first frame update
     void Start()
     {
-
-
         bird = GetComponent<Bird>();
         transform.Rotate(0,0,zAngle);
         movement = transform.rotation * forward;
@@ -35,7 +32,6 @@ public class BirdController : EnemyController
     }
     // Moves bird to the left at a constant rate
     public override Vector2 GetMove() {
-
         if (bird.animator.GetBool("collide"))
         {
             return (Vector2)transform.position;

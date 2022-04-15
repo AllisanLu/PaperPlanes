@@ -107,7 +107,6 @@ public class MusicManager : MonoBehaviour
             }
             if (!titleSongPlaying && currentScene == "MainMenu") {
                 StartTitleMusic();
-                Debug.Log("hi");
                 titleSongPlaying = true;
             }
             //LevelSong = FMODUnity.RuntimeManager.CreateInstance(reference);
@@ -205,6 +204,7 @@ public class MusicManager : MonoBehaviour
 
     public void StopTitleMusic() {
         TitleSong.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        TitleSong.release();
     }
 
     // public void ChangeLevelSong() {

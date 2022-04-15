@@ -109,6 +109,7 @@ MonoBehaviour:
   jumpHeight: 7
   jumpDistance: 3
   jumpSpeed: 6
+  plane: {fileID: 0}
 --- !u!50 &6290869607567196769
 Rigidbody2D:
   serializedVersion: 4
