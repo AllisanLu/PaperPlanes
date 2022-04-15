@@ -27,13 +27,15 @@ public class Dog : Enemy
 
     private bool reverse = false;
 
-    public Plane plane;
+    private Plane plane;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();   
         behaviorController = GetComponent<DogController>();
+
+        plane = FindObjectOfType<Plane>();
 
         jumpVelocity = ((DogController)behaviorController).getStartVelocity(jumpDistance, jumpHeight);
 

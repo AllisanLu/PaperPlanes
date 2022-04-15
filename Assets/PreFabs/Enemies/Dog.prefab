@@ -103,6 +103,8 @@ MonoBehaviour:
   animator: {fileID: 0}
   runDistance: 10
   runSpeed: 0.25
+  startoffset: 5
+  endoffset: 10
   jumpHeight: 10
   jumpDistance: 3
   jumpSpeed: 6
