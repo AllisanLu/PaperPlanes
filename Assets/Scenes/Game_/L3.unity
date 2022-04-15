@@ -5444,6 +5444,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0.0048828125
       objectReference: {fileID: 0}
+    - target: {fileID: 2879306675797123659, guid: 4dcb8d33b070ac24b879dfb7f8951670, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: e1d05aebd52f6904ea71d2402a9f265c, type: 3}
     - target: {fileID: 3299245890022831858, guid: 4dcb8d33b070ac24b879dfb7f8951670, type: 3}
       propertyPath: freezePlayerOnDialogue
       value: 0
