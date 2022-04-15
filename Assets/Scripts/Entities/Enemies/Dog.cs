@@ -31,6 +31,8 @@ public class Dog : Enemy
 
     private Plane plane;
 
+    private Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {

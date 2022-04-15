@@ -8,8 +8,10 @@ public class QuestSystem : MonoBehaviour
 
     public static QuestSystem instance;
 
+
     private void Awake() {
         instance = this;
+
     } 
 
     // Start is called before the first frame update
