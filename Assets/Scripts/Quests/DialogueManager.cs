@@ -61,7 +61,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (freezePlayerOnDialogue)
         {
-            Time.timeScale = 0f;
+            DisablePlayerController();
         }
 
         CanvasBox.SetActive(true); // open the dialogue box
@@ -129,7 +129,7 @@ public class DialogueManager : MonoBehaviour
         // isOpen = false;
         if (freezePlayerOnDialogue)
         {
-            Time.timeScale = 1f;
+            EnablePlayerController();
         }
     }
     // yoink, https://forum.unity.com/threads/how-to-detect-if-mouse-is-over-ui.1025533/

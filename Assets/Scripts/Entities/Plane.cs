@@ -21,12 +21,9 @@ public class Plane : Entity
 
 	private Animator shieldAnim;
 	private bool planeDead;
-	public static FMOD.Studio.EventInstance Death;
 
     // Use this for initialization
     void Start 	() {
-		Death = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Death");
-
 		planeDead = false;
 		this.gameObject.transform.position = CheckpointManager.planePosition;
 		this.gameObject.transform.rotation = CheckpointManager.planeRotation;
@@ -113,7 +110,7 @@ public class Plane : Entity
 
 		if (transform.position.y > 21)
         {
-			ResourceBar.instance.addResource(-0.12f);
+			ResourceBar.instance.addResource(-0.09f);
 		}
 
 		if (!onPlatform)
@@ -162,7 +159,6 @@ public class Plane : Entity
 	// Commits death on the plane and restarts the screen
 	public void die() {
 		//die and respawn
-		
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
@@ -218,8 +214,6 @@ public class Plane : Entity
 					// Call death method to respawn
 					// TODO: Add an animation after collision before respawn for
 					//       better playability
-					Death.start();
-					Death.release();
 					StartCoroutine(ActivateDeathParticlesAndDie());
 				}
 				else if (other.collider.gameObject.CompareTag("Water"))
@@ -227,8 +221,6 @@ public class Plane : Entity
 					// Call death method to respawn
 					// TODO: Add an animation after collision before respawn for
 					//       better playability
-					Death.start();
-					Death.release();
 					StartCoroutine(ActivateDeathParticlesAndDie());
 				} 
 				else 

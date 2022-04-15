@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    public static FMOD.Studio.EventInstance Check;
-
     // Start is called before the first frame update
     private Animator anim;
     private bool activated;
     void Start()
     {
-        Check = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Checkpoint");
         activated = false;
         anim = gameObject.GetComponent<Animator>();
     }
@@ -27,8 +24,6 @@ public class Checkpoint : MonoBehaviour
             CheckpointManager.planePosition = newPos;
             if (!activated) {
                 anim.Play("shrine_fill");
-                Check.start();
-
             }
         }
     }

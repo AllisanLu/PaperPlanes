@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1022947665323619470}
   - component: {fileID: 2034371276862764416}
   - component: {fileID: 803909399424170871}
-  - component: {fileID: 6016186853500449715}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Shield
@@ -134,33 +133,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6016186853500449715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1022947665323619469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -1124953376
-      Data2: 1144505019
-      Data3: -1817592932
-      Data4: 1347706372
-    Path: event:/SFX/Refill
-  Event: 
-  PlayEvent: 5
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 1
-  Preload: 1
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
