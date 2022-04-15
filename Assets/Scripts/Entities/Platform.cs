@@ -22,6 +22,7 @@ public class Platform : MonoBehaviour
 
     private Animator animator;
 
+
     private void Awake() 
     {
         animator = GetComponentInChildren<DialogueTrigger>().GetComponentInChildren<Animator>();

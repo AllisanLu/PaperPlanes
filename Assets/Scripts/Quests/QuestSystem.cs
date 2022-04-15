@@ -18,6 +18,7 @@ public class QuestSystem : MonoBehaviour
     void Start()
     {
       	DontDestroyOnLoad(this);
+        AddQuest(new Quest("Lost Message", true, false, null));
 
     }
 

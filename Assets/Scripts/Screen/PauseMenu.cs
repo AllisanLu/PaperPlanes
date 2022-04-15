@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
+    public static FMOD.Studio.EventInstance Button;
+
     private bool GameIsPaused {
         get { return gameIsPaused; }
         set {
@@ -32,9 +34,10 @@ public class PauseMenu : MonoBehaviour
     private void Awake()
     {
         pauseButton.GetComponent<Button>().enabled = true;
-        instance = this;
+        instance = this;    
     }
     void Start() {
+        Button = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Button");
         canvasGroup = pauseMenuUI.GetComponent<CanvasGroup>();
         Hide();
     }
@@ -58,14 +61,22 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    // public void playButton() 
+    // {
+    //     Button.start();
+    //     Button.release();
+    // }
+
     public void Unpause()
     {
+
         pauseButton.GetComponent<Button>().enabled = true;
         GameIsPaused = false;
         Hide();
     }
 
     public void Resume () {
+
         pauseButton.GetComponent<Button>().enabled = true;
         MusicManager._instance.StopPauseMenuMusic();
         MusicManager._instance.UnPauseLevelMusic();
