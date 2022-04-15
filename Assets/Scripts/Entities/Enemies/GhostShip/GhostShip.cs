@@ -98,8 +98,9 @@ public class GhostShip : Entity
         //startGaussianRandom(numWaves, average, stdDistr)
         //This method starts spawning numWaves of waves with the number of cannons averaging around "average" value
         yield return StartCoroutine(spawnerScript.startPhase1());
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(18);
         yield return StartCoroutine(spawnerScript.startPhase2());
+        yield return new WaitForSeconds(30);
     }
 
     IEnumerator endCutscene() {
@@ -113,7 +114,6 @@ public class GhostShip : Entity
             transform.position += new Vector3(0, 0.1f, 0);
             yield return new WaitForSeconds(animationSpeed);
         }
-        yield return new WaitForSeconds(8);
         SceneManager.LoadScene("L3");
         CheckpointManager.resetPosition();
     }

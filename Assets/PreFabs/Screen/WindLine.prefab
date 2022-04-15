@@ -170,11 +170,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -851011516
-      Data2: 1083821405
-      Data3: 1662789310
-      Data4: 1166138968
-    Path: event:/SFX/Wind-_not-human_
+      Data1: 687996826
+      Data2: 1154189910
+      Data3: -1447215228
+      Data4: 710638876
+    Path: event:/SFX/Wind
   Event: 
   PlayEvent: 1
   StopEvent: 2

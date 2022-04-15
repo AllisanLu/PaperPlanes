@@ -26,16 +26,12 @@ public class Dog : Enemy
     private float runX;
 
     private bool reverse = false;
-    private bool barked = false;
-    public static FMOD.Studio.EventInstance Bark;
 
     private Plane plane;
 
     // Start is called before the first frame update
     void Start()
     {
-        Bark = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Dog");
-
         rb = GetComponent<Rigidbody2D>();   
         behaviorController = GetComponent<DogController>();
 
@@ -50,15 +46,6 @@ public class Dog : Enemy
         rb.gravityScale = 0;
     }
 
-    void Update()
-    {
-        if(GetComponent<Renderer>().isVisible && !barked)
-        {   
-            barked = true;
-            Bark.start();
-
-        }
-    }
     public override void Move()
     {   
         if (plane.gameObject.transform.position.x + startoffset > transform.position.x && plane.gameObject.transform.position.x < transform.position.x + endoffset) {
