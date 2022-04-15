@@ -747,7 +747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numSlides: 2
-  nextScene: MainMenu
+  nextScene: Credits
   art:
   - {fileID: 21300000, guid: d05b1c90ad63b9648b08f7d16033f0c4, type: 3}
   - {fileID: 21300000, guid: cf4bf618c3d3cb843bf1b18ab7ba81f1, type: 3}

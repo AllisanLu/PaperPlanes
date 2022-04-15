@@ -48,6 +48,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Game_/ClosingCutscenes.unity
     guid: a38e8c33e095d1e4eabeb53dd35910b7
   - enabled: 1
+    path: Assets/Scenes/Game_/Credits.unity
+    guid: 316548b5c14183c47970a117927cbe9d
+  - enabled: 1
     path: Assets/Scenes/Game_/L3.unity
     guid: f4393237499b3514286e8fcba770b2ba
   m_configObjects: {}
