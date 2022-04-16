@@ -3792,11 +3792,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7344847711299541431, guid: ee99e41fe6fe549419b805935a8e9752, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1194.3419
+      value: 1180.4
       objectReference: {fileID: 0}
     - target: {fileID: 7344847711299541431, guid: ee99e41fe6fe549419b805935a8e9752, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5338087
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7344847711299541431, guid: ee99e41fe6fe549419b805935a8e9752, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4082,8 +4082,24 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2338448789219518551, guid: c38163fcc86868844871d495a2c60a2c, type: 3}
+      propertyPath: levelText.Array.data[0]
+      value: Port Town
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338448789219518551, guid: c38163fcc86868844871d495a2c60a2c, type: 3}
+      propertyPath: levelText.Array.data[1]
+      value: Port Town
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338448789219518551, guid: c38163fcc86868844871d495a2c60a2c, type: 3}
+      propertyPath: levelText.Array.data[2]
+      value: Port Town
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338448789219518551, guid: c38163fcc86868844871d495a2c60a2c, type: 3}
+      propertyPath: levelText.Array.data[3]
+      value: Port Town
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338448789219518551, guid: c38163fcc86868844871d495a2c60a2c, type: 3}
       propertyPath: levelText.Array.data[4]
-      value: fourth
+      value: Port Town
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c38163fcc86868844871d495a2c60a2c, type: 3}
