@@ -12,7 +12,7 @@ physical platform: box collider 2d, default
 public class Platform : MonoBehaviour
 {
     //public GameObject button;
-   // public QuestIndicator questIndicator;
+    public QuestIndicator questIndicator;
     public double finalYPosition;
     public float fadeSpeed = 0.05f;
     private bool summoned = false;

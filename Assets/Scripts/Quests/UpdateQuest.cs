@@ -51,6 +51,7 @@ public class UpdateQuest : MonoBehaviour
         ArrayList quests = QuestSystem.GetCurrentQuests();
         //questDisplay.GetComponent<Text>().text = "Messages:";
         string text = "";
+        text = "Long message \nLonger message\n";
         foreach (Quest q in quests) {
             // Add quest description per line
 
