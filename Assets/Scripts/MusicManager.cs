@@ -92,7 +92,7 @@ public class MusicManager : MonoBehaviour
                 titleSongPlaying = false;
                 //StartLevelMusic();
             }
-            if (!(currentScene == "Tutorial" || currentScene == "L1A2" || currentScene == "L1A3" || currentScene == "L1" ) && levelSongPlaying) {
+            if ((currentScene != "OpeningCutscenes" || currentScene != "Tutorial" || currentScene != "L1A2" || currentScene != "L1A3" || currentScene != "L1" ) && levelSongPlaying) {
                 StopLevelMusic();
                 levelSongPlaying = false;
                 //StartLevelMusic();
@@ -101,7 +101,7 @@ public class MusicManager : MonoBehaviour
                 StopLevel2Music();
                 level2SongPlaying = false;
             }
-            if (currentScene != "L3" && level3SongPlaying) {
+            if ((currentScene != "L3" || currentScene != "ClosingCutscenes" || currentScene != "Credits") && level3SongPlaying) {
                 StopLevel3Music();
                 level3SongPlaying = false;
             }
@@ -111,7 +111,7 @@ public class MusicManager : MonoBehaviour
                 titleSongPlaying = true;
             }
             //LevelSong = FMODUnity.RuntimeManager.CreateInstance(reference);
-            if (!levelSongPlaying && currentScene == "Tutorial") {
+            if (!levelSongPlaying && (currentScene == "OpeningCutscenes" || currentScene == "Tutorial" || currentScene == "L1")) {
                 StartLevelMusic();
                 //StartLevel2Music();
 
@@ -124,7 +124,7 @@ public class MusicManager : MonoBehaviour
                 level2SongPlaying = true;
             }
 
-            if (!level3SongPlaying && currentScene == "L3") {
+            if (!level3SongPlaying && (currentScene == "L3" || currentScene == "ClosingCutscenes" || currentScene == "Credits")) {
                 StartLevel3Music();
                 level3SongPlaying = true;
             }
