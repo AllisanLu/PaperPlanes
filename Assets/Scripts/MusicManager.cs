@@ -92,7 +92,7 @@ public class MusicManager : MonoBehaviour
                 titleSongPlaying = false;
                 //StartLevelMusic();
             }
-            if ((currentScene != "OpeningCutscenes" || currentScene != "Tutorial" || currentScene != "L1A2" || currentScene != "L1A3" || currentScene != "L1" ) && levelSongPlaying) {
+            if (!(currentScene == "OpeningCutscenes" || currentScene == "Tutorial" || currentScene == "L1A2" || currentScene == "L1A3" || currentScene == "L1" ) && levelSongPlaying) {
                 StopLevelMusic();
                 levelSongPlaying = false;
                 //StartLevelMusic();
@@ -101,7 +101,7 @@ public class MusicManager : MonoBehaviour
                 StopLevel2Music();
                 level2SongPlaying = false;
             }
-            if ((currentScene != "L3" || currentScene != "ClosingCutscenes" || currentScene != "Credits") && level3SongPlaying) {
+            if (!(currentScene == "L3" || currentScene == "ClosingCutscenes" || currentScene == "Credits") && level3SongPlaying) {
                 StopLevel3Music();
                 level3SongPlaying = false;
             }
