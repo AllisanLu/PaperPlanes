@@ -1,5 +1,7 @@
 Press Z to continue on dialog
 
+You can press A to relaunch from a platform
+
 Press A at anytime to skip the tutorial
 
 Here are some quick tips on flying:
@@ -12,6 +14,5 @@ A wind must be fully created before it takes effect
 
 Shorter winds are useful for fine tuning movement
 
-Lastly, you can press A to relaunch from a platform
-
+Now, feel free to practice as much as you want and press A when ready to continue
 
