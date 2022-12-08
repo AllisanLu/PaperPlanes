@@ -1,6 +1,12 @@
 Press Z to continue on dialog
 
-You can press A to relaunch from a platform
+You can press A to relaunch from platforms
+
+You can also press Q to toggle the quest list!\
+
+This tutorial is a practice run for you to get a feel of the wind
+
+It loops forever, so feel free to continue to the levels when you are ready
 
 Press A at anytime to skip the tutorial
 

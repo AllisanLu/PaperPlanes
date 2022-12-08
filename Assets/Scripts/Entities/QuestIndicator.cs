@@ -23,10 +23,14 @@ public class QuestIndicator : MonoBehaviour
     // Shows when plane is within range
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        DialogueTrigger dialogueTrigger = this.transform.parent.gameObject.GetComponentInChildren<DialogueTrigger>();
+        CutScene cutscene = dialogueTrigger.GetComponent<CutScene>();
+
+        if (other.gameObject.CompareTag("Player")  
+            && cutscene.start || QuestSystem.contains(cutscene.quest))
         {
-          
-           instance.GetComponent<Renderer>().enabled = true;
+
+            instance.GetComponent<Renderer>().enabled = true;
           
         }
     }

@@ -118,14 +118,18 @@ public class Platform : MonoBehaviour
     //while object is not fully transparent, gradually change transparency
     public IEnumerator FadeInIObject()
     {
-        Color objColor = this.GetComponent<Renderer>().material.color;
-        objColor.a = 0;
+        if (this.GetComponent<Renderer>().enabled)
+        {
+            Color objColor = this.GetComponent<Renderer>().material.color;
+            objColor.a = 0;
 
-        while (objColor.a < 1) {
-            float fadeAmount = objColor.a + (fadeSpeed * Time.deltaTime * 10);
-            objColor = new Color(objColor.r, objColor.g, objColor.b, fadeAmount);
-            this.GetComponent<Renderer>().material.color = objColor;
-            yield return null;
+            while (objColor.a < 1)
+            {
+                float fadeAmount = objColor.a + (fadeSpeed * Time.deltaTime * 10);
+                objColor = new Color(objColor.r, objColor.g, objColor.b, fadeAmount);
+                this.GetComponent<Renderer>().material.color = objColor;
+                yield return null;
+            }
         }
 
     }

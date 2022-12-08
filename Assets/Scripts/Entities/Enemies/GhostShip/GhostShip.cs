@@ -11,6 +11,9 @@ public class GhostShip : Entity
     private SpriteRenderer shipSprite;
     public Sprite bigShip;
     private Component[] a;
+
+    public Spawner cutsceneSpawner;
+    public Spawner endsceneSpawner;
     // adjust lines 42, 56, 64 for animations
 
     // Start is called before the first frame update
@@ -51,7 +54,6 @@ public class GhostShip : Entity
     IEnumerator startGhostShip()
     {
         yield return StartCoroutine(animateIn());
-        yield return StartCoroutine(cutscene());
         yield return StartCoroutine(animateToPosition());
         yield return StartCoroutine(endCutscene());
         yield return StartCoroutine(animateOut());
@@ -68,7 +70,8 @@ public class GhostShip : Entity
 
     IEnumerator cutscene() {
         // Debug.Log("Cutscene.");
-        yield return null;
+        cutsceneSpawner.spawnDialog();
+        yield return new WaitForSeconds(3);
     }
 
     IEnumerator animateToPosition()
@@ -98,13 +101,14 @@ public class GhostShip : Entity
         //startGaussianRandom(numWaves, average, stdDistr)
         //This method starts spawning numWaves of waves with the number of cannons averaging around "average" value
         yield return StartCoroutine(spawnerScript.startPhase1());
-        yield return new WaitForSeconds(3);
+        yield return StartCoroutine(cutscene());
         yield return StartCoroutine(spawnerScript.startPhase2());
     }
 
     IEnumerator endCutscene() {
         // Debug.Log("Cutscene.");
-        yield return null;
+        endsceneSpawner.spawnDialog();
+        yield return new WaitForSeconds(4);
     }
 
     IEnumerator animateOut()
@@ -113,7 +117,7 @@ public class GhostShip : Entity
             transform.position += new Vector3(0, 0.1f, 0);
             yield return new WaitForSeconds(animationSpeed);
         }
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(3);
         SceneManager.LoadScene("L3");
         CheckpointManager.resetPosition();
     }
