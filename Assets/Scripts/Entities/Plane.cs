@@ -7,7 +7,7 @@ using System;
 
 public class Plane : Entity
 {
-	public bool invincible = false;
+	private bool invincible = false;
 
 	public PlaneController controller;
 	public Animator animator;
