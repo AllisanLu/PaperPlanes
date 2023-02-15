@@ -54,6 +54,11 @@ public class Platform : MonoBehaviour
             }
         } 
 
+        if (canRelaunch)
+        {
+
+        }
+
         if (canRelaunch && Input.GetKeyDown(KeyCode.A))
         {
             //run animation here
@@ -77,6 +82,10 @@ public class Platform : MonoBehaviour
             {
                 Rigidbody2D rb = other.gameObject.GetComponent<Rigidbody2D>();
                 this.GetComponent<Renderer>().enabled = true;
+
+                //set the plane to be able to land
+                Plane plane = other.gameObject.GetComponent<Plane>();
+                plane.setCanLanding(this.transform.position);
             } else
             {
                 Destroy(this.gameObject);
@@ -107,7 +116,7 @@ public class Platform : MonoBehaviour
     }
 
     IEnumerator TaskOnClick(){
-        //Destorys the Platform
+        //Destroys the Platform
         yield return new WaitForSeconds(0.4f);
         PlatformManager.cutSceneDone = true; //Sets that the CutSceneis Done and Player wants to fly
         Destroy(this.gameObject);

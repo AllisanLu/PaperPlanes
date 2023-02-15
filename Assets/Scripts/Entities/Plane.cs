@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Threading.Tasks;
+using System;
 
 public class Plane : Entity
 {
@@ -22,6 +23,13 @@ public class Plane : Entity
 	private Animator shieldAnim;
 	private bool planeDead;
 	public static FMOD.Studio.EventInstance Death;
+
+	public float timeToLand = 3f; //hopefully in seconds
+	private float timePassedLanding = 0f;
+	private bool autonomousLanding = false;
+	private bool canTriggerLanding = false;
+	private Vector3 landingStart;
+	private Vector3 landingGoal;
 
     // Use this for initialization
     void Start 	() {
@@ -64,93 +72,123 @@ public class Plane : Entity
 			this.gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0f; 
 			return;
 		}
-		Camera cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-		if (PlatformManager.cutSceneDone) {
-			onPlatform = false;
-
-			//Custom Force
-			Vector2 force = new Vector2(15,15.5F);
-
-			// Scale Velocity according to force.
-			rb.velocity = new Vector2(20 * Mathf.Abs(Mathf.Cos(force.x)), 20 * Mathf.Abs(Mathf.Sin(force.y)));
-			rb.AddForce(force);
-
-			// Get torque from controller
-			float pitchCommand = controller.GetAction();
-			rb.AddTorque(pitchCommand * aerodynamics.controlStrength * aerodynamics.bodyVelocity.sqrMagnitude);
-
-			// Stability torque
-			rb.AddTorque(-aerodynamics.alpha * aerodynamics.stability * aerodynamics.bodyVelocity.sqrMagnitude);
-
-			// Adjusts plane aerodynamic force based off wind contact
-			rb.AddForce(windForce);
-			PlatformManager.cutSceneDone = false;
-
-
-		}
-		// if the plane is below the screen it dies
-		// else if too high push back down
-		//skybox
-		if (transform.position.y < 0) {
-			StartCoroutine(ActivateDeathParticlesAndDie());
-		}
-		else if (transform.position.y > 22)
+		
+		if (Input.GetKeyDown(KeyCode.A))
 		{
-			transform.position = new Vector2(transform.position.x, 22);
-		} else if (transform.position.y > 13) {
-			rb.AddForce(new Vector2(2, -6.5f));
+			autonomousLanding = true;
+            rb.velocity = new Vector2(0, 0);
+			landingStart = this.transform.position;
+			invincible = true;
+        }
 
-			if (rb.rotation > 30) {
-				rb.rotation -= 3;
-			} else if (rb.rotation < -70) {
-				rb.rotation += 6;
-			}
-
-			if (rb.angularVelocity < -40) {
-				rb.angularVelocity += 3;
-			}
-		}
-
-		if (transform.position.y > 21)
-        {
-			ResourceBar.instance.addResource(-0.12f);
-		}
-
-		if (!onPlatform)
+		//player control + physics
+		if (!autonomousLanding)
 		{
-			// Body frame velocity
-			aerodynamics.bodyVelocity = transform.InverseTransformVector(rb.velocity);
-
-			// Angle of attack
-			aerodynamics.alpha = Mathf.Atan2(-aerodynamics.bodyVelocity.y, aerodynamics.bodyVelocity.x);
-
-			// Aerodynamic force
-			Vector2 force = aerodynamics.aeroForce();
-			rb.AddForce(force);
-
-			// Get torque from controller
-			float pitchCommand = controller.GetAction();
-
-			rb.AddTorque(pitchCommand * aerodynamics.controlStrength * aerodynamics.bodyVelocity.sqrMagnitude);
-
-			// Stability torque
-			rb.AddTorque(-aerodynamics.alpha * aerodynamics.stability * aerodynamics.bodyVelocity.sqrMagnitude);
-
-			// Damping torque
-			rb.AddTorque(-aerodynamics.damping * rb.angularVelocity * Mathf.Deg2Rad);
-
-			// Adjusts plane aerodynamic force based off wind contact
-			rb.AddForce(windForce);
-
-			if (rb.velocity.magnitude > 20)
+			Camera cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+			if (PlatformManager.cutSceneDone)
 			{
-				rb.velocity = rb.velocity.normalized * 20;
-			}
-			animator.SetFloat("speed", rb.velocity.magnitude);
-		}
+				onPlatform = false;
 
-		// Brings force back to original aerodynamic force after being affected by the wind
-		windForceDecay();
+				//Custom Force
+				Vector2 force = new Vector2(15, 15.5F);
+
+				// Scale Velocity according to force.
+				rb.velocity = new Vector2(20 * Mathf.Abs(Mathf.Cos(force.x)), 20 * Mathf.Abs(Mathf.Sin(force.y)));
+				rb.AddForce(force);
+
+				// Get torque from controller
+				float pitchCommand = controller.GetAction();
+				rb.AddTorque(pitchCommand * aerodynamics.controlStrength * aerodynamics.bodyVelocity.sqrMagnitude);
+
+				// Stability torque
+				rb.AddTorque(-aerodynamics.alpha * aerodynamics.stability * aerodynamics.bodyVelocity.sqrMagnitude);
+
+				// Adjusts plane aerodynamic force based off wind contact
+				rb.AddForce(windForce);
+				PlatformManager.cutSceneDone = false;
+
+
+			}
+			// if the plane is below the screen it dies
+			// else if too high push back down
+			//skybox
+			if (transform.position.y < 0)
+			{
+				StartCoroutine(ActivateDeathParticlesAndDie());
+			}
+			else if (transform.position.y > 22)
+			{
+				transform.position = new Vector2(transform.position.x, 22);
+			}
+			else if (transform.position.y > 13)
+			{
+				rb.AddForce(new Vector2(2, -6.5f));
+
+				if (rb.rotation > 30)
+				{
+					rb.rotation -= 3;
+				}
+				else if (rb.rotation < -70)
+				{
+					rb.rotation += 6;
+				}
+
+				if (rb.angularVelocity < -40)
+				{
+					rb.angularVelocity += 3;
+				}
+			}
+
+			if (transform.position.y > 21)
+			{
+				ResourceBar.instance.addResource(-0.12f);
+			}
+
+			if (!onPlatform)
+			{
+				// Body frame velocity
+				aerodynamics.bodyVelocity = transform.InverseTransformVector(rb.velocity);
+
+				// Angle of attack
+				aerodynamics.alpha = Mathf.Atan2(-aerodynamics.bodyVelocity.y, aerodynamics.bodyVelocity.x);
+
+				// Aerodynamic force
+				Vector2 force = aerodynamics.aeroForce();
+				rb.AddForce(force);
+
+				// Get torque from controller
+				float pitchCommand = controller.GetAction();
+
+				rb.AddTorque(pitchCommand * aerodynamics.controlStrength * aerodynamics.bodyVelocity.sqrMagnitude);
+
+				// Stability torque
+				rb.AddTorque(-aerodynamics.alpha * aerodynamics.stability * aerodynamics.bodyVelocity.sqrMagnitude);
+
+				// Damping torque
+				rb.AddTorque(-aerodynamics.damping * rb.angularVelocity * Mathf.Deg2Rad);
+
+				// Adjusts plane aerodynamic force based off wind contact
+				rb.AddForce(windForce);
+
+				if (rb.velocity.magnitude > 20)
+				{
+					rb.velocity = rb.velocity.normalized * 20;
+				}
+				animator.SetFloat("speed", rb.velocity.magnitude);
+			}
+
+			// Brings force back to original aerodynamic force after being affected by the wind
+			windForceDecay();
+		} else
+		{
+			//if it needs to autonomously land, take control and do this 
+			//LERPING
+            float x = Mathf.Lerp(landingStart.x, landingGoal.x, timePassedLanding);
+			float y = Mathf.Lerp(landingStart.y, landingGoal.y, timePassedLanding);
+
+			this.transform.position = new Vector3(x, y, 0);
+			timePassedLanding += Time.deltaTime;
+        }
 	}
 
 	public void setShield(Shield shield)
@@ -178,6 +216,12 @@ public class Plane : Entity
 		}
 	}
 
+	public void setCanLanding(Vector3 platform)
+	{
+		canTriggerLanding = true;
+		landingGoal = platform;
+    }
+
 	// Add collider for plane usually collision with obstacles to play death animations
 	public void OnCollisionEnter2D(Collision2D other)
 	{
@@ -192,6 +236,12 @@ public class Plane : Entity
 			StartCoroutine(RemoveCollisionParticles());
 
 			rb.velocity = new Vector2(0, 0);
+			invincible = false;
+
+            autonomousLanding = false;
+			canTriggerLanding = false;
+			timePassedLanding = 0f;
+
 			onPlatform = true;
 		} else {
 			//Object reference not set to an instance of an object
