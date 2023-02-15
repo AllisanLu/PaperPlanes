@@ -107,7 +107,7 @@ public class Plane : Entity
 		if (canTriggerLanding)
 		{
 			this.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-        } else
+        } else if (!onPlatform)
 		{
             this.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         }
@@ -122,8 +122,8 @@ public class Plane : Entity
 				timeAfterLiftOff = 0;
 				tookOff = true;
 
-				//Custom Force
-				Vector2 force = new Vector2(15, 15.5F);
+                //Custom Force
+                Vector2 force = new Vector2(15, 15.5F);
 
 				// Scale Velocity according to force.
 				rb.velocity = new Vector2(20 * Mathf.Abs(Mathf.Cos(force.x)), 20 * Mathf.Abs(Mathf.Sin(force.y)));

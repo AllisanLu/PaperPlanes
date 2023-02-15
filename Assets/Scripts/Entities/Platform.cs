@@ -52,7 +52,15 @@ public class Platform : MonoBehaviour
                 StartCoroutine(FadeInIObject());
                 summoned = true;
             }
-        } 
+        }
+        
+        if (canRelaunch)
+        {
+            //find player
+            GameObject player = GameObject.FindWithTag("Player");
+            player.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+
+        }
 
         if (canRelaunch && Input.GetKeyDown(KeyCode.A))
         {
