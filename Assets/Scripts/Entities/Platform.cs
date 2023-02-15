@@ -54,11 +54,6 @@ public class Platform : MonoBehaviour
             }
         } 
 
-        if (canRelaunch)
-        {
-
-        }
-
         if (canRelaunch && Input.GetKeyDown(KeyCode.A))
         {
             //run animation here

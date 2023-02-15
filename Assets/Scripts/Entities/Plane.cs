@@ -7,7 +7,8 @@ using System;
 
 public class Plane : Entity
 {
-	private bool invincible = false;
+	public bool invincible = false;
+	public GameObject a;
 
 	public PlaneController controller;
 	public Animator animator;
@@ -24,12 +25,15 @@ public class Plane : Entity
 	private bool planeDead;
 	public static FMOD.Studio.EventInstance Death;
 
-	public float timeToLand = 3f; //hopefully in seconds
+	private float timeToLand = 1.5f;
 	private float timePassedLanding = 0f;
 	private bool autonomousLanding = false;
 	private bool canTriggerLanding = false;
 	private Vector3 landingStart;
 	private Vector3 landingGoal;
+	private float timeAfterLiftOff = 0;
+	private float afterLiftOffSafety = 3f;
+	private bool tookOff = false;
 
     // Use this for initialization
     void Start 	() {
@@ -58,6 +62,33 @@ public class Plane : Entity
         }
 	}
 
+	void Update ()
+	{
+        a.transform.rotation = Quaternion.Euler(0.0f, 0.0f, gameObject.transform.rotation.z * -1.0f);
+
+        if (!autonomousLanding && canTriggerLanding && Input.GetKeyDown(KeyCode.A))
+        {
+            autonomousLanding = true;
+            rb.velocity = new Vector2(0, 0);
+            landingStart = this.transform.position;
+			float totaldist = Vector3.Distance(landingStart, landingGoal);
+			timeToLand = (totaldist / 20) * timeToLand;
+            gameObject.layer = 3;
+        }
+
+        //give a bit of invicibility to the plane after lift off
+        if (!invincible && timeAfterLiftOff > afterLiftOffSafety)
+        {
+            gameObject.layer = 0;
+            tookOff = false;
+            timeAfterLiftOff = 0;
+        }
+        else if (!invincible && tookOff)
+        {
+            timeAfterLiftOff += Time.deltaTime;
+        }
+    }
+
 	// Called once per frame
 	void FixedUpdate() {
 		if (onPlatform) {
@@ -72,13 +103,13 @@ public class Plane : Entity
 			this.gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0f; 
 			return;
 		}
-		
-		if (Input.GetKeyDown(KeyCode.A))
+
+		if (canTriggerLanding)
 		{
-			autonomousLanding = true;
-            rb.velocity = new Vector2(0, 0);
-			landingStart = this.transform.position;
-			invincible = true;
+			this.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        } else
+		{
+            this.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         }
 
 		//player control + physics
@@ -88,6 +119,8 @@ public class Plane : Entity
 			if (PlatformManager.cutSceneDone)
 			{
 				onPlatform = false;
+				timeAfterLiftOff = 0;
+				tookOff = true;
 
 				//Custom Force
 				Vector2 force = new Vector2(15, 15.5F);
@@ -181,10 +214,9 @@ public class Plane : Entity
 			windForceDecay();
 		} else
 		{
-			//if it needs to autonomously land, take control and do this 
-			//LERPING
-            float x = Mathf.Lerp(landingStart.x, landingGoal.x, timePassedLanding);
-			float y = Mathf.Lerp(landingStart.y, landingGoal.y, timePassedLanding);
+			//if it needs to autonomously land, take control and lerp
+            float x = Mathf.Lerp(landingStart.x, landingGoal.x, timePassedLanding/timeToLand);
+			float y = Mathf.Lerp(landingStart.y, landingGoal.y, timePassedLanding/timeToLand);
 
 			this.transform.position = new Vector3(x, y, 0);
 			timePassedLanding += Time.deltaTime;
@@ -236,7 +268,6 @@ public class Plane : Entity
 			StartCoroutine(RemoveCollisionParticles());
 
 			rb.velocity = new Vector2(0, 0);
-			invincible = false;
 
             autonomousLanding = false;
 			canTriggerLanding = false;
