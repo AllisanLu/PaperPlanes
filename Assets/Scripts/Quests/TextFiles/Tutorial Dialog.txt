@@ -2,7 +2,7 @@ Press Z to continue on dialog
 
 You can press A to relaunch from platforms
 
-You can also press Q to toggle the quest list!\
+You can also press Q to toggle the quest list!
 
 This tutorial is a practice run for you to get a feel of the wind
 
