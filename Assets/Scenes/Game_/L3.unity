@@ -2826,7 +2826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3459549619120095457, guid: 3049f931166515e40b42801d11b5c34b, type: 3}
       propertyPath: m_FontData.m_LineSpacing
-      value: 4.75
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 3459549619120095458, guid: 3049f931166515e40b42801d11b5c34b, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -4079,7 +4079,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2338448789219518545, guid: c38163fcc86868844871d495a2c60a2c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2338448789219518551, guid: c38163fcc86868844871d495a2c60a2c, type: 3}
       propertyPath: levelText.Array.size
